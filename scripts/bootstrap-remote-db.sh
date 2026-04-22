@@ -22,4 +22,7 @@ DATABASE_SESSION_POOLER="$DATABASE_SESSION_POOLER" \
 echo "Running post-bootstrap SQL..."
 psql "$DATABASE_SESSION_POOLER" -v ON_ERROR_STOP=1 -f supabase/bootstrap-post.sql
 
+echo "Applying custom compatibility SQL..."
+psql "$DATABASE_SESSION_POOLER" -v ON_ERROR_STOP=1 -f packages/db/migrations/0040_fix_bootstrap_schema_drift.sql
+
 echo "Remote database bootstrap complete."

@@ -387,7 +387,7 @@ export const transactions = pgTable(
     internal: boolean().default(false),
     description: text(),
     categorySlug: text("category_slug"),
-    baseAmount: numericCasted({ precision: 10, scale: 2 }),
+    baseAmount: numericCasted("base_amount", { precision: 10, scale: 2 }),
     counterpartyName: text("counterparty_name"),
     baseCurrency: text("base_currency"),
     taxAmount: numericCasted("tax_amount", { precision: 10, scale: 2 }),
@@ -704,7 +704,7 @@ export const bankAccounts = pgTable(
     manual: boolean().default(false),
     type: accountTypeEnum(),
     baseCurrency: text("base_currency"),
-    baseBalance: numericCasted({ precision: 10, scale: 2 }),
+    baseBalance: numericCasted("base_balance", { precision: 10, scale: 2 }),
     errorDetails: text("error_details"),
     errorRetries: smallint("error_retries"),
     accountReference: text("account_reference"),
@@ -718,8 +718,11 @@ export const bankAccounts = pgTable(
     accountNumber: text("account_number"), // Full account number - encrypted at rest
     sortCode: text("sort_code"), // UK BACS sort code
     // Credit account balances
-    availableBalance: numericCasted({ precision: 10, scale: 2 }), // Available credit (cards) or available funds
-    creditLimit: numericCasted({ precision: 10, scale: 2 }), // Credit limit (cards only)
+    availableBalance: numericCasted("available_balance", {
+      precision: 10,
+      scale: 2,
+    }), // Available credit (cards) or available funds
+    creditLimit: numericCasted("credit_limit", { precision: 10, scale: 2 }), // Credit limit (cards only)
   },
   (table) => [
     index("bank_accounts_bank_connection_id_idx").using(
@@ -1048,7 +1051,7 @@ export const customers = pgTable(
       .notNull(),
     name: text().notNull(),
     email: text().notNull(),
-    billingEmail: text(),
+    billingEmail: text("billing_email"),
     country: text(),
     addressLine1: text("address_line_1"),
     addressLine2: text("address_line_2"),
@@ -2203,7 +2206,7 @@ export const invoiceProducts = pgTable(
     currency: text(),
     unit: text(),
     taxRate: numericCasted("tax_rate", { precision: 10, scale: 2 }),
-    isActive: boolean().default(true).notNull(),
+    isActive: boolean("is_active").default(true).notNull(),
     usageCount: integer("usage_count").default(0).notNull(),
     lastUsedAt: timestamp("last_used_at", {
       withTimezone: true,

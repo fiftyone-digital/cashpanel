@@ -9,7 +9,7 @@ import { LoginVideoBackground } from "@/components/login-video-background";
 import { OAuthSignIn } from "@/components/oauth-sign-in";
 import { OTPSignIn } from "@/components/otp-sign-in";
 import { Cookies } from "@/utils/constants";
-import { isBlockedNewUser } from "@/utils/new-user-gate";
+import { isBlockedNewUser, isNewUserGateEnabled } from "@/utils/new-user-gate";
 
 export const metadata: Metadata = {
   title: "Login | Midday",
@@ -30,7 +30,8 @@ export default async function Page({ searchParams }: Props) {
     data: { user: authUser },
   } = await supabase.auth.getUser();
   const showQueueNotice =
-    waitlistParam === "1" || isBlockedNewUser(authUser?.created_at);
+    isNewUserGateEnabled() &&
+    (waitlistParam === "1" || isBlockedNewUser(authUser?.created_at));
 
   let moreSignInOptions = null;
   let preferredSignInOption =

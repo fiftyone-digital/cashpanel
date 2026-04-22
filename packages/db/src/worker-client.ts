@@ -7,6 +7,10 @@ import * as schema from "./schema";
 const isDevelopment = process.env.NODE_ENV === "development";
 const logger = createLoggerWithContext("db:worker");
 const DB_POOL_EVENT_LOGGING = process.env.DB_POOL_EVENT_LOGGING === "true";
+const workerMaxConnections = Number.parseInt(
+  process.env.WORKER_DB_POOL_MAX ?? "",
+  10,
+);
 
 const connectionString =
   process.env.DATABASE_PRIMARY_POOLER_URL ?? process.env.DATABASE_PRIMARY_URL;
@@ -22,7 +26,11 @@ if (!connectionString) {
  */
 const workerPool = new Pool({
   connectionString,
-  max: isDevelopment ? 10 : 50,
+  max: isDevelopment
+    ? 10
+    : Number.isFinite(workerMaxConnections) && workerMaxConnections > 0
+      ? workerMaxConnections
+      : 4,
   idleTimeoutMillis: isDevelopment ? 5000 : 60000,
   connectionTimeoutMillis: 15000,
   maxUses: isDevelopment ? 200 : 3000,

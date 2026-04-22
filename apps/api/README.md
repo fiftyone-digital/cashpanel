@@ -36,7 +36,11 @@ Redis can be shared by the API cache and BullMQ queue in this single-region Rail
 ```bash
 DATABASE_PRIMARY_URL=postgresql://...
 DATABASE_REPLICA_URL=postgresql://...  # Optional EU read replica
+DB_POOL_MAX=4
 ```
+
+Keep `DB_POOL_MAX` conservative when using the Supabase session pooler. Railway
+may run multiple replicas, and each process creates its own Postgres pool.
 
 ### Development
 

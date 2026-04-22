@@ -15,9 +15,20 @@ const isProduction = process.env.RAILWAY_ENVIRONMENT_NAME === "production";
 const DEBUG_PERF = process.env.DEBUG_PERF === "true";
 const DB_POOL_EVENT_LOGGING = process.env.DB_POOL_EVENT_LOGGING === "true";
 
+function getPositiveIntegerEnv(name: string, fallback: number) {
+  const value = Number.parseInt(process.env[name] ?? "", 10);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
+}
+
+const maxConnections = isDevelopment
+  ? 8
+  : getPositiveIntegerEnv("DB_POOL_MAX", 4);
+
 const connectionConfig = {
-  max: isDevelopment ? 8 : isProduction ? 40 : 6,
-  min: isDevelopment ? 0 : isProduction ? 8 : 1,
+  // Supabase session pooler has a low per-project connection cap. Keep this
+  // conservative because Railway may run multiple replicas at once.
+  max: maxConnections,
+  min: 0,
   idleTimeoutMillis: isDevelopment ? 5000 : isProduction ? 30000 : 10000,
   connectionTimeoutMillis: 5000,
   maxUses: isDevelopment ? 100 : 7500,

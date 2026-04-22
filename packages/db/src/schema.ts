@@ -2783,6 +2783,7 @@ export const usersOnTeam = pgTable(
       "btree",
       table.userId.asc().nullsLast().op("uuid_ops"),
     ),
+    unique("users_on_team_user_id_team_id_key").on(table.userId, table.teamId),
     foreignKey({
       columns: [table.teamId],
       foreignColumns: [teams.id],

@@ -9,12 +9,9 @@ process.env.SUPABASE_SECRET_KEY =
 process.env.DATABASE_PRIMARY_URL =
   process.env.DATABASE_PRIMARY_URL ||
   "postgres://test:test@localhost:5432/test";
-process.env.DATABASE_FRA_URL =
-  process.env.DATABASE_FRA_URL || "postgres://test:test@localhost:5432/test";
-process.env.DATABASE_SJC_URL =
-  process.env.DATABASE_SJC_URL || "postgres://test:test@localhost:5432/test";
-process.env.DATABASE_IAD_URL =
-  process.env.DATABASE_IAD_URL || "postgres://test:test@localhost:5432/test";
+process.env.DATABASE_REPLICA_URL =
+  process.env.DATABASE_REPLICA_URL ||
+  "postgres://test:test@localhost:5432/test";
 process.env.MIDDAY_DASHBOARD_URL =
   process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
 process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_key";

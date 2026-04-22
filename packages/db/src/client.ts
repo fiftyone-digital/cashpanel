@@ -115,38 +115,18 @@ export const primaryDb = drizzle(primaryPool, {
   logger: drizzleLogger,
 });
 
-/**
- * Map Railway region → replica URL
- */
-const replicaUrlForRegion: Record<string, string | undefined> = {
-  "europe-west4-drams3a": process.env.DATABASE_FRA_URL,
-  "us-east4-eqdc4a": process.env.DATABASE_IAD_URL,
-  "us-west2": process.env.DATABASE_SJC_URL,
-};
-
-const currentRegion = process.env.RAILWAY_REPLICA_REGION;
-const rawReplicaUrl = currentRegion
-  ? replicaUrlForRegion[currentRegion]
-  : undefined;
-
+const rawReplicaUrl =
+  process.env.DATABASE_REPLICA_URL ?? process.env.DATABASE_FRA_URL;
 const replicaUrl =
   rawReplicaUrl && rawReplicaUrl !== process.env.DATABASE_PRIMARY_URL
     ? rawReplicaUrl
     : undefined;
 
 if (!isDevelopment) {
-  if (!currentRegion) {
-    logger.warn(
-      "RAILWAY_REPLICA_REGION not set — all reads will use the primary database",
-    );
-  } else if (!rawReplicaUrl) {
-    logger.warn(
-      `RAILWAY_REPLICA_REGION="${currentRegion}" but no matching DATABASE_*_URL found — falling back to primary`,
-    );
+  if (!rawReplicaUrl) {
+    logger.info("No DATABASE_REPLICA_URL set — all reads will use primary");
   } else if (!replicaUrl) {
-    logger.info(
-      `Region "${currentRegion}" replica URL matches primary — sharing pool`,
-    );
+    logger.info("Replica URL matches primary — sharing pool");
   }
 }
 

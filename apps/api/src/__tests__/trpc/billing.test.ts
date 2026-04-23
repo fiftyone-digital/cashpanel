@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from "bun:test";
+import { afterAll, beforeEach, describe, expect, test } from "bun:test";
 import { createCallerFactory } from "../../trpc/init";
 import { billingRouter } from "../../trpc/routers/billing";
 import { createTestContext } from "../helpers/test-context";
@@ -28,6 +28,132 @@ describe("tRPC: billing.getActiveSubscription", () => {
 
     const caller = createCaller(createTestContext());
     expect(await caller.getActiveSubscription()).toBeNull();
+  });
+});
+
+describe("tRPC: billing.getComplimentaryAccess", () => {
+  const previousEmails = process.env.COMPLIMENTARY_ACCESS_EMAILS;
+
+  beforeEach(() => {
+    process.env.COMPLIMENTARY_ACCESS_EMAILS =
+      "test@example.com,other@example.com";
+    mocks.getTeamById.mockReset();
+    mocks.getTeamById.mockImplementation(() =>
+      Promise.resolve({
+        id: "test-team-id",
+        plan: "trial",
+        flags: [],
+      }),
+    );
+  });
+
+  test("returns eligible for allowlisted users", async () => {
+    const caller = createCaller(createTestContext());
+
+    await expect(caller.getComplimentaryAccess()).resolves.toEqual({
+      eligible: true,
+      active: false,
+    });
+  });
+
+  test("returns active when the team already has complimentary access", async () => {
+    mocks.getTeamById.mockImplementation(() =>
+      Promise.resolve({
+        id: "test-team-id",
+        plan: "pro",
+        flags: ["complimentary_access"],
+      }),
+    );
+
+    const caller = createCaller(createTestContext());
+
+    await expect(caller.getComplimentaryAccess()).resolves.toEqual({
+      eligible: true,
+      active: true,
+    });
+  });
+
+  afterAll(() => {
+    process.env.COMPLIMENTARY_ACCESS_EMAILS = previousEmails;
+  });
+});
+
+describe("tRPC: billing.activateComplimentaryAccess", () => {
+  const previousEmails = process.env.COMPLIMENTARY_ACCESS_EMAILS;
+
+  beforeEach(() => {
+    process.env.COMPLIMENTARY_ACCESS_EMAILS = "test@example.com";
+    mocks.getTeamById.mockReset();
+    mocks.updateTeam.mockReset();
+    mocks.getTeamById.mockImplementation(() =>
+      Promise.resolve({
+        id: "test-team-id",
+        plan: "trial",
+        flags: [],
+      }),
+    );
+    mocks.updateTeam.mockImplementation(() => Promise.resolve({}));
+  });
+
+  test("activates complimentary access for an eligible trial team", async () => {
+    const caller = createCaller(createTestContext());
+
+    await expect(
+      caller.activateComplimentaryAccess({ plan: "pro" }),
+    ).resolves.toEqual({
+      success: true,
+    });
+
+    expect(mocks.updateTeam).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        id: "test-team-id",
+        data: expect.objectContaining({
+          plan: "pro",
+          subscriptionStatus: null,
+          canceledAt: null,
+          flags: ["complimentary_access"],
+        }),
+      }),
+    );
+  });
+
+  test("rejects non-allowlisted users", async () => {
+    process.env.COMPLIMENTARY_ACCESS_EMAILS = "someone-else@example.com";
+
+    const caller = createCaller(createTestContext());
+
+    await expect(
+      caller.activateComplimentaryAccess({ plan: "pro" }),
+    ).rejects.toMatchObject({
+      code: "FORBIDDEN",
+      message: "User is not eligible for complimentary access",
+    });
+
+    expect(mocks.updateTeam).not.toHaveBeenCalled();
+  });
+
+  test("rejects teams that already left trial", async () => {
+    mocks.getTeamById.mockImplementation(() =>
+      Promise.resolve({
+        id: "test-team-id",
+        plan: "starter",
+        flags: [],
+      }),
+    );
+
+    const caller = createCaller(createTestContext());
+
+    await expect(
+      caller.activateComplimentaryAccess({ plan: "starter" }),
+    ).rejects.toMatchObject({
+      code: "BAD_REQUEST",
+      message: "Complimentary access can only be activated from trial",
+    });
+  });
+
+  afterAll(() => {
+    process.env.COMPLIMENTARY_ACCESS_EMAILS = previousEmails;
   });
 });
 

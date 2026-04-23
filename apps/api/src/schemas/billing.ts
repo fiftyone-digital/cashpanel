@@ -17,6 +17,14 @@ export const createCheckoutSchema = z.object({
 
 export type CreateCheckoutSchema = z.infer<typeof createCheckoutSchema>;
 
+export const activateComplimentaryAccessSchema = z.object({
+  plan: z.enum(["starter", "pro"]),
+});
+
+export type ActivateComplimentaryAccessSchema = z.infer<
+  typeof activateComplimentaryAccessSchema
+>;
+
 export const checkoutResponseSchema = z.object({
   url: z.string(),
 });

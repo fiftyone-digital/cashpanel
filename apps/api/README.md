@@ -42,6 +42,16 @@ DB_POOL_MAX=4
 Keep `DB_POOL_MAX` conservative when using the Supabase session pooler. Railway
 may run multiple replicas, and each process creates its own Postgres pool.
 
+#### Complimentary Access
+```bash
+COMPLIMENTARY_ACCESS_EMAILS=founder@example.com,partner@example.com
+```
+
+Users in `COMPLIMENTARY_ACCESS_EMAILS` can activate a complimentary Starter or
+Pro plan from the billing onboarding flow without going through Polar checkout.
+The activated team is tagged in `teams.flags` so the free access remains active
+even if the allowlist changes later.
+
 ### Development
 
 ```bash

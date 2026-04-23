@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import { revalidateAfterCheckout } from "@/actions/revalidate-action";
+import { ComplimentaryAccessBox } from "@/components/complimentary-access-box";
 import { useTRPC } from "@/trpc/client";
 
 const POLLING_TIMEOUT_MS = 30_000;
@@ -334,6 +335,16 @@ export function StartTrialStep() {
             No charge today · You'll be billed when your trial ends
           </p>
         </div>
+
+        <ComplimentaryAccessBox
+          selectedPlan={selectedPlan}
+          onActivated={() => {
+            track({
+              event: LogEvents.OnboardingCompleted.name,
+              channel: LogEvents.OnboardingCompleted.channel,
+            });
+          }}
+        />
 
         <div className="text-center text-xs text-muted-foreground">
           <button

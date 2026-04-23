@@ -1,9 +1,15 @@
 import {
+  activateComplimentaryAccessSchema,
   cancelSubscriptionSchema,
   createCheckoutSchema,
   getBillingOrdersSchema,
 } from "@api/schemas/billing";
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
+import {
+  addComplimentaryAccessFlag,
+  hasComplimentaryAccess,
+  isComplimentaryAccessEligible,
+} from "@api/utils/complimentary-access";
 import { api } from "@api/utils/polar";
 import { getTeamById, updateTeamById } from "@midday/db/queries";
 import { createLoggerWithContext } from "@midday/logger";
@@ -43,7 +49,81 @@ async function resolvePolarCustomer(
   }
 }
 
+async function assertNoComplimentaryAccess(
+  db: Parameters<typeof getTeamById>[0],
+  teamId: string,
+) {
+  const team = await getTeamById(db, teamId);
+
+  if (hasComplimentaryAccess(team)) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+      message: "Complimentary access does not use the billing portal",
+    });
+  }
+}
+
 export const billingRouter = createTRPCRouter({
+  getComplimentaryAccess: protectedProcedure.query(
+    async ({ ctx: { db, session, teamId } }) => {
+      const team = teamId ? await getTeamById(db, teamId) : null;
+
+      return {
+        eligible: isComplimentaryAccessEligible(session.user.email),
+        active: hasComplimentaryAccess(team),
+      };
+    },
+  ),
+
+  activateComplimentaryAccess: protectedProcedure
+    .input(activateComplimentaryAccessSchema)
+    .mutation(async ({ input, ctx: { db, session, teamId } }) => {
+      if (!isComplimentaryAccessEligible(session.user.email)) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "User is not eligible for complimentary access",
+        });
+      }
+
+      const team = await getTeamById(db, teamId!);
+
+      if (!team) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Team not found",
+        });
+      }
+
+      if (hasComplimentaryAccess(team)) {
+        return { success: true };
+      }
+
+      if (team.plan !== "trial") {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Complimentary access can only be activated from trial",
+        });
+      }
+
+      await updateTeamById(db, {
+        id: team.id,
+        data: {
+          plan: input.plan,
+          subscriptionStatus: null,
+          canceledAt: null,
+          flags: addComplimentaryAccessFlag(team.flags),
+        },
+      });
+
+      logger.info("Complimentary access activated", {
+        teamId: team.id,
+        userId: session.user.id,
+        plan: input.plan,
+      });
+
+      return { success: true };
+    }),
+
   createCheckout: protectedProcedure
     .input(createCheckoutSchema)
     .mutation(async ({ input, ctx: { db, session, teamId } }) => {
@@ -133,7 +213,7 @@ export const billingRouter = createTRPCRouter({
           limit: input.pageSize,
         });
 
-        const orders = ordersResult.result.items;
+        const orders: Array<any> = ordersResult.result.items;
         const pagination = ordersResult.result.pagination;
 
         // Filter orders to only include those where metadata.teamId matches teamId
@@ -279,8 +359,9 @@ export const billingRouter = createTRPCRouter({
         const subscriptions = await api.subscriptions.list({
           customerId: customer.id,
         });
+        const subscriptionItems: Array<any> = subscriptions.result.items;
 
-        const active = subscriptions.result.items.find(
+        const active = subscriptionItems.find(
           (s) =>
             s.metadata?.teamId === teamId &&
             (s.status === "active" ||
@@ -302,6 +383,8 @@ export const billingRouter = createTRPCRouter({
   ),
 
   getPortalUrl: protectedProcedure.mutation(async ({ ctx: { db, teamId } }) => {
+    await assertNoComplimentaryAccess(db, teamId!);
+
     const customer = await resolvePolarCustomer(db, teamId!);
     const result = await api.customerSessions.create({
       customerId: customer.id,
@@ -313,12 +396,15 @@ export const billingRouter = createTRPCRouter({
   cancelSubscription: protectedProcedure
     .input(cancelSubscriptionSchema)
     .mutation(async ({ input, ctx: { db, teamId } }) => {
+      await assertNoComplimentaryAccess(db, teamId!);
+
       const customer = await resolvePolarCustomer(db, teamId!);
       const subscriptions = await api.subscriptions.list({
         customerId: customer.id,
       });
+      const subscriptionItems: Array<any> = subscriptions.result.items;
 
-      const teamSubs = subscriptions.result.items.filter(
+      const teamSubs = subscriptionItems.filter(
         (s) => s.metadata?.teamId === teamId,
       );
 
@@ -379,12 +465,15 @@ export const billingRouter = createTRPCRouter({
 
   reactivateSubscription: protectedProcedure.mutation(
     async ({ ctx: { db, teamId } }) => {
+      await assertNoComplimentaryAccess(db, teamId!);
+
       const customer = await resolvePolarCustomer(db, teamId!);
       const subscriptions = await api.subscriptions.list({
         customerId: customer.id,
       });
+      const subscriptionItems: Array<any> = subscriptions.result.items;
 
-      const subscription = subscriptions.result.items.find(
+      const subscription = subscriptionItems.find(
         (s) =>
           s.metadata?.teamId === teamId &&
           (s.status === "active" ||

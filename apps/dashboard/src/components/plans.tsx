@@ -9,6 +9,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import { revalidateAfterCheckout } from "@/actions/revalidate-action";
+import { ComplimentaryAccessBox } from "@/components/complimentary-access-box";
 import { useTRPC } from "@/trpc/client";
 
 const POLLING_TIMEOUT_MS = 30_000;
@@ -141,36 +142,40 @@ export function Plans() {
   };
 
   return (
-    <PlanCards
-      onCurrencyChange={setCheckoutCurrency}
-      renderStarterAction={(billingPeriod) => (
-        <SubmitButton
-          className="w-full bg-background border border-border text-foreground font-sans text-sm py-3 px-4 hover:bg-muted transition-colors"
-          onClick={() =>
-            handleCheckout(
-              "starter",
-              billingPeriod === "yearly" ? "starter_yearly" : "starter",
-            )
-          }
-          isSubmitting={isSubmitting}
-        >
-          Upgrade
-        </SubmitButton>
-      )}
-      renderProAction={(billingPeriod) => (
-        <SubmitButton
-          className="w-full btn-inverse font-sans text-sm py-3 px-4 transition-colors"
-          onClick={() =>
-            handleCheckout(
-              "pro",
-              billingPeriod === "yearly" ? "pro_yearly" : "pro",
-            )
-          }
-          isSubmitting={isSubmitting}
-        >
-          Upgrade
-        </SubmitButton>
-      )}
-    />
+    <div className="space-y-4">
+      <PlanCards
+        onCurrencyChange={setCheckoutCurrency}
+        renderStarterAction={(billingPeriod) => (
+          <SubmitButton
+            className="w-full bg-background border border-border text-foreground font-sans text-sm py-3 px-4 hover:bg-muted transition-colors"
+            onClick={() =>
+              handleCheckout(
+                "starter",
+                billingPeriod === "yearly" ? "starter_yearly" : "starter",
+              )
+            }
+            isSubmitting={isSubmitting}
+          >
+            Upgrade
+          </SubmitButton>
+        )}
+        renderProAction={(billingPeriod) => (
+          <SubmitButton
+            className="w-full btn-inverse font-sans text-sm py-3 px-4 transition-colors"
+            onClick={() =>
+              handleCheckout(
+                "pro",
+                billingPeriod === "yearly" ? "pro_yearly" : "pro",
+              )
+            }
+            isSubmitting={isSubmitting}
+          >
+            Upgrade
+          </SubmitButton>
+        )}
+      />
+
+      <ComplimentaryAccessBox />
+    </div>
   );
 }

@@ -3,7 +3,7 @@
 import { getPlanName } from "@midday/plans";
 import { Card } from "@midday/ui/card";
 import { SubmitButton } from "@midday/ui/submit-button";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useTeamQuery } from "@/hooks/use-team";
 import { useUserQuery } from "@/hooks/use-user";
@@ -19,6 +19,10 @@ export function ManageSubscription() {
   const queryClient = useQueryClient();
   const isCanceling = !!user?.team?.canceledAt;
   const isTrialing = user?.team?.subscriptionStatus === "trialing";
+  const { data: complimentaryAccess } = useQuery(
+    trpc.billing.getComplimentaryAccess.queryOptions(),
+  );
+  const isComplimentary = complimentaryAccess?.active;
 
   const getPortalUrlMutation = useMutation(
     trpc.billing.getPortalUrl.mutationOptions({
@@ -52,7 +56,7 @@ export function ManageSubscription() {
           </div>
 
           <div className="mt-auto">
-            {isCanceling ? (
+            {isComplimentary ? null : isCanceling ? (
               <SubmitButton
                 variant="secondary"
                 className="h-9 hover:bg-primary hover:text-secondary"
@@ -74,7 +78,14 @@ export function ManageSubscription() {
           </div>
         </div>
 
-        {!isCanceling && (
+        {isComplimentary && (
+          <p className="text-xs text-[#878787]">
+            This team is on complimentary access. Billing and the customer
+            portal are disabled for this subscription.
+          </p>
+        )}
+
+        {!isComplimentary && !isCanceling && (
           <button
             type="button"
             onClick={() => setCancelOpen(true)}
@@ -84,7 +95,7 @@ export function ManageSubscription() {
           </button>
         )}
 
-        {isCanceling && (
+        {!isComplimentary && isCanceling && (
           <p className="text-xs text-[#878787]">
             {isTrialing
               ? "Your trial has been canceled and will end when your trial period expires. You won't be charged."

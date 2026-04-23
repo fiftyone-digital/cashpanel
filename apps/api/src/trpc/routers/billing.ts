@@ -109,7 +109,7 @@ export const billingRouter = createTRPCRouter({
         id: team.id,
         data: {
           plan: input.plan,
-          subscriptionStatus: null,
+          subscriptionStatus: "active",
           canceledAt: null,
           flags: addComplimentaryAccessFlag(team.flags),
         },

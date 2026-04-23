@@ -110,7 +110,7 @@ describe("tRPC: billing.activateComplimentaryAccess", () => {
         id: "test-team-id",
         data: expect.objectContaining({
           plan: "pro",
-          subscriptionStatus: null,
+          subscriptionStatus: "active",
           canceledAt: null,
           flags: ["complimentary_access"],
         }),

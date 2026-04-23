@@ -57,3 +57,11 @@ AS $$
     COALESCE(name, '') || ' ' || COALESCE(products, '')
   )
 $$;
+
+CREATE OR REPLACE FUNCTION generate_inbox(length integer DEFAULT 10)
+RETURNS text
+LANGUAGE sql
+VOLATILE
+AS $$
+  SELECT substr(replace(gen_random_uuid()::text, '-', ''), 1, GREATEST(length, 1))
+$$;

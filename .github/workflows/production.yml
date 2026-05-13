@@ -102,11 +102,12 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Tool selection evals — runs when API changes to catch regressions
+  # Temporarily disabled unless the repository variable is enabled.
   # ---------------------------------------------------------------------------
   eval-tool-selection:
     name: Tool selection evals
     needs: [detect-changes]
-    if: needs.detect-changes.outputs.api == 'true'
+    if: vars.ENABLE_EVAL_TOOL_SELECTION == 'true' && needs.detect-changes.outputs.api == 'true'
     runs-on: blacksmith-2vcpu-ubuntu-2404
     timeout-minutes: 10
     env:

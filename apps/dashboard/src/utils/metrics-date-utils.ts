@@ -1,4 +1,4 @@
-import { getFiscalYearDates } from "@midday/utils";
+import { getFiscalYearDates } from "@cashpanel/utils";
 import {
   format,
   formatISO,

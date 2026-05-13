@@ -1,7 +1,7 @@
 "use client";
 
-import { CursorMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
+import { CursorMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { highlight } from "sugar-high";
@@ -45,15 +45,15 @@ function CodeBlock({ code }: { code: string }) {
 }
 
 const cursorConfig = {
-  url: "https://api.midday.ai/mcp",
+  url: "https://api.cashpanel.io/mcp",
 };
-const cursorDeepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=midday&config=${encodeURIComponent(btoa(JSON.stringify(cursorConfig)))}`;
+const cursorDeepLink = `cursor://anysphere.cursor-deeplink/mcp/install?name=cashpanel&config=${encodeURIComponent(btoa(JSON.stringify(cursorConfig)))}`;
 
 const manualConfig = JSON.stringify(
   {
     mcpServers: {
-      midday: {
-        url: "https://api.midday.ai/mcp",
+      cashpanel: {
+        url: "https://api.cashpanel.io/mcp",
       },
     },
   },
@@ -134,21 +134,21 @@ export function MCPCursor() {
               <a href={cursorDeepLink} className="inline-block">
                 <img
                   src="https://cursor.com/deeplink/mcp-install-dark.png"
-                  alt="Add Midday MCP server to Cursor"
+                  alt="Add CashPanel MCP server to Cursor"
                   height={32}
                   className="h-8 dark:hidden"
                 />
                 <img
                   src="https://cursor.com/deeplink/mcp-install-light.png"
-                  alt="Add Midday MCP server to Cursor"
+                  alt="Add CashPanel MCP server to Cursor"
                   height={32}
                   className="h-8 hidden dark:block"
                 />
               </a>
               <p className="font-sans text-xs text-muted-foreground">
                 No API key needed — authentication is handled automatically via
-                OAuth. You'll be prompted to sign in when you first use a Midday
-                tool.
+                OAuth. You'll be prompted to sign in when you first use a
+                CashPanel tool.
               </p>
             </div>
 
@@ -185,8 +185,8 @@ export function MCPCursor() {
                     2
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    When you first use a Midday tool, you'll be prompted to sign
-                    in and select a team
+                    When you first use a CashPanel tool, you'll be prompted to
+                    sign in and select a team
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -194,7 +194,7 @@ export function MCPCursor() {
                     3
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    @-mention Midday in chat to access your financial data
+                    @-mention CashPanel in chat to access your financial data
                   </span>
                 </li>
               </ol>

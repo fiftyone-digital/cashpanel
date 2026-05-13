@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Spinner } from "@midday/ui/spinner";
-import { Table, TableBody, TableCell, TableRow } from "@midday/ui/table";
-import { formatDate } from "@midday/utils/format";
+import { Button } from "@cashpanel/ui/button";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { Table, TableBody, TableCell, TableRow } from "@cashpanel/ui/table";
+import { formatDate } from "@cashpanel/utils/format";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { useUserQuery } from "@/hooks/use-user";

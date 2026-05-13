@@ -1,17 +1,17 @@
 "use client";
 
-import { TZDate } from "@date-fns/tz";
-import { Button } from "@midday/ui/button";
-import { Checkbox } from "@midday/ui/checkbox";
+import { Button } from "@cashpanel/ui/button";
+import { Checkbox } from "@cashpanel/ui/checkbox";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
-import { formatAmount } from "@midday/utils/format";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { formatAmount } from "@cashpanel/utils/format";
+import { TZDate } from "@date-fns/tz";
 import {
   useSuspenseInfiniteQuery,
   useSuspenseQuery,
@@ -368,12 +368,12 @@ export function PortalContent({ portalId }: Props) {
       {/* Footer */}
       <div className="fixed bottom-4 right-4 hidden md:block">
         <a
-          href="https://midday.ai?utm_source=customer-portal"
+          href="https://cashpanel.io?utm_source=customer-portal"
           target="_blank"
           rel="noreferrer"
           className="text-[9px] text-[#878787]"
         >
-          Powered by <span className="text-primary">midday</span>
+          Powered by <span className="text-primary">cashpanel</span>
         </a>
       </div>
 

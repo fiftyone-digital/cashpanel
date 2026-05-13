@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet } from "@midday/ui/sheet";
+import { Sheet } from "@cashpanel/ui/sheet";
 import {
   useQuery,
   useQueryClient,

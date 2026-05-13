@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Skeleton } from "@midday/ui/skeleton";
+import { cn } from "@cashpanel/ui/cn";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import type { SkeletonType } from "./types";
 
 interface SkeletonCellProps {

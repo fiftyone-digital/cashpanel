@@ -1,9 +1,9 @@
-import { sendToProviders } from "@midday/bot";
+import { sendToProviders } from "@cashpanel/bot";
 import {
   getUpcomingDueRecurring,
   markUpcomingNotificationSent,
-} from "@midday/db/queries";
-import { Notifications } from "@midday/notifications";
+} from "@cashpanel/db/queries";
+import { Notifications } from "@cashpanel/notifications";
 import type { Job } from "bullmq";
 import type { InvoiceUpcomingNotificationPayload } from "../../schemas/invoices";
 import { getDb } from "../../utils/db";

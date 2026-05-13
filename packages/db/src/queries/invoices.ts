@@ -1,7 +1,7 @@
+import { buildSearchQuery } from "@cashpanel/db/utils/search-query";
+import { generateToken } from "@cashpanel/invoice/token";
+import type { EditorDoc, LineItem } from "@cashpanel/invoice/types";
 import { UTCDate } from "@date-fns/utc";
-import { buildSearchQuery } from "@midday/db/utils/search-query";
-import { generateToken } from "@midday/invoice/token";
-import type { EditorDoc, LineItem } from "@midday/invoice/types";
 import camelcaseKeys from "camelcase-keys";
 import {
   addMonths,

@@ -1,7 +1,7 @@
 "use server";
 
-import { LogEvents } from "@midday/events/events";
-import type { SyncConnectionPayload } from "@midday/jobs/schema";
+import { LogEvents } from "@cashpanel/events/events";
+import type { SyncConnectionPayload } from "@cashpanel/jobs/schema";
 import { tasks } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { authActionClient } from "@/actions/safe-action";

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import { useCustomerParams } from "@/hooks/use-customer-params";
 
 export function OpenCustomerSheet() {

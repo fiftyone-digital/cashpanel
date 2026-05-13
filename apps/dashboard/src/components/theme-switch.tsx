@@ -1,6 +1,6 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import {
   Select,
   SelectContent,
@@ -8,7 +8,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
+} from "@cashpanel/ui/select";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";

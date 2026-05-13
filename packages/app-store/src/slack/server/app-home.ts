@@ -1,6 +1,6 @@
-import type { Database } from "@midday/db/client";
-import { getTeamById } from "@midday/db/queries";
-import { logger } from "@midday/logger";
+import type { Database } from "@cashpanel/db/client";
+import { getTeamById } from "@cashpanel/db/queries";
+import { logger } from "@cashpanel/logger";
 import type { WebClient } from "@slack/web-api";
 
 export async function publishAppHome({
@@ -56,7 +56,7 @@ export async function publishAppHome({
         type: "header" as const,
         text: {
           type: "plain_text" as const,
-          text: "Midday",
+          text: "CashPanel",
           emoji: false,
         },
       },
@@ -78,7 +78,7 @@ export async function publishAppHome({
             text: "Settings",
             emoji: false,
           },
-          url: "https://app.midday.ai/apps?app=slack&settings=true",
+          url: "https://app.cashpanel.io/apps?app=slack&settings=true",
           action_id: "open_settings",
         },
       },
@@ -134,11 +134,11 @@ export async function publishAppHome({
             type: "button" as const,
             text: {
               type: "plain_text" as const,
-              text: "Open Midday",
+              text: "Open CashPanel",
               emoji: false,
             },
-            url: "https://app.midday.ai",
-            action_id: "open_midday",
+            url: "https://app.cashpanel.io",
+            action_id: "open_cashpanel",
           },
           {
             type: "button" as const,
@@ -147,7 +147,7 @@ export async function publishAppHome({
               text: "Settings",
               emoji: false,
             },
-            url: "https://app.midday.ai/apps?app=slack&settings=true",
+            url: "https://app.cashpanel.io/apps?app=slack&settings=true",
             action_id: "view_settings",
           },
         ],
@@ -162,7 +162,7 @@ export async function publishAppHome({
         type: "section" as const,
         text: {
           type: "mrkdwn" as const,
-          text: "*Getting Started*\n\n1. *Upload a receipt*: Share a file in any channel where Midday is added\n2. *Configure notifications*: Set up your notification channel in settings\n3. *Review matches*: Approve or decline suggested matches directly in Slack",
+          text: "*Getting Started*\n\n1. *Upload a receipt*: Share a file in any channel where CashPanel is added\n2. *Configure notifications*: Set up your notification channel in settings\n3. *Review matches*: Approve or decline suggested matches directly in Slack",
         },
       },
 
@@ -176,7 +176,7 @@ export async function publishAppHome({
         elements: [
           {
             type: "mrkdwn" as const,
-            text: "Upload receipts by sharing files in channels where Midday is added. Data will be automatically extracted and matched to your transactions.",
+            text: "Upload receipts by sharing files in channels where CashPanel is added. Data will be automatically extracted and matched to your transactions.",
           },
         ],
       },

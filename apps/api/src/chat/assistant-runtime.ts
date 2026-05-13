@@ -8,7 +8,7 @@ import {
 } from "@api/chat/tools";
 import { getComposioTools } from "@api/composio/client";
 import type { McpContext } from "@api/mcp/types";
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import {
   type ModelMessage,
   smoothStream,
@@ -16,7 +16,7 @@ import {
   ToolLoopAgent,
 } from "ai";
 
-export async function streamMiddayAssistant(params: {
+export async function streamCashPanelAssistant(params: {
   mcpCtx: McpContext;
   systemPrompt: string;
   modelMessages: Array<ModelMessage>;

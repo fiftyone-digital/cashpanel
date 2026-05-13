@@ -1,5 +1,3 @@
-import { getDb } from "@jobs/init";
-import { processAttachmentSchema } from "@jobs/schema";
 import {
   createInbox,
   getInboxByFilePath,
@@ -7,9 +5,11 @@ import {
   groupRelatedInboxItems,
   updateInbox,
   updateInboxWithProcessedData,
-} from "@midday/db/queries";
-import { DocumentClient } from "@midday/documents";
-import { createClient } from "@midday/supabase/job";
+} from "@cashpanel/db/queries";
+import { DocumentClient } from "@cashpanel/documents";
+import { createClient } from "@cashpanel/supabase/job";
+import { getDb } from "@jobs/init";
+import { processAttachmentSchema } from "@jobs/schema";
 import { logger, schemaTask, tasks } from "@trigger.dev/sdk";
 import { convertHeic } from "../document/convert-heic";
 import { processDocument } from "../document/process-document";

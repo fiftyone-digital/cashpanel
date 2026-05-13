@@ -1,7 +1,12 @@
 "use client";
 
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@midday/ui/sheet";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@cashpanel/ui/sheet";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTransactionParams } from "@/hooks/use-transaction-params";
 import { useTRPC } from "@/trpc/client";

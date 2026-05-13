@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import * as Sentry from "@sentry/bun";
 import type { Job } from "bullmq";
 import type { ZodSchema } from "zod";

@@ -1,4 +1,4 @@
-import { cn } from "@midday/ui/cn";
+import { cn } from "@cashpanel/ui/cn";
 import Link from "next/link";
 
 type Props = {

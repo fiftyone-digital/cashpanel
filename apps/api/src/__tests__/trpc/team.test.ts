@@ -1,5 +1,8 @@
 import { beforeEach, describe, expect, test } from "bun:test";
-import { getTeamMembersByTeamId, getTeamsByUserId } from "@midday/db/queries";
+import {
+  getTeamMembersByTeamId,
+  getTeamsByUserId,
+} from "@cashpanel/db/queries";
 import { createCallerFactory } from "../../trpc/init";
 import { teamRouter } from "../../trpc/routers/team";
 import { createTestContext } from "../helpers/test-context";

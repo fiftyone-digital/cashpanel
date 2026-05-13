@@ -1,5 +1,5 @@
-import { getFrequencyShortLabel } from "@midday/invoice/recurring";
-import { formatAmount } from "@midday/utils/format";
+import { getFrequencyShortLabel } from "@cashpanel/invoice/recurring";
+import { formatAmount } from "@cashpanel/utils/format";
 import { format } from "date-fns";
 import type { useI18n } from "@/locales/client";
 

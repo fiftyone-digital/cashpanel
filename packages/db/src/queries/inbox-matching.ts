@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { and, desc, eq, sql } from "drizzle-orm";
 import type { Database } from "../client";
 import { inbox, transactionMatchSuggestions } from "../schema";

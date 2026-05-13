@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useAppOAuth } from "@/hooks/use-app-oauth";
@@ -50,7 +50,7 @@ export function ConnectSlack() {
     createLinkTokenMutation.mutate({ provider: "slack" });
   }, [open, isInstalled]);
 
-  const linkMessage = linkCode ? `Connect to Midday: ${linkCode}` : "";
+  const linkMessage = linkCode ? `Connect to CashPanel: ${linkCode}` : "";
 
   const copyToClipboard = async () => {
     if (!linkMessage) {
@@ -109,8 +109,8 @@ export function ConnectSlack() {
           <DialogHeader>
             <DialogTitle>Link Your Slack User</DialogTitle>
             <DialogDescription>
-              Open a DM with the Midday bot in Slack and send the one-time code
-              below to link your Slack identity.
+              Open a DM with the CashPanel bot in Slack and send the one-time
+              code below to link your Slack identity.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -157,7 +157,7 @@ export function ConnectSlack() {
           </Button>
 
           <p className="text-xs text-[#878787] text-center">
-            This links your Slack user to your current Midday user. Workspace
+            This links your Slack user to your current CashPanel user. Workspace
             installation and disconnect still live in the Slack app settings.
           </p>
         </div>

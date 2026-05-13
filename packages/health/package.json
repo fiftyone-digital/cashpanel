@@ -1,5 +1,5 @@
 {
-  "name": "@midday/health",
+  "name": "@cashpanel/health",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,8 +13,8 @@
     "./registry": "./src/registry.ts"
   },
   "dependencies": {
-    "@midday/banking": "workspace:*",
-    "@midday/cache": "workspace:*",
-    "@midday/db": "workspace:*"
+    "@cashpanel/banking": "workspace:*",
+    "@cashpanel/cache": "workspace:*",
+    "@cashpanel/db": "workspace:*"
   }
 }

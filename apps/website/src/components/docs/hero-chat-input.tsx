@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import { useEffect, useRef, useState } from "react";
 import { useDocsChat } from "./docs-chat-provider";
 

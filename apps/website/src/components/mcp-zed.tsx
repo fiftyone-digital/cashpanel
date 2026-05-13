@@ -1,8 +1,8 @@
 "use client";
 
-import { ZedMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { ZedMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -56,8 +56,8 @@ export function MCPZed() {
     return JSON.stringify(
       {
         context_servers: {
-          midday: {
-            url: "https://api.midday.ai/mcp",
+          cashpanel: {
+            url: "https://api.cashpanel.io/mcp",
             headers: {
               Authorization: `Bearer ${key}`,
             },
@@ -101,9 +101,9 @@ export function MCPZed() {
                 Financial data in Zed
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Zed and query your transactions, invoices, and
-                reports from the fastest code editor. Authentication is handled
-                automatically via OAuth.
+                Connect CashPanel to Zed and query your transactions, invoices,
+                and reports from the fastest code editor. Authentication is
+                handled automatically via OAuth.
               </p>
             </div>
 
@@ -169,7 +169,7 @@ export function MCPZed() {
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
                         Enter the URL:{" "}
                         <span className="font-mono text-xs text-foreground">
-                          https://api.midday.ai/mcp
+                          https://api.cashpanel.io/mcp
                         </span>
                       </span>
                     </li>
@@ -178,7 +178,7 @@ export function MCPZed() {
                         3
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        When prompted, sign in to Midday in your browser and
+                        When prompted, sign in to CashPanel in your browser and
                         select a team
                       </span>
                     </li>
@@ -211,7 +211,7 @@ export function MCPZed() {
                   <p className="font-sans text-xs text-muted-foreground">
                     Don't have an API key?{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Create one in Settings → Developer

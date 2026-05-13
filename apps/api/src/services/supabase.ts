@@ -1,4 +1,4 @@
-import type { Database } from "@midday/supabase/types";
+import type { Database } from "@cashpanel/supabase/types";
 import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 
 export async function createClient(accessToken?: string) {

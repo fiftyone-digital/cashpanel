@@ -1,21 +1,21 @@
 "use client";
 
-import { connectorApps } from "@midday/connectors";
-import type { ConnectorApp } from "@midday/connectors/types";
-import { LogEvents } from "@midday/events/events";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
+import { connectorApps } from "@cashpanel/connectors";
+import type { ConnectorApp } from "@cashpanel/connectors/types";
+import { LogEvents } from "@cashpanel/events/events";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Skeleton } from "@midday/ui/skeleton";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import { useOpenPanel } from "@openpanel/nextjs";
 import {
   useMutation,
@@ -330,7 +330,7 @@ function ConnectorDetail({
           {/* Description */}
           <p className="text-sm text-muted-foreground leading-relaxed">
             {localData?.description ||
-              `Connect ${connector.name} to Midday to let the AI assistant access and interact with your ${connector.name} data.`}
+              `Connect ${connector.name} to CashPanel to let the AI assistant access and interact with your ${connector.name} data.`}
           </p>
 
           {/* Rich data from API */}
@@ -595,8 +595,8 @@ export function ConnectorsModal({
             <DialogHeader className="mb-4 shrink-0">
               <DialogTitle>Connected apps</DialogTitle>
               <DialogDescription>
-                Connect your apps and services to Midday. Your AI assistant can
-                then access and interact with them.
+                Connect your apps and services to CashPanel. Your AI assistant
+                can then access and interact with them.
               </DialogDescription>
             </DialogHeader>
           )}

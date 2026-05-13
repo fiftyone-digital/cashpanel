@@ -8,7 +8,7 @@ import {
   persistInboxSuggestionWorkflow,
   shouldResetInboxToPendingAfterSuggestionFailure,
   updateInbox,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type { Job } from "bullmq";
 import type { MatchTransactionsBidirectionalPayload } from "../../schemas/inbox";
 import { getDb } from "../../utils/db";

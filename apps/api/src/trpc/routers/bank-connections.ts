@@ -13,11 +13,11 @@ import {
   deleteBankConnection,
   getBankConnections,
   reconnectBankConnection,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type {
   DeleteConnectionPayload,
   InitialBankSetupPayload,
-} from "@midday/jobs/schema";
+} from "@cashpanel/jobs/schema";
 import { tasks } from "@trigger.dev/sdk";
 import { TRPCError } from "@trpc/server";
 

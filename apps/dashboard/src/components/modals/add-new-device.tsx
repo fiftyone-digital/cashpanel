@@ -1,10 +1,10 @@
 "use client";
 
-import { createClient } from "@midday/supabase/client";
-import { Button } from "@midday/ui/button";
-import { Dialog, DialogContent } from "@midday/ui/dialog";
-import { InputOTP, InputOTPGroup, InputOTPSlot } from "@midday/ui/input-otp";
-import { Spinner } from "@midday/ui/spinner";
+import { createClient } from "@cashpanel/supabase/client";
+import { Button } from "@cashpanel/ui/button";
+import { Dialog, DialogContent } from "@cashpanel/ui/dialog";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@cashpanel/ui/input-otp";
+import { Spinner } from "@cashpanel/ui/spinner";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useAction } from "next-safe-action/hooks";

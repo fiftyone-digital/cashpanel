@@ -17,7 +17,7 @@ import {
   matchTransaction,
   unmatchTransaction,
   updateInbox,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import {
   mcpInboxDetailSchema,

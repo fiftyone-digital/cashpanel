@@ -35,10 +35,10 @@ const config = {
     ],
   },
   transpilePackages: [
-    "@midday/ui",
-    "@midday/tailwind",
-    "@midday/invoice",
-    "@midday/api",
+    "@cashpanel/ui",
+    "@cashpanel/tailwind",
+    "@cashpanel/invoice",
+    "@cashpanel/api",
   ],
   serverExternalPackages: ["@react-pdf/renderer", "pino"],
   typescript: {

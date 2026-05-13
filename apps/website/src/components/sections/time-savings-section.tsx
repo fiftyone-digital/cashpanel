@@ -1,7 +1,7 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
 import Link from "next/link";
 
 export function TimeSavingsSection() {
@@ -13,7 +13,7 @@ export function TimeSavingsSection() {
             Less admin. More focus.
           </h2>
           <p className="hidden sm:block font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
-            Midday removes manual work so you can spend time on what actually
+            CashPanel removes manual work so you can spend time on what actually
             matters.
           </p>
         </div>
@@ -109,7 +109,7 @@ export function TimeSavingsSection() {
             </article>
 
             <a
-              href="https://app.midday.ai/"
+              href="https://app.cashpanel.io/"
               onClick={() =>
                 track({
                   event: LogEvents.CTA.name,
@@ -144,7 +144,7 @@ export function TimeSavingsSection() {
                       Manual work caused by disconnected tools.
                     </span>
                     <span className="hidden group-hover:inline transition-opacity duration-200">
-                      Midday handles the busywork so you can focus on running
+                      CashPanel handles the busywork so you can focus on running
                       the business.
                     </span>
                   </p>
@@ -160,7 +160,7 @@ export function TimeSavingsSection() {
 
           <div className="grid grid-cols-1 gap-3 sm:gap-4 xl:hidden">
             <a
-              href="https://app.midday.ai/"
+              href="https://app.cashpanel.io/"
               onClick={() =>
                 track({
                   event: LogEvents.CTA.name,

@@ -1,4 +1,4 @@
-import { Skeleton } from "@midday/ui/skeleton";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import { Suspense } from "react";
 import { ConnectionStatus } from "@/components/connection-status";
 import { NotificationCenter } from "@/components/notification-center";

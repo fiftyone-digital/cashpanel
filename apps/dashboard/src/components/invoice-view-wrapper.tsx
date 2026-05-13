@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { useMediaQuery } from "@midday/ui/hooks";
+import { cn } from "@cashpanel/ui/cn";
+import { useMediaQuery } from "@cashpanel/ui/hooks";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import CustomerHeader from "./customer-header";

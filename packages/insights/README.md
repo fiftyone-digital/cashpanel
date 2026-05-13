@@ -1,6 +1,6 @@
-# @midday/insights
+# @cashpanel/insights
 
-AI-powered business insights generation for Midday. This package provides smart metric selection, anomaly detection, and narrative content generation for periodic business summaries.
+AI-powered business insights generation for CashPanel. This package provides smart metric selection, anomaly detection, and narrative content generation for periodic business summaries.
 
 ## Overview
 
@@ -15,8 +15,8 @@ The insights package generates weekly, monthly, quarterly, and yearly business s
 ## Usage
 
 ```typescript
-import { createInsightsService } from "@midday/insights";
-import { db } from "@midday/db/client";
+import { createInsightsService } from "@cashpanel/insights";
+import { db } from "@cashpanel/db/client";
 
 const service = createInsightsService(db);
 
@@ -49,7 +49,7 @@ OPENAI_API_KEY=sk-...
 ## Architecture
 
 ```
-@midday/insights
+@cashpanel/insights
 ├── index.ts          # InsightsService + team filtering helpers
 ├── types.ts          # TypeScript type definitions
 ├── constants.ts      # Configuration constants
@@ -114,7 +114,7 @@ INSIGHTS_ENABLED_TEAM_IDS=
 Check with:
 
 ```typescript
-import { isTeamEnabledForInsights, getEnabledTeamIds } from "@midday/insights";
+import { isTeamEnabledForInsights, getEnabledTeamIds } from "@cashpanel/insights";
 
 if (isTeamEnabledForInsights(teamId)) {
   // Generate insights

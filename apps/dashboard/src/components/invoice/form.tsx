@@ -1,15 +1,15 @@
-import { LogEvents } from "@midday/events/events";
-import { isDateInFutureUTC } from "@midday/invoice/recurring";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { ScrollArea } from "@midday/ui/scroll-area";
+import { LogEvents } from "@cashpanel/events/events";
+import { isDateInFutureUTC } from "@cashpanel/invoice/recurring";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/tooltip";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useOpenPanel } from "@openpanel/nextjs";
 import {
   useIsMutating,

@@ -1,9 +1,9 @@
-import { upsertTransactions } from "@midday/db/queries";
-import { mapTransactions } from "@midday/import/mappings";
-import { transform } from "@midday/import/transform";
-import { validateTransactions } from "@midday/import/validate";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
+import { upsertTransactions } from "@cashpanel/db/queries";
+import { mapTransactions } from "@cashpanel/import/mappings";
+import { transform } from "@cashpanel/import/transform";
+import { validateTransactions } from "@cashpanel/import/validate";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import Papa from "papaparse";
 import type { ImportTransactionsPayload } from "../../schemas/transactions";

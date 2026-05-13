@@ -8,12 +8,12 @@ import {
   updateAllNotificationsStatusSchema,
 } from "@api/schemas/notifications";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   getActivities,
   updateActivityStatus,
   updateAllActivitiesStatus,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 
 const app = new OpenAPIHono<Context>();
 

@@ -7,16 +7,16 @@
  * - Fast timeout
  */
 
-import { Provider } from "@midday/banking";
-import { checkHealth as checkCacheHealth } from "@midday/cache/health";
-import { checkHealth as checkDbHealth } from "@midday/db/utils/health";
+import { Provider } from "@cashpanel/banking";
+import { checkHealth as checkCacheHealth } from "@cashpanel/cache/health";
+import { checkHealth as checkDbHealth } from "@cashpanel/db/utils/health";
 import type { Dependency } from "./registry";
 
 // ---------------------------------------------------------------------------
 // Tier 1 — Core infrastructure (app breaks without these)
 // ---------------------------------------------------------------------------
 
-/** Database: SELECT 1 via the existing @midday/db health utility */
+/** Database: SELECT 1 via the existing @cashpanel/db health utility */
 export function databaseProbe(): Dependency {
   return {
     name: "database",
@@ -30,7 +30,7 @@ export function databaseProbe(): Dependency {
   };
 }
 
-/** Redis cache: PING via the existing @midday/cache health utility */
+/** Redis cache: PING via the existing @cashpanel/cache health utility */
 export function redisCacheProbe(): Dependency {
   return {
     name: "redis_cache",
@@ -97,7 +97,7 @@ export function redisQueueProbe(): Dependency {
 // Tier 2 — Important services
 // ---------------------------------------------------------------------------
 
-/** Plaid health check via @midday/banking */
+/** Plaid health check via @cashpanel/banking */
 export function plaidProbe(): Dependency {
   return {
     name: "plaid",
@@ -115,7 +115,7 @@ export function plaidProbe(): Dependency {
   };
 }
 
-/** GoCardless health check via @midday/banking */
+/** GoCardless health check via @cashpanel/banking */
 export function gocardlessProbe(): Dependency {
   return {
     name: "gocardless",
@@ -135,7 +135,7 @@ export function gocardlessProbe(): Dependency {
   };
 }
 
-/** EnableBanking health check via @midday/banking */
+/** EnableBanking health check via @cashpanel/banking */
 export function enableBankingProbe(): Dependency {
   return {
     name: "enablebanking",
@@ -155,7 +155,7 @@ export function enableBankingProbe(): Dependency {
   };
 }
 
-/** Teller health check via @midday/banking */
+/** Teller health check via @cashpanel/banking */
 export function tellerProbe(): Dependency {
   return {
     name: "teller",

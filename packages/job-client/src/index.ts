@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { getQueue } from "./queues";
 import type { JobStatus, JobStatusResponse, JobTriggerResponse } from "./types";
 import { decodeJobId, encodeJobId } from "./utils";

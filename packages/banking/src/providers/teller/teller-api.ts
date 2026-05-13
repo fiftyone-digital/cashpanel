@@ -1,4 +1,4 @@
-import { bankingCache, CacheTTL } from "@midday/cache/banking-cache";
+import { bankingCache, CacheTTL } from "@cashpanel/cache/banking-cache";
 import { env } from "../../env";
 import type {
   GetConnectionStatusRequest,

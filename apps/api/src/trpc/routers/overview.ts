@@ -1,5 +1,5 @@
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
-import { getOverviewSummary } from "@midday/db/queries";
+import { getOverviewSummary } from "@cashpanel/db/queries";
 
 export const overviewRouter = createTRPCRouter({
   summary: protectedProcedure.query(async ({ ctx: { db, teamId } }) => {

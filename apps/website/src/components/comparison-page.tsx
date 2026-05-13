@@ -1,11 +1,11 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
 import Link from "next/link";
 import type { Competitor } from "@/data/competitors";
-import { middayDifferentiators } from "@/data/competitors";
+import { cashpanelDifferentiators } from "@/data/competitors";
 import { ComparisonHero } from "./sections/comparison-hero";
 import { CompetitorFAQ } from "./sections/competitor-faq";
 import { FeatureComparison } from "./sections/feature-comparison";
@@ -21,7 +21,7 @@ export function ComparisonPage({ competitor }: Props) {
     { id: "features", label: "Feature comparison" },
     { id: "pricing", label: "Pricing comparison" },
     { id: "switching", label: `Switching from ${competitor.name}` },
-    { id: "better-fit", label: "Where Midday is a better fit" },
+    { id: "better-fit", label: "Where CashPanel is a better fit" },
     { id: "faq", label: "Frequently asked questions" },
   ];
 
@@ -31,7 +31,7 @@ export function ComparisonPage({ competitor }: Props) {
         {/* Hero Section */}
         <ComparisonHero
           competitor={competitor}
-          differentiators={middayDifferentiators}
+          differentiators={cashpanelDifferentiators}
           sections={sections}
         />
 
@@ -57,14 +57,14 @@ export function ComparisonPage({ competitor }: Props) {
                   </h3>
                 </div>
                 <div className="grid grid-cols-2 divide-x divide-border">
-                  {/* Midday Column */}
+                  {/* CashPanel Column */}
                   <div className="p-6 bg-background relative border-l-4 border-l-primary">
                     <div className="space-y-2">
                       <span className="font-sans text-xs font-semibold text-primary uppercase tracking-wide block">
-                        Midday
+                        CashPanel
                       </span>
                       <p className="font-sans text-sm text-foreground leading-relaxed font-medium">
-                        {diff.midday}
+                        {diff.cashpanel}
                       </p>
                     </div>
                   </div>
@@ -113,7 +113,7 @@ export function ComparisonPage({ competitor }: Props) {
         {/* Switching Guide */}
         <section id="switching" className="scroll-mt-24 mb-16 lg:mb-24">
           <h2 className="font-serif text-2xl text-foreground mb-4 text-center">
-            Switching from {competitor.name} to Midday
+            Switching from {competitor.name} to CashPanel
           </h2>
           <p className="font-sans text-base text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
             Making the switch is straightforward. Here's how to get started.
@@ -148,13 +148,13 @@ export function ComparisonPage({ competitor }: Props) {
           <div className="h-px w-full border-t border-border" />
         </div>
 
-        {/* Where Midday is a Better Fit */}
+        {/* Where CashPanel is a Better Fit */}
         <section id="better-fit" className="scroll-mt-24 mb-16 lg:mb-24">
           <h2 className="font-serif text-2xl text-foreground mb-4 text-center">
-            Where Midday is a better fit
+            Where CashPanel is a better fit
           </h2>
           <p className="font-sans text-base text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
-            Midday is the right choice if you're...
+            CashPanel is the right choice if you're...
           </p>
           <div className="max-w-2xl mx-auto">
             <div className="bg-secondary border border-border p-6">
@@ -201,7 +201,7 @@ export function ComparisonPage({ competitor }: Props) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="btn-inverse h-11 px-6">
                   <a
-                    href="https://app.midday.ai/"
+                    href="https://app.cashpanel.io/"
                     onClick={() =>
                       track({
                         event: LogEvents.CTA.name,

@@ -1,21 +1,21 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
+} from "@cashpanel/ui/dropdown-menu";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { getTaxTypeLabel } from "@midday/utils/tax";
+} from "@cashpanel/ui/tooltip";
+import { getTaxTypeLabel } from "@cashpanel/utils/tax";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import type { ColumnDef } from "@tanstack/react-table";
 import { ChevronDown, ChevronRight } from "lucide-react";

@@ -1,6 +1,6 @@
-import { decrypt } from "@midday/encryption";
-import { HtmlTemplate } from "@midday/invoice/templates/html";
-import { createClient } from "@midday/supabase/server";
+import { decrypt } from "@cashpanel/encryption";
+import { HtmlTemplate } from "@cashpanel/invoice/templates/html";
+import { createClient } from "@cashpanel/supabase/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { SearchParams } from "nuqs";
@@ -153,12 +153,12 @@ export default async function Page(props: Props) {
 
       <div className="fixed bottom-4 right-4 hidden md:block">
         <a
-          href="https://midday.ai?utm_source=invoice"
+          href="https://cashpanel.io?utm_source=invoice"
           target="_blank"
           rel="noreferrer"
           className="text-[9px] text-[#878787]"
         >
-          Powered by <span className="text-primary">midday</span>
+          Powered by <span className="text-primary">cashpanel</span>
         </a>
       </div>
     </>

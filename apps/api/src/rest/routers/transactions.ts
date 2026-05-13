@@ -18,7 +18,6 @@ import {
 } from "@api/schemas/transactions";
 import { createAdminClient } from "@api/services/supabase";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   createTransaction,
   createTransactions,
@@ -28,8 +27,9 @@ import {
   getTransactions,
   updateTransaction,
   updateTransactions,
-} from "@midday/db/queries";
-import { signedUrl } from "@midday/supabase/storage";
+} from "@cashpanel/db/queries";
+import { signedUrl } from "@cashpanel/supabase/storage";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { withRequiredScope } from "../middleware";
 
 const app = new OpenAPIHono<Context>();

@@ -9,19 +9,19 @@ export function isDesktopApp() {
  * Returns the deep link scheme for the current environment.
  * Controlled by NEXT_PUBLIC_DESKTOP_SCHEME env var.
  *
- * - Production: "midday"
- * - Staging:    "midday-staging"
- * - Dev:        "midday-dev"
+ * - Production: "cashpanel"
+ * - Staging:    "cashpanel-staging"
+ * - Dev:        "cashpanel-dev"
  */
 export function getDesktopScheme(): string {
-  return process.env.NEXT_PUBLIC_DESKTOP_SCHEME || "midday";
+  return process.env.NEXT_PUBLIC_DESKTOP_SCHEME || "cashpanel";
 }
 
 /**
  * Returns the deep link base URL (scheme + "://") for the current environment.
  *
  * @example
- * getDesktopSchemeUrl() // "midday://" in production, "midday-dev://" in dev
+ * getDesktopSchemeUrl() // "cashpanel://" in production, "cashpanel-dev://" in dev
  */
 export function getDesktopSchemeUrl(): string {
   return `${getDesktopScheme()}://`;
@@ -57,9 +57,9 @@ export async function listenForDeepLinks(handler: DeepLinkHandler) {
  * @example
  * ```typescript
  * // In production:
- * createDeepLink('dashboard');           // "midday://dashboard"
+ * createDeepLink('dashboard');           // "cashpanel://dashboard"
  * // In dev:
- * createDeepLink('transactions/123');    // "midday-dev://transactions/123"
+ * createDeepLink('transactions/123');    // "cashpanel-dev://transactions/123"
  * ```
  */
 export function createDeepLink(path: string): string {

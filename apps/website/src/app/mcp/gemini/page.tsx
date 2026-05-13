@@ -4,10 +4,10 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Gemini MCP Integration",
   description:
-    "Connect Gemini CLI to your Midday data via Model Context Protocol. Query transactions, invoices, and reports from your terminal.",
+    "Connect Gemini CLI to your CashPanel data via Model Context Protocol. Query transactions, invoices, and reports from your terminal.",
   path: "/mcp/gemini",
   og: {
-    title: "Gemini + Midday",
+    title: "Gemini + CashPanel",
     description: "Business data from your terminal",
   },
   keywords: [

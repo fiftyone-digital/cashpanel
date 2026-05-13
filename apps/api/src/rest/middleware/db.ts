@@ -1,4 +1,4 @@
-import { db } from "@midday/db/client";
+import { db } from "@cashpanel/db/client";
 import type { MiddlewareHandler } from "hono";
 
 /**

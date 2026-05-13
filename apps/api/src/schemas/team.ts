@@ -11,7 +11,7 @@ export const teamResponseSchema = z.object({
   }),
   logoUrl: z.string().url().nullable().openapi({
     description: "URL to the team's logo image",
-    example: "https://cdn.midday.ai/logos/acme-corp.png",
+    example: "https://cdn.cashpanel.io/logos/acme-corp.png",
   }),
   plan: z.enum(["trial", "starter", "pro"]).openapi({
     description: "Current subscription plan of the team",
@@ -70,17 +70,17 @@ export const getTeamByIdSchema = z.object({
 });
 
 /**
- * Validates that a URL is hosted on a trusted midday.ai domain.
+ * Validates that a URL is hosted on a trusted cashpanel.io domain.
  * Prevents SSRF by checking the hostname, not just URL contents.
  */
-function isValidMiddayUrl(url: string): boolean {
+function isValidCashPanelUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
     const hostname = parsed.hostname.toLowerCase();
     return (
-      hostname === "cdn.midday.ai" ||
-      hostname === "midday.ai" ||
-      hostname.endsWith(".midday.ai")
+      hostname === "cdn.cashpanel.io" ||
+      hostname === "cashpanel.io" ||
+      hostname.endsWith(".cashpanel.io")
     );
   } catch {
     return false;
@@ -100,14 +100,14 @@ export const updateTeamByIdSchema = z.object({
   logoUrl: z
     .string()
     .url()
-    .refine(isValidMiddayUrl, {
-      message: "logoUrl must be hosted on midday.ai domain",
+    .refine(isValidCashPanelUrl, {
+      message: "logoUrl must be hosted on cashpanel.io domain",
     })
     .optional()
     .openapi({
       description:
-        "URL to the team's logo image. Must be hosted on midday.ai domain",
-      example: "https://cdn.midday.ai/logos/acme-corp.png",
+        "URL to the team's logo image. Must be hosted on cashpanel.io domain",
+      example: "https://cdn.cashpanel.io/logos/acme-corp.png",
     }),
   baseCurrency: z.string().optional().openapi({
     description:
@@ -207,7 +207,7 @@ export const createTeamSchema = z.object({
     }),
   logoUrl: z.string().url().optional().openapi({
     description: "URL to the team's logo image",
-    example: "https://cdn.midday.ai/logos/acme-corp.png",
+    example: "https://cdn.cashpanel.io/logos/acme-corp.png",
   }),
   companyType: z
     .enum([
@@ -356,7 +356,7 @@ export const teamMemberResponseSchema = z.object({
   }),
   avatarUrl: z.string().url().nullable().openapi({
     description: "URL to the team member's avatar image",
-    example: "https://cdn.midday.ai/avatars/john-doe.png",
+    example: "https://cdn.cashpanel.io/avatars/john-doe.png",
   }),
 });
 

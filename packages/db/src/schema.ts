@@ -3916,8 +3916,8 @@ export const accountingSyncRecords = pgTable(
     provider: accountingProviderEnum().notNull(),
     providerTenantId: text("provider_tenant_id").notNull(),
     providerTransactionId: text("provider_transaction_id"),
-    // Maps Midday attachment IDs to provider attachment IDs for sync tracking
-    // Format: { "midday-attachment-id": "provider-attachment-id" }
+    // Maps CashPanel attachment IDs to provider attachment IDs for sync tracking
+    // Format: { "cashpanel-attachment-id": "provider-attachment-id" }
     syncedAttachmentMapping: jsonb("synced_attachment_mapping")
       .default(sql`'{}'::jsonb`)
       .notNull()

@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
+import { cn } from "@cashpanel/ui/cn";
 import { parseAsBoolean, useQueryState } from "nuqs";
 import {
   createContext,

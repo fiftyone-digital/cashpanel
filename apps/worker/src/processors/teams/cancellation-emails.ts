@@ -20,13 +20,13 @@ export class CancellationEmailsProcessor extends BaseProcessor<CancellationEmail
     });
 
     await resend.emails.send({
-      from: "Pontus from Midday <pontus@midday.ai>",
-      replyTo: "pontus@midday.ai",
+      from: "Pontus from CashPanel <pontus@cashpanel.io>",
+      replyTo: "pontus@cashpanel.io",
       to: email,
       subject: "Thanks for being a customer",
       text: `Hey ${firstName},
 
-I noticed you canceled your Midday subscription. I'd love to understand what didn't work for you or what was missing — even a one-line reply would be really helpful.
+I noticed you canceled your CashPanel subscription. I'd love to understand what didn't work for you or what was missing — even a one-line reply would be really helpful.
 
 Thanks for giving us a try,
 

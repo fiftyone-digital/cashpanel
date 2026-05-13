@@ -16,8 +16,8 @@ import {
   WindsurfMcpLogo,
   ZapierMcpLogo,
   ZedMcpLogo,
-} from "@midday/app-store/logos";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/app-store/logos";
+import { Button } from "@cashpanel/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { MaterialIcon } from "./homepage/icon-mapping";
@@ -239,11 +239,11 @@ export function MCP() {
                 AI Integrations
               </p>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground">
-                Midday, everywhere
+                CashPanel, everywhere
               </h1>
               <p className="text-muted-foreground text-base leading-normal font-sans text-center mx-auto">
                 Connect Claude, ChatGPT, Gemini, Cursor, Windsurf, Zed, and more
-                to your Midday account. Create invoices, export transactions,
+                to your CashPanel account. Create invoices, export transactions,
                 track time, and run your business from any AI tool.
               </p>
             </div>
@@ -280,11 +280,11 @@ export function MCP() {
                 AI Integrations
               </p>
               <h1 className="font-serif text-6xl xl:text-7xl 2xl:text-8xl leading-tight text-foreground">
-                Midday, everywhere
+                CashPanel, everywhere
               </h1>
               <p className="text-muted-foreground text-sm xl:text-base leading-normal max-w-2xl mx-auto font-sans text-center">
                 Connect Claude, ChatGPT, Gemini, Cursor, Windsurf, Zed, and more
-                to your Midday account. Create invoices, export transactions,
+                to your CashPanel account. Create invoices, export transactions,
                 track time, and run your business from any AI tool.
               </p>
             </div>
@@ -429,11 +429,11 @@ export function MCP() {
             </h2>
             <p className="font-sans text-base text-muted-foreground mb-6 max-w-lg mx-auto">
               Choose your AI client above. You'll need an API key from your
-              Midday dashboard.
+              CashPanel dashboard.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="h-11 px-6 text-sm font-sans">
-                <Link href="https://app.midday.ai/settings/developer">
+                <Link href="https://app.cashpanel.io/settings/developer">
                   Get API key
                 </Link>
               </Button>

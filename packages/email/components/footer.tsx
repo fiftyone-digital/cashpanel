@@ -1,4 +1,4 @@
-import { getEmailUrl } from "@midday/utils/envs";
+import { getEmailUrl } from "@cashpanel/utils/envs";
 import {
   Column,
   Hr,
@@ -33,7 +33,7 @@ export function Footer() {
 
       <Row>
         <Column className="align-middle w-[40px]">
-          <Link href="https://go.midday.ai/lS72Toq">
+          <Link href="https://go.cashpanel.io/lS72Toq">
             <Img
               src={`${baseUrl}/email/x.png`}
               width="18"
@@ -43,7 +43,7 @@ export function Footer() {
           </Link>
         </Column>
         <Column className="align-middle">
-          <Link href="https://go.midday.ai/Ct3xybK">
+          <Link href="https://go.cashpanel.io/Ct3xybK">
             <Img
               src={`${baseUrl}/email/linkedin.png`}
               width="22"
@@ -61,7 +61,7 @@ export function Footer() {
         style={{ color: lightStyles.mutedText.color }}
       >
         <Link
-          href="https://midday.ai"
+          href="https://cashpanel.io"
           className={themeClasses.mutedLink}
           style={{ color: lightStyles.mutedText.color }}
         >
@@ -69,7 +69,7 @@ export function Footer() {
         </Link>
         {" · "}
         <Link
-          href="https://midday.ai/pricing"
+          href="https://cashpanel.io/pricing"
           className={themeClasses.mutedLink}
           style={{ color: lightStyles.mutedText.color }}
         >
@@ -77,7 +77,7 @@ export function Footer() {
         </Link>
         {" · "}
         <Link
-          href="https://go.midday.ai/ZrhEMbR"
+          href="https://go.cashpanel.io/ZrhEMbR"
           className={themeClasses.mutedLink}
           style={{ color: lightStyles.mutedText.color }}
         >
@@ -85,7 +85,7 @@ export function Footer() {
         </Link>
         {" · "}
         <Link
-          href="https://app.midday.ai/settings/notifications"
+          href="https://app.cashpanel.io/settings/notifications"
           className={themeClasses.mutedLink}
           style={{ color: lightStyles.mutedText.color }}
         >
@@ -97,7 +97,7 @@ export function Footer() {
         className={`text-xs ${themeClasses.secondaryText}`}
         style={{ color: lightStyles.secondaryText.color }}
       >
-        Midday Labs AB · Torsgatan 59, 113 37 Stockholm, Sweden
+        CashPanel Labs AB · Torsgatan 59, 113 37 Stockholm, Sweden
       </Text>
 
       <br />

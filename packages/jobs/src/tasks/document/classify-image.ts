@@ -1,8 +1,11 @@
+import { updateDocumentByFileName } from "@cashpanel/db/queries";
+import {
+  limitWords,
+  mapLanguageCodeToPostgresConfig,
+} from "@cashpanel/documents";
+import { DocumentClassifier } from "@cashpanel/documents/classifier";
+import { createClient } from "@cashpanel/supabase/job";
 import { getDb } from "@jobs/init";
-import { updateDocumentByFileName } from "@midday/db/queries";
-import { limitWords, mapLanguageCodeToPostgresConfig } from "@midday/documents";
-import { DocumentClassifier } from "@midday/documents/classifier";
-import { createClient } from "@midday/supabase/job";
 import { schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { embedDocumentTags } from "./embed-document-tags";

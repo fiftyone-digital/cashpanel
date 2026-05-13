@@ -1,8 +1,8 @@
 import {
   ComboboxDropdown,
   type ComboboxItem,
-} from "@midday/ui/combobox-dropdown";
-import type { PopoverContent } from "@midday/ui/popover";
+} from "@cashpanel/ui/combobox-dropdown";
+import type { PopoverContent } from "@cashpanel/ui/popover";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type React from "react";
 import { useEffect, useState } from "react";

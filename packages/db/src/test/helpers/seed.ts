@@ -110,7 +110,7 @@ async function seedUsers(db: Database): Promise<void> {
     {
       id: TEST_USER_ID,
       fullName: "Test User",
-      email: "test@midday.ai",
+      email: "test@cashpanel.io",
       teamId: null,
     },
   ]);

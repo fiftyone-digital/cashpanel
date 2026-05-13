@@ -6,7 +6,7 @@
 import {
   DEFAULT_TEMPLATE_LABELS,
   DEFAULT_TEMPLATE_SETTINGS,
-} from "@midday/invoice";
+} from "@cashpanel/invoice";
 
 /**
  * Invoice line item type

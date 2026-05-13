@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { createJobDb } from "@midday/db/job-client";
+import { createJobDb } from "@cashpanel/db/job-client";
 
 type EligibleTeam = {
   id: string;

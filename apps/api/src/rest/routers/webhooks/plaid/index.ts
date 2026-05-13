@@ -1,14 +1,14 @@
 import type { Context } from "@api/rest/types";
 import { isTeamEligibleForSync } from "@api/utils/check-team-eligibility";
 import { validatePlaidWebhook } from "@api/utils/plaid";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   deleteTransactionsByInternalIds,
   getBankConnectionByReferenceId,
   updateBankConnectionStatus,
-} from "@midday/db/queries";
-import type { SyncConnectionPayload } from "@midday/jobs/schema";
-import { logger } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import type { SyncConnectionPayload } from "@cashpanel/jobs/schema";
+import { logger } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { tasks } from "@trigger.dev/sdk";
 import { isAfter, subDays } from "date-fns";
 import { HTTPException } from "hono/http-exception";

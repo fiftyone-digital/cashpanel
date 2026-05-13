@@ -1,15 +1,15 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Button } from "@midday/ui/button";
-import { EmailTagInput } from "@midday/ui/email-tag-input";
+} from "@cashpanel/ui/accordion";
+import { Button } from "@cashpanel/ui/button";
+import { EmailTagInput } from "@cashpanel/ui/email-tag-input";
 import {
   Form,
   FormControl,
@@ -18,13 +18,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@midday/ui/form";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
-import { Skeleton } from "@midday/ui/skeleton";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Textarea } from "@midday/ui/textarea";
-import { isValidEmailList } from "@midday/utils";
+} from "@cashpanel/ui/form";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Textarea } from "@cashpanel/ui/textarea";
+import { isValidEmailList } from "@cashpanel/utils";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import dynamic from "next/dynamic";

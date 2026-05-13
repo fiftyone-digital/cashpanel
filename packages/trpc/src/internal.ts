@@ -1,4 +1,4 @@
-import type { AppRouter } from "@midday/api/trpc/routers/_app";
+import type { AppRouter } from "@cashpanel/api/trpc/routers/_app";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import superjson from "superjson";
 import { fetchWithRetry } from "./fetch-with-retry";

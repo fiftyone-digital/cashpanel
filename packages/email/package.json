@@ -1,5 +1,5 @@
 {
-  "name": "@midday/email",
+  "name": "@cashpanel/email",
   "version": "1.0.0",
   "private": true,
   "main": "index.ts",
@@ -19,8 +19,8 @@
     "start": "email start"
   },
   "dependencies": {
-    "@midday/ui": "workspace:*",
-    "@midday/utils": "workspace:*",
+    "@cashpanel/ui": "workspace:*",
+    "@cashpanel/utils": "workspace:*",
     "@react-email/components": "1.0.10",
     "@react-email/render": "2.0.4",
     "@react-email/tailwind": "2.0.6",

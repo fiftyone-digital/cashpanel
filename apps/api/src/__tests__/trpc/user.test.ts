@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "bun:test";
-import { getUserInvites } from "@midday/db/queries";
+import { getUserInvites } from "@cashpanel/db/queries";
 import { createCallerFactory } from "../../trpc/init";
 import { userRouter } from "../../trpc/routers/user";
 import { createTestContext } from "../helpers/test-context";

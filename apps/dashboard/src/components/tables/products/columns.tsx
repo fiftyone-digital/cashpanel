@@ -1,15 +1,15 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
+} from "@cashpanel/ui/dropdown-menu";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import type { ColumnDef } from "@tanstack/react-table";
 import { formatDistanceToNow } from "date-fns";

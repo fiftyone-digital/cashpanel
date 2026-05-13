@@ -49,10 +49,10 @@ export function createInvoicesCommand(): Command {
       "after",
       `
 Examples:
-  midday invoices list
-  midday invoices list --status unpaid
-  midday invoices list --search "Acme" --json
-  midday invoices list --from 2026-01-01 --to 2026-03-31`,
+  cashpanel invoices list
+  cashpanel invoices list --status unpaid
+  cashpanel invoices list --search "Acme" --json
+  cashpanel invoices list --from 2026-01-01 --to 2026-03-31`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -102,7 +102,7 @@ Examples:
             rows,
             pageInfo:
               data.meta?.hasNextPage && data.meta?.cursor
-                ? `Next page: midday invoices list --cursor ${data.meta.cursor}`
+                ? `Next page: cashpanel invoices list --cursor ${data.meta.cursor}`
                 : undefined,
           });
         }
@@ -119,8 +119,8 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices get inv_abc123
-  midday invoices get inv_abc123 --json`,
+  cashpanel invoices get inv_abc123
+  cashpanel invoices get inv_abc123 --json`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -174,8 +174,8 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices create --customer cust_123 --due-date 2026-04-30
-  cat invoice.json | midday invoices create --stdin`,
+  cashpanel invoices create --customer cust_123 --due-date 2026-04-30
+  cat invoice.json | cashpanel invoices create --stdin`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -238,9 +238,9 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices send inv_abc123
-  midday invoices send inv_abc123 --dry-run
-  midday invoices send inv_abc123 --yes`,
+  cashpanel invoices send inv_abc123
+  cashpanel invoices send inv_abc123 --dry-run
+  cashpanel invoices send inv_abc123 --yes`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -292,8 +292,8 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices update inv_abc123 --due-date 2026-05-15
-  cat update.json | midday invoices update inv_abc123 --stdin`,
+  cashpanel invoices update inv_abc123 --due-date 2026-05-15
+  cat update.json | cashpanel invoices update inv_abc123 --stdin`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -347,9 +347,9 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices delete inv_abc123
-  midday invoices delete inv_abc123 --yes
-  midday invoices delete inv_abc123 --dry-run`,
+  cashpanel invoices delete inv_abc123
+  cashpanel invoices delete inv_abc123 --yes
+  cashpanel invoices delete inv_abc123 --dry-run`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -398,8 +398,8 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices mark-paid inv_abc123
-  midday invoices mark-paid inv_abc123 --dry-run`,
+  cashpanel invoices mark-paid inv_abc123
+  cashpanel invoices mark-paid inv_abc123 --dry-run`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -448,8 +448,8 @@ Examples:
       "after",
       `
 Examples:
-  midday invoices remind inv_abc123
-  midday invoices remind inv_abc123 --dry-run`,
+  cashpanel invoices remind inv_abc123
+  cashpanel invoices remind inv_abc123 --dry-run`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

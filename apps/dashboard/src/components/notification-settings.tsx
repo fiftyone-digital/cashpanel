@@ -5,8 +5,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Skeleton } from "@midday/ui/skeleton";
+} from "@cashpanel/ui/accordion";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronDown } from "lucide-react";
 import { useI18n } from "@/locales/client";

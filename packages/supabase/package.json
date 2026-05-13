@@ -1,5 +1,5 @@
 {
-  "name": "@midday/supabase",
+  "name": "@cashpanel/supabase",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "db:generate": "supabase gen types --lang=typescript --project-id $PROJECT_ID --schema public > src/types/db.ts"
   },
   "dependencies": {
-    "@midday/banking": "workspace:*",
+    "@cashpanel/banking": "workspace:*",
     "@supabase/postgrest-js": "^2.101.1",
     "@supabase/ssr": "^0.10.0",
     "@supabase/supabase-js": "^2.101.1",

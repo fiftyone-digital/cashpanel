@@ -1,22 +1,22 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
-import { Checkbox } from "@midday/ui/checkbox";
-import { cn } from "@midday/ui/cn";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
+import { Checkbox } from "@cashpanel/ui/checkbox";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@midday/ui/tooltip";
-import { formatDate } from "@midday/utils/format";
-import { calculateBaseTaxAmount } from "@midday/utils/tax";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@cashpanel/ui/tooltip";
+import { formatDate } from "@cashpanel/utils/format";
+import { calculateBaseTaxAmount } from "@cashpanel/utils/tax";
 import type { ColumnDef } from "@tanstack/react-table";
 import { memo, useCallback } from "react";
 import { FormatAmount } from "@/components/format-amount";

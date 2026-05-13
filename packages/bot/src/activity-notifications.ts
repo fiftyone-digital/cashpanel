@@ -1,8 +1,8 @@
 import {
   createSlackWebClient,
   sendSlackMatchNotification,
-} from "@midday/app-store/slack/server";
-import type { Database } from "@midday/db/client";
+} from "@cashpanel/app-store/slack/server";
+import type { Database } from "@cashpanel/db/client";
 import {
   getAppByAppId,
   getPlatformIdentity,
@@ -13,8 +13,8 @@ import {
   queueProviderNotificationBatch,
   shouldSendNotification,
   updatePlatformIdentityMetadata,
-} from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { sendSendblueTextNotification } from "./sendblue-notifications";
 import { sendTelegramTextNotification } from "./telegram-notifications";
 import {

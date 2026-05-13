@@ -1,4 +1,4 @@
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AskAiBar } from "@/components/docs/ask-ai-bar";

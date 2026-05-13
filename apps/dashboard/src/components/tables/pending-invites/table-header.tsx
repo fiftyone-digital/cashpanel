@@ -1,9 +1,9 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Button } from "@midday/ui/button";
-import { Dialog } from "@midday/ui/dialog";
-import { Input } from "@midday/ui/input";
+import { Button } from "@cashpanel/ui/button";
+import { Dialog } from "@cashpanel/ui/dialog";
+import { Input } from "@cashpanel/ui/input";
 import type { Table } from "@tanstack/react-table";
 import { useState } from "react";
 import { InviteTeamMembersModal } from "@/components/modals/invite-team-members-modal";

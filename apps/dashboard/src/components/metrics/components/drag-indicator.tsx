@@ -1,4 +1,4 @@
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 
 export function DragIndicator() {
   return (

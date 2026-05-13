@@ -32,7 +32,7 @@ function getServerInstructions(ctx: McpContext): string {
   const dateFormat = ctx.dateFormat || null;
   const timeFormat = ctx.timeFormat ?? 24;
 
-  return `Midday is a financial operating system for small businesses. This MCP server provides access to financial data including transactions, invoices, customers, time tracking, documents, and reports.
+  return `CashPanel is a financial operating system for small businesses. This MCP server provides access to financial data including transactions, invoices, customers, time tracking, documents, and reports.
 
 ## Current Date & Timezone
 
@@ -87,15 +87,15 @@ export { MCP_SERVER_VERSION };
 export function createMcpServer(ctx: McpContext): McpServer {
   const server = new McpServer(
     {
-      name: "midday",
+      name: "cashpanel",
       version: MCP_SERVER_VERSION,
-      title: "Midday",
+      title: "CashPanel",
       description:
         "Financial operating system for small businesses — transactions, invoices, time tracking, and reports",
-      websiteUrl: "https://midday.ai",
+      websiteUrl: "https://cashpanel.io",
       icons: [
         {
-          src: "https://midday.ai/images/midday-icon.svg",
+          src: "https://cashpanel.io/images/cashpanel-icon.svg",
           mimeType: "image/svg+xml",
         },
       ],

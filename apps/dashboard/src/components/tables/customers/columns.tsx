@@ -1,22 +1,22 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Spinner } from "@midday/ui/spinner";
+} from "@cashpanel/ui/dropdown-menu";
+import { Spinner } from "@cashpanel/ui/spinner";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
+} from "@cashpanel/ui/tooltip";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import type { ColumnDef } from "@tanstack/react-table";
 import { formatDistanceToNowStrict } from "date-fns";

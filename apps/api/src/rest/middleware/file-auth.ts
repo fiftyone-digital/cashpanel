@@ -1,4 +1,4 @@
-import { verifyFileKey } from "@midday/encryption";
+import { verifyFileKey } from "@cashpanel/encryption";
 import type { MiddlewareHandler } from "hono";
 import { HTTPException } from "hono/http-exception";
 import { normalizeAndValidatePath } from "../routers/files/utils";

@@ -1,8 +1,8 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { useToast } from "@midday/ui/use-toast";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import {

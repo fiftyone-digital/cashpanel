@@ -1,24 +1,24 @@
 "use client";
 
-import { TZDate } from "@date-fns/tz";
-import { LogEvents } from "@midday/events/events";
-import { Calendar } from "@midday/ui/calendar";
+import { LogEvents } from "@cashpanel/events/events";
+import { Calendar } from "@cashpanel/ui/calendar";
 import {
   DropdownMenuGroup,
   DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from "@midday/ui/dropdown-menu";
+} from "@cashpanel/ui/dropdown-menu";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/select";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { TZDate } from "@date-fns/tz";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {

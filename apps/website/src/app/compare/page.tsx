@@ -1,13 +1,13 @@
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { baseUrl } from "@/app/sitemap";
 import { competitors } from "@/data/competitors";
 
 const year = new Date().getFullYear();
-const title = `Compare Midday to QuickBooks, Xero, FreshBooks & More (${year})`;
+const title = `Compare CashPanel to QuickBooks, Xero, FreshBooks & More (${year})`;
 const description =
-  "Looking for QuickBooks, Xero, or FreshBooks alternatives? Compare Midday to popular accounting and finance tools. Built for founders, not accountants. Free 14-day trial.";
+  "Looking for QuickBooks, Xero, or FreshBooks alternatives? Compare CashPanel to popular accounting and finance tools. Built for founders, not accountants. Free 14-day trial.";
 
 export const metadata: Metadata = {
   title,
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/api/og/compare`,
         width: 1200,
         height: 630,
-        alt: "Compare Midday to alternatives",
+        alt: "Compare CashPanel to alternatives",
       },
     ],
   },
@@ -53,11 +53,11 @@ export default function ComparePage() {
         {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
           <h1 className="font-serif text-3xl lg:text-4xl text-foreground mb-4">
-            Compare Midday to alternatives
+            Compare CashPanel to alternatives
           </h1>
           <p className="font-sans text-base text-muted-foreground max-w-2xl mx-auto">
-            Midday is built for founders and small teams who want clarity over
-            their finances without the complexity of traditional accounting
+            CashPanel is built for founders and small teams who want clarity
+            over their finances without the complexity of traditional accounting
             software.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function ComparePage() {
                     key={diff.title}
                     className="font-sans text-xs text-muted-foreground bg-muted px-2 py-1"
                   >
-                    {diff.midday}
+                    {diff.cashpanel}
                   </span>
                 ))}
               </div>
@@ -94,15 +94,15 @@ export default function ComparePage() {
         <div className="bg-background border border-border p-8 lg:p-12 text-center relative before:absolute before:inset-0 before:bg-[repeating-linear-gradient(-60deg,rgba(219,219,219,0.4),rgba(219,219,219,0.4)_1px,transparent_1px,transparent_6px)] dark:before:bg-[repeating-linear-gradient(-60deg,rgba(44,44,44,0.4),rgba(44,44,44,0.4)_1px,transparent_1px,transparent_6px)] before:pointer-events-none">
           <div className="relative z-10">
             <h2 className="font-serif text-2xl text-foreground mb-4">
-              Ready to try Midday?
+              Ready to try CashPanel?
             </h2>
             <p className="font-sans text-base text-muted-foreground mb-6 max-w-xl mx-auto">
               Start your 14-day free trial and see why founders are switching to
-              Midday.
+              CashPanel.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild className="btn-inverse h-11 px-6">
-                <a href="https://app.midday.ai/">Start your free trial</a>
+                <a href="https://app.cashpanel.io/">Start your free trial</a>
               </Button>
               <Button asChild variant="outline" className="h-11 px-6">
                 <Link href="/pricing">View pricing</Link>

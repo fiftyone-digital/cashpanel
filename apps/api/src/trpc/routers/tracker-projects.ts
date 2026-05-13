@@ -10,7 +10,7 @@ import {
   getTrackerProjectById,
   getTrackerProjects,
   upsertTrackerProject,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 
 export const trackerProjectsRouter = createTRPCRouter({
   get: protectedProcedure

@@ -3,7 +3,7 @@ import {
   getInvoiceTemplateById,
   getInvoiceTemplates,
   upsertInvoiceTemplate,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import { mcpInvoiceTemplateSchema, sanitize, sanitizeArray } from "../schemas";
 import {

@@ -11,9 +11,9 @@ import {
   isComplimentaryAccessEligible,
 } from "@api/utils/complimentary-access";
 import { api } from "@api/utils/polar";
-import { getTeamById, updateTeamById } from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
-import { getPlanIntervalByProductId, getPlanProductId } from "@midday/plans";
+import { getTeamById, updateTeamById } from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { getPlanIntervalByProductId, getPlanProductId } from "@cashpanel/plans";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

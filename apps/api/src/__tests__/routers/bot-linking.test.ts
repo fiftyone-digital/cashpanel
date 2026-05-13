@@ -10,28 +10,28 @@ describe("bot link code extraction", () => {
       "abc12345",
     );
     expect(
-      extractConnectionToken("telegram", "/start@midday_bot abc12345"),
+      extractConnectionToken("telegram", "/start@cashpanel_bot abc12345"),
     ).toBe("abc12345");
     expect(extractConnectionToken("telegram", "/start xyzABCDE")).toBe(
       "xyzABCDE",
     );
   });
 
-  test("extracts prefixed 'Connect to Midday:' messages", () => {
+  test("extracts prefixed 'Connect to CashPanel:' messages", () => {
     expect(
-      extractConnectionToken("whatsapp", "Connect to Midday: abc12345"),
+      extractConnectionToken("whatsapp", "Connect to CashPanel: abc12345"),
     ).toBe("abc12345");
-    expect(extractConnectionToken("slack", "Connect to Midday: abc12345")).toBe(
-      "abc12345",
-    );
     expect(
-      extractConnectionToken("sendblue", "Connect to Midday: abc12345"),
+      extractConnectionToken("slack", "Connect to CashPanel: abc12345"),
     ).toBe("abc12345");
-    expect(extractConnectionToken("slack", "Connect to Midday: xyzABCDE")).toBe(
-      "xyzABCDE",
-    );
     expect(
-      extractConnectionToken("whatsapp", "connect to midday:abc12345"),
+      extractConnectionToken("sendblue", "Connect to CashPanel: abc12345"),
+    ).toBe("abc12345");
+    expect(
+      extractConnectionToken("slack", "Connect to CashPanel: xyzABCDE"),
+    ).toBe("xyzABCDE");
+    expect(
+      extractConnectionToken("whatsapp", "connect to cashpanel:abc12345"),
     ).toBe("abc12345");
   });
 
@@ -94,19 +94,19 @@ describe("isExplicitConnectionAttempt", () => {
       true,
     );
     expect(
-      isExplicitConnectionAttempt("telegram", "/start@midday_bot abc12345"),
+      isExplicitConnectionAttempt("telegram", "/start@cashpanel_bot abc12345"),
     ).toBe(true);
   });
 
-  test("returns true for 'Connect to Midday:' prefix", () => {
+  test("returns true for 'Connect to CashPanel:' prefix", () => {
     expect(
-      isExplicitConnectionAttempt("whatsapp", "Connect to Midday: abc12345"),
+      isExplicitConnectionAttempt("whatsapp", "Connect to CashPanel: abc12345"),
     ).toBe(true);
     expect(
-      isExplicitConnectionAttempt("sendblue", "connect to midday:abc12345"),
+      isExplicitConnectionAttempt("sendblue", "connect to cashpanel:abc12345"),
     ).toBe(true);
     expect(
-      isExplicitConnectionAttempt("slack", "Connect to Midday: xyzABCDE"),
+      isExplicitConnectionAttempt("slack", "Connect to CashPanel: xyzABCDE"),
     ).toBe(true);
   });
 

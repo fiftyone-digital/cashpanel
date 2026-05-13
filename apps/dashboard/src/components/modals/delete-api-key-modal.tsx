@@ -1,14 +1,14 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { SubmitButton } from "@midday/ui/submit-button";
+} from "@cashpanel/ui/dialog";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTokenModalStore } from "@/store/token-modal";

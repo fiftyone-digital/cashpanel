@@ -1,5 +1,5 @@
 import { safeCompare } from "@api/utils/safe-compare";
-import { hash } from "@midday/encryption";
+import { hash } from "@cashpanel/encryption";
 
 export type OAuthApplication = {
   id: string;

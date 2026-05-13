@@ -1,4 +1,4 @@
-import { Notifications } from "@midday/notifications";
+import { Notifications } from "@cashpanel/notifications";
 import type { Job } from "bullmq";
 import {
   type NotificationPayload,

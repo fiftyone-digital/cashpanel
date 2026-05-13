@@ -1,5 +1,5 @@
-import { getInvoiceById } from "@midday/db/queries";
-import { Notifications } from "@midday/notifications";
+import { getInvoiceById } from "@cashpanel/db/queries";
+import { Notifications } from "@cashpanel/notifications";
 import type { Job } from "bullmq";
 import type { SendInvoiceReminderPayload } from "../../schemas/invoices";
 import { getDb } from "../../utils/db";

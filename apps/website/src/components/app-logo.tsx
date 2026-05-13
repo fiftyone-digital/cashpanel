@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  CashPanelDesktopLogo,
   ChatGPTMcpLogo,
   ClaudeMcpLogo,
   ClineMcpLogo,
@@ -15,7 +16,6 @@ import {
   GoogleDriveLogo,
   MakeMcpLogo,
   ManusMcpLogo,
-  MiddayDesktopLogo,
   N8nMcpLogo,
   OpenCodeMcpLogo,
   OutlookLogo,
@@ -32,9 +32,9 @@ import {
   XeroLogo,
   ZapierMcpLogo,
   ZedMcpLogo,
-} from "@midday/app-store/logos";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/app-store/logos";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 
 const IMessageLogo = () => <Icons.IMessage className="h-full w-full" />;
 const TelegramLogo = () => <Icons.Telegram className="h-full w-full" />;
@@ -52,7 +52,7 @@ const logoMap: Record<string, React.ComponentType> = {
   raycast: RaycastLogo,
   "stripe-payments": StripePaymentsLogo,
   stripe: StripeLogo,
-  "midday-desktop": MiddayDesktopLogo,
+  "cashpanel-desktop": CashPanelDesktopLogo,
   "google-drive": GoogleDriveLogo,
   dropbox: DropboxLogo,
   polar: PolarLogo,

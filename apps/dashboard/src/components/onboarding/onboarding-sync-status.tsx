@@ -1,8 +1,8 @@
 "use client";
 
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
-import { TextMorph } from "@midday/ui/text-morph";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { TextMorph } from "@cashpanel/ui/text-morph";
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useInitialConnectionStatus } from "@/hooks/use-initial-connection-status";

@@ -1,10 +1,10 @@
 import {
   CONTRA_REVENUE_CATEGORIES,
   REVENUE_CATEGORIES,
-} from "@midday/categories";
-import { buildSearchQuery } from "@midday/db/utils/search-query";
-import { createLoggerWithContext } from "@midday/logger";
-import { resolveTaxValues } from "@midday/utils/tax";
+} from "@cashpanel/categories";
+import { buildSearchQuery } from "@cashpanel/db/utils/search-query";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { resolveTaxValues } from "@cashpanel/utils/tax";
 import {
   and,
   asc,

@@ -1,4 +1,4 @@
-import { formatAmount } from "@midday/utils/format";
+import { formatAmount } from "@cashpanel/utils/format";
 import { ImageResponse } from "next/og";
 import { getQueryClient, trpc } from "@/trpc/server";
 
@@ -25,7 +25,7 @@ export default async function Image({ params }: Props) {
   const { customer, summary } = data;
 
   const hedvigSansFont = fetch(
-    "https://cdn.midday.ai/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
+    "https://cdn.cashpanel.io/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

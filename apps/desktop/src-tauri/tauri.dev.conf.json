@@ -1,6 +1,6 @@
 {
-  "productName": "Midday Dev",
-  "identifier": "ai.midday.app.dev",
+  "productName": "CashPanel Dev",
+  "identifier": "ai.cashpanel.app.dev",
   "bundle": {
     "icon": [
       "icons/dev/32x32.png",
@@ -14,7 +14,7 @@
   "plugins": {
     "deep-link": {
       "desktop": {
-        "schemes": ["midday-dev"]
+        "schemes": ["cashpanel-dev"]
       }
     }
   }

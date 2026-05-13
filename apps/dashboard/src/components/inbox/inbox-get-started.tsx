@@ -1,12 +1,12 @@
 "use client";
 
-import { getInboxEmail } from "@midday/inbox";
+import { getInboxEmail } from "@cashpanel/inbox";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
+} from "@cashpanel/ui/accordion";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { revalidateInbox } from "@/actions/revalidate-action";

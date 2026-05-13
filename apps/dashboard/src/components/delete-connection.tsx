@@ -11,17 +11,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
+} from "@cashpanel/ui/tooltip";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle, Loader2 } from "lucide-react";
 import { useState } from "react";
@@ -117,7 +117,7 @@ export function DeleteConnection({ connection }: Props) {
                     <p className="text-amber-700 dark:text-amber-300">
                       {provider
                         ? "Reconnecting later may not restore full history."
-                        : "Connection data is stored only in Midday and cannot be recovered."}
+                        : "Connection data is stored only in CashPanel and cannot be recovered."}
                     </p>
                   </div>
                 </div>

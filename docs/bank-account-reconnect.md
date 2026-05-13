@@ -177,7 +177,7 @@ All providers use a shared `matchAndUpdateAccountIds()` function that safely mat
 
 ### Encryption
 
-Sensitive fields are encrypted at rest using `@midday/encryption`:
+Sensitive fields are encrypted at rest using `@cashpanel/encryption`:
 - `iban` - Encrypted
 - `account_number` - Encrypted
 

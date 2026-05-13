@@ -1,13 +1,13 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
+import { cn } from "@cashpanel/ui/cn";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@midday/ui/collapsible";
-import { Icons } from "@midday/ui/icons";
-import { TextShimmer } from "@midday/ui/text-shimmer";
+} from "@cashpanel/ui/collapsible";
+import { Icons } from "@cashpanel/ui/icons";
+import { TextShimmer } from "@cashpanel/ui/text-shimmer";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import {

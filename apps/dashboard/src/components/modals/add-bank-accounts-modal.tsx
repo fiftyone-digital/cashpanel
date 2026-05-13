@@ -1,19 +1,19 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Avatar, AvatarFallback } from "@midday/ui/avatar";
+import { Avatar, AvatarFallback } from "@cashpanel/ui/avatar";
 import {
   Dialog,
   DialogContent,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { Skeleton } from "@midday/ui/skeleton";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Switch } from "@midday/ui/switch";
-import { useToast } from "@midday/ui/use-toast";
-import { getInitials } from "@midday/utils/format";
+} from "@cashpanel/ui/dialog";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Switch } from "@cashpanel/ui/switch";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { getInitials } from "@cashpanel/utils/format";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "@/locales/client";

@@ -21,7 +21,7 @@ import {
   InvalidReportTypeError,
   ReportExpiredError,
   ReportNotFoundError,
-} from "@midday/db/errors";
+} from "@cashpanel/db/errors";
 import {
   createReport,
   getBurnRate,
@@ -34,7 +34,7 @@ import {
   getRunway,
   getSpending,
   getTaxSummary,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { TRPCError } from "@trpc/server";
 
 export const reportsRouter = createTRPCRouter({
@@ -161,7 +161,7 @@ export const reportsRouter = createTRPCRouter({
 
       return {
         ...result,
-        shortUrl: `${process.env.MIDDAY_DASHBOARD_URL}/r/${result?.linkId}`,
+        shortUrl: `${process.env.CASHPANEL_DASHBOARD_URL}/r/${result?.linkId}`,
       };
     }),
 

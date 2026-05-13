@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
 import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs";
 import { useTransactionParams } from "@/hooks/use-transaction-params";
 

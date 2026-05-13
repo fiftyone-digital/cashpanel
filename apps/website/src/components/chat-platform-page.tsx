@@ -1,4 +1,4 @@
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import { FeaturesGridSection } from "./sections/features-grid-section";
 import { PricingSection } from "./sections/pricing-section";
@@ -75,7 +75,7 @@ export function ChatPlatformPage({ config }: { config: PlatformConfig }) {
                                 href={step.href}
                                 className="text-foreground underline underline-offset-4 hover:text-foreground/80 transition-colors"
                               >
-                                Open in Midday
+                                Open in CashPanel
                               </a>
                             </>
                           )}
@@ -108,7 +108,7 @@ export function ChatPlatformPage({ config }: { config: PlatformConfig }) {
                 <p className="font-sans text-sm text-muted-foreground leading-relaxed">
                   All notifications are on by default. To manage them, go to{" "}
                   <span className="text-foreground">{config.settingsPath}</span>{" "}
-                  in Midday.
+                  in CashPanel.
                 </p>
               </div>
 

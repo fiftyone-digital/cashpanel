@@ -1,4 +1,4 @@
-import baseConfig from "@midday/ui/tailwind.config";
+import baseConfig from "@cashpanel/ui/tailwind.config";
 import type { Config } from "tailwindcss";
 
 export default {

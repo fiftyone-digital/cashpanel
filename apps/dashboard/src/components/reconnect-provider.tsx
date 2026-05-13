@@ -1,14 +1,14 @@
-import { isDesktopApp } from "@midday/desktop-client/platform";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
+import { isDesktopApp } from "@cashpanel/desktop-client/platform";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/tooltip";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
 import { useTheme } from "next-themes";
@@ -88,7 +88,7 @@ export function ReconnectProvider({
     token: plaidToken,
     publicKey: "",
     env: process.env.NEXT_PUBLIC_PLAID_ENVIRONMENT!,
-    clientName: "Midday",
+    clientName: "CashPanel",
     product: ["transactions"],
     onSuccess: () => {
       setPlaidToken(undefined);

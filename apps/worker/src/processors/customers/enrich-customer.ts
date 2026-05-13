@@ -1,10 +1,10 @@
-import { enrichCustomer } from "@midday/customers";
+import { enrichCustomer } from "@cashpanel/customers";
 import {
   getCustomerForEnrichment,
   markCustomerEnrichmentFailed,
   updateCustomerEnrichment,
   updateCustomerEnrichmentStatus,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type { Job } from "bullmq";
 import type { EnrichCustomerPayload } from "../../schemas/customers";
 import { getDb } from "../../utils/db";

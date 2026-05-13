@@ -1,9 +1,9 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
-import { PlanCards } from "@midday/ui/plan-cards";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
+import { PlanCards } from "@cashpanel/ui/plan-cards";
 
 export function PricingSection() {
   return (
@@ -27,7 +27,7 @@ export function PricingSection() {
                 className="w-full bg-background border border-border text-foreground font-sans text-sm py-3 px-4 hover:bg-muted transition-colors"
               >
                 <a
-                  href="https://app.midday.ai/"
+                  href="https://app.cashpanel.io/"
                   onClick={() =>
                     track({
                       event: LogEvents.CTA.name,
@@ -53,7 +53,7 @@ export function PricingSection() {
                 className="w-full btn-inverse font-sans text-sm py-3 px-4 transition-colors"
               >
                 <a
-                  href="https://app.midday.ai/"
+                  href="https://app.cashpanel.io/"
                   onClick={() =>
                     track({
                       event: LogEvents.CTA.name,

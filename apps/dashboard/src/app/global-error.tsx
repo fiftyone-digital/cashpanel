@@ -2,7 +2,7 @@
 
 import { CopyInput } from "@/components/copy-input";
 import "@/styles/globals.css";
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import { useEffect } from "react";
 import { SUPPORT_EMAIL } from "@/utils/constants";
 

@@ -1,8 +1,8 @@
+import { createClient } from "@cashpanel/supabase/job";
+import { trpc } from "@cashpanel/trpc";
 import { reconnectConnectionSchema } from "@jobs/schema";
 import { syncConnection } from "@jobs/tasks/bank/sync/connection";
 import { matchAndUpdateAccountIds } from "@jobs/utils/account-matching";
-import { createClient } from "@midday/supabase/job";
-import { trpc } from "@midday/trpc";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 
 export const reconnectConnection = schemaTask({

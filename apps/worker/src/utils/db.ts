@@ -1,6 +1,6 @@
-import type { Database } from "@midday/db/client";
-import { getWorkerDb } from "@midday/db/worker-client";
-import { createLoggerWithContext } from "@midday/logger";
+import type { Database } from "@cashpanel/db/client";
+import { getWorkerDb } from "@cashpanel/db/worker-client";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 const logger = createLoggerWithContext("worker:db");
 

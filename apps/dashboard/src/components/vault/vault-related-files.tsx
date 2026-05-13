@@ -5,8 +5,12 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Carousel, CarouselContent, CarouselItem } from "@midday/ui/carousel";
+} from "@cashpanel/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@cashpanel/ui/carousel";
 import { useQuery } from "@tanstack/react-query";
 import { useDocumentParams } from "@/hooks/use-document-params";
 import { useTRPC } from "@/trpc/client";

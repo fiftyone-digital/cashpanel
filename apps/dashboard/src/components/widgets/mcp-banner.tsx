@@ -5,8 +5,8 @@ import {
   ClaudeMcpLogo,
   ManusMcpLogo,
   PerplexityMcpLogo,
-} from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { parseAsString, useQueryStates } from "nuqs";
@@ -140,7 +140,7 @@ export function McpBanner() {
 
             <Link href="/apps?q=mcp" className="block p-4">
               <h3 className="text-sm font-medium mb-1">
-                Use Midday where you already work
+                Use CashPanel where you already work
               </h3>
               <p className="text-xs text-muted-foreground">
                 Ask questions and take action without leaving your favorite AI

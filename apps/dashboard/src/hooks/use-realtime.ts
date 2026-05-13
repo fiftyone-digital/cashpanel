@@ -1,7 +1,7 @@
 "use client";
 
-import { createClient } from "@midday/supabase/client";
-import type { Database } from "@midday/supabase/types";
+import { createClient } from "@cashpanel/supabase/client";
+import type { Database } from "@cashpanel/supabase/types";
 import type {
   RealtimeChannel,
   RealtimePostgresChangesPayload,

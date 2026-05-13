@@ -1,5 +1,5 @@
-import { createClient } from "@midday/supabase/server";
-import { Button } from "@midday/ui/button";
+import { createClient } from "@cashpanel/supabase/server";
+import { Button } from "@cashpanel/ui/button";
 import {
   Card,
   CardContent,
@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
+} from "@cashpanel/ui/card";
 import Link from "next/link";
 import { UnenrollMFA } from "./unenroll-mfa";
 

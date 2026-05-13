@@ -36,7 +36,7 @@ function categorizeTransactions(
       providerTransactionId: string;
       newAttachmentIds: string[];
       removedAttachments: Array<{
-        middayId: string;
+        cashpanelId: string;
         providerId: string | null;
       }>;
     }>,
@@ -67,9 +67,9 @@ function categorizeTransactions(
     // Find removed attachments (in synced, not in current)
     const removedAttachments = [...syncedIds]
       .filter((id) => !currentAttachmentIds.has(id))
-      .map((middayId) => ({
-        middayId,
-        providerId: syncedMapping[middayId] ?? null,
+      .map((cashpanelId) => ({
+        cashpanelId,
+        providerId: syncedMapping[cashpanelId] ?? null,
       }));
 
     // Has attachment changes OR status is "partial" (needs retry)?
@@ -215,7 +215,7 @@ describe("categorizeTransactions", () => {
 
       expect(result.toSyncAttachments.length).toBe(1);
       expect(result.toSyncAttachments[0]?.removedAttachments).toContainEqual({
-        middayId: "att-deleted",
+        cashpanelId: "att-deleted",
         providerId: "provider-att-1",
       });
     });

@@ -1,5 +1,5 @@
+import { createClient } from "@cashpanel/supabase/job";
 import { transformTransaction } from "@jobs/utils/transform";
-import { createClient } from "@midday/supabase/job";
 import { logger, schemaTask, tasks } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { enrichTransactions } from "../../transactions/enrich-transaction";

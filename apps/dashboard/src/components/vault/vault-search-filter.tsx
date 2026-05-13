@@ -1,7 +1,7 @@
 "use client";
 
-import { Calendar } from "@midday/ui/calendar";
-import { cn } from "@midday/ui/cn";
+import { Calendar } from "@cashpanel/ui/calendar";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -13,9 +13,9 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import { useQuery } from "@tanstack/react-query";
 import { formatISO, parseISO } from "date-fns";
 import { useRef, useState } from "react";

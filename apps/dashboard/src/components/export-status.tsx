@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { addDays, addYears } from "date-fns";
 import { useCallback, useEffect, useRef, useState } from "react";

@@ -1,22 +1,22 @@
-import type { UnifiedApp } from "@midday/app-store/types";
-import { openUrl } from "@midday/desktop-client/core";
-import { isDesktopApp } from "@midday/desktop-client/platform";
-import { createClient } from "@midday/supabase/client";
+import type { UnifiedApp } from "@cashpanel/app-store/types";
+import { openUrl } from "@cashpanel/desktop-client/core";
+import { isDesktopApp } from "@cashpanel/desktop-client/platform";
+import { createClient } from "@cashpanel/supabase/client";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@midday/ui/card";
-import { Icons } from "@midday/ui/icons";
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Sheet, SheetContent, SheetHeader } from "@midday/ui/sheet";
-import { Skeleton } from "@midday/ui/skeleton";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/accordion";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@cashpanel/ui/card";
+import { Icons } from "@cashpanel/ui/icons";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { Sheet, SheetContent, SheetHeader } from "@cashpanel/ui/sheet";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs";
 import { useState } from "react";
@@ -412,7 +412,7 @@ export function UnifiedAppComponent({ app }: UnifiedAppProps) {
         return;
       }
 
-      // Handle apps with installUrl (like Midday Desktop download page)
+      // Handle apps with installUrl (like CashPanel Desktop download page)
       if (app.installUrl) {
         if (isDesktopApp()) {
           openUrl(app.installUrl);
@@ -518,7 +518,7 @@ export function UnifiedAppComponent({ app }: UnifiedAppProps) {
                 onClick={handleOnInitialize}
                 disabled={!app.active}
               >
-                {app.id === "midday-desktop" ? "Download" : "Install"}
+                {app.id === "cashpanel-desktop" ? "Download" : "Install"}
               </Button>
             ) : app.installed ? (
               <SubmitButton
@@ -563,7 +563,7 @@ export function UnifiedAppComponent({ app }: UnifiedAppProps) {
                     ? "Connected app"
                     : app.type === "external"
                       ? `By ${app.developerName}`
-                      : "By Midday"}
+                      : "By CashPanel"}
                 </span>
               </div>
 
@@ -586,7 +586,7 @@ export function UnifiedAppComponent({ app }: UnifiedAppProps) {
                       disabled={!app.active}
                       isSubmitting={isInstalling}
                     >
-                      {app.id === "midday-desktop" ? "Download" : "Install"}
+                      {app.id === "cashpanel-desktop" ? "Download" : "Install"}
                     </SubmitButton>
                   )}
                 </div>
@@ -710,15 +710,15 @@ export function UnifiedAppComponent({ app }: UnifiedAppProps) {
 
               <div className="shrink-0 pt-4 border-t border-border">
                 <p className="text-[10px] text-[#878787]">
-                  All apps on the Midday App Store are open-source and
-                  peer-reviewed. Midday Labs AB maintains high standards but
-                  doesn't endorse third-party apps. Apps published by Midday are
-                  officially certified. Report any concerns about app content or
-                  behavior.
+                  All apps on the CashPanel App Store are open-source and
+                  peer-reviewed. CashPanel Labs AB maintains high standards but
+                  doesn't endorse third-party apps. Apps published by CashPanel
+                  are officially certified. Report any concerns about app
+                  content or behavior.
                 </p>
 
                 <a
-                  href="mailto:support@midday.dev"
+                  href="mailto:support@cashpanel.io"
                   className="text-[10px] text-red-500"
                 >
                   Report app

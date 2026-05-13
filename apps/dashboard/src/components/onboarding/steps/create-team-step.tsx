@@ -1,8 +1,8 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { uniqueCurrencies } from "@midday/location/currencies";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { uniqueCurrencies } from "@cashpanel/location/currencies";
 import {
   Form,
   FormControl,
@@ -11,10 +11,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@midday/ui/form";
-import { Input } from "@midday/ui/input";
-import { useToast } from "@midday/ui/use-toast";
-import { getDefaultFiscalYearStartMonth } from "@midday/utils";
+} from "@cashpanel/ui/form";
+import { Input } from "@cashpanel/ui/input";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { getDefaultFiscalYearStartMonth } from "@cashpanel/utils";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { use, useEffect, useRef, useState } from "react";

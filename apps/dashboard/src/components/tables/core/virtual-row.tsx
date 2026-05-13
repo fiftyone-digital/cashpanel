@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { TableCell, TableRow } from "@midday/ui/table";
+import { cn } from "@cashpanel/ui/cn";
+import { TableCell, TableRow } from "@cashpanel/ui/table";
 import type {
   Cell,
   ColumnOrderState,

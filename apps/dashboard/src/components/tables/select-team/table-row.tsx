@@ -1,9 +1,9 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { TableRow as BaseTableRow, TableCell } from "@midday/ui/table";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { TableRow as BaseTableRow, TableCell } from "@cashpanel/ui/table";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { revalidateAfterTeamChange } from "@/actions/revalidate-action";

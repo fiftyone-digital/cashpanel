@@ -1,10 +1,10 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
-import { Input } from "@midday/ui/input";
-import { Skeleton } from "@midday/ui/skeleton";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
+import { Input } from "@cashpanel/ui/input";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import { keepPreviousData, useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -163,7 +163,7 @@ export function BankSearchContent({
     token: plaidToken,
     publicKey: "",
     env: process.env.NEXT_PUBLIC_PLAID_ENVIRONMENT!,
-    clientName: "Midday",
+    clientName: "CashPanel",
     product: ["transactions"],
     onSuccess: async (public_token, metadata) => {
       const result = await exchangeToken.mutateAsync({

@@ -7,14 +7,14 @@ import {
   updateTagSchema,
 } from "@api/schemas/tags";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import {
   createTag,
   deleteTag,
   getTagById,
   getTags,
   updateTag,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { withRequiredScope } from "../middleware";
 
 const app = new OpenAPIHono<Context>();

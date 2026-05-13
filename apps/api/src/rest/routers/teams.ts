@@ -7,14 +7,14 @@ import {
   updateTeamByIdSchema,
 } from "@api/schemas/team";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import {
   getTeamById,
   getTeamMembers,
   getTeamsByUserId,
   hasTeamAccess,
   updateTeamById,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import { withRequiredScope } from "../middleware";
 

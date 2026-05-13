@@ -7,7 +7,7 @@ export default defineConfig({
   dbCredentials: {
     url:
       process.env.TEST_DATABASE_URL ||
-      "postgres://postgres:postgres@localhost:5433/midday_test",
+      "postgres://postgres:postgres@localhost:5433/cashpanel_test",
   },
   verbose: true,
 });

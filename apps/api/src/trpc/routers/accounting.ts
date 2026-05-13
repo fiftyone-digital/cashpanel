@@ -10,14 +10,14 @@ import {
   getAccountingProvider,
   getOrgId,
   getOrgName,
-} from "@midday/accounting";
+} from "@cashpanel/accounting";
 import {
   deleteApp,
   getAccountingSyncStatus,
   getAppByAppId,
   getApps,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
 import { TRPCError } from "@trpc/server";
 
 export const accountingRouter = createTRPCRouter({

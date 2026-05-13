@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { CurrencyInput } from "@midday/ui/currency-input";
-import { Label } from "@midday/ui/label";
-import { RadioGroup, RadioGroupItem } from "@midday/ui/radio-group";
+import { Button } from "@cashpanel/ui/button";
+import { CurrencyInput } from "@cashpanel/ui/currency-input";
+import { Label } from "@cashpanel/ui/label";
+import { RadioGroup, RadioGroupItem } from "@cashpanel/ui/radio-group";
 import {
   parseAsArrayOf,
   parseAsInteger,

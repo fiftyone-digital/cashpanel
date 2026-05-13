@@ -3,17 +3,17 @@ import {
   createSlackWebClient,
   downloadFile,
   ensureBotInChannel,
-} from "@midday/app-store/slack-client";
+} from "@cashpanel/app-store/slack-client";
 import {
   createInbox,
   groupRelatedInboxItems,
   updateInbox,
   updateInboxWithProcessedData,
-} from "@midday/db/queries";
-import { DocumentClient } from "@midday/documents";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
-import { getExtensionFromMimeType } from "@midday/utils";
+} from "@cashpanel/db/queries";
+import { DocumentClient } from "@cashpanel/documents";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
+import { getExtensionFromMimeType } from "@cashpanel/utils";
 import { generateText } from "ai";
 import type { Job } from "bullmq";
 import { format, parseISO } from "date-fns";
@@ -468,10 +468,10 @@ Focus on what was purchased (e.g., "office supplies", "software subscription", "
                 type: "button",
                 text: {
                   type: "plain_text",
-                  text: "View in Midday",
+                  text: "View in CashPanel",
                   emoji: true,
                 },
-                url: `https://app.midday.ai/inbox?inboxId=${encodeURIComponent(updatedInbox.id)}`,
+                url: `https://app.cashpanel.io/inbox?inboxId=${encodeURIComponent(updatedInbox.id)}`,
                 action_id: "view_receipt",
               },
             ],

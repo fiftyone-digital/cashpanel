@@ -1,11 +1,11 @@
 "use client";
 
+import { Form, FormControl, FormField, FormItem } from "@cashpanel/ui/form";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Textarea } from "@cashpanel/ui/textarea";
+import { TimeRangeInput } from "@cashpanel/ui/time-range-input";
 import { TZDate } from "@date-fns/tz";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem } from "@midday/ui/form";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Textarea } from "@midday/ui/textarea";
-import { TimeRangeInput } from "@midday/ui/time-range-input";
 import { startOfDay } from "date-fns";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";

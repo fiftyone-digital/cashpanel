@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
-import { Skeleton } from "@midday/ui/skeleton";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";

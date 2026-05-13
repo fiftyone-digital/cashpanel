@@ -1,11 +1,11 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
-import { Skeleton } from "@midday/ui/skeleton";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useDocumentParams } from "@/hooks/use-document-params";
 import { useLocalStorage } from "@/hooks/use-local-storage";
@@ -75,7 +75,7 @@ export function SuggestedMatch({
   const showLearningToast = () => {
     if (!hasSeenLearningToast) {
       toast({
-        title: "Midday AI",
+        title: "CashPanel AI",
         description: "We learn from your choices to improve matches over time.",
         variant: "ai",
         duration: 5000,

@@ -1,9 +1,9 @@
-import { fetchAllInstitutions, syncInstitutionLogos } from "@midday/banking";
+import { fetchAllInstitutions, syncInstitutionLogos } from "@cashpanel/banking";
 import {
   getActiveInstitutionIds,
   markInstitutionsRemoved,
   upsertInstitutions,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type { Job } from "bullmq";
 import { getDb } from "../../utils/db";
 import { isProduction } from "../../utils/env";

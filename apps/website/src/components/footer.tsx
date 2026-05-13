@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -84,12 +84,12 @@ export function Footer() {
                   { href: "/story", label: "Story", external: false },
                   { href: "/updates", label: "Updates", external: false },
                   {
-                    href: "https://x.com/middayai",
+                    href: "https://x.com/cashpanelai",
                     label: "X / Twitter",
                     external: true,
                   },
                   {
-                    href: "https://www.linkedin.com/company/midday-ai",
+                    href: "https://www.linkedin.com/company/cashpanel-ai",
                     label: "LinkedIn",
                     external: true,
                   },
@@ -119,7 +119,7 @@ export function Footer() {
                   { href: "/agents", label: "CLI", external: false },
                   { href: "/computer", label: "Computer", external: false },
                   {
-                    href: "https://api.midday.ai",
+                    href: "https://api.cashpanel.io",
                     label: "API",
                     external: true,
                   },
@@ -231,7 +231,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <Link
-            href="https://midday.openstatus.dev/"
+            href="https://cashpanel.openstatus.dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 hover:opacity-80 transition-opacity"
@@ -255,7 +255,7 @@ export function Footer() {
             </div>
           </Link>
           <p className="font-sans text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Midday Labs AB. All rights reserved.
+            © {new Date().getFullYear()} CashPanel Labs AB. All rights reserved.
           </p>
         </div>
       </div>
@@ -274,7 +274,7 @@ export function Footer() {
             color: "hsl(var(--secondary))",
           }}
         >
-          midday
+          cashpanel
         </h1>
       </div>
     </footer>

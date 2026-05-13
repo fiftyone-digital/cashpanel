@@ -1,4 +1,4 @@
-import type { BotPlatform } from "@midday/bot";
+import type { BotPlatform } from "@cashpanel/bot";
 
 export type BotThreadState = {
   teamId?: string;

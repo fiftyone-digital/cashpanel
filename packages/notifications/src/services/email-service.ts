@@ -1,14 +1,14 @@
-import type { Database } from "@midday/db/client";
-import { shouldSendNotification } from "@midday/db/queries";
-import InsightsWeeklyEmail from "@midday/email/emails/insights-weekly";
-import InvoiceEmail from "@midday/email/emails/invoice";
-import InvoiceOverdueEmail from "@midday/email/emails/invoice-overdue";
-import InvoicePaidEmail from "@midday/email/emails/invoice-paid";
-import InvoiceReminderEmail from "@midday/email/emails/invoice-reminder";
-import TransactionsEmail from "@midday/email/emails/transactions";
-import TransactionsExportedEmail from "@midday/email/emails/transactions-exported";
-import UpcomingInvoicesEmail from "@midday/email/emails/upcoming-invoices";
-import { render } from "@midday/email/render";
+import type { Database } from "@cashpanel/db/client";
+import { shouldSendNotification } from "@cashpanel/db/queries";
+import InsightsWeeklyEmail from "@cashpanel/email/emails/insights-weekly";
+import InvoiceEmail from "@cashpanel/email/emails/invoice";
+import InvoiceOverdueEmail from "@cashpanel/email/emails/invoice-overdue";
+import InvoicePaidEmail from "@cashpanel/email/emails/invoice-paid";
+import InvoiceReminderEmail from "@cashpanel/email/emails/invoice-reminder";
+import TransactionsEmail from "@cashpanel/email/emails/transactions";
+import TransactionsExportedEmail from "@cashpanel/email/emails/transactions-exported";
+import UpcomingInvoicesEmail from "@cashpanel/email/emails/upcoming-invoices";
+import { render } from "@cashpanel/email/render";
 import { nanoid } from "nanoid";
 import { type CreateEmailOptions, Resend } from "resend";
 import type { EmailInput } from "../base";
@@ -138,7 +138,7 @@ export class EmailService {
     const recipients = email.to || [email.user.email];
 
     const payload: CreateEmailOptions = {
-      from: email.from || "Midday <middaybot@midday.ai>",
+      from: email.from || "CashPanel <cashpanelbot@cashpanel.io>",
       to: recipients,
       subject: email.subject,
       html,

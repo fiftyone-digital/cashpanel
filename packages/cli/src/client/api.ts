@@ -43,7 +43,7 @@ export async function request<T = unknown>(
   const headers: Record<string, string> = {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
-    "User-Agent": "midday-cli/0.1.0",
+    "User-Agent": "cashpanel-cli/0.1.0",
   };
 
   if (opts.debug) {
@@ -221,7 +221,7 @@ function parseZodIssues(
     const command = path.replace(/^\//, "").replace(/\//g, " ");
     const hint =
       flags.length > 0
-        ? `Try: midday ${command} ${flags.join(" ")}`
+        ? `Try: cashpanel ${command} ${flags.join(" ")}`
         : undefined;
 
     return { message: label, hint };

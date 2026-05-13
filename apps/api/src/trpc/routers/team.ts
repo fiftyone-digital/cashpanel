@@ -12,9 +12,7 @@ import {
   updateTeamMemberSchema,
 } from "@api/schemas/team";
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
-import type { InviteTeamMembersPayload } from "@jobs/schema";
-
-import { teamCache } from "@midday/cache/team-cache";
+import { teamCache } from "@cashpanel/cache/team-cache";
 import {
   acceptTeamInvite,
   createTeam,
@@ -36,8 +34,9 @@ import {
   leaveTeam,
   updateTeamById,
   updateTeamMember,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
+import type { InviteTeamMembersPayload } from "@jobs/schema";
 import { tasks } from "@trigger.dev/sdk";
 import { TRPCError } from "@trpc/server";
 

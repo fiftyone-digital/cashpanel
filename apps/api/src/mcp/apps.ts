@@ -8,14 +8,14 @@ import {
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 const views: Record<string, string> = {
-  "ui://midday/invoice-preview": "invoice-preview.html",
+  "ui://cashpanel/invoice-preview": "invoice-preview.html",
 };
 
 function resolveDist(): string | null {
   try {
     const require = createRequire(import.meta.url);
     const dist = join(
-      dirname(require.resolve("@midday/mcp-apps/package.json")),
+      dirname(require.resolve("@cashpanel/mcp-apps/package.json")),
       "dist",
       "src",
       "views",

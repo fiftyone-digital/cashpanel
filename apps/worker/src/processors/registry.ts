@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import type { Job } from "bullmq";
 import { isDevelopment } from "../utils/env";
 

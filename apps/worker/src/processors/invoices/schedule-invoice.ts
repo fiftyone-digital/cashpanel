@@ -1,5 +1,5 @@
-import { getInvoiceById, updateInvoice } from "@midday/db/queries";
-import { decodeJobId } from "@midday/job-client";
+import { getInvoiceById, updateInvoice } from "@cashpanel/db/queries";
+import { decodeJobId } from "@cashpanel/job-client";
 import type { Job } from "bullmq";
 import { DEFAULT_JOB_OPTIONS } from "../../config/job-options";
 import { invoicesQueue } from "../../queues/invoices";

@@ -15,7 +15,6 @@ import {
   upsertTrackerEntriesSchema,
 } from "@api/schemas/tracker-entries";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import {
   bulkCreateTrackerEntries,
   deleteTrackerEntry,
@@ -25,7 +24,8 @@ import {
   startTimer,
   stopTimer,
   upsertTrackerEntries,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import { withRequiredScope } from "../middleware";
 

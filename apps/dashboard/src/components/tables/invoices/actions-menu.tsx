@@ -1,6 +1,6 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,9 +10,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,8 +22,8 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/dropdown-menu";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

@@ -1,6 +1,6 @@
+import { createClient } from "@cashpanel/supabase/job";
 import { TZDate } from "@date-fns/tz";
 import { updateInvoiceStatus } from "@jobs/utils/update-invocie";
-import { createClient } from "@midday/supabase/job";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { subDays } from "date-fns";
 import { z } from "zod";

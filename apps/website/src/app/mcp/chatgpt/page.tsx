@@ -4,10 +4,10 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "ChatGPT MCP Integration",
   description:
-    "Build custom ChatGPT integrations with Midday using the MCP SDK. Connect OpenAI-powered apps to your business financial data.",
+    "Build custom ChatGPT integrations with CashPanel using the MCP SDK. Connect OpenAI-powered apps to your business financial data.",
   path: "/mcp/chatgpt",
   og: {
-    title: "ChatGPT + Midday",
+    title: "ChatGPT + CashPanel",
     description: "Build custom integrations with your business data",
   },
   keywords: [

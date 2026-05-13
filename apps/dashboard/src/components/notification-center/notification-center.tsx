@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@midday/ui/tabs";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@cashpanel/ui/tabs";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Link from "next/link";
 import { useEffect, useState } from "react";

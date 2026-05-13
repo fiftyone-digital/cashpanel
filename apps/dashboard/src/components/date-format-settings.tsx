@@ -6,14 +6,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
+} from "@cashpanel/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
+} from "@cashpanel/ui/select";
 import { useUserMutation, useUserQuery } from "@/hooks/use-user";
 
 export function DateFormatSettings() {

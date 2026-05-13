@@ -1,4 +1,4 @@
-import { encrypt, hash } from "@midday/encryption";
+import { encrypt, hash } from "@cashpanel/encryption";
 import { and, eq } from "drizzle-orm";
 import type { Database } from "../client";
 import { apiKeys, users } from "../schema";

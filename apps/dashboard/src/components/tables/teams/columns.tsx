@@ -9,17 +9,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/ui/alert-dialog";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Button } from "@cashpanel/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { toast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/dropdown-menu";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { toast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { ColumnDef, FilterFn, Row } from "@tanstack/react-table";
 import { Loader2, MoreHorizontal } from "lucide-react";

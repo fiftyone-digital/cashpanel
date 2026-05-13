@@ -22,8 +22,8 @@ import {
   deleteDocument,
   getDocumentById,
   getDocuments,
-} from "@midday/db/queries";
-import { signedUrl } from "@midday/supabase/storage";
+} from "@cashpanel/db/queries";
+import { signedUrl } from "@cashpanel/supabase/storage";
 import { withRequiredScope } from "../middleware";
 
 const app = new OpenAPIHono<Context>();

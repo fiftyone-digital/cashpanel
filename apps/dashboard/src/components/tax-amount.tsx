@@ -1,8 +1,8 @@
 "use client";
 
-import { CurrencyInput } from "@midday/ui/currency-input";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
+import { CurrencyInput } from "@cashpanel/ui/currency-input";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
 import {
   Select,
   SelectContent,
@@ -10,12 +10,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
+} from "@cashpanel/ui/select";
 import {
   calculateTaxAmountFromGross,
   calculateTaxRateFromGross,
   getTaxTypeLabel,
-} from "@midday/utils/tax";
+} from "@cashpanel/utils/tax";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { useDebounceCallback } from "usehooks-ts";

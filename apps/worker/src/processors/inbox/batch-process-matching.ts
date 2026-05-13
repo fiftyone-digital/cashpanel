@@ -1,4 +1,7 @@
-import { calculateInboxSuggestions, hasSuggestion } from "@midday/db/queries";
+import {
+  calculateInboxSuggestions,
+  hasSuggestion,
+} from "@cashpanel/db/queries";
 import type { Job } from "bullmq";
 import {
   type BatchProcessMatchingPayload,

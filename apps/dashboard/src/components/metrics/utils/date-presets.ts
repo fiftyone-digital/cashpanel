@@ -1,4 +1,4 @@
-import { getFiscalYearToDate } from "@midday/utils";
+import { getFiscalYearToDate } from "@cashpanel/utils";
 import {
   endOfMonth,
   endOfQuarter,

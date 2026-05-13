@@ -9,7 +9,7 @@ import {
   type ToolsResponse,
 } from "@api/composio/client";
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
-import { CURATED_TOOLKIT_SLUGS } from "@midday/connectors";
+import { CURATED_TOOLKIT_SLUGS } from "@cashpanel/connectors";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

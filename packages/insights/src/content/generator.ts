@@ -8,7 +8,7 @@ import { createOpenAI } from "@ai-sdk/openai";
  * - Story: Forward-looking or actionable insight (max 15 words)
  * - Actions: Specific actionable items with exact names/amounts
  */
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { generateObject, generateText } from "ai";
 import { z } from "zod/v4";
 

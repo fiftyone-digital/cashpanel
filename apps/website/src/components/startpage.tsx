@@ -1,9 +1,9 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,17 +11,17 @@ import { useEffect, useRef, useState } from "react";
 
 // Dynamic imports for animations (5,500+ lines - loaded after hero)
 const InboxMatchAnimation = dynamic(() =>
-  import("@midday/ui/animations/inbox-match").then(
+  import("@cashpanel/ui/animations/inbox-match").then(
     (m) => m.InboxMatchAnimation,
   ),
 );
 const InvoicePaymentAnimation = dynamic(() =>
-  import("@midday/ui/animations/invoice-payment").then(
+  import("@cashpanel/ui/animations/invoice-payment").then(
     (m) => m.InvoicePaymentAnimation,
   ),
 );
 const TransactionFlowAnimation = dynamic(() =>
-  import("@midday/ui/animations/transaction-flow").then(
+  import("@cashpanel/ui/animations/transaction-flow").then(
     (m) => m.TransactionFlowAnimation,
   ),
 );
@@ -83,50 +83,51 @@ const videos = [
   {
     id: "overview",
     title: "Overview",
-    subtitle: "See how Midday helps you run your business without the admin.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4",
+    subtitle:
+      "See how CashPanel helps you run your business without the admin.",
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4",
   },
   {
     id: "transactions",
     title: "Transactions",
     subtitle:
       "Every payment is automatically collected, categorized, and kept in one place so nothing gets lost.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
   {
     id: "inbox",
     title: "Inbox",
     subtitle:
       "Receipts and invoices are pulled from email and payments, then matched to transactions automatically.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
   {
     id: "time-tracking",
     title: "Time tracking",
     subtitle:
       "Track time across projects and customers, then turn hours into accurate invoices so nothing is missed.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
   {
     id: "invoicing",
     title: "Invoicing",
     subtitle:
       "Create invoices, send to customers, and track payments in one place.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
   {
     id: "customers",
     title: "Customers",
     subtitle:
       "See revenue, profitability, and activity per customer in one place without switching between tools.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
   {
     id: "files",
     title: "Files",
     subtitle:
       "Smart storage that automatically organizes and connects files to transactions, invoices, and customers.",
-    url: "https://cdn.midday.ai/videos/login-video.mp4", // Replace with actual video URL
+    url: "https://cdn.cashpanel.io/videos/login-video.mp4", // Replace with actual video URL
   },
 ];
 
@@ -272,7 +273,7 @@ export function StartPage() {
                   href="/computer"
                   className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-border text-xs font-sans text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
                 >
-                  Introducing Midday Computer
+                  Introducing CashPanel Computer
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
 
@@ -297,7 +298,7 @@ export function StartPage() {
                   className="btn-inverse h-11 px-6 transition-colors"
                 >
                   <a
-                    href="https://app.midday.ai/"
+                    href="https://app.cashpanel.io/"
                     onClick={() =>
                       track({
                         event: LogEvents.CTA.name,
@@ -434,8 +435,8 @@ export function StartPage() {
                 }}
               >
                 <Image
-                  src="https://cdn.midday.ai/video-poster-v2.jpg"
-                  alt="Midday dashboard preview"
+                  src="https://cdn.cashpanel.io/video-poster-v2.jpg"
+                  alt="CashPanel dashboard preview"
                   fill
                   fetchPriority="high"
                   quality={50}
@@ -462,7 +463,7 @@ export function StartPage() {
                 preload="none"
               >
                 <source
-                  src="https://cdn.midday.ai/videos/login-video.mp4"
+                  src="https://cdn.cashpanel.io/videos/login-video.mp4"
                   type="video/mp4"
                 />
               </video>

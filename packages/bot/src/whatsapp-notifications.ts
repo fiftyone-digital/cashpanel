@@ -179,11 +179,11 @@ export async function sendWhatsAppMatchNotification(
 }
 
 export const WHATSAPP_TEMPLATE_NAMES = {
-  transaction: "midday_new_transactions",
-  invoice_paid: "midday_invoice_paid",
-  invoice_overdue: "midday_invoice_overdue",
-  recurring_invoice_upcoming: "midday_recurring_upcoming",
-  match: "midday_receipt_matched",
+  transaction: "cashpanel_new_transactions",
+  invoice_paid: "cashpanel_invoice_paid",
+  invoice_overdue: "cashpanel_invoice_overdue",
+  recurring_invoice_upcoming: "cashpanel_recurring_upcoming",
+  match: "cashpanel_receipt_matched",
 } as const;
 
 export type WhatsAppTemplateName =

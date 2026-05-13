@@ -1,9 +1,9 @@
 "use client";
 
+import { Table, TableBody } from "@cashpanel/ui/table";
+import { Tooltip, TooltipProvider } from "@cashpanel/ui/tooltip";
+import { toast } from "@cashpanel/ui/use-toast";
 import { closestCenter, DndContext } from "@dnd-kit/core";
-import { Table, TableBody } from "@midday/ui/table";
-import { Tooltip, TooltipProvider } from "@midday/ui/tooltip";
-import { toast } from "@midday/ui/use-toast";
 import {
   useMutation,
   useQueryClient,

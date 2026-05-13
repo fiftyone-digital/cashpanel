@@ -1,5 +1,5 @@
 {
-  "name": "@midday/jobs",
+  "name": "@cashpanel/jobs",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,12 +16,12 @@
   "dependencies": {
     "@ai-sdk/google": "catalog:",
     "@fast-csv/format": "catalog:",
-    "@midday/db": "workspace:*",
-    "@midday/email": "workspace:*",
-    "@midday/encryption": "workspace:*",
-    "@midday/notifications": "workspace:*",
-    "@midday/supabase": "workspace:*",
-    "@midday/trpc": "workspace:*",
+    "@cashpanel/db": "workspace:*",
+    "@cashpanel/email": "workspace:*",
+    "@cashpanel/encryption": "workspace:*",
+    "@cashpanel/notifications": "workspace:*",
+    "@cashpanel/supabase": "workspace:*",
+    "@cashpanel/trpc": "workspace:*",
     "@sindresorhus/slugify": "catalog:",
     "@zip.js/zip.js": "^2.8.23",
     "ai": "catalog:",

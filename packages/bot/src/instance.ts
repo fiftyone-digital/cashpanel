@@ -1,14 +1,14 @@
+import { resolveRedisUrl } from "@cashpanel/cache/shared-redis";
 import { createSlackAdapter } from "@chat-adapter/slack";
 import { createRedisState } from "@chat-adapter/state-redis";
 import { createTelegramAdapter } from "@chat-adapter/telegram";
 import { createWhatsAppAdapter } from "@chat-adapter/whatsapp";
-import { resolveRedisUrl } from "@midday/cache/shared-redis";
 import { Chat } from "chat";
 import { createSendblueAdapter } from "chat-adapter-sendblue";
 
-export function createMiddayBot() {
+export function createCashPanelBot() {
   return new Chat({
-    userName: "midday",
+    userName: "cashpanel",
     adapters: {
       whatsapp: createWhatsAppAdapter(),
       telegram: createTelegramAdapter(),
@@ -23,4 +23,4 @@ export function createMiddayBot() {
   });
 }
 
-export const bot = createMiddayBot();
+export const bot = createCashPanelBot();

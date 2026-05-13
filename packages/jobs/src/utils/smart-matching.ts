@@ -1,5 +1,5 @@
+import { getPendingInboxForMatching } from "@cashpanel/db/queries";
 import { getDb } from "@jobs/init";
-import { getPendingInboxForMatching } from "@midday/db/queries";
 import { tasks } from "@trigger.dev/sdk";
 
 /**

@@ -3,8 +3,8 @@ import {
   type DbAccount,
   findMatchingAccount,
   type MatchingResult,
-} from "@midday/supabase/account-matching";
-import { createClient } from "@midday/supabase/job";
+} from "@cashpanel/supabase/account-matching";
+import { createClient } from "@cashpanel/supabase/job";
 import { logger } from "@trigger.dev/sdk";
 
 // Re-export types for convenience
@@ -14,7 +14,7 @@ export { findMatchingAccount };
 /**
  * Matches API accounts to existing database accounts and updates their account_id.
  *
- * Uses findMatchingAccount from @midday/supabase for the pure matching logic,
+ * Uses findMatchingAccount from @cashpanel/supabase for the pure matching logic,
  * then handles the database updates and logging.
  */
 export async function matchAndUpdateAccountIds({

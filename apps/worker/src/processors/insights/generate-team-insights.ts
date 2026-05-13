@@ -3,16 +3,16 @@ import {
   createInsight,
   getInsightByPeriod,
   updateInsight,
-} from "@midday/db/queries";
-import type { InsightMetric } from "@midday/db/schema";
+} from "@cashpanel/db/queries";
+import type { InsightMetric } from "@cashpanel/db/schema";
 import {
   createInsightsService,
   formatDateForQuery,
   getPeriodInfo,
   getPeriodLabel,
   type PeriodType,
-} from "@midday/insights";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/insights";
+import { triggerJob } from "@cashpanel/job-client";
 import type { Job } from "bullmq";
 import { getDb } from "../../utils/db";
 import { BaseProcessor } from "../base";
@@ -41,7 +41,7 @@ type ProcessResult = {
 /**
  * Generates AI-powered business insights for a team.
  *
- * This processor uses @midday/insights to:
+ * This processor uses @cashpanel/insights to:
  * 1. Fetch current and previous period data
  * 2. Calculate all relevant metrics
  * 3. Select the 4 most important metrics using smart scoring

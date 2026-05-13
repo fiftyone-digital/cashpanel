@@ -1,12 +1,12 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { BulkReconciliationAnimation } from "@midday/ui/animations/bulk-reconciliation";
-import { DashboardAnimation } from "@midday/ui/animations/dashboard";
-import { InboxMatchAnimation } from "@midday/ui/animations/inbox-match";
-import { TransactionFlowAnimation } from "@midday/ui/animations/transaction-flow";
-import { Button } from "@midday/ui/button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { BulkReconciliationAnimation } from "@cashpanel/ui/animations/bulk-reconciliation";
+import { DashboardAnimation } from "@cashpanel/ui/animations/dashboard";
+import { InboxMatchAnimation } from "@cashpanel/ui/animations/inbox-match";
+import { TransactionFlowAnimation } from "@cashpanel/ui/animations/transaction-flow";
+import { Button } from "@cashpanel/ui/button";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -87,8 +87,8 @@ export function PreAccounting() {
                 Pre-accounting, handled.
               </h1>
               <p className="text-muted-foreground text-base leading-normal font-sans text-center mx-auto">
-                Midday collects, matches, and prepares your data so your books
-                are always ready before they reach an accountant.
+                CashPanel collects, matches, and prepares your data so your
+                books are always ready before they reach an accountant.
               </p>
             </div>
 
@@ -100,7 +100,7 @@ export function PreAccounting() {
                   className="w-full sm:w-auto h-11 px-6 text-sm font-sans"
                 >
                   <a
-                    href="https://app.midday.ai/"
+                    href="https://app.cashpanel.io/"
                     onClick={() =>
                       track({
                         event: LogEvents.CTA.name,
@@ -172,8 +172,8 @@ export function PreAccounting() {
                 Pre-accounting, handled.
               </h1>
               <p className="text-muted-foreground text-sm xl:text-base leading-normal max-w-xl mx-auto font-sans text-center">
-                Midday collects, matches, and prepares your data so your books
-                are always ready before they reach an accountant.
+                CashPanel collects, matches, and prepares your data so your
+                books are always ready before they reach an accountant.
               </p>
             </div>
 
@@ -181,7 +181,7 @@ export function PreAccounting() {
             <div className="flex gap-6 justify-center">
               <Button asChild className="h-11 px-6 text-sm font-sans">
                 <a
-                  href="https://app.midday.ai/"
+                  href="https://app.cashpanel.io/"
                   onClick={() =>
                     track({
                       event: LogEvents.CTA.name,
@@ -389,8 +389,8 @@ export function PreAccounting() {
               Accountant-ready, without the back and forth
             </h2>
             <p className="font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
-              Midday prepares clean, structured records so exporting or syncing
-              to your accounting system takes minutes, not days.
+              CashPanel prepares clean, structured records so exporting or
+              syncing to your accounting system takes minutes, not days.
             </p>
           </div>
 

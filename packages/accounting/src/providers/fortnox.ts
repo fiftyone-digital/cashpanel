@@ -1,4 +1,4 @@
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import { parseISO } from "date-fns";
 import { BaseAccountingProvider } from "../provider";
 import {
@@ -1142,7 +1142,7 @@ export class FortnoxProvider extends BaseAccountingProvider {
             },
           ];
 
-      // Use the same description as shown in Midday
+      // Use the same description as shown in CashPanel
       const baseDescription =
         tx.description || tx.counterpartyName || "Transaction";
 

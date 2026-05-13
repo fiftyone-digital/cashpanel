@@ -6,15 +6,15 @@ import { withPrimaryReadAfterWrite } from "@api/rest/middleware/primary-read-aft
 import type { Context } from "@api/rest/types";
 import { getGeoContext } from "@api/utils/geo";
 import type { Scope } from "@api/utils/scopes";
+import { getUserById } from "@cashpanel/db/queries";
 import { StreamableHTTPTransport } from "@hono/mcp";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { getUserById } from "@midday/db/queries";
 import * as Sentry from "@sentry/bun";
 import { rateLimiter } from "hono-rate-limiter";
 
 const app = new OpenAPIHono<Context>();
 
-const apiUrl = process.env.MIDDAY_API_URL || "https://api.midday.ai";
+const apiUrl = process.env.CASHPANEL_API_URL || "https://api.cashpanel.io";
 
 const mcpRateLimitEnv = process.env.MCP_API_RATE_LIMIT;
 const parsedMcpLimit =

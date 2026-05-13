@@ -116,7 +116,7 @@ export const docsNavigation: DocSection[] = [
       {
         slug: "introduction",
         title: "Introduction",
-        description: "What is Midday?",
+        description: "What is CashPanel?",
         order: 1,
       },
       {
@@ -398,7 +398,7 @@ export const docsNavigation: DocSection[] = [
       {
         slug: "using-assistant",
         title: "Using Assistant",
-        description: "Ask Midday anything",
+        description: "Ask CashPanel anything",
         order: 1,
       },
       {

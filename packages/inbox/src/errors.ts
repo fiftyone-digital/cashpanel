@@ -8,7 +8,7 @@
  *
  * @example
  * ```typescript
- * import { InboxAuthError, isInboxAuthError } from "@midday/inbox/errors";
+ * import { InboxAuthError, isInboxAuthError } from "@cashpanel/inbox/errors";
  *
  * try {
  *   await connector.getAttachments(options);

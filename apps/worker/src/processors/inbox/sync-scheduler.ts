@@ -3,17 +3,17 @@ import {
   getInboxAccountInfo,
   getInboxBlocklist,
   updateInboxAccount,
-} from "@midday/db/queries";
-import { separateBlocklistEntries } from "@midday/db/utils/blocklist";
-import { InboxConnector } from "@midday/inbox/connector";
+} from "@cashpanel/db/queries";
+import { separateBlocklistEntries } from "@cashpanel/db/utils/blocklist";
+import { InboxConnector } from "@cashpanel/inbox/connector";
 import {
   assertInboxAuthError,
   InboxSyncError,
   isInboxAuthError,
-} from "@midday/inbox/errors";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
-import { ensureFileExtension } from "@midday/utils";
+} from "@cashpanel/inbox/errors";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
+import { ensureFileExtension } from "@cashpanel/utils";
 import type { Job } from "bullmq";
 import type { InboxProviderSyncAccountPayload } from "../../schemas/inbox";
 import { getDb } from "../../utils/db";

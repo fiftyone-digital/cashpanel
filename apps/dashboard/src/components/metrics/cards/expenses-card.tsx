@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatedNumber } from "@/components/animated-number";
 import { StackedBarChart } from "@/components/charts/stacked-bar-chart";

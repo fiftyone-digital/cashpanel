@@ -1,5 +1,5 @@
-import { getI18n } from "@midday/email/locales";
-import { getAppUrl } from "@midday/utils/envs";
+import { getI18n } from "@cashpanel/email/locales";
+import { getAppUrl } from "@cashpanel/utils/envs";
 import type { NotificationHandler } from "../base";
 import { invoiceOverdueSchema } from "../schemas";
 

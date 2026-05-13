@@ -1,19 +1,19 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { TZDate } from "@date-fns/tz";
-import { getFrequencyShortLabel } from "@midday/invoice/recurring";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Checkbox } from "@midday/ui/checkbox";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { getFrequencyShortLabel } from "@cashpanel/invoice/recurring";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Checkbox } from "@cashpanel/ui/checkbox";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { formatDate } from "@midday/utils/format";
+} from "@cashpanel/ui/tooltip";
+import { formatDate } from "@cashpanel/utils/format";
+import { TZDate } from "@date-fns/tz";
 import type { ColumnDef } from "@tanstack/react-table";
 import { format, formatDistanceToNow } from "date-fns";
 import type { MouseEvent } from "react";

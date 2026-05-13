@@ -1,6 +1,6 @@
-import { getSession } from "@midday/supabase/cached-queries";
-import { updateBankConnection } from "@midday/supabase/mutations";
-import { createClient } from "@midday/supabase/server";
+import { getSession } from "@cashpanel/supabase/cached-queries";
+import { updateBankConnection } from "@cashpanel/supabase/mutations";
+import { createClient } from "@cashpanel/supabase/server";
 import { type NextRequest, NextResponse } from "next/server";
 import { getUrl } from "@/utils/environment";
 
@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
   }
 
   if (isDesktop === "true") {
-    const scheme = process.env.NEXT_PUBLIC_DESKTOP_SCHEME || "midday";
+    const scheme = process.env.NEXT_PUBLIC_DESKTOP_SCHEME || "cashpanel";
     return NextResponse.redirect(
       `${scheme}://settings/accounts?id=${id}&step=reconnect`,
     );

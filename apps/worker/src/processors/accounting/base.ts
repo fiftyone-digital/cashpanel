@@ -4,10 +4,10 @@ import {
   getAccountingProvider,
   getOrgId,
   type MappedTransaction,
-} from "@midday/accounting";
-import type { Database } from "@midday/db/client";
-import { getAppByAppId } from "@midday/db/queries";
-import { resolveTaxValues } from "@midday/utils/tax";
+} from "@cashpanel/accounting";
+import type { Database } from "@cashpanel/db/client";
+import { getAppByAppId } from "@cashpanel/db/queries";
+import { resolveTaxValues } from "@cashpanel/utils/tax";
 import {
   ensureValidToken,
   getProviderCredentials,

@@ -8,13 +8,13 @@ import {
   upsertCustomerSchema,
 } from "@api/schemas/customers";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import {
   deleteCustomer,
   getCustomerById,
   getCustomers,
   upsertCustomer,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 
 const app = new OpenAPIHono<Context>();

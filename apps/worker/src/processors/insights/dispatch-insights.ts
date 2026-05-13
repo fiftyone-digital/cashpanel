@@ -1,9 +1,9 @@
-import { getInsightByPeriod, getTeamsForInsights } from "@midday/db/queries";
+import { getInsightByPeriod, getTeamsForInsights } from "@cashpanel/db/queries";
 import {
   getEnabledTeamIds,
   getPreviousCompletePeriod,
   type PeriodType,
-} from "@midday/insights";
+} from "@cashpanel/insights";
 import type { Job } from "bullmq";
 import { insightsQueue } from "../../queues/insights";
 import { getDb } from "../../utils/db";

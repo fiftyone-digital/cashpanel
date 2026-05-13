@@ -6,11 +6,11 @@ export const contentType = "image/png";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") ?? "Midday";
+  const title = searchParams.get("title") ?? "CashPanel";
   const description = searchParams.get("description") ?? "";
 
   const hedvigSerifFont = fetch(
-    "https://cdn.midday.ai/fonts/HedvigSerif/HedvigLettersSerif-Regular.ttf?c=1",
+    "https://cdn.cashpanel.io/fonts/HedvigSerif/HedvigLettersSerif-Regular.ttf?c=1",
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(

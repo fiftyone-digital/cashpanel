@@ -1,9 +1,9 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { createClient } from "@midday/supabase/client";
-import { useToast } from "@midday/ui/use-toast";
-import { stripSpecialCharacters } from "@midday/utils";
+import { LogEvents } from "@cashpanel/events/events";
+import { createClient } from "@cashpanel/supabase/client";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useCallback, useRef } from "react";

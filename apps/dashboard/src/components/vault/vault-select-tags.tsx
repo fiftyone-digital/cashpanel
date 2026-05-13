@@ -1,6 +1,6 @@
-import { Icons } from "@midday/ui/icons";
-import type { Option as MultipleSelectorOption } from "@midday/ui/multiple-selector";
-import MultipleSelector from "@midday/ui/multiple-selector";
+import { Icons } from "@cashpanel/ui/icons";
+import type { Option as MultipleSelectorOption } from "@cashpanel/ui/multiple-selector";
+import MultipleSelector from "@cashpanel/ui/multiple-selector";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useTRPC } from "@/trpc/client";

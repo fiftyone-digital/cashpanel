@@ -10,7 +10,7 @@ FROM turbo-cli AS builder
 WORKDIR /app
 COPY . .
 RUN test -f .git-commit-sha || printf "" > .git-commit-sha
-RUN turbo prune @midday/worker --docker --out-dir=out/worker
+RUN turbo prune @cashpanel/worker --docker --out-dir=out/worker
 
 # Installer stage - install deps and build
 FROM base AS installer

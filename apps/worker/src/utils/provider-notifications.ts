@@ -1,1 +1,1 @@
-export * from "@midday/bot";
+export * from "@cashpanel/bot";

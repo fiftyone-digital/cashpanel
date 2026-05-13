@@ -1,7 +1,7 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { createClient } from "@midday/supabase/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { createClient } from "@cashpanel/supabase/client";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,17 +12,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/card";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
@@ -53,8 +53,8 @@ export function DeleteAccount() {
         <CardTitle>Delete account</CardTitle>
         <CardDescription>
           Permanently remove your Personal Account and all of its contents from
-          the Midday platform. This action is not reversible, so please continue
-          with caution.
+          the CashPanel platform. This action is not reversible, so please
+          continue with caution.
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex justify-between">

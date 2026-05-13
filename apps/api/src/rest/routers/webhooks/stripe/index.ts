@@ -1,14 +1,14 @@
 import type { Context } from "@api/rest/types";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   getInvoiceById,
   getInvoiceByPaymentIntentId,
   getTeamByStripeAccountId,
   updateInvoice,
   updateTeamById,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
-import { logger } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
+import { logger } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import Stripe from "stripe";
 

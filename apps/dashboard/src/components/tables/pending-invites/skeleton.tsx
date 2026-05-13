@@ -1,5 +1,5 @@
-import { Skeleton } from "@midday/ui/skeleton";
-import { Table, TableBody, TableCell, TableRow } from "@midday/ui/table";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { Table, TableBody, TableCell, TableRow } from "@cashpanel/ui/table";
 import { DataTableHeader } from "./table-header";
 
 export function PendingInvitesSkeleton() {

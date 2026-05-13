@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Input } from "@midday/ui/input";
+import { cn } from "@cashpanel/ui/cn";
+import { Input } from "@cashpanel/ui/input";
 import type { RefObject } from "react";
 
 interface InputBarProps {

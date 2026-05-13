@@ -44,11 +44,11 @@ jobs:
         run: |
           AFFECTED=$(bunx turbo build --affected --dry-run=json 2>/dev/null | jq -r '.packages[]' 2>/dev/null || echo "")
           echo "Affected packages: $AFFECTED"
-          echo "api=$(echo "$AFFECTED" | grep -q '@midday/api' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
-          echo "dashboard=$(echo "$AFFECTED" | grep -q '@midday/dashboard' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
-          echo "worker=$(echo "$AFFECTED" | grep -q '@midday/worker' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
-          echo "website=$(echo "$AFFECTED" | grep -q '@midday/website' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
-          echo "jobs=$(echo "$AFFECTED" | grep -q '@midday/jobs' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "api=$(echo "$AFFECTED" | grep -q '@cashpanel/api' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "dashboard=$(echo "$AFFECTED" | grep -q '@cashpanel/dashboard' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "worker=$(echo "$AFFECTED" | grep -q '@cashpanel/worker' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "website=$(echo "$AFFECTED" | grep -q '@cashpanel/website' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "jobs=$(echo "$AFFECTED" | grep -q '@cashpanel/jobs' && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
 
   # ---------------------------------------------------------------------------
   # Validate — runs in parallel with detect-changes
@@ -61,7 +61,7 @@ jobs:
       postgres-test:
         image: pgvector/pgvector:pg16
         env:
-          POSTGRES_DB: midday_test
+          POSTGRES_DB: cashpanel_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -74,7 +74,7 @@ jobs:
     env:
       NODE_OPTIONS: "--max-old-space-size=8192"
       TURBO_SCM_BASE: origin/main
-      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5433/midday_test
+      TEST_DATABASE_URL: postgres://postgres:postgres@localhost:5433/cashpanel_test
     steps:
       - uses: actions/checkout@v4
         with:
@@ -84,7 +84,7 @@ jobs:
 
       - name: Setup test database schema
         run: |
-          PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d midday_test -f src/test/helpers/setup-test-db.sql
+          PGPASSWORD=postgres psql -h localhost -p 5433 -U postgres -d cashpanel_test -f src/test/helpers/setup-test-db.sql
           bunx drizzle-kit push --config=drizzle.config.test.ts --force
         working-directory: packages/db
 
@@ -181,7 +181,7 @@ jobs:
       - name: Run E2E tests against staging
         env:
           API_BASE_URL: ${{ secrets.STAGING_API_URL }}
-          MIDDAY_API_KEY: ${{ secrets.STAGING_API_KEY }}
+          CASHPANEL_API_KEY: ${{ secrets.STAGING_API_KEY }}
         run: bun test --exit --timeout 60000 src/__tests__/e2e/
         working-directory: apps/api
 

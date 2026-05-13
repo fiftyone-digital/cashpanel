@@ -1,4 +1,4 @@
-# @midday/inbox
+# @cashpanel/inbox
 
 Email inbox integration package for syncing PDF attachments from Gmail and Outlook accounts.
 
@@ -43,7 +43,7 @@ This package provides OAuth-based email provider integrations that:
 ### Connecting an Account
 
 ```typescript
-import { InboxConnector } from "@midday/inbox/connector";
+import { InboxConnector } from "@cashpanel/inbox/connector";
 
 const connector = new InboxConnector("gmail", db);
 
@@ -84,7 +84,7 @@ The package uses structured error classes for type-safe error handling.
 Authentication and authorization errors. Check `requiresReauth` to determine if user action is needed.
 
 ```typescript
-import { InboxAuthError, isInboxAuthError } from "@midday/inbox/errors";
+import { InboxAuthError, isInboxAuthError } from "@cashpanel/inbox/errors";
 
 try {
   await connector.getAttachments(options);
@@ -120,7 +120,7 @@ try {
 Non-authentication sync errors. These are typically transient.
 
 ```typescript
-import { InboxSyncError } from "@midday/inbox/errors";
+import { InboxSyncError } from "@cashpanel/inbox/errors";
 
 if (error instanceof InboxSyncError) {
   console.log(error.code);        // "fetch_failed" | "rate_limited" | ...
@@ -144,7 +144,7 @@ import {
   isInboxSyncError,
   assertInboxAuthError,
   assertInboxSyncError,
-} from "@midday/inbox/errors";
+} from "@cashpanel/inbox/errors";
 
 // Type guards (return boolean)
 if (isInboxAuthError(error)) {
@@ -174,7 +174,7 @@ await provider.refreshTokens();
 
 ```typescript
 // Main connector
-import { InboxConnector } from "@midday/inbox/connector";
+import { InboxConnector } from "@cashpanel/inbox/connector";
 
 // Error classes and utilities
 import {
@@ -184,10 +184,10 @@ import {
   isInboxSyncError,
   assertInboxAuthError,
   assertInboxSyncError,
-} from "@midday/inbox/errors";
+} from "@cashpanel/inbox/errors";
 
 // Utility functions
-import { isAuthenticationError } from "@midday/inbox/utils";
+import { isAuthenticationError } from "@cashpanel/inbox/utils";
 ```
 
 ## Environment Variables

@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import type { Logger as DrizzleLogger } from "drizzle-orm/logger";
 import type { Pool } from "pg";
 

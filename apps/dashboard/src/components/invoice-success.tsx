@@ -1,9 +1,9 @@
 "use client";
 
+import { formatEditorContent } from "@cashpanel/invoice/format-to-html";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import { TZDate } from "@date-fns/tz";
-import { formatEditorContent } from "@midday/invoice/format-to-html";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { motion } from "framer-motion";

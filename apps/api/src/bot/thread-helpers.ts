@@ -1,7 +1,7 @@
 import type { ConnectedResolvedConversation } from "@api/bot/conversation-identity";
 import type { BotThreadState } from "@api/bot/thread-state";
-import { db } from "@midday/db/client";
-import { hasTeamAccess } from "@midday/db/queries";
+import { db } from "@cashpanel/db/client";
+import { hasTeamAccess } from "@cashpanel/db/queries";
 import type { Thread } from "chat";
 
 export function consumeResolvedConversation(
@@ -29,7 +29,7 @@ export async function notifyTeamAccessRevoked(thread: Thread<BotThreadState>) {
   await forgetThreadState(thread);
   await thread
     .post(
-      "This chat is linked, but that Midday user no longer has access to this workspace. Reconnect it from Midday and try again.",
+      "This chat is linked, but that CashPanel user no longer has access to this workspace. Reconnect it from CashPanel and try again.",
     )
     .catch(() => {});
 }

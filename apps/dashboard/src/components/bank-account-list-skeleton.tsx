@@ -1,4 +1,4 @@
-import { Skeleton } from "@midday/ui/skeleton";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 
 function BankAccountCardSkeleton() {
   return (

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { shouldResetInboxToPendingAfterSuggestionFailure } from "@midday/db/queries";
+import { shouldResetInboxToPendingAfterSuggestionFailure } from "@cashpanel/db/queries";
 
 describe("shouldResetInboxToPendingAfterSuggestionFailure", () => {
   test("returns true when still analyzing and unmatched", () => {

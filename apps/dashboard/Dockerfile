@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 RUN test -f .git-commit-sha || printf "" > .git-commit-sha
 # Prune dashboard workspace
-RUN turbo prune @midday/dashboard --docker
+RUN turbo prune @cashpanel/dashboard --docker
 
 # Installer stage
 FROM base AS installer
@@ -71,7 +71,7 @@ ENV NODE_ENV=production
 RUN GIT_COMMIT_SHA=$(cat /tmp/git-sha.txt 2>/dev/null || echo ""); \
     export GIT_COMMIT_SHA; \
     export SENTRY_RELEASE="$GIT_COMMIT_SHA"; \
-    bunx turbo run build --filter=@midday/dashboard --only
+    bunx turbo run build --filter=@cashpanel/dashboard --only
 
 # Runner stage - clean bun image, no turbo
 FROM oven/bun:1.3.10 AS runner

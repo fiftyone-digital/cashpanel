@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
+} from "@cashpanel/ui/card";
 import { CopyInput } from "@/components/copy-input";
 import { useTeamQuery } from "@/hooks/use-team";
 
@@ -23,7 +23,7 @@ export function TeamIdSection() {
       <CardHeader>
         <CardTitle>Team ID</CardTitle>
         <CardDescription>
-          This is your team's unique identifier within Midday.
+          This is your team's unique identifier within CashPanel.
         </CardDescription>
       </CardHeader>
 
@@ -33,7 +33,7 @@ export function TeamIdSection() {
 
       <CardFooter>
         <p className="text-xs text-muted-foreground">
-          Used when interacting with the Midday API.
+          Used when interacting with the CashPanel API.
         </p>
       </CardFooter>
     </Card>

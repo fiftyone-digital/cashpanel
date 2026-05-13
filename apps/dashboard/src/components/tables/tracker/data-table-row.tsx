@@ -11,19 +11,19 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Badge } from "@midday/ui/badge";
+} from "@cashpanel/ui/alert-dialog";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Badge } from "@cashpanel/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { ScrollArea, ScrollBar } from "@midday/ui/scroll-area";
-import { TableCell, TableRow } from "@midday/ui/table";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { ScrollArea, ScrollBar } from "@cashpanel/ui/scroll-area";
+import { TableCell, TableRow } from "@cashpanel/ui/table";
 import Link from "next/link";
 import { TrackerCreateInvoice } from "@/components/tracker-create-invoice";
 import { TrackerExportCSV } from "@/components/tracker-export-csv";

@@ -1,5 +1,5 @@
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { useConnectParams } from "@/hooks/use-connect-params";

@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import type { Queue } from "bullmq";
 import { accountingQueue } from "../queues/accounting";
 import { documentsQueue } from "../queues/documents";

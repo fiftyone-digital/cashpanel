@@ -7,14 +7,14 @@ import {
   CursorMcpLogo,
   ManusMcpLogo,
   PerplexityMcpLogo,
-} from "@midday/app-store/logos";
+} from "@cashpanel/app-store/logos";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/ui/accordion";
+import { Button } from "@cashpanel/ui/button";
 import { motion } from "framer-motion";
 import { parseAsString, useQueryStates } from "nuqs";
 import type { ComponentType } from "react";
@@ -84,7 +84,7 @@ export function ConnectMcpStep() {
         transition={{ duration: 0.4, delay: 0.1 }}
         className="text-lg lg:text-xl font-serif"
       >
-        Use Midday where you already work
+        Use CashPanel where you already work
       </motion.h1>
 
       <motion.p

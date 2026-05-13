@@ -1,3 +1,4 @@
+import cashpanelDesktopApp from "./cashpanel-desktop/config";
 import chatgptMcpApp from "./chatgpt-mcp/config";
 import claudeMcpApp from "./claude-mcp/config";
 import clineMcpApp from "./cline-mcp/config";
@@ -10,7 +11,6 @@ import gmailApp from "./gmail/config-client";
 import imessageApp from "./imessage/config-client";
 import makeMcpApp from "./make-mcp/config";
 import manusMcpApp from "./manus-mcp/config";
-import middayDesktopApp from "./midday-desktop/config";
 import n8nMcpApp from "./n8n-mcp/config";
 import opencodeMcpApp from "./opencode-mcp/config";
 import outlookApp from "./outlook/config-client";
@@ -38,7 +38,7 @@ export const apps = [
   whatsappApp,
   imessageApp,
   stripePaymentsApp,
-  middayDesktopApp,
+  cashpanelDesktopApp,
   eInvoiceApp,
   cursorMcpApp,
   claudeMcpApp,

@@ -1,7 +1,7 @@
-import { updateTransaction } from "@midday/db/queries";
-import { DocumentClient } from "@midday/documents";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
+import { updateTransaction } from "@cashpanel/db/queries";
+import { DocumentClient } from "@cashpanel/documents";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { ProcessTransactionAttachmentPayload } from "../../schemas/transactions";
 import { getDb } from "../../utils/db";

@@ -5,7 +5,7 @@ import { Plans } from "@/components/plans";
 import { getQueryClient, prefetch, trpc } from "@/trpc/server";
 
 export const metadata: Metadata = {
-  title: "Billing | Midday",
+  title: "Billing | CashPanel",
 };
 
 export default async function Billing() {

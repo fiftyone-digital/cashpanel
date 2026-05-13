@@ -3,7 +3,7 @@ import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 
 const app = new OpenAPIHono<Context>();
 
-const GITHUB_REPO = "midday-ai/midday";
+const GITHUB_REPO = "fiftyone-digital/cashpanel";
 const GITHUB_API_LATEST_RELEASE = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 
 const errorResponseSchema = z.object({
@@ -29,7 +29,7 @@ const downloadQuerySchema = z.object({
     .openapi({
       description: "The artifact download URL to proxy",
       example:
-        "https://github.com/midday-ai/midday/releases/download/midday-v1.0.0/Midday.app.tar.gz",
+        "https://github.com/fiftyone-digital/cashpanel/releases/download/cashpanel-v1.0.0/CashPanel.app.tar.gz",
       param: {
         in: "query",
         name: "url",
@@ -40,7 +40,7 @@ const downloadQuerySchema = z.object({
 
 function getGitHubHeaders(): Record<string, string> {
   const headers: Record<string, string> = {
-    "User-Agent": "Midday-Desktop-Updater",
+    "User-Agent": "CashPanel-Desktop-Updater",
   };
 
   if (process.env.GITHUB_RELEASE_TOKEN) {
@@ -157,7 +157,7 @@ app.openapi(
     operationId: "downloadDesktopUpdate",
     "x-speakeasy-name-override": "downloadUpdate",
     description:
-      "Proxies the download of a desktop app update artifact from GitHub releases. Only URLs pointing to the midday-ai/midday repository are accepted.",
+      "Proxies the download of a desktop app update artifact from GitHub releases. Only URLs pointing to the fiftyone-digital/cashpanel repository are accepted.",
     tags: ["Desktop"],
     request: {
       query: downloadQuerySchema,

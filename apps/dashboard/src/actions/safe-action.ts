@@ -1,5 +1,5 @@
-import { setupAnalytics } from "@midday/events/server";
-import { createClient } from "@midday/supabase/server";
+import { setupAnalytics } from "@cashpanel/events/server";
+import { createClient } from "@cashpanel/supabase/server";
 import {
   createSafeActionClient,
   DEFAULT_SERVER_ERROR_MESSAGE,

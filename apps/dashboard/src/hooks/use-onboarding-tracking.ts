@@ -1,7 +1,7 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
 import { useCallback, useEffect, useRef } from "react";
 
 type EventConfig = { name: string; channel: string };

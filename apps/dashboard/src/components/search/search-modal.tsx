@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent } from "@midday/ui/dialog";
+import { Dialog, DialogContent } from "@cashpanel/ui/dialog";
 import { useHotkeys } from "react-hotkeys-hook";
 import { useSearchStore } from "@/store/search";
 import { Search } from "./search";

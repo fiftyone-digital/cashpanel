@@ -1,15 +1,15 @@
-import type { Database } from "@midday/db/client";
+import type { Database } from "@cashpanel/db/client";
 import {
   createInbox,
   groupRelatedInboxItems,
   updateInbox,
   updateInboxWithProcessedData,
-} from "@midday/db/queries";
-import { DocumentClient } from "@midday/documents";
-import { triggerJob } from "@midday/job-client";
-import { logger } from "@midday/logger";
-import { createClient } from "@midday/supabase/job";
-import { getExtensionFromMimeType } from "@midday/utils";
+} from "@cashpanel/db/queries";
+import { DocumentClient } from "@cashpanel/documents";
+import { triggerJob } from "@cashpanel/job-client";
+import { logger } from "@cashpanel/logger";
+import { createClient } from "@cashpanel/supabase/job";
+import { getExtensionFromMimeType } from "@cashpanel/utils";
 import { nanoid } from "nanoid";
 
 export type InboxUploadPlatform =

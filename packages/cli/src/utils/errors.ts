@@ -16,9 +16,9 @@ export class CLIError extends Error {
 
 export class AuthRequiredError extends CLIError {
   constructor() {
-    super("Not logged in. Run `midday auth login` to authenticate.", {
+    super("Not logged in. Run `cashpanel auth login` to authenticate.", {
       exitCode: 1,
-      hint: "midday auth login",
+      hint: "cashpanel auth login",
     });
   }
 }

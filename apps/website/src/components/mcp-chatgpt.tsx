@@ -1,8 +1,8 @@
 "use client";
 
-import { ChatGPTMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { ChatGPTMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -88,12 +88,12 @@ export function MCPChatGPT() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
+          cashpanel: {
             command: "npx",
             args: [
               "-y",
               "mcp-remote@latest",
-              "https://api.midday.ai/mcp",
+              "https://api.cashpanel.io/mcp",
               "--header",
               // biome-ignore lint/suspicious/noTemplateCurlyInString: Intentional shell variable reference in MCP config
               "Authorization:${AUTH_HEADER}",
@@ -115,7 +115,7 @@ export function MCPChatGPT() {
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 
 const transport = new StreamableHTTPClientTransport({
-  url: "https://api.midday.ai/mcp",
+  url: "https://api.cashpanel.io/mcp",
   headers: {
     Authorization: "Bearer ${key}",
   },
@@ -177,9 +177,9 @@ await client.close();`;
                 Financial data in ChatGPT
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to ChatGPT and query your transactions, invoices,
-                and reports directly in conversations. Authentication is handled
-                automatically via OAuth.
+                Connect CashPanel to ChatGPT and query your transactions,
+                invoices, and reports directly in conversations. Authentication
+                is handled automatically via OAuth.
               </p>
             </div>
 
@@ -224,7 +224,7 @@ await client.close();`;
                   <p className="font-sans text-sm text-muted-foreground">
                     Copy this URL and add it as a connector in ChatGPT:
                   </p>
-                  <CopyableUrl url="https://api.midday.ai/mcp" />
+                  <CopyableUrl url="https://api.cashpanel.io/mcp" />
                 </div>
 
                 <div className="mt-12 space-y-4">
@@ -261,7 +261,7 @@ await client.close();`;
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
                         When you use the tool, you'll be prompted to sign in to
-                        Midday and select a team
+                        CashPanel and select a team
                       </span>
                     </li>
                   </ol>
@@ -308,7 +308,7 @@ await client.close();`;
                   <p className="font-sans text-xs text-muted-foreground">
                     Don't have an API key?{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Create one in Settings → Developer

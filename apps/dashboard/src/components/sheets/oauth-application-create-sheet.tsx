@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Sheet, SheetContent, SheetHeader } from "@midday/ui/sheet";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { Sheet, SheetContent, SheetHeader } from "@cashpanel/ui/sheet";
 import { OAuthApplicationForm } from "@/components/forms/oauth-application-form";
 import { useOAuthApplicationParams } from "@/hooks/use-oauth-application-params";
 

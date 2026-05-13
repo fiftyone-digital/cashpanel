@@ -1,20 +1,20 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { getPlanPricing } from "@midday/plans";
-import { AnimatedSizeContainer } from "@midday/ui/animated-size-container";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { getPlanPricing } from "@cashpanel/plans";
+import { AnimatedSizeContainer } from "@cashpanel/ui/animated-size-container";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Textarea } from "@midday/ui/textarea";
+} from "@cashpanel/ui/dialog";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Textarea } from "@cashpanel/ui/textarea";
 import { PolarEmbedCheckout } from "@polar-sh/checkout/embed";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
@@ -269,7 +269,7 @@ function StepOne({
           We'd love to understand why
         </DialogTitle>
         <DialogDescription>
-          Your feedback helps us improve Midday for everyone.
+          Your feedback helps us improve CashPanel for everyone.
         </DialogDescription>
       </DialogHeader>
 
@@ -370,7 +370,7 @@ function StepTwo({
       {reason === "missing_features" && (
         <div className="space-y-4">
           <p className="text-sm text-[#878787]">
-            What feature would have made Midday work for you? We read every
+            What feature would have made CashPanel work for you? We read every
             response.
           </p>
           <Textarea
@@ -579,7 +579,7 @@ function StepDone({
         </DialogTitle>
         <DialogDescription>
           {isTrialing
-            ? "Your trial remains active until it ends. After that, you'll need to subscribe to continue using Midday. Your data will be kept safe."
+            ? "Your trial remains active until it ends. After that, you'll need to subscribe to continue using CashPanel. Your data will be kept safe."
             : "Your plan remains active until the end of your billing period. Your data will be kept safe — you can resubscribe anytime."}
         </DialogDescription>
       </DialogHeader>

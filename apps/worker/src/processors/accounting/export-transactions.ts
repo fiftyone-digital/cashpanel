@@ -1,11 +1,11 @@
-import { ACCOUNTING_ERROR_CODES, RATE_LIMITS } from "@midday/accounting";
+import { ACCOUNTING_ERROR_CODES, RATE_LIMITS } from "@cashpanel/accounting";
 import {
   type AccountingSyncRecord,
   getAccountingSyncStatus,
   getTransactionsForAccountingSync,
   upsertAccountingSyncRecord,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
 import type { Job } from "bullmq";
 import type { AccountingExportPayload } from "../../schemas/accounting";
 import { AccountingProcessorBase, type AccountingProviderId } from "./base";
@@ -105,7 +105,10 @@ interface CategorizedTransaction {
     providerTransactionId: string;
     syncRecord: AccountingSyncRecord;
     newAttachmentIds: string[];
-    removedAttachments: Array<{ middayId: string; providerId: string | null }>;
+    removedAttachments: Array<{
+      cashpanelId: string;
+      providerId: string | null;
+    }>;
   }>;
   /** Transactions already complete (synced, no changes) */
   alreadyComplete: string[];
@@ -548,9 +551,9 @@ export class ExportTransactionsProcessor extends AccountingProcessorBase<Account
       // Find removed attachments (in synced, not in current)
       const removedAttachments = [...syncedIds]
         .filter((id) => !currentAttachmentIds.has(id))
-        .map((middayId) => ({
-          middayId,
-          providerId: syncedMapping[middayId] ?? null,
+        .map((cashpanelId) => ({
+          cashpanelId,
+          providerId: syncedMapping[cashpanelId] ?? null,
         }));
 
       // Has attachment changes OR status is "partial" (needs retry)?

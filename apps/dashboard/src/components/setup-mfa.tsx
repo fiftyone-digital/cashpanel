@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { EnrollMFA } from "@/components/enroll-mfa";
@@ -52,7 +52,7 @@ export function SetupMfa() {
   return (
     <div>
       <div className="absolute left-5 top-4 md:left-10 md:top-10">
-        <Link href="https://midday.ai">
+        <Link href="https://cashpanel.io">
           <Icons.LogoSmall />
         </Link>
       </div>

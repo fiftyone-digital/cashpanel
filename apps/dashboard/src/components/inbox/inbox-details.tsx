@@ -1,7 +1,7 @@
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
-import { DialogTrigger } from "@midday/ui/dialog";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
+import { DialogTrigger } from "@cashpanel/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,19 +10,19 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Separator } from "@midday/ui/separator";
-import { Skeleton } from "@midday/ui/skeleton";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Separator } from "@cashpanel/ui/separator";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { useToast } from "@midday/ui/use-toast";
-import { formatDate, getInitials } from "@midday/utils/format";
-import { getTaxTypeLabel } from "@midday/utils/tax";
+} from "@cashpanel/ui/tooltip";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { formatDate, getInitials } from "@cashpanel/utils/format";
+import { getTaxTypeLabel } from "@cashpanel/utils/tax";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { MoreVertical, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";

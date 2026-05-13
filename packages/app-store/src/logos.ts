@@ -1,5 +1,6 @@
 // Export all logos from a single file
 
+export { Logo as CashPanelDesktopLogo } from "./cashpanel-desktop/assets/logo";
 export { Logo as ChatGPTMcpLogo } from "./chatgpt-mcp/assets/logo";
 export { Logo as ClaudeMcpLogo } from "./claude-mcp/assets/logo";
 export { Logo as ClineMcpLogo } from "./cline-mcp/assets/logo";
@@ -14,7 +15,6 @@ export { Logo as GmailLogo } from "./gmail/assets/logo";
 export { Logo as GoogleDriveLogo } from "./google-drive/assets/logo";
 export { Logo as MakeMcpLogo } from "./make-mcp/assets/logo";
 export { Logo as ManusMcpLogo } from "./manus-mcp/assets/logo";
-export { Logo as MiddayDesktopLogo } from "./midday-desktop/assets/logo";
 export { Logo as N8nMcpLogo } from "./n8n-mcp/assets/logo";
 export { Logo as OpenCodeMcpLogo } from "./opencode-mcp/assets/logo";
 export { Logo as OutlookLogo } from "./outlook/assets/logo";

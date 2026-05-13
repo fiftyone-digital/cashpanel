@@ -1,6 +1,6 @@
 "use client";
 
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { AssignedUser } from "@/components/assigned-user";

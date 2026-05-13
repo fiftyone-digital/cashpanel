@@ -1,6 +1,6 @@
 import { createAdminClient } from "@api/services/supabase";
+import { download, signedUrl } from "@cashpanel/supabase/storage";
 import { TZDate } from "@date-fns/tz";
-import { download, signedUrl } from "@midday/supabase/storage";
 import {
   format,
   getQuarter,
@@ -43,7 +43,7 @@ export function getDateContext(timezone: string | null): DateContext {
 }
 
 export const DASHBOARD_URL =
-  process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+  process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 
 export const MCP_TEXT_LIMIT = 25_000;
 

@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/ui/card";
+import { Icons } from "@cashpanel/ui/icons";
 import { useRouter } from "next/navigation";
 
 export type OAuthErrorType =

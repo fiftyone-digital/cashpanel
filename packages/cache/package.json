@@ -1,9 +1,9 @@
 {
-  "name": "@midday/cache",
+  "name": "@cashpanel/cache",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@midday/logger": "workspace:*"
+    "@cashpanel/logger": "workspace:*"
   },
   "scripts": {
     "lint": "biome check .",

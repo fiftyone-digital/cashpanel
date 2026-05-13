@@ -1,8 +1,8 @@
 "use client";
 
+import { Table, TableBody, TableCell, TableRow } from "@cashpanel/ui/table";
+import { toast } from "@cashpanel/ui/use-toast";
 import { closestCenter, DndContext } from "@dnd-kit/core";
-import { Table, TableBody, TableCell, TableRow } from "@midday/ui/table";
-import { toast } from "@midday/ui/use-toast";
 import {
   useMutation,
   useQueryClient,

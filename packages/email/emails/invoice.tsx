@@ -65,8 +65,8 @@ function formatInvoiceDueDate(dueDate: string, dateFormat: string) {
 
 export const InvoiceEmail = ({
   customerName = "Customer",
-  teamName = "Midday",
-  link = "https://app.midday.ai/i/1234567890",
+  teamName = "CashPanel",
+  link = "https://app.cashpanel.io/i/1234567890",
   invoiceNumber,
   amount,
   currency,

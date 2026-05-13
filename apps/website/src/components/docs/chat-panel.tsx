@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
-import { TextShimmer } from "@midday/ui/text-shimmer";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
+import { TextShimmer } from "@cashpanel/ui/text-shimmer";
 import Link from "next/link";
 import {
   forwardRef,
@@ -224,7 +224,7 @@ export const ChatPanel = forwardRef<ChatPanelRef, ChatPanelProps>(
               <div className="h-full flex items-center justify-center">
                 <div className="text-center">
                   <p className="text-sm text-muted-foreground mb-6">
-                    Ask anything about Midday
+                    Ask anything about CashPanel
                   </p>
                   <div className="flex flex-wrap gap-1.5 justify-center max-w-md">
                     {[

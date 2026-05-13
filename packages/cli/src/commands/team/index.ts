@@ -31,8 +31,8 @@ export function createTeamCommand(): Command {
       "after",
       `
 Examples:
-  midday team info
-  midday team info --json`,
+  cashpanel team info
+  cashpanel team info --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -70,8 +70,8 @@ Examples:
       "after",
       `
 Examples:
-  midday team members
-  midday team members --json`,
+  cashpanel team members
+  cashpanel team members --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;

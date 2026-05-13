@@ -1,6 +1,6 @@
+import { getTeamsWithBankConnections } from "@cashpanel/db/queries";
 import { getDb } from "@jobs/init";
 import { generateCronTag } from "@jobs/utils/generate-cron-tag";
-import { getTeamsWithBankConnections } from "@midday/db/queries";
 import { logger, schedules } from "@trigger.dev/sdk";
 import { bankSyncScheduler } from "./bank-scheduler";
 

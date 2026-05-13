@@ -3,7 +3,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
+} from "@cashpanel/ui/tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 import { OpenURL } from "@/components/open-url";
 import { getWebsiteLogo } from "@/utils/logos";

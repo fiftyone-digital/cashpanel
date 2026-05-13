@@ -1,16 +1,16 @@
 import { protectedMiddleware, publicMiddleware } from "@api/rest/middleware";
 import type { Context } from "@api/rest/types";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   getInvoiceById,
   getTeamById,
   updateInvoice,
   updateTeamById,
-} from "@midday/db/queries";
-import { decryptOAuthState, encryptOAuthState } from "@midday/encryption";
-import { toStripeAmount } from "@midday/invoice/currency";
-import { verify as verifyInvoiceToken } from "@midday/invoice/token";
-import { logger } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { decryptOAuthState, encryptOAuthState } from "@cashpanel/encryption";
+import { toStripeAmount } from "@cashpanel/invoice/currency";
+import { verify as verifyInvoiceToken } from "@cashpanel/invoice/token";
+import { logger } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import Stripe from "stripe";
 
@@ -100,8 +100,8 @@ app.openapi(
     });
 
     const _dashboardUrl =
-      process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
-    const redirectUri = `${process.env.MIDDAY_API_URL || "https://api.midday.ai"}/invoice-payments/connect-stripe/callback`;
+      process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
+    const redirectUri = `${process.env.CASHPANEL_API_URL || "https://api.cashpanel.io"}/invoice-payments/connect-stripe/callback`;
 
     // Build Stripe Connect OAuth URL (Standard accounts)
     const params = new URLSearchParams({
@@ -183,7 +183,7 @@ app.openapi(
     const db = c.get("db");
     const { code, state, error, error_description } = c.req.valid("query");
     const dashboardUrl =
-      process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+      process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 
     // Handle OAuth errors
     if (error || !code) {

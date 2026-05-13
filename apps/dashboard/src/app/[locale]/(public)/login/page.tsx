@@ -1,5 +1,5 @@
-import { createClient } from "@midday/supabase/server";
-import { Icons } from "@midday/ui/icons";
+import { createClient } from "@cashpanel/supabase/server";
+import { Icons } from "@cashpanel/ui/icons";
 import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
 import Link from "next/link";
@@ -12,7 +12,7 @@ import { Cookies } from "@/utils/constants";
 import { isBlockedNewUser, isNewUserGateEnabled } from "@/utils/new-user-gate";
 
 export const metadata: Metadata = {
-  title: "Login | Midday",
+  title: "Login | CashPanel",
 };
 
 type Props = {
@@ -146,7 +146,7 @@ export default async function Page({ searchParams }: Props) {
       <nav className="fixed top-0 left-0 right-0 z-50 w-full pointer-events-none">
         <div className="relative py-3 xl:py-4 px-4 sm:px-4 md:px-4 lg:px-4 xl:px-6 2xl:px-8 flex items-center">
           <Link
-            href="https://midday.ai"
+            href="https://cashpanel.io"
             className="flex items-center gap-2 hover:opacity-80 active:opacity-80 transition-opacity duration-200 pointer-events-auto"
           >
             <div className="w-6 h-6">
@@ -169,7 +169,7 @@ export default async function Page({ searchParams }: Props) {
                   You're on the waitlist
                 </h1>
                 <p className="font-sans text-sm text-[#878787]">
-                  Midday is not accepting new sign-ups right now. You've been
+                  CashPanel is not accepting new sign-ups right now. You've been
                   added to our queue and we'll email you as soon as a spot opens
                   up.
                 </p>
@@ -179,7 +179,7 @@ export default async function Page({ searchParams }: Props) {
                 {/* Header */}
                 <div className="text-center space-y-2">
                   <h1 className="text-lg lg:text-xl mb-4 font-serif">
-                    Welcome to Midday
+                    Welcome to CashPanel
                   </h1>
                   <p className="font-sans text-sm text-[#878787]">
                     Sign in or create an account
@@ -214,14 +214,14 @@ export default async function Page({ searchParams }: Props) {
             <p className="font-sans text-xs text-[#878787]">
               By signing in you agree to our{" "}
               <Link
-                href="https://midday.ai/terms"
+                href="https://cashpanel.io/terms"
                 className="text-[#878787] hover:text-foreground transition-colors underline"
               >
                 Terms of service
               </Link>{" "}
               &{" "}
               <Link
-                href="https://midday.ai/policy"
+                href="https://cashpanel.io/policy"
                 className="text-[#878787] hover:text-foreground transition-colors underline"
               >
                 Privacy policy

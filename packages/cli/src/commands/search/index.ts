@@ -21,9 +21,9 @@ export function createSearchCommand(): Command {
       "after",
       `
 Examples:
-  midday search "Acme"
-  midday search "office supplies" --json
-  midday search "INV-001"`,
+  cashpanel search "Acme"
+  cashpanel search "office supplies" --json
+  cashpanel search "INV-001"`,
     )
     .action(async (query: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

@@ -1,5 +1,5 @@
+import { Notifications } from "@cashpanel/notifications";
 import { getDb } from "@jobs/init";
-import { Notifications } from "@midday/notifications";
 import { schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 

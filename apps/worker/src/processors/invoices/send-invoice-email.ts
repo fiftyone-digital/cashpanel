@@ -1,6 +1,6 @@
-import { getInvoiceById, updateInvoice } from "@midday/db/queries";
-import { Notifications } from "@midday/notifications";
-import { createClient } from "@midday/supabase/job";
+import { getInvoiceById, updateInvoice } from "@cashpanel/db/queries";
+import { Notifications } from "@cashpanel/notifications";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { SendInvoiceEmailPayload } from "../../schemas/invoices";
 import { getDb } from "../../utils/db";

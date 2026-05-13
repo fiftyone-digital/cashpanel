@@ -21,9 +21,9 @@ interface Props {
 }
 
 export const TransactionsExportedEmail = ({
-  teamName = "Midday",
+  teamName = "CashPanel",
   transactionCount = 100,
-  downloadLink = "https://app.midday.ai/s/abc123",
+  downloadLink = "https://app.cashpanel.io/s/abc123",
 }: Props) => {
   const preview = `${transactionCount} transaction${transactionCount !== 1 ? "s" : ""} ready to download`;
   const themeClasses = getEmailThemeClasses();

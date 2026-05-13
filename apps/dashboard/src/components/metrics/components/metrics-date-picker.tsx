@@ -1,16 +1,16 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
-import { Icons } from "@midday/ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
+import { Icons } from "@cashpanel/ui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
+} from "@cashpanel/ui/select";
 import { format, formatISO, parseISO } from "date-fns";
 import { useEffect, useMemo, useState } from "react";
 import type { DateRange } from "react-day-picker";

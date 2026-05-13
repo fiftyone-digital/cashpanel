@@ -1,7 +1,7 @@
 "use client";
 
-import { CommandPanelAnimation } from "@midday/ui/animations/command-panel";
-import { FileGridAnimation } from "@midday/ui/animations/file-grid";
+import { CommandPanelAnimation } from "@cashpanel/ui/animations/command-panel";
+import { FileGridAnimation } from "@cashpanel/ui/animations/file-grid";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { HeroImage } from "./hero-image";

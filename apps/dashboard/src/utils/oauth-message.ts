@@ -1,9 +1,9 @@
 import {
   OAUTH_ERROR_CODES,
   type OAuthErrorCode,
-} from "@midday/app-store/oauth-errors";
+} from "@cashpanel/app-store/oauth-errors";
 
-export const OAUTH_CHANNEL_NAME = "midday_oauth_complete";
+export const OAUTH_CHANNEL_NAME = "cashpanel_oauth_complete";
 
 export type OAuthMessageType = "app_oauth_completed" | "app_oauth_error";
 

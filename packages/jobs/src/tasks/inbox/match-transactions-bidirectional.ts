@@ -1,5 +1,3 @@
-import { getDb } from "@jobs/init";
-import { triggerMatchingNotification } from "@jobs/utils/inbox-matching-notifications";
 import {
   calculateInboxSuggestions,
   findInboxMatches,
@@ -10,7 +8,9 @@ import {
   persistInboxSuggestionWorkflow,
   shouldResetInboxToPendingAfterSuggestionFailure,
   updateInbox,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { getDb } from "@jobs/init";
+import { triggerMatchingNotification } from "@jobs/utils/inbox-matching-notifications";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 

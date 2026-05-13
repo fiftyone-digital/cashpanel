@@ -1,5 +1,5 @@
 {
-  "name": "@midday/customers",
+  "name": "@cashpanel/customers",
   "version": "1.0.0",
   "private": true,
   "main": "src/index.ts",
@@ -14,10 +14,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@midday/logger": "workspace:*"
+    "@cashpanel/logger": "workspace:*"
   },
   "devDependencies": {
-    "@midday/tsconfig": "workspace:*",
+    "@cashpanel/tsconfig": "workspace:*",
     "@types/node": "^25.5.0",
     "typescript": "catalog:"
   }

@@ -1,16 +1,16 @@
 {
-  "name": "@midday-ai/cli",
+  "name": "@cashpanel-ai/cli",
   "version": "0.1.2",
-  "description": "Midday CLI — let agents run your business",
+  "description": "CashPanel CLI — let agents run your business",
   "type": "module",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midday-ai/midday.git",
+    "url": "git+https://github.com/fiftyone-digital/cashpanel.git",
     "directory": "packages/cli"
   },
   "keywords": [
-    "midday",
+    "cashpanel",
     "cli",
     "agents",
     "mcp",
@@ -25,10 +25,10 @@
     "dist"
   ],
   "bin": {
-    "midday": "dist/bin/midday.js"
+    "cashpanel": "dist/bin/cashpanel.js"
   },
   "scripts": {
-    "dev": "bun run bin/midday.ts",
+    "dev": "bun run bin/cashpanel.ts",
     "build": "tsup",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

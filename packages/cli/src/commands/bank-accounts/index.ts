@@ -28,8 +28,8 @@ export function createBankAccountsCommand(): Command {
       "after",
       `
 Examples:
-  midday bank-accounts list
-  midday bank-accounts list --json`,
+  cashpanel bank-accounts list
+  cashpanel bank-accounts list --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -79,8 +79,8 @@ Examples:
       "after",
       `
 Examples:
-  midday bank-accounts balances
-  midday bank-accounts balances --json`,
+  cashpanel bank-accounts balances
+  cashpanel bank-accounts balances --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -134,8 +134,8 @@ Examples:
       "after",
       `
 Examples:
-  midday bank-accounts get acc_abc123
-  midday bank-accounts get acc_abc123 --json`,
+  cashpanel bank-accounts get acc_abc123
+  cashpanel bank-accounts get acc_abc123 --json`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

@@ -1,5 +1,5 @@
 {
-  "name": "@midday/trpc",
+  "name": "@cashpanel/trpc",
   "version": "0.0.1",
   "private": true,
   "main": "./src/index.ts",
@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "typecheck": "echo 'Types validated by @midday/api and consumer packages'"
+    "typecheck": "echo 'Types validated by @cashpanel/api and consumer packages'"
   },
   "exports": {
     ".": "./src/index.ts",

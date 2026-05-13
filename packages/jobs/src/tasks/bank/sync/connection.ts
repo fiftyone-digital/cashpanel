@@ -1,7 +1,7 @@
+import { createClient } from "@cashpanel/supabase/job";
+import { trpc } from "@cashpanel/trpc";
 import { syncConnectionSchema } from "@jobs/schema";
 import { triggerSequenceAndWait } from "@jobs/utils/trigger-sequence";
-import { createClient } from "@midday/supabase/job";
-import { trpc } from "@midday/trpc";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { transactionNotifications } from "../notifications/transactions";
 import { syncAccount } from "./account";

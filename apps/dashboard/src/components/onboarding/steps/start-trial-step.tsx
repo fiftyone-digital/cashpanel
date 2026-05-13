@@ -1,11 +1,11 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { getPlanPricing } from "@midday/plans";
-import { cn } from "@midday/ui/cn";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { getPlanPricing } from "@cashpanel/plans";
+import { cn } from "@cashpanel/ui/cn";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { PolarEmbedCheckout } from "@polar-sh/checkout/embed";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
@@ -228,7 +228,7 @@ export function StartTrialStep() {
           transition={{ duration: 0.4, delay: 0.2 }}
           className="text-sm text-muted-foreground leading-relaxed"
         >
-          Try Midday free for 14 days. You won't be charged until your trial
+          Try CashPanel free for 14 days. You won't be charged until your trial
           ends and you can{" "}
           <span className="underline underline-offset-4">cancel anytime</span>.
         </motion.p>

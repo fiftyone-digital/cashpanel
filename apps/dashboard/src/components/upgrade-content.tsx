@@ -1,6 +1,6 @@
 "use client";
 
-import { createClient } from "@midday/supabase/client";
+import { createClient } from "@cashpanel/supabase/client";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,9 +11,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/alert-dialog";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
 import { useMutation } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -42,7 +42,7 @@ export function UpgradeContent() {
       <div className="w-full max-w-[960px] p-8">
         <div className="mb-8 md:mt-8 text-center">
           <h1 className="font-serif text-2xl text-foreground mb-2">
-            Continue with Midday
+            Continue with CashPanel
           </h1>
           <p className="font-sans text-base text-muted-foreground leading-normal max-w-lg mx-auto">
             Your trial has ended — subscribe to pick up where you left off.

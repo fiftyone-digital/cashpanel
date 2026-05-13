@@ -1,14 +1,14 @@
 "use client";
 
-import { apps as appStoreApps } from "@midday/app-store";
+import { apps as appStoreApps } from "@cashpanel/app-store";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { ScrollArea } from "@midday/ui/scroll-area";
-import { Sheet, SheetContent, SheetHeader } from "@midday/ui/sheet";
+} from "@cashpanel/ui/accordion";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { Sheet, SheetContent, SheetHeader } from "@cashpanel/ui/sheet";
 import { parseAsString, useQueryStates } from "nuqs";
 import { useMemo } from "react";
 import { MemoizedReactMarkdown } from "@/components/markdown";
@@ -80,7 +80,8 @@ export function AppDetailSheet() {
             <div>
               <h3 className="text-lg leading-none">{app.name}</h3>
               <span className="text-xs text-[#878787]">
-                {"category" in app ? app.category : "Integration"} • By Midday
+                {"category" in app ? app.category : "Integration"} • By
+                CashPanel
               </span>
             </div>
           </div>

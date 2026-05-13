@@ -1,4 +1,4 @@
-import { hash } from "@midday/encryption";
+import { hash } from "@cashpanel/encryption";
 import slugify from "@sindresorhus/slugify";
 import { and, desc, eq, isNull } from "drizzle-orm";
 import { nanoid } from "nanoid";

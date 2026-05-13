@@ -28,14 +28,14 @@ import {
   updateBankAccount,
   updateTransaction,
   updateTransactions,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import {
   buildCsvMappingPrompt,
   compactSampleRows,
   formatAmountValue,
   selectPromptColumns,
-} from "@midday/import";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/import";
+import { triggerJob } from "@cashpanel/job-client";
 import { TRPCError } from "@trpc/server";
 import { generateObject } from "ai";
 

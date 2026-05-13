@@ -1,8 +1,8 @@
 "use client";
 
-import { RaycastMcpLogo } from "@midday/app-store/logos";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { RaycastMcpLogo } from "@cashpanel/app-store/logos";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import { useState } from "react";
 import { highlight } from "sugar-high";
@@ -47,13 +47,13 @@ function CodeBlock({ code }: { code: string }) {
 
 // Raycast config for deeplink
 const raycastConfig = {
-  name: "midday",
+  name: "cashpanel",
   type: "stdio",
   command: "npx",
   args: [
     "-y",
     "mcp-remote@latest",
-    "https://api.midday.ai/mcp",
+    "https://api.cashpanel.io/mcp",
     "--header",
     // biome-ignore lint/suspicious/noTemplateCurlyInString: Intentional shell variable reference in MCP config
     "Authorization:${AUTH_HEADER}",
@@ -122,7 +122,7 @@ export function MCPRaycast() {
                 and replace <code className="font-mono">YOUR_API_KEY</code> in
                 the environment variables with your{" "}
                 <Link
-                  href="https://app.midday.ai/settings/developer"
+                  href="https://app.cashpanel.io/settings/developer"
                   className="underline hover:text-foreground"
                 >
                   API key
@@ -166,7 +166,7 @@ export function MCPRaycast() {
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
                     Get an API key from{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Settings → Developer
@@ -178,8 +178,8 @@ export function MCPRaycast() {
                     3
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    Open Raycast's "Manage Servers" and edit Midday to add your
-                    API key
+                    Open Raycast's "Manage Servers" and edit CashPanel to add
+                    your API key
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
@@ -187,7 +187,7 @@ export function MCPRaycast() {
                     4
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    @-mention Midday in Raycast AI to query your data
+                    @-mention CashPanel in Raycast AI to query your data
                   </span>
                 </li>
               </ol>

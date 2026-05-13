@@ -1,5 +1,5 @@
-import { cn } from "@midday/ui/cn";
-import { getAppUrl } from "@midday/utils/envs";
+import { cn } from "@cashpanel/ui/cn";
+import { getAppUrl } from "@cashpanel/utils/envs";
 import {
   Body,
   Container,

@@ -1,16 +1,16 @@
 "use client";
 
-import { getTimezones } from "@midday/location/timezones";
+import { getTimezones } from "@cashpanel/location/timezones";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
-import { ComboboxDropdown } from "@midday/ui/combobox-dropdown";
-import { Label } from "@midday/ui/label";
-import { Switch } from "@midday/ui/switch";
+} from "@cashpanel/ui/card";
+import { ComboboxDropdown } from "@cashpanel/ui/combobox-dropdown";
+import { Label } from "@cashpanel/ui/label";
+import { Switch } from "@cashpanel/ui/switch";
 import { useEffect, useState } from "react";
 import { useUserMutation, useUserQuery } from "@/hooks/use-user";
 import { useI18n } from "@/locales/client";

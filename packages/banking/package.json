@@ -1,5 +1,5 @@
 {
-  "name": "@midday/banking",
+  "name": "@cashpanel/banking",
   "version": "0.0.1",
   "private": true,
   "main": "./src/index.ts",
@@ -17,9 +17,9 @@
     "./gocardless/utils": "./src/providers/gocardless/utils.ts"
   },
   "dependencies": {
-    "@midday/cache": "workspace:*",
-    "@midday/location": "workspace:*",
-    "@midday/logger": "workspace:*",
+    "@cashpanel/cache": "workspace:*",
+    "@cashpanel/location": "workspace:*",
+    "@cashpanel/logger": "workspace:*",
     "@t3-oss/env-core": "^0.13.11",
     "axios": "^1.14.0",
     "change-case": "catalog:",

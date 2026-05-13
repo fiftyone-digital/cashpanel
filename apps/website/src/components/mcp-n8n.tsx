@@ -1,9 +1,9 @@
 "use client";
 
-import { N8nMcpLogo } from "@midday/app-store/logos";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { N8nMcpLogo } from "@cashpanel/app-store/logos";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -58,7 +58,7 @@ export function MCPN8n() {
 
   const connectionConfig = useMemo(() => {
     const key = apiKey || "YOUR_API_KEY";
-    return `Server URL: https://api.midday.ai/mcp
+    return `Server URL: https://api.cashpanel.io/mcp
 Transport: SSE (Server-Sent Events)
 Authentication: Bearer Token
 Token: ${key}`;
@@ -100,8 +100,8 @@ Token: ${key}`;
                 Build automated financial workflows
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to n8n workflows via MCP. Use the MCP Client node
-                to access your financial data in automated workflows and AI
+                Connect CashPanel to n8n workflows via MCP. Use the MCP Client
+                node to access your financial data in automated workflows and AI
                 agents.
               </p>
             </div>
@@ -134,7 +134,7 @@ Token: ${key}`;
                   htmlFor="api-key"
                   className="font-sans text-sm text-foreground"
                 >
-                  Your Midday API key
+                  Your CashPanel API key
                 </label>
                 <Input
                   id="api-key"
@@ -147,7 +147,7 @@ Token: ${key}`;
                 <p className="font-sans text-xs text-muted-foreground">
                   Don't have an API key?{" "}
                   <Link
-                    href="https://app.midday.ai/settings/developer"
+                    href="https://app.cashpanel.io/settings/developer"
                     className="underline hover:text-foreground"
                   >
                     Create one in Settings → Developer
@@ -198,7 +198,7 @@ Token: ${key}`;
                     <p className="font-sans text-sm text-muted-foreground mt-1">
                       Enter the Server URL:{" "}
                       <code className="font-mono bg-secondary px-1">
-                        https://api.midday.ai/mcp
+                        https://api.cashpanel.io/mcp
                       </code>
                     </p>
                     <p className="font-sans text-sm text-muted-foreground mt-1">
@@ -217,7 +217,7 @@ Token: ${key}`;
                     <p className="font-sans text-sm text-muted-foreground mt-1">
                       Get an API key from{" "}
                       <Link
-                        href="https://app.midday.ai/settings/developer"
+                        href="https://app.cashpanel.io/settings/developer"
                         className="underline hover:text-foreground"
                       >
                         Settings → Developer
@@ -232,7 +232,7 @@ Token: ${key}`;
                   </span>
                   <div className="pt-0.5">
                     <span className="font-sans text-sm text-foreground font-medium">
-                      Use Midday tools
+                      Use CashPanel tools
                     </span>
                     <p className="font-sans text-sm text-muted-foreground mt-1">
                       Access transactions, invoices, customers, reports, and

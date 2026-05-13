@@ -11,7 +11,7 @@ export const invoiceData = {
     discount: 0,
     template: {
       title: "Invoice",
-      logoUrl: "https://midday.ai/email/logo.png",
+      logoUrl: "https://cashpanel.io/email/logo.png",
       customerLabel: "To",
       fromLabel: "From",
       invoiceNoLabel: "Invoice No",
@@ -52,7 +52,11 @@ export const invoiceData = {
         {
           type: "paragraph",
           content: [
-            { type: "text", text: "Midday Labs AB", marks: [{ type: "bold" }] },
+            {
+              type: "text",
+              text: "CashPanel Labs AB",
+              marks: [{ type: "bold" }],
+            },
           ],
         },
         {
@@ -68,9 +72,9 @@ export const invoiceData = {
           content: [
             {
               type: "text",
-              text: "hello@midday.ai",
+              text: "hello@cashpanel.io",
               marks: [
-                { type: "link", attrs: { href: "mailto:hello@midday.ai" } },
+                { type: "link", attrs: { href: "mailto:hello@cashpanel.io" } },
               ],
             },
           ],

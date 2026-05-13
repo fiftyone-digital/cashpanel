@@ -232,7 +232,7 @@ export function IPhoneMock({
       </div>
 
       <img
-        src="https://cdn.midday.ai/iphone-17-pro-silver.svg"
+        src="https://cdn.cashpanel.io/iphone-17-pro-silver.svg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full pointer-events-none select-none"

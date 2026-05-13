@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { SubmitButton } from "@midday/ui/submit-button";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import {
   useMutation,
   useQueryClient,

@@ -5,10 +5,10 @@ import {
   groupRelatedInboxItems,
   updateInbox,
   updateInboxWithProcessedData,
-} from "@midday/db/queries";
-import { DocumentClient } from "@midday/documents";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
+} from "@cashpanel/db/queries";
+import { DocumentClient } from "@cashpanel/documents";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { ProcessAttachmentPayload } from "../../schemas/inbox";
 import { getDb } from "../../utils/db";

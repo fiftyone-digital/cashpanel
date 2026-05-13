@@ -6,8 +6,8 @@ import {
   updateTransactionSchema,
   updateTransactionsSchema,
 } from "@api/schemas/transactions";
-import type { AccountingProviderConfig } from "@midday/accounting";
-import { getOrgName } from "@midday/accounting";
+import type { AccountingProviderConfig } from "@cashpanel/accounting";
+import { getOrgName } from "@cashpanel/accounting";
 import {
   createTransaction,
   createTransactions,
@@ -19,12 +19,12 @@ import {
   getTransactions,
   updateTransaction,
   updateTransactions,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import {
   getJobStatus,
   triggerJob,
   triggerJobAndWait,
-} from "@midday/job-client";
+} from "@cashpanel/job-client";
 import { z } from "zod";
 import {
   mcpTransactionDetailSchema,

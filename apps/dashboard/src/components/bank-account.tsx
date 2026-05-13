@@ -10,21 +10,21 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
-import { Switch } from "@midday/ui/switch";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
+import { Switch } from "@cashpanel/ui/switch";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   AlertTriangle,
@@ -260,7 +260,7 @@ export function BankAccount({ data, provider }: Props) {
                           <p className="text-amber-700 dark:text-amber-300">
                             {provider
                               ? "Reconnecting later may not restore full history."
-                              : "Manual account data is stored only in Midday and cannot be recovered."}
+                              : "Manual account data is stored only in CashPanel and cannot be recovered."}
                           </p>
                         </div>
                       </div>

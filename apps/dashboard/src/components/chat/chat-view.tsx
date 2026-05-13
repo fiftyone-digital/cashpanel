@@ -1,6 +1,6 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
@@ -220,7 +220,7 @@ export function ChatView({ header }: { header?: React.ReactNode }) {
             }}
           />
           <p className="text-center text-[11px] text-[#878787]/50 pt-1.5">
-            Midday AI can make mistakes. Please double-check responses.
+            CashPanel AI can make mistakes. Please double-check responses.
           </p>
         </div>
       </motion.div>

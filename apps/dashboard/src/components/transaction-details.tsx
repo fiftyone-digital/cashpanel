@@ -1,14 +1,14 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { cn } from "@midday/ui/cn";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/accordion";
+import { cn } from "@cashpanel/ui/cn";
+import { Label } from "@cashpanel/ui/label";
 import {
   Select,
   SelectContent,
@@ -16,12 +16,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { Skeleton } from "@midday/ui/skeleton";
-import { Switch } from "@midday/ui/switch";
-import { ToastAction } from "@midday/ui/toast";
-import { toast } from "@midday/ui/use-toast";
-import { getTaxTypeLabel } from "@midday/utils/tax";
+} from "@cashpanel/ui/select";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { Switch } from "@cashpanel/ui/switch";
+import { ToastAction } from "@cashpanel/ui/toast";
+import { toast } from "@cashpanel/ui/use-toast";
+import { getTaxTypeLabel } from "@cashpanel/utils/tax";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { format, parseISO } from "date-fns";
@@ -555,7 +555,7 @@ export function TransactionDetails() {
                     toast({
                       duration: 6000,
                       variant: "ai",
-                      title: "Midday AI",
+                      title: "CashPanel AI",
                       description: `We found ${similarTransactions?.length} similar transactions to "${data?.name}". Mark them as recurring (${value}) too?`,
                       footer: (
                         <div className="flex space-x-2 mt-4">

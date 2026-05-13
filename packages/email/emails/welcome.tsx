@@ -22,7 +22,7 @@ interface Props {
 
 export const WelcomeEmail = ({ fullName = "" }: Props) => {
   const firstName = fullName ? fullName.split(" ").at(0) : "";
-  const text = `${firstName ? `Hi ${firstName}, welcome` : "Welcome"} to Midday — built for founders like you.`;
+  const text = `${firstName ? `Hi ${firstName}, welcome` : "Welcome"} to CashPanel — built for founders like you.`;
   const themeClasses = getEmailThemeClasses();
   const lightStyles = getEmailInlineStyles("light");
 
@@ -45,7 +45,7 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
             className={`font-serif text-[21px] font-normal text-center p-0 my-[30px] mx-0 ${themeClasses.heading}`}
             style={{ color: lightStyles.text.color }}
           >
-            Welcome to Midday
+            Welcome to CashPanel
           </Heading>
 
           <br />
@@ -60,12 +60,12 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
             className={themeClasses.text}
             style={{ color: lightStyles.text.color }}
           >
-            I'm Pontus, one of the founders of Midday.
+            I'm Pontus, one of the founders of CashPanel.
             <br />
             <br />
-            We started Midday after years of running our own companies — tired
-            of juggling tools just to know where things stand. If that sounds
-            familiar, you're in the right place.
+            We started CashPanel after years of running our own companies —
+            tired of juggling tools just to know where things stand. If that
+            sounds familiar, you're in the right place.
             <br />
             <br />
             The best way to get started: connect your bank account. Everything
@@ -73,7 +73,7 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
           </Text>
 
           <Section className="text-center mt-[32px] mb-[32px]">
-            <Button href="https://app.midday.ai">Get started</Button>
+            <Button href="https://app.cashpanel.io">Get started</Button>
           </Section>
 
           <Text
@@ -82,7 +82,7 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
           >
             P.S. Want to talk? Reply here or{" "}
             <Link
-              href="https://cal.com/pontus-midday/15min"
+              href="https://cal.com/pontus-cashpanel/15min"
               className={`underline ${themeClasses.mutedLink}`}
               style={{ color: lightStyles.mutedText.color }}
             >

@@ -1,11 +1,11 @@
-import { getCountryCode, getCurrency } from "@midday/location";
+import { getCountryCode, getCurrency } from "@cashpanel/location";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { OnboardingPage } from "@/components/onboarding/onboarding-page";
 import { getQueryClient, HydrateClient, trpc } from "@/trpc/server";
 
 export const metadata: Metadata = {
-  title: "Onboarding | Midday",
+  title: "Onboarding | CashPanel",
 };
 
 export default async function Page() {

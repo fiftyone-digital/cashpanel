@@ -1,18 +1,18 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { TZDate, tz } from "@date-fns/tz";
-import { UTCDate } from "@date-fns/utc";
-import { LogEvents } from "@midday/events/events";
-import { cn } from "@midday/ui/cn";
+import { LogEvents } from "@cashpanel/events/events";
+import { cn } from "@cashpanel/ui/cn";
 import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuShortcut,
   ContextMenuTrigger,
-} from "@midday/ui/context-menu";
-import { ScrollArea } from "@midday/ui/scroll-area";
+} from "@cashpanel/ui/context-menu";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
+import { TZDate, tz } from "@date-fns/tz";
+import { UTCDate } from "@date-fns/utc";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {

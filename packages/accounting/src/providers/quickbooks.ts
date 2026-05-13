@@ -1,5 +1,5 @@
 /// <reference path="../../../../types/intuit-oauth.d.ts" />
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import { parseISO } from "date-fns";
 import OAuthClient from "intuit-oauth";
 import { BaseAccountingProvider } from "../provider";
@@ -765,7 +765,7 @@ export class QuickBooksProvider extends BaseAccountingProvider {
     id: string;
     name: string;
   }> {
-    const accountName = "Midday Expenses";
+    const accountName = "CashPanel Expenses";
 
     const response = await this.apiCall<{
       Account: { Id: string; Name: string };
@@ -826,7 +826,7 @@ export class QuickBooksProvider extends BaseAccountingProvider {
     id: string;
     name: string;
   }> {
-    const accountName = "Midday Income";
+    const accountName = "CashPanel Income";
 
     const response = await this.apiCall<{
       Account: { Id: string; Name: string };
@@ -896,7 +896,7 @@ export class QuickBooksProvider extends BaseAccountingProvider {
         // Job-based idempotency key: same job = same key (retry safe), new job = new key (re-export works)
         const idempotencyKey = generateTransactionIdempotencyKey(tx.id, jobId);
 
-        // Use the same description as shown in Midday
+        // Use the same description as shown in CashPanel
         const description =
           tx.description || tx.counterpartyName || "Transaction";
 

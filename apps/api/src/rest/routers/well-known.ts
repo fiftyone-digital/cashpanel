@@ -3,9 +3,9 @@ import { OpenAPIHono } from "@hono/zod-openapi";
 
 const app = new OpenAPIHono();
 
-const apiUrl = process.env.MIDDAY_API_URL || "https://api.midday.ai";
+const apiUrl = process.env.CASHPANEL_API_URL || "https://api.cashpanel.io";
 const dashboardUrl =
-  process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+  process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 
 const supportedScopes = SCOPES.filter(
   (s) => !s.startsWith("apis."),
@@ -15,7 +15,7 @@ const protectedResourceMetadata = {
   resource: apiUrl,
   authorization_servers: [apiUrl],
   scopes_supported: supportedScopes,
-  resource_documentation: "https://midday.ai/docs",
+  resource_documentation: "https://cashpanel.io/docs",
 };
 
 // RFC 9728: clients try the path-suffixed URL first (e.g. /oauth-protected-resource/mcp)

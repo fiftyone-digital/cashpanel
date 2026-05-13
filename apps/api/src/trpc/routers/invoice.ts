@@ -19,7 +19,6 @@ import {
   publicProcedure,
 } from "@api/trpc/init";
 import { parseInputValue } from "@api/utils/parse";
-import { UTCDate } from "@date-fns/utc";
 import {
   deleteInvoice,
   draftInvoice,
@@ -43,12 +42,13 @@ import {
   getUserById,
   searchInvoiceNumber,
   updateInvoice,
-} from "@midday/db/queries";
-import { DEFAULT_TEMPLATE } from "@midday/invoice";
-import { verify } from "@midday/invoice/token";
-import { transformCustomerToContent } from "@midday/invoice/utils";
-import { decodeJobId, getQueue, triggerJob } from "@midday/job-client";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { DEFAULT_TEMPLATE } from "@cashpanel/invoice";
+import { verify } from "@cashpanel/invoice/token";
+import { transformCustomerToContent } from "@cashpanel/invoice/utils";
+import { decodeJobId, getQueue, triggerJob } from "@cashpanel/job-client";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { UTCDate } from "@date-fns/utc";
 import { TRPCError } from "@trpc/server";
 import { addDays, format, parseISO } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
@@ -56,7 +56,7 @@ import { z } from "zod";
 
 const logger = createLoggerWithContext("trpc:invoice");
 
-// Use the shared default template from @midday/invoice
+// Use the shared default template from @cashpanel/invoice
 const defaultTemplate = DEFAULT_TEMPLATE;
 
 export const invoiceRouter = createTRPCRouter({

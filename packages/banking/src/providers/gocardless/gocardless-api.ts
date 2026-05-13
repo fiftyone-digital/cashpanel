@@ -1,4 +1,4 @@
-import { bankingCache, CacheTTL } from "@midday/cache/banking-cache";
+import { bankingCache, CacheTTL } from "@cashpanel/cache/banking-cache";
 import { formatISO, subDays } from "date-fns";
 import type { XiorInstance, XiorRequestConfig } from "xior";
 import xior from "xior";

@@ -1,5 +1,5 @@
 import { globalSearchSchema } from "@api/schemas/search";
-import { globalSearchQuery } from "@midday/db/queries";
+import { globalSearchQuery } from "@cashpanel/db/queries";
 import { z } from "zod";
 import { mcpSearchResultSchema, sanitizeArray } from "../schemas";
 import { hasScope, READ_ONLY_ANNOTATIONS, type RegisterTools } from "../types";

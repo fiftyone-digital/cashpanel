@@ -5,10 +5,10 @@ import {
   defaultEmailBody,
   defaultEmailHeading,
   defaultEmailSubject,
-} from "@midday/email/defaults";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Sheet, SheetContent } from "@midday/ui/sheet";
+} from "@cashpanel/email/defaults";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Sheet, SheetContent } from "@cashpanel/ui/sheet";
 import { format } from "date-fns";
 import { useCallback, useEffect, useRef } from "react";
 import { useFormContext } from "react-hook-form";
@@ -173,7 +173,7 @@ export function EmailPreview() {
   }
 
   // Display values — plain text, no template variable resolution.
-  // Defaults are imported from @midday/email/defaults so they stay in sync
+  // Defaults are imported from @cashpanel/email/defaults so they stay in sync
   // with the actual email template the customer receives.
   const displaySubject = emailSubject || defaultEmailSubject(teamName);
   const displayHeading = emailHeading || defaultEmailHeading(teamName);
@@ -232,8 +232,8 @@ export function EmailPreview() {
             <div className="flex items-start gap-3">
               <div className="size-10 rounded-full bg-white dark:bg-[#1a1a1a] border border-border flex items-center justify-center flex-shrink-0">
                 <img
-                  src="https://midday.ai/email/logo.png"
-                  alt="Midday"
+                  src="https://cashpanel.io/email/logo.png"
+                  alt="CashPanel"
                   className="size-6 dark:invert dark:brightness-100"
                 />
               </div>
@@ -262,8 +262,8 @@ export function EmailPreview() {
                   />
                 ) : (
                   <img
-                    src="https://midday.ai/email/logo.png"
-                    alt="Midday"
+                    src="https://cashpanel.io/email/logo.png"
+                    alt="CashPanel"
                     className="h-10 w-10 dark:invert dark:brightness-100"
                   />
                 )}

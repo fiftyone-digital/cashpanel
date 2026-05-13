@@ -1,6 +1,6 @@
-import type { Database } from "@midday/db/client";
-import { getInboxAccountById, upsertInboxAccount } from "@midday/db/queries";
-import { decrypt, encrypt } from "@midday/encryption";
+import type { Database } from "@cashpanel/db/client";
+import { getInboxAccountById, upsertInboxAccount } from "@cashpanel/db/queries";
+import { decrypt, encrypt } from "@cashpanel/encryption";
 import { InboxAuthError, InboxSyncError } from "./errors";
 import { GmailProvider } from "./providers/gmail";
 import { OutlookProvider } from "./providers/outlook";

@@ -1,8 +1,8 @@
 "use client";
 
-import { AIAssistantAnimation } from "@midday/ui/animations/ai-assistant";
-import { BurnrateAnimation } from "@midday/ui/animations/burnrate";
-import { WidgetsAnimation } from "@midday/ui/animations/widgets";
+import { AIAssistantAnimation } from "@cashpanel/ui/animations/ai-assistant";
+import { BurnrateAnimation } from "@cashpanel/ui/animations/burnrate";
+import { WidgetsAnimation } from "@cashpanel/ui/animations/widgets";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { HeroImage } from "./hero-image";
@@ -320,7 +320,7 @@ export function Insights() {
       </div>
 
       {/* Audio Summary Section */}
-      <AudioSummarySection audioUrl="https://cdn.midday.ai/weekly-speech.mp3" />
+      <AudioSummarySection audioUrl="https://cdn.cashpanel.io/weekly-speech.mp3" />
 
       {/* Divider */}
       <div className="max-w-[1400px] mx-auto">

@@ -1,7 +1,7 @@
 "use client";
 
-import { connectorApps, getConnectorLogoUrl } from "@midday/connectors";
-import { Icons } from "@midday/ui/icons";
+import { connectorApps, getConnectorLogoUrl } from "@cashpanel/connectors";
+import { Icons } from "@cashpanel/ui/icons";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ConnectorsModal } from "@/components/modals/connectors-modal";

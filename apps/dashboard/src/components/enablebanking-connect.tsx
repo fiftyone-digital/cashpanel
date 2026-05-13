@@ -1,5 +1,5 @@
-import { isDesktopApp } from "@midday/desktop-client/platform";
-import { useToast } from "@midday/ui/use-toast";
+import { isDesktopApp } from "@cashpanel/desktop-client/platform";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { BankConnectButton } from "./bank-connect-button";

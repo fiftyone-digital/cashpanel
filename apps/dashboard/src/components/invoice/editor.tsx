@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Editor as BaseEditor } from "@midday/ui/editor";
+import { cn } from "@cashpanel/ui/cn";
+import { Editor as BaseEditor } from "@cashpanel/ui/editor";
 import type { Editor as EditorInstance, JSONContent } from "@tiptap/react";
 import { useCallback, useState } from "react";
 

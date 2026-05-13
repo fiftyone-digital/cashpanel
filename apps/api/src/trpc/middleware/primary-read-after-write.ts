@@ -1,7 +1,7 @@
 import type { Session } from "@api/utils/auth";
-import { replicationCache } from "@midday/cache/replication-cache";
-import type { Database, DatabaseWithPrimary } from "@midday/db/client";
-import { createLoggerWithContext } from "@midday/logger";
+import { replicationCache } from "@cashpanel/cache/replication-cache";
+import type { Database, DatabaseWithPrimary } from "@cashpanel/db/client";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 const DEBUG_PERF = process.env.DEBUG_PERF === "true";
 const perfLogger = createLoggerWithContext("perf:trpc");

@@ -1,14 +1,14 @@
 "use client";
 
 import {
+  CashPanelDesktopLogo,
   ChatGPTMcpLogo,
   ClaudeMcpLogo,
   CursorMcpLogo,
   GeminiMcpLogo,
-  MiddayDesktopLogo,
-} from "@midday/app-store/logos";
-import { isDesktopApp } from "@midday/desktop-client/platform";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
+} from "@cashpanel/app-store/logos";
+import { isDesktopApp } from "@cashpanel/desktop-client/platform";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
+} from "@cashpanel/ui/dropdown-menu";
 import Link from "next/link";
 import { useUserQuery } from "@/hooks/use-user";
 import { SignOut } from "./sign-out";
@@ -114,7 +114,7 @@ export function UserMenu({ onlySignOut }: Props) {
 
               {!isDesktopApp() && (
                 <Link
-                  href="https://midday.ai/api/download"
+                  href="https://cashpanel.io/api/download"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -127,7 +127,7 @@ export function UserMenu({ onlySignOut }: Props) {
                         animationFillMode: "backwards",
                       }}
                     >
-                      <MiddayDesktopLogo />
+                      <CashPanelDesktopLogo />
                     </div>
                   </DropdownMenuItem>
                 </Link>

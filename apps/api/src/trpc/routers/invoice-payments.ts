@@ -4,8 +4,8 @@ import {
   getTeamById,
   updateInvoice,
   updateTeamById,
-} from "@midday/db/queries";
-import { logger } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { logger } from "@cashpanel/logger";
 import { TRPCError } from "@trpc/server";
 import Stripe from "stripe";
 import { z } from "zod";
@@ -47,7 +47,7 @@ export const invoicePaymentsRouter = createTRPCRouter({
     }
 
     // Return the REST endpoint URL that handles the OAuth flow
-    const apiUrl = process.env.MIDDAY_API_URL || "https://api.midday.ai";
+    const apiUrl = process.env.CASHPANEL_API_URL || "https://api.cashpanel.io";
     return `${apiUrl}/invoice-payments/connect-stripe`;
   }),
 

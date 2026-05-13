@@ -1,14 +1,14 @@
 "use client";
 
-import { fromStripeAmount } from "@midday/invoice/currency";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
-import { Drawer, DrawerContent } from "@midday/ui/drawer";
-import { useMediaQuery } from "@midday/ui/hooks";
-import { Icons } from "@midday/ui/icons";
-import { Skeleton } from "@midday/ui/skeleton";
-import { Spinner } from "@midday/ui/spinner";
-import { SubmitButton } from "@midday/ui/submit-button";
+import { fromStripeAmount } from "@cashpanel/invoice/currency";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
+import { Drawer, DrawerContent } from "@cashpanel/ui/drawer";
+import { useMediaQuery } from "@cashpanel/ui/hooks";
+import { Icons } from "@cashpanel/ui/icons";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import {
   Elements,
   PaymentElement,
@@ -338,7 +338,8 @@ export function PaymentModal({
     setError(null);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.midday.ai";
+      const apiUrl =
+        process.env.NEXT_PUBLIC_API_URL || "https://api.cashpanel.io";
 
       const response = await fetch(
         `${apiUrl}/invoice-payments/payment-intent`,

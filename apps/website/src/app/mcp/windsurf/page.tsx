@@ -4,10 +4,10 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Windsurf MCP Integration",
   description:
-    "Connect Windsurf to your Midday data via Model Context Protocol. Query transactions, invoices, and reports from your AI IDE.",
+    "Connect Windsurf to your CashPanel data via Model Context Protocol. Query transactions, invoices, and reports from your AI IDE.",
   path: "/mcp/windsurf",
   og: {
-    title: "Windsurf + Midday",
+    title: "Windsurf + CashPanel",
     description: "Business data from your AI IDE",
   },
   keywords: [

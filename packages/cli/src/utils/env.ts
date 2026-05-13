@@ -34,12 +34,12 @@ export function shouldShowUI(flags: {
 }
 
 export function getApiUrl(): string {
-  return process.env.MIDDAY_API_URL || "https://api.midday.ai";
+  return process.env.CASHPANEL_API_URL || "https://api.cashpanel.io";
 }
 
 export function getDashboardUrl(): string {
-  if (process.env.MIDDAY_DASHBOARD_URL) {
-    return process.env.MIDDAY_DASHBOARD_URL;
+  if (process.env.CASHPANEL_DASHBOARD_URL) {
+    return process.env.CASHPANEL_DASHBOARD_URL;
   }
   const apiUrl = getApiUrl();
   if (apiUrl.includes("localhost") || apiUrl.includes("127.0.0.1")) {

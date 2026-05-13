@@ -1,4 +1,10 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import {
+  getTransactionsForEnrichment,
+  markTransactionsAsEnriched,
+  type UpdateTransactionEnrichmentParams,
+  updateTransactionEnrichments,
+} from "@cashpanel/db/queries";
 import { getDb } from "@jobs/init";
 import {
   generateEnrichmentPrompt,
@@ -7,12 +13,6 @@ import {
 } from "@jobs/utils/enrichment-helpers";
 import { enrichmentSchema } from "@jobs/utils/enrichment-schema";
 import { processBatch } from "@jobs/utils/process-batch";
-import {
-  getTransactionsForEnrichment,
-  markTransactionsAsEnriched,
-  type UpdateTransactionEnrichmentParams,
-  updateTransactionEnrichments,
-} from "@midday/db/queries";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { generateObject } from "ai";
 import { z } from "zod";

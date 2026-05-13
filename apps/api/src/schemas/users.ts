@@ -1,5 +1,5 @@
+import { isValidTimezone } from "@cashpanel/location/timezones";
 import { z } from "@hono/zod-openapi";
-import { isValidTimezone } from "@midday/location/timezones";
 
 export const updateUserSchema = z.object({
   fullName: z.string().min(2).max(32).optional().openapi({
@@ -13,14 +13,14 @@ export const updateUserSchema = z.object({
   avatarUrl: z
     .string()
     .url()
-    .refine((url) => url.includes("midday.ai"), {
-      message: "avatarUrl must be a midday.ai domain URL",
+    .refine((url) => url.includes("cashpanel.io"), {
+      message: "avatarUrl must be a cashpanel.io domain URL",
     })
     .optional()
     .openapi({
       description:
-        "URL to the user's avatar image. Must be hosted on midday.ai domain",
-      example: "https://cdn.midday.ai/avatars/jane-doe.jpg",
+        "URL to the user's avatar image. Must be hosted on cashpanel.io domain",
+      example: "https://cdn.cashpanel.io/avatars/jane-doe.jpg",
     }),
   locale: z.string().optional().openapi({
     description:
@@ -84,7 +84,7 @@ export const userSchema = z.object({
   }),
   avatarUrl: z.string().url().nullable().openapi({
     description: "URL to the user's avatar image",
-    example: "https://cdn.midday.ai/avatars/jane-doe.jpg",
+    example: "https://cdn.cashpanel.io/avatars/jane-doe.jpg",
   }),
   locale: z.string().nullable().openapi({
     description:
@@ -142,7 +142,7 @@ export const userSchema = z.object({
       }),
       logoUrl: z.string().url().nullable().openapi({
         description: "URL to the team's logo image",
-        example: "https://cdn.midday.ai/logos/acme-corp.png",
+        example: "https://cdn.cashpanel.io/logos/acme-corp.png",
       }),
       plan: z.string().openapi({
         description: "Current subscription plan of the team",

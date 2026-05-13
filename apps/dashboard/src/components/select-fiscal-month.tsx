@@ -1,6 +1,6 @@
-import { ComboboxDropdown } from "@midday/ui/combobox-dropdown";
-import type { PopoverContent } from "@midday/ui/popover";
-import { getFiscalYearLabel } from "@midday/utils";
+import { ComboboxDropdown } from "@cashpanel/ui/combobox-dropdown";
+import type { PopoverContent } from "@cashpanel/ui/popover";
+import { getFiscalYearLabel } from "@cashpanel/utils";
 
 type Props = {
   value?: number | null;

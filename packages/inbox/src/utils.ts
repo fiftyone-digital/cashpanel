@@ -1,4 +1,4 @@
-import { decrypt, encrypt } from "@midday/encryption";
+import { decrypt, encrypt } from "@cashpanel/encryption";
 
 export function getInboxIdFromEmail(email: string) {
   return email.split("@").at(0);
@@ -48,10 +48,10 @@ export function decryptOAuthState(
 
 export function getInboxEmail(inboxId: string) {
   if (process.env.NODE_ENV !== "production") {
-    return `${inboxId}@inbox.staging.midday.ai`;
+    return `${inboxId}@inbox.staging.cashpanel.io`;
   }
 
-  return `${inboxId}@inbox.midday.ai`;
+  return `${inboxId}@inbox.cashpanel.io`;
 }
 
 /**

@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { SubmitButton } from "@midday/ui/submit-button";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { motion } from "framer-motion";
 import { Portal } from "@/components/portal";
 import { useDownloadInvoicesZip } from "@/hooks/use-download-invoices-zip";

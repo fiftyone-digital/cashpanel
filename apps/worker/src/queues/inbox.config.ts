@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import type { QueueOptions, WorkerOptions } from "bullmq";
 import { getRedisConnection } from "../config";
 import type { QueueConfig } from "../types/queue-config";

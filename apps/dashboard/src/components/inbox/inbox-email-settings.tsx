@@ -1,7 +1,12 @@
 "use client";
 
-import { getInboxEmail } from "@midday/inbox";
-import { Card, CardDescription, CardHeader, CardTitle } from "@midday/ui/card";
+import { getInboxEmail } from "@cashpanel/inbox";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@cashpanel/ui/card";
 import { CopyInput } from "@/components/copy-input";
 import { useUserQuery } from "@/hooks/use-user";
 

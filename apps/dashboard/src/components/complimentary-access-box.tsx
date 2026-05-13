@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+import { cn } from "@cashpanel/ui/cn";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { revalidateAfterCheckout } from "@/actions/revalidate-action";
 import { useTRPC } from "@/trpc/client";

@@ -1,12 +1,12 @@
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
 import {
   DropdownMenuGroup,
   DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from "@midday/ui/dropdown-menu";
+} from "@cashpanel/ui/dropdown-menu";
 import { useQueryClient } from "@tanstack/react-query";
 import { endOfMonth, format, parseISO, startOfMonth } from "date-fns";
 import Papa from "papaparse";

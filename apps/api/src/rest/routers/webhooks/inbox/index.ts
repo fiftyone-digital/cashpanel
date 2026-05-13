@@ -1,11 +1,11 @@
 import type { Context } from "@api/rest/types";
 import { resend } from "@api/services/resend";
 import { createAdminClient } from "@api/services/supabase";
+import { getTeamByInboxId } from "@cashpanel/db/queries";
+import { getAllowedAttachments } from "@cashpanel/documents";
+import { getInboxIdFromEmail, inboxWebhookPostSchema } from "@cashpanel/inbox";
+import { logger } from "@cashpanel/logger";
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
-import { getTeamByInboxId } from "@midday/db/queries";
-import { getAllowedAttachments } from "@midday/documents";
-import { getInboxIdFromEmail, inboxWebhookPostSchema } from "@midday/inbox";
-import { logger } from "@midday/logger";
 import { basicAuth } from "hono/basic-auth";
 import { HTTPException } from "hono/http-exception";
 import { nanoid } from "nanoid";

@@ -1,5 +1,5 @@
-import { PaymentIssueEmail } from "@midday/email/emails/payment-issue";
-import { render } from "@midday/email/render";
+import { PaymentIssueEmail } from "@cashpanel/email/emails/payment-issue";
+import { render } from "@cashpanel/email/render";
 import type { Job } from "bullmq";
 import { Resend } from "resend";
 import type { PaymentIssuePayload } from "../../schemas/teams";
@@ -20,8 +20,8 @@ export class PaymentIssueProcessor extends BaseProcessor<PaymentIssuePayload> {
     const html = await render(PaymentIssueEmail({ fullName, teamName }));
 
     await resend.emails.send({
-      from: "Middaybot <middaybot@midday.ai>",
-      replyTo: "pontus@midday.ai",
+      from: "CashPanelbot <cashpanelbot@cashpanel.io>",
+      replyTo: "pontus@cashpanel.io",
       to: email,
       subject: "Your payment didn't go through",
       html,

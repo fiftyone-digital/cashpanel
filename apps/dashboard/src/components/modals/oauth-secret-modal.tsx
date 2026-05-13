@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,8 +8,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/dialog";
+import { Label } from "@cashpanel/ui/label";
 import { useOAuthSecretModalStore } from "@/store/oauth-secret-modal";
 import { CopyInput } from "../copy-input";
 

@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
-import { cn } from "@midday/ui/cn";
-import "@midday/ui/globals.css";
-import { Provider as Analytics } from "@midday/events/client";
+import { cn } from "@cashpanel/ui/cn";
+import "@cashpanel/ui/globals.css";
+import { Provider as Analytics } from "@cashpanel/events/client";
 import type { Metadata } from "next";
 import { Hedvig_Letters_Sans, Hedvig_Letters_Serif } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -34,44 +34,44 @@ const hedvigSerif = Hedvig_Letters_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Midday — The business stack for modern founders",
-    template: "%s | Midday",
+    default: "CashPanel — The business stack for modern founders",
+    template: "%s | CashPanel",
   },
   description:
     "Invoicing, automatic reconciliation, time tracking, documents, and financial exports in one place. The business stack that replaces the tools you've outgrown.",
   openGraph: {
-    title: "Midday — The business stack for modern founders",
+    title: "CashPanel — The business stack for modern founders",
     description:
       "Invoicing, automatic reconciliation, time tracking, documents, and financial exports in one place. The business stack that replaces the tools you've outgrown.",
     url: baseUrl,
-    siteName: "Midday",
+    siteName: "CashPanel",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
+        url: "https://cdn.cashpanel.io/opengraph-image-v1.jpg",
         width: 800,
         height: 600,
       },
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
+        url: "https://cdn.cashpanel.io/opengraph-image-v1.jpg",
         width: 1800,
         height: 1600,
       },
     ],
   },
   twitter: {
-    title: "Midday — The business stack for modern founders",
+    title: "CashPanel — The business stack for modern founders",
     description:
       "Invoicing, automatic reconciliation, time tracking, documents, and financial exports in one place. The business stack that replaces the tools you've outgrown.",
     images: [
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
+        url: "https://cdn.cashpanel.io/opengraph-image-v1.jpg",
         width: 800,
         height: 600,
       },
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
+        url: "https://cdn.cashpanel.io/opengraph-image-v1.jpg",
         width: 1800,
         height: 1600,
       },
@@ -100,13 +100,13 @@ export const viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Midday",
-  url: "https://midday.ai",
-  logo: "https://cdn.midday.ai/logo.png",
+  name: "CashPanel",
+  url: "https://cashpanel.io",
+  logo: "https://cdn.cashpanel.io/logo.png",
   sameAs: [
-    "https://x.com/middayai",
-    "https://github.com/midday-ai/midday",
-    "https://linkedin.com/company/midday-ai",
+    "https://x.com/cashpanelai",
+    "https://github.com/fiftyone-digital/cashpanel",
+    "https://linkedin.com/company/cashpanel-ai",
   ],
   description:
     "Invoicing, automatic reconciliation, time tracking, documents, and financial exports in one place. The business stack that replaces the tools you've outgrown.",
@@ -116,8 +116,8 @@ export default function Layout({ children }: { children: ReactElement }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://cdn.midday.ai" />
-        <link rel="dns-prefetch" href="https://cdn.midday.ai" />
+        <link rel="preconnect" href="https://cdn.cashpanel.io" />
+        <link rel="dns-prefetch" href="https://cdn.cashpanel.io" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

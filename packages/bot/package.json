@@ -1,5 +1,5 @@
 {
-  "name": "@midday/bot",
+  "name": "@cashpanel/bot",
   "version": "0.1.0",
   "private": true,
   "main": "src/index.ts",
@@ -18,19 +18,19 @@
     "@chat-adapter/telegram": "^4.23.0",
     "@chat-adapter/whatsapp": "^4.23.0",
     "chat-adapter-sendblue": "^0.2.0",
-    "@midday/app-store": "workspace:*",
-    "@midday/cache": "workspace:*",
-    "@midday/db": "workspace:*",
-    "@midday/documents": "workspace:*",
-    "@midday/job-client": "workspace:*",
-    "@midday/logger": "workspace:*",
-    "@midday/supabase": "workspace:*",
-    "@midday/utils": "workspace:*",
+    "@cashpanel/app-store": "workspace:*",
+    "@cashpanel/cache": "workspace:*",
+    "@cashpanel/db": "workspace:*",
+    "@cashpanel/documents": "workspace:*",
+    "@cashpanel/job-client": "workspace:*",
+    "@cashpanel/logger": "workspace:*",
+    "@cashpanel/supabase": "workspace:*",
+    "@cashpanel/utils": "workspace:*",
     "chat": "^4.23.0",
     "nanoid": "catalog:"
   },
   "devDependencies": {
-    "@midday/tsconfig": "workspace:*",
+    "@cashpanel/tsconfig": "workspace:*",
     "typescript": "catalog:"
   }
 }

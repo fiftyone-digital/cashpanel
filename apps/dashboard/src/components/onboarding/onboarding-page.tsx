@@ -13,13 +13,13 @@ import {
   RaycastMcpLogo,
   WindsurfMcpLogo,
   ZapierMcpLogo,
-} from "@midday/app-store/logos";
-import { LogEvents } from "@midday/events/events";
-import { BulkReconciliationAnimation } from "@midday/ui/animations/bulk-reconciliation";
-import { ReceiptAttachmentAnimation } from "@midday/ui/animations/receipt-attachment";
-import { WidgetsAnimation } from "@midday/ui/animations/widgets";
-import { Icons } from "@midday/ui/icons";
-import { SubmitButton } from "@midday/ui/submit-button";
+} from "@cashpanel/app-store/logos";
+import { LogEvents } from "@cashpanel/events/events";
+import { BulkReconciliationAnimation } from "@cashpanel/ui/animations/bulk-reconciliation";
+import { ReceiptAttachmentAnimation } from "@cashpanel/ui/animations/receipt-attachment";
+import { WidgetsAnimation } from "@cashpanel/ui/animations/widgets";
+import { Icons } from "@cashpanel/ui/icons";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { useQueryClient } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -68,7 +68,7 @@ function DashboardImageAnimation() {
       style={{ width: "100%", height: "100%", transformOrigin: "center" }}
     >
       <Image
-        src="https://cdn.midday.ai/web/dashboard-light.svg"
+        src="https://cdn.cashpanel.io/web/dashboard-light.svg"
         alt="Dashboard illustration"
         width={2400}
         height={1800}
@@ -77,7 +77,7 @@ function DashboardImageAnimation() {
         priority
       />
       <Image
-        src="https://cdn.midday.ai/web/dashboard-dark.svg"
+        src="https://cdn.cashpanel.io/web/dashboard-dark.svg"
         alt="Dashboard illustration"
         width={2400}
         height={1800}

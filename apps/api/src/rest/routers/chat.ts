@@ -1,4 +1,4 @@
-import { streamMiddayAssistant } from "@api/chat/assistant-runtime";
+import { streamCashPanelAssistant } from "@api/chat/assistant-runtime";
 import type { MentionedApp } from "@api/chat/prompt";
 import { buildSystemPrompt } from "@api/chat/prompt";
 import {
@@ -9,14 +9,14 @@ import {
 import type { McpContext } from "@api/mcp/types";
 import type { Context } from "@api/rest/types";
 import { getGeoContext } from "@api/utils/geo";
-import { OpenAPIHono } from "@hono/zod-openapi";
 import {
   formatProcessedUploadSummary,
   getPlatformInstructions,
   isSupportedInboxUploadMediaType,
   processInboxUpload,
-} from "@midday/bot";
-import { logger } from "@midday/logger";
+} from "@cashpanel/bot";
+import { logger } from "@cashpanel/logger";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import {
   convertToModelMessages,
   createUIMessageStream,
@@ -71,7 +71,7 @@ app.post("/", async (c) => {
       userId: user?.id ?? session.user.id,
       userEmail: user?.email ?? session.user.email ?? null,
       scopes,
-      apiUrl: process.env.MIDDAY_API_URL || "https://api.midday.ai",
+      apiUrl: process.env.CASHPANEL_API_URL || "https://api.cashpanel.io",
       timezone: resolvedTimezone,
       locale: user?.locale || geo.locale,
       countryCode: geo.country,
@@ -153,7 +153,7 @@ app.post("/", async (c) => {
         }
 
         const titlePromise = writeChatTitle(writer, uiMessages);
-        const result = await streamMiddayAssistant({
+        const result = await streamCashPanelAssistant({
           mcpCtx,
           systemPrompt,
           modelMessages,

@@ -1,4 +1,4 @@
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import { parseISO } from "date-fns";
 import {
   Account,
@@ -867,13 +867,13 @@ export class XeroProvider extends BaseAccountingProvider {
     );
 
     // Build parts for the history note
-    const parts: string[] = ["Synced from Midday"];
+    const parts: string[] = ["Synced from CashPanel"];
 
     if (noteContent) {
       parts.push(noteContent);
     }
 
-    // Only add history if there's meaningful content beyond "Synced from Midday"
+    // Only add history if there's meaningful content beyond "Synced from CashPanel"
     if (parts.length === 1 && !noteContent) {
       return;
     }

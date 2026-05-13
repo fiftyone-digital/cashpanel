@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Dialog, DialogTrigger } from "@midday/ui/dialog";
+import { cn } from "@cashpanel/ui/cn";
+import { Dialog, DialogTrigger } from "@cashpanel/ui/dialog";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { motion, type Transition, type Variants } from "motion/react";

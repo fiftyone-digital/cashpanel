@@ -1,8 +1,8 @@
 /**
  * Shared OAuth utilities for app integrations
  */
-import type { OAuthErrorCode } from "@midday/app-store/oauth-errors";
-import { sanitizeRedirectPath } from "@midday/utils/sanitize-redirect";
+import type { OAuthErrorCode } from "@cashpanel/app-store/oauth-errors";
+import { sanitizeRedirectPath } from "@cashpanel/utils/sanitize-redirect";
 
 export type { OAuthErrorCode };
 

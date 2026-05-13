@@ -1,4 +1,4 @@
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import type { ReactNode } from "react";
 
 export function AppShell({ children }: { children: ReactNode }) {

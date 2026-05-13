@@ -100,7 +100,7 @@ async fn check_for_updates(app: tauri::AppHandle) -> Result<(), String> {
                 Ok(None) => {
                     let version = app.package_info().version.to_string();
                     app.dialog()
-                        .message(format!("Midday\nversion {}\n\nYou're up to date!", version))
+                        .message(format!("CashPanel\nversion {}\n\nYou're up to date!", version))
                         .title("No Updates Available")
                         .kind(MessageDialogKind::Info)
                         .buttons(MessageDialogButtons::Ok)
@@ -278,11 +278,11 @@ async fn create_preloaded_search_window(
         search_window_label,
         WebviewUrl::External(tauri::Url::parse(&search_url)?),
     )
-    .title("Midday Search")
+    .title("CashPanel Search")
     .inner_size(720.0, 450.0)
     .min_inner_size(720.0, 450.0)
     .resizable(false)
-    .user_agent("Mozilla/5.0 (compatible; Midday Desktop App)")
+    .user_agent("Mozilla/5.0 (compatible; CashPanel Desktop App)")
     .transparent(true)
     .decorations(false)
     .visible(false) // Start hidden for preloading
@@ -334,9 +334,9 @@ async fn create_preloaded_search_window(
 
 fn get_app_url() -> String {
     // Try runtime environment variable first, then fall back to compile-time
-    let env = env::var("MIDDAY_ENV")
+    let env = env::var("CASHPANEL_ENV")
         .unwrap_or_else(|_| {
-            option_env!("MIDDAY_ENV")
+            option_env!("CASHPANEL_ENV")
                 .unwrap_or("development")
                 .to_string()
         });
@@ -350,12 +350,12 @@ fn get_app_url() -> String {
             url
         },
         "staging" => {
-            let url = "https://beta.midday.ai".to_string();
+            let url = "https://beta.cashpanel.io".to_string();
             println!("🌍 Using staging URL: {}", url);
             url
         },
         "production" | "prod" => {
-            let url = "https://app.midday.ai".to_string();
+            let url = "https://app.cashpanel.io".to_string();
             println!("🌍 Using production URL: {}", url);
             url
         },
@@ -384,10 +384,10 @@ fn is_external_url(url: &str, app_url: &str) -> bool {
 
 fn handle_deep_link_event(app_handle: &tauri::AppHandle, urls: Vec<String>) {
     for url in &urls {
-        // Only handle midday schemes (midday://, midday-dev://, midday-staging://)
+        // Only handle cashpanel schemes (cashpanel://, cashpanel-dev://, cashpanel-staging://)
         if let Some(idx) = url.find("://") {
             let scheme = &url[..idx];
-            if !scheme.contains("midday") {
+            if !scheme.contains("cashpanel") {
                 continue;
             }
             let path = &url[idx + 3..];
@@ -528,10 +528,10 @@ pub fn run() {
                 "main",
                 WebviewUrl::External(tauri::Url::parse(&app_url).unwrap()),
             )
-            .title("Midday")
+            .title("CashPanel")
             .inner_size(1450.0, 910.0)
             .min_inner_size(1450.0, 910.0)
-            .user_agent("Mozilla/5.0 (compatible; Midday Desktop App)")
+            .user_agent("Mozilla/5.0 (compatible; CashPanel Desktop App)")
             .decorations(false)
             .visible(false)
             .transparent(true)
@@ -618,7 +618,7 @@ pub fn run() {
             // Don't preload search window immediately - create it on first use instead
             // This prevents interference with the login flow
 
-            // Set the default app menu to restore the Midday menu
+            // Set the default app menu to restore the CashPanel menu
             let app_menu = Menu::default(app.handle())?;
             app.set_menu(app_menu)?;
 

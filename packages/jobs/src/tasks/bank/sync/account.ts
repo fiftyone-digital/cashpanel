@@ -1,7 +1,7 @@
+import { createClient } from "@cashpanel/supabase/job";
+import { trpc } from "@cashpanel/trpc";
 import { parseAPIError } from "@jobs/utils/parse-error";
 import { getClassification } from "@jobs/utils/transform";
-import { createClient } from "@midday/supabase/job";
-import { trpc } from "@midday/trpc";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { upsertTransactions } from "../transactions/upsert";

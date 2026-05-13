@@ -1,14 +1,14 @@
 "use client";
 
-import { Badge } from "@midday/ui/badge";
-import { Icons } from "@midday/ui/icons";
+import { Badge } from "@cashpanel/ui/badge";
+import { Icons } from "@cashpanel/ui/icons";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { formatDate } from "@midday/utils/format";
+} from "@cashpanel/ui/tooltip";
+import { formatDate } from "@cashpanel/utils/format";
 import { FormatAmount } from "../format-amount";
 
 type Props = {

@@ -26,7 +26,7 @@ import {
   getRunway,
   getSpending,
   getTaxSummary,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import { hasScope, READ_ONLY_ANNOTATIONS, type RegisterTools } from "../types";
 import { withErrorHandling } from "../utils";

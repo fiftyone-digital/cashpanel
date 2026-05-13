@@ -1,7 +1,7 @@
 import { protectedMiddleware } from "@api/rest/middleware";
 import type { Context } from "@api/rest/types";
+import { getInstallUrl } from "@cashpanel/app-store/slack/server";
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
-import { getInstallUrl } from "@midday/app-store/slack/server";
 import { HTTPException } from "hono/http-exception";
 
 const app = new OpenAPIHono<Context>();

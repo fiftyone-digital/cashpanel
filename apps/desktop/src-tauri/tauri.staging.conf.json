@@ -1,7 +1,7 @@
 {
-  "productName": "Midday Staging",
+  "productName": "CashPanel Staging",
   "version": "0.1.0",
-  "identifier": "ai.midday.app.staging",
+  "identifier": "ai.cashpanel.app.staging",
   "bundle": {
     "icon": [
       "icons/staging/32x32.png",
@@ -13,7 +13,7 @@
   "plugins": {
     "deep-link": {
       "desktop": {
-        "schemes": ["midday-staging"]
+        "schemes": ["cashpanel-staging"]
       }
     }
   }

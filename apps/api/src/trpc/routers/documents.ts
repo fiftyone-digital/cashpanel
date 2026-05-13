@@ -17,10 +17,10 @@ import {
   getRelatedDocuments,
   updateDocumentProcessingStatus,
   updateDocuments,
-} from "@midday/db/queries";
-import { isMimeTypeSupportedForProcessing } from "@midday/documents/utils";
-import { triggerJob } from "@midday/job-client";
-import { remove, signedUrl } from "@midday/supabase/storage";
+} from "@cashpanel/db/queries";
+import { isMimeTypeSupportedForProcessing } from "@cashpanel/documents/utils";
+import { triggerJob } from "@cashpanel/job-client";
+import { remove, signedUrl } from "@cashpanel/supabase/storage";
 import { TRPCError } from "@trpc/server";
 
 export const documentsRouter = createTRPCRouter({

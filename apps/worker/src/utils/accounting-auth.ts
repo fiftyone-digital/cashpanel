@@ -1,9 +1,9 @@
 import type {
   AccountingProvider,
   AccountingProviderConfig,
-} from "@midday/accounting";
-import type { Database } from "@midday/db/client";
-import { updateAppTokens } from "@midday/db/queries";
+} from "@cashpanel/accounting";
+import type { Database } from "@cashpanel/db/client";
+import { updateAppTokens } from "@cashpanel/db/queries";
 
 /**
  * Ensure the accounting provider has a valid (non-expired) token

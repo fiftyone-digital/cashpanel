@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { ACCOUNTING_ERROR_CODES } from "@midday/accounting";
+import { ACCOUNTING_ERROR_CODES } from "@cashpanel/accounting";
 
 /**
  * Derive error code from error message for database storage

@@ -17,7 +17,7 @@ import {
   saveLineItemAsProduct,
   updateInvoiceProduct,
   upsertInvoiceProduct,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { TRPCError } from "@trpc/server";
 
 export const invoiceProductsRouter = createTRPCRouter({

@@ -1,7 +1,6 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Form,
   FormControl,
@@ -9,17 +8,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@midday/ui/form";
-import { Input } from "@midday/ui/input";
+} from "@cashpanel/ui/form";
+import { Input } from "@cashpanel/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { Textarea } from "@midday/ui/textarea";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/select";
+import { Textarea } from "@cashpanel/ui/textarea";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
@@ -70,7 +70,7 @@ export function SupportForm() {
             Support
           </h1>
           <p className="font-sans text-base text-muted-foreground leading-relaxed">
-            Get help with Midday. Contact our team for assistance with any
+            Get help with CashPanel. Contact our team for assistance with any
             questions or issues you may have.
           </p>
         </div>

@@ -1,4 +1,4 @@
-import { createClient } from "@midday/supabase/job";
+import { createClient } from "@cashpanel/supabase/job";
 
 export async function shouldSendEmail(teamId: string) {
   const supabase = createClient();

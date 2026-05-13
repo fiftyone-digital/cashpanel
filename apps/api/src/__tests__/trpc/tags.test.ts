@@ -1,5 +1,10 @@
 import { beforeEach, describe, expect, test } from "bun:test";
-import { createTag, deleteTag, getTags, updateTag } from "@midday/db/queries";
+import {
+  createTag,
+  deleteTag,
+  getTags,
+  updateTag,
+} from "@cashpanel/db/queries";
 import { createCallerFactory } from "../../trpc/init";
 import { tagsRouter } from "../../trpc/routers/tags";
 import { createTestContext } from "../helpers/test-context";

@@ -3,10 +3,10 @@
 import {
   getFrequencyLabel,
   localDateToUTCMidnight,
-} from "@midday/invoice/recurring";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
+} from "@cashpanel/invoice/recurring";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,10 +16,10 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { SubmitButton as BaseSubmitButton } from "@midday/ui/submit-button";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { SubmitButton as BaseSubmitButton } from "@cashpanel/ui/submit-button";
 import { useMutation } from "@tanstack/react-query";
 import {
   addHours,

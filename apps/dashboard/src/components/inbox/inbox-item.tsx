@@ -1,15 +1,15 @@
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Badge } from "@midday/ui/badge";
-import { cn } from "@midday/ui/cn";
-import { Skeleton } from "@midday/ui/skeleton";
+import { Badge } from "@cashpanel/ui/badge";
+import { cn } from "@cashpanel/ui/cn";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
-import { formatDate } from "@midday/utils/format";
-import { getTaxTypeLabel } from "@midday/utils/tax";
+} from "@cashpanel/ui/tooltip";
+import { formatDate } from "@cashpanel/utils/format";
+import { getTaxTypeLabel } from "@cashpanel/utils/tax";
 import { forwardRef } from "react";
 import { FormatAmount } from "@/components/format-amount";
 import { InboxStatus } from "@/components/inbox/inbox-status";

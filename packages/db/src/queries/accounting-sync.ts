@@ -14,7 +14,7 @@ export type AccountingSyncRecord = {
   provider: "xero" | "quickbooks" | "fortnox";
   providerTenantId: string;
   providerTransactionId: string | null;
-  /** Maps Midday attachment IDs to provider attachment IDs */
+  /** Maps CashPanel attachment IDs to provider attachment IDs */
   syncedAttachmentMapping: Record<string, string | null>;
   syncedAt: string;
   /** Sync type (always "manual" - auto-sync was removed) */
@@ -34,7 +34,7 @@ export type CreateAccountingSyncRecordParams = {
   provider: "xero" | "quickbooks" | "fortnox";
   providerTenantId: string;
   providerTransactionId?: string;
-  /** Maps Midday attachment IDs to provider attachment IDs */
+  /** Maps CashPanel attachment IDs to provider attachment IDs */
   syncedAttachmentMapping?: Record<string, string | null>;
   /** Sync type (always "manual" - auto-sync was removed) */
   syncType?: "manual";
@@ -383,7 +383,7 @@ export type TransactionWithAttachmentChanges = {
   transactionId: string;
   providerTransactionId: string;
   syncRecordId: string;
-  /** Maps Midday attachment IDs to provider attachment IDs */
+  /** Maps CashPanel attachment IDs to provider attachment IDs */
   syncedAttachmentMapping: Record<string, string | null>;
   currentAttachments: Array<{
     id: string;
@@ -395,7 +395,7 @@ export type TransactionWithAttachmentChanges = {
   /** Attachment IDs that exist now but weren't synced before */
   newAttachmentIds: string[];
   /** Attachment IDs that were synced but no longer exist (with their provider IDs) */
-  removedAttachments: Array<{ middayId: string; providerId: string | null }>;
+  removedAttachments: Array<{ cashpanelId: string; providerId: string | null }>;
 };
 
 export type GetSyncedTransactionsWithAttachmentChangesParams = {
@@ -501,9 +501,9 @@ export const getSyncedTransactionsWithAttachmentChanges = async (
     // Find attachments that were synced but no longer exist (REMOVED)
     const removedAttachments = [...syncedIds]
       .filter((id) => !currentIds.has(id))
-      .map((middayId) => ({
-        middayId,
-        providerId: syncedMapping[middayId] ?? null,
+      .map((cashpanelId) => ({
+        cashpanelId,
+        providerId: syncedMapping[cashpanelId] ?? null,
       }));
 
     // Only include if there are changes
@@ -525,7 +525,7 @@ export const getSyncedTransactionsWithAttachmentChanges = async (
 
 export type UpdateSyncedAttachmentMappingParams = {
   syncRecordId: string;
-  /** Maps Midday attachment IDs to provider attachment IDs */
+  /** Maps CashPanel attachment IDs to provider attachment IDs */
   syncedAttachmentMapping: Record<string, string | null>;
   /** Optional status update (e.g., 'partial' if some attachments failed) */
   status?: "synced" | "partial" | "failed";

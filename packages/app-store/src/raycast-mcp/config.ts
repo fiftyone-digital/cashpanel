@@ -7,8 +7,8 @@ export default {
   active: true,
   logo: Logo,
   short_description:
-    "Access Midday financial data directly from Raycast via MCP.",
-  description: `Connect Raycast to your Midday account using the Model Context Protocol (MCP).
+    "Access CashPanel financial data directly from Raycast via MCP.",
+  description: `Connect Raycast to your CashPanel account using the Model Context Protocol (MCP).
 
 **What you can do:**
 - Quick answers about your finances with a keyboard shortcut
@@ -18,8 +18,8 @@ export default {
 
 **How it works:**
 1. Click Install to open the setup page
-2. Add Midday as an MCP server in Raycast
-3. @-mention Midday in Raycast AI`,
+2. Add CashPanel as an MCP server in Raycast
+3. @-mention CashPanel in Raycast AI`,
   images: [],
-  installUrl: "https://midday.ai/mcp/raycast",
+  installUrl: "https://cashpanel.io/mcp/raycast",
 };

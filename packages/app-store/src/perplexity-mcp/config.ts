@@ -7,8 +7,8 @@ export default {
   active: true,
   logo: Logo,
   short_description:
-    "Connect Perplexity to your Midday data with AI-powered search.",
-  description: `Connect Perplexity to your Midday account using the Model Context Protocol (MCP).
+    "Connect Perplexity to your CashPanel data with AI-powered search.",
+  description: `Connect Perplexity to your CashPanel account using the Model Context Protocol (MCP).
 
 **What you can do:**
 - Query your financial data using natural language
@@ -18,7 +18,7 @@ export default {
 **How it works:**
 1. Click Install to open the setup page
 2. Add the MCP server configuration to Perplexity
-3. Add your Midday API key and start asking questions`,
+3. Add your CashPanel API key and start asking questions`,
   images: [],
-  installUrl: "https://midday.ai/mcp/perplexity",
+  installUrl: "https://cashpanel.io/mcp/perplexity",
 };

@@ -5,7 +5,7 @@ import {
   getCategories,
   getCategoryById,
   updateTransactionCategory,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { createCallerFactory } from "../../trpc/init";
 import { transactionCategoriesRouter } from "../../trpc/routers/transaction-categories";
 import { createTestContext } from "../helpers/test-context";

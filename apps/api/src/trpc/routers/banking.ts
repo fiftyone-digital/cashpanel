@@ -26,9 +26,9 @@ import {
   PlaidApi,
   Provider,
   ProviderError,
-} from "@midday/banking";
-import { getInstitutionById } from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/banking";
+import { getInstitutionById } from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { TRPCError } from "@trpc/server";
 
 const logger = createLoggerWithContext("trpc:banking");

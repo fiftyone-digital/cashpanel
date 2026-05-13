@@ -51,8 +51,8 @@ export function createInboxCommand(): Command {
       "after",
       `
 Examples:
-  midday inbox list
-  midday inbox list --status pending --json`,
+  cashpanel inbox list
+  cashpanel inbox list --status pending --json`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -99,7 +99,7 @@ Examples:
             rows,
             pageInfo:
               data.meta?.hasNextPage && data.meta?.cursor
-                ? `Next page: midday inbox list --cursor ${data.meta.cursor}`
+                ? `Next page: cashpanel inbox list --cursor ${data.meta.cursor}`
                 : undefined,
           });
         }
@@ -116,7 +116,7 @@ Examples:
       "after",
       `
 Examples:
-  midday inbox get inb_abc123`,
+  cashpanel inbox get inb_abc123`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -169,7 +169,7 @@ Examples:
       "after",
       `
 Examples:
-  midday inbox match inb_abc123 --transaction txn_def456`,
+  cashpanel inbox match inb_abc123 --transaction txn_def456`,
     )
     .action(async (inboxId: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -212,7 +212,7 @@ Examples:
       "after",
       `
 Examples:
-  midday inbox delete inb_abc123 --yes`,
+  cashpanel inbox delete inb_abc123 --yes`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

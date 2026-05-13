@@ -1,14 +1,14 @@
 import type { Context } from "@api/rest/types";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   getTeamById,
   getTeamOwnerContact,
   hasTeamData,
   updateTeamById,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
-import { logger } from "@midday/logger";
-import { getPlanByProductId } from "@midday/plans";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
+import { logger } from "@cashpanel/logger";
+import { getPlanByProductId } from "@cashpanel/plans";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   validateEvent,
   WebhookVerificationError,
@@ -227,7 +227,7 @@ app.openapi(
                   teamId,
                   email: owner.email,
                   fullName: owner.fullName ?? "there",
-                  teamName: team.name ?? "Midday",
+                  teamName: team.name ?? "CashPanel",
                 },
                 "teams",
                 { jobId: `payment-issue-${teamId}` },

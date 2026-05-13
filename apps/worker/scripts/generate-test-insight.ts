@@ -20,10 +20,10 @@
  *   bun run scripts/generate-test-insight.ts abc123-team-id weekly 2026 2 --force
  */
 
-import { getTeamById } from "@midday/db/queries";
-import { getWorkerDb } from "@midday/db/worker-client";
-import { getPreviousCompletePeriod } from "@midday/insights/period";
-import type { PeriodType } from "@midday/insights/types";
+import { getTeamById } from "@cashpanel/db/queries";
+import { getWorkerDb } from "@cashpanel/db/worker-client";
+import { getPreviousCompletePeriod } from "@cashpanel/insights/period";
+import type { PeriodType } from "@cashpanel/insights/types";
 import { Queue } from "bullmq";
 
 async function main() {

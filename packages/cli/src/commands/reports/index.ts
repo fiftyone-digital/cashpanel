@@ -21,8 +21,8 @@ export function createReportsCommand(): Command {
       "after",
       `
 Examples:
-  midday reports revenue --from 2026-01-01 --to 2026-03-31
-  midday reports revenue --json`,
+  cashpanel reports revenue --from 2026-01-01 --to 2026-03-31
+  cashpanel reports revenue --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};
@@ -83,8 +83,8 @@ Examples:
       "after",
       `
 Examples:
-  midday reports profit --from 2026-01-01 --to 2026-03-31
-  midday reports profit --json`,
+  cashpanel reports profit --from 2026-01-01 --to 2026-03-31
+  cashpanel reports profit --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};
@@ -145,8 +145,8 @@ Examples:
       "after",
       `
 Examples:
-  midday reports burn-rate --from 2026-01-01 --to 2026-03-31
-  midday reports burn-rate --json`,
+  cashpanel reports burn-rate --from 2026-01-01 --to 2026-03-31
+  cashpanel reports burn-rate --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};
@@ -200,8 +200,8 @@ Examples:
       "after",
       `
 Examples:
-  midday reports runway
-  midday reports runway --json`,
+  cashpanel reports runway
+  cashpanel reports runway --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};
@@ -241,8 +241,8 @@ Examples:
       "after",
       `
 Examples:
-  midday reports expenses --from 2026-01-01 --to 2026-03-31
-  midday reports expenses --json`,
+  cashpanel reports expenses --from 2026-01-01 --to 2026-03-31
+  cashpanel reports expenses --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};
@@ -295,8 +295,8 @@ Examples:
       "after",
       `
 Examples:
-  midday reports spending --from 2026-01-01 --to 2026-03-31
-  midday reports spending --json`,
+  cashpanel reports spending --from 2026-01-01 --to 2026-03-31
+  cashpanel reports spending --json`,
     )
     .action(async (opts, command) => {
       const globals = (command.parent?.parent?.opts() as GlobalFlags) ?? {};

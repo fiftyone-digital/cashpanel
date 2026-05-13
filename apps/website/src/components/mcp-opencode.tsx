@@ -1,8 +1,8 @@
 "use client";
 
-import { OpenCodeMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { OpenCodeMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -63,8 +63,8 @@ export function MCPOpenCode() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
-            url: "https://api.midday.ai/mcp",
+          cashpanel: {
+            url: "https://api.cashpanel.io/mcp",
             headers: {
               Authorization: `Bearer ${key}`,
             },
@@ -191,7 +191,7 @@ export function MCPOpenCode() {
                   htmlFor="api-key"
                   className="font-sans text-sm text-foreground"
                 >
-                  Your Midday API key
+                  Your CashPanel API key
                 </label>
                 <Input
                   id="api-key"
@@ -204,7 +204,7 @@ export function MCPOpenCode() {
                 <p className="font-sans text-xs text-muted-foreground">
                   Don't have an API key?{" "}
                   <Link
-                    href="https://app.midday.ai/settings/developer"
+                    href="https://app.cashpanel.io/settings/developer"
                     className="underline hover:text-foreground"
                   >
                     Create one in Settings → Developer
@@ -245,7 +245,7 @@ export function MCPOpenCode() {
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
                     Get an API key from{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Settings → Developer
@@ -265,7 +265,7 @@ export function MCPOpenCode() {
                     4
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    Restart OpenCode and ask about your Midday data
+                    Restart OpenCode and ask about your CashPanel data
                   </span>
                 </li>
               </ol>

@@ -1,5 +1,5 @@
-import { cn } from "@midday/ui/cn";
-import { CurrencyInput } from "@midday/ui/currency-input";
+import { cn } from "@cashpanel/ui/cn";
+import { CurrencyInput } from "@cashpanel/ui/currency-input";
 import { useState } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import type { NumericFormatProps } from "react-number-format";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import QRCode from "qrcode";
 import { useEffect, useState } from "react";
@@ -49,7 +49,7 @@ export function ConnectWhatsApp({ showTrigger = true }: ConnectWhatsAppProps) {
   });
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
-  const message = linkCode ? `Connect to Midday: ${linkCode}` : "";
+  const message = linkCode ? `Connect to CashPanel: ${linkCode}` : "";
   const whatsappUrl =
     whatsappNumber && message
       ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
@@ -206,7 +206,7 @@ export function ConnectWhatsApp({ showTrigger = true }: ConnectWhatsAppProps) {
 
           <p className="text-xs text-[#878787] text-center">
             Just send the prefilled message to link this phone number to your
-            Midday user.
+            CashPanel user.
           </p>
 
           {connections.length > 0 && (

@@ -1,5 +1,5 @@
 {
-  "name": "@midday/inbox",
+  "name": "@cashpanel/inbox",
   "version": "1.0.0",
   "private": true,
   "main": "src/index.ts",
@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@microsoft/microsoft-graph-client": "^3.0.7",
-    "@midday/db": "workspace:*",
-    "@midday/encryption": "workspace:*",
-    "@midday/supabase": "workspace:*",
-    "@midday/utils": "workspace:*",
+    "@cashpanel/db": "workspace:*",
+    "@cashpanel/encryption": "workspace:*",
+    "@cashpanel/supabase": "workspace:*",
+    "@cashpanel/utils": "workspace:*",
     "googleapis": "^171.4.0",
     "zod": "catalog:"
   }

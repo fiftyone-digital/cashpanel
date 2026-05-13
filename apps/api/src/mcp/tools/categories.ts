@@ -10,7 +10,7 @@ import {
   getCategories,
   getCategoryById,
   updateTransactionCategory,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import { mcpCategoryDetailSchema, sanitize, sanitizeArray } from "../schemas";
 import {

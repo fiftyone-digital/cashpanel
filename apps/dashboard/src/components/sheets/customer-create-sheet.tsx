@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Sheet, SheetContent, SheetHeader } from "@midday/ui/sheet";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Sheet, SheetContent, SheetHeader } from "@cashpanel/ui/sheet";
 import { useCustomerParams } from "@/hooks/use-customer-params";
 import { CustomerForm } from "../forms/customer-form";
 

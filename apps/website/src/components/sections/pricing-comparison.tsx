@@ -1,8 +1,8 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
 import type { Competitor } from "@/data/competitors";
 
 interface Props {
@@ -20,13 +20,13 @@ export function PricingComparison({ competitor }: Props) {
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        {/* Midday Pricing */}
+        {/* CashPanel Pricing */}
         <div>
           <h3 className="font-sans text-lg text-foreground mb-6 text-center">
-            Midday
+            CashPanel
           </h3>
           <div className="space-y-4">
-            {competitor.pricing.midday.map((tier, index) => (
+            {competitor.pricing.cashpanel.map((tier, index) => (
               <div
                 key={tier.name}
                 className={`border p-6 ${
@@ -62,7 +62,7 @@ export function PricingComparison({ competitor }: Props) {
           <div className="mt-6 text-center">
             <Button asChild className="btn-inverse h-10 px-6">
               <a
-                href="https://app.midday.ai/"
+                href="https://app.cashpanel.io/"
                 onClick={() =>
                   track({
                     event: LogEvents.CTA.name,

@@ -19,7 +19,7 @@ import {
   startTimer,
   stopTimer,
   upsertTrackerEntries,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 
 export const trackerEntriesRouter = createTRPCRouter({
   getBillableHours: protectedProcedure

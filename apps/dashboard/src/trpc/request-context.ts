@@ -1,5 +1,5 @@
-import { getLocationHeaders } from "@midday/location";
-import { createClient } from "@midday/supabase/server";
+import { getLocationHeaders } from "@cashpanel/location";
+import { createClient } from "@cashpanel/supabase/server";
 import { cookies, headers } from "next/headers";
 import { cache } from "react";
 import { Cookies } from "@/utils/constants";

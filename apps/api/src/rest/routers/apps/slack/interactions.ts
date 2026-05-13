@@ -2,20 +2,20 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { publicMiddleware } from "@api/rest/middleware";
 import type { Context } from "@api/rest/types";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   createSlackWebClient,
   ensureBotInChannel,
-} from "@midday/app-store/slack/server";
-import type { Database } from "@midday/db/client";
+} from "@cashpanel/app-store/slack/server";
+import type { Database } from "@cashpanel/db/client";
 import {
   confirmSuggestedMatch,
   declineSuggestedMatch,
   getAppBySlackTeamId,
   getInboxById,
   getSuggestionByInboxAndTransaction,
-} from "@midday/db/queries";
-import { logger } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { logger } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 
 const app = new OpenAPIHono<Context>();
@@ -300,7 +300,7 @@ app.openapi(
               suggestionId: suggestion.id,
               inboxId,
               transactionId,
-              userId: undefined, // Slack interactions don't have Midday user ID mapping
+              userId: undefined, // Slack interactions don't have CashPanel user ID mapping
               teamId,
             });
 
@@ -341,7 +341,7 @@ app.openapi(
                           text: "View transaction",
                           emoji: true,
                         },
-                        url: `https://app.midday.ai/transactions?id=${encodeURIComponent(transactionId)}`,
+                        url: `https://app.cashpanel.io/transactions?id=${encodeURIComponent(transactionId)}`,
                         action_id: "view_transaction_after_match",
                       },
                     ],
@@ -393,7 +393,7 @@ app.openapi(
             await declineSuggestedMatch(db, {
               suggestionId: suggestion.id,
               inboxId,
-              userId: undefined, // Slack interactions don't have Midday user ID mapping
+              userId: undefined, // Slack interactions don't have CashPanel user ID mapping
               teamId,
             });
 
@@ -421,7 +421,7 @@ app.openapi(
                     type: "section",
                     text: {
                       type: "mrkdwn",
-                      text: "❌ *Match declined*\n\nThe suggestion has been dismissed. You can manually match this receipt in Midday.",
+                      text: "❌ *Match declined*\n\nThe suggestion has been dismissed. You can manually match this receipt in CashPanel.",
                     },
                   },
                   {
@@ -431,10 +431,10 @@ app.openapi(
                         type: "button",
                         text: {
                           type: "plain_text",
-                          text: "View in Midday",
+                          text: "View in CashPanel",
                           emoji: true,
                         },
-                        url: `https://app.midday.ai/inbox?inboxId=${encodeURIComponent(inboxId)}`,
+                        url: `https://app.cashpanel.io/inbox?inboxId=${encodeURIComponent(inboxId)}`,
                         action_id: "view_inbox_after_decline",
                       },
                     ],

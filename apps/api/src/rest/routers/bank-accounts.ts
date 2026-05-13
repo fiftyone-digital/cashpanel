@@ -9,15 +9,14 @@ import {
   updateBankAccountSchema,
 } from "@api/schemas/bank-accounts";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
-
 import {
   createBankAccount,
   deleteBankAccount,
   getBankAccountById,
   getBankAccounts,
   updateBankAccount,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { withRequiredScope } from "../middleware";
 
 const app = new OpenAPIHono<Context>();

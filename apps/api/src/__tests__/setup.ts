@@ -12,8 +12,8 @@ process.env.DATABASE_PRIMARY_URL =
 process.env.DATABASE_REPLICA_URL =
   process.env.DATABASE_REPLICA_URL ||
   "postgres://test:test@localhost:5432/test";
-process.env.MIDDAY_DASHBOARD_URL =
-  process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+process.env.CASHPANEL_DASHBOARD_URL =
+  process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || "re_test_key";
 process.env.RESEND_AUDIENCE_ID =
   process.env.RESEND_AUDIENCE_ID || "aud_test_resend_audience";
@@ -28,7 +28,8 @@ process.env.ENABLEBANKING_APPLICATION_ID =
 process.env.ENABLE_BANKING_KEY_CONTENT =
   process.env.ENABLE_BANKING_KEY_CONTENT || "test";
 process.env.ENABLEBANKING_REDIRECT_URL =
-  process.env.ENABLEBANKING_REDIRECT_URL || "https://test.midday.ai/callback";
+  process.env.ENABLEBANKING_REDIRECT_URL ||
+  "https://test.cashpanel.io/callback";
 process.env.TELLER_CERT_BASE64 = process.env.TELLER_CERT_BASE64 || "dGVzdA==";
 process.env.TELLER_KEY_BASE64 = process.env.TELLER_KEY_BASE64 || "dGVzdA==";
 process.env.R2_ENDPOINT = process.env.R2_ENDPOINT || "https://test.r2.dev";
@@ -797,7 +798,7 @@ export const mocks = {
 // Create a default mock function that returns empty data
 const createDefaultMock = () => mock(() => null);
 
-// Mock @midday/db/queries with a Proxy to handle any export
+// Mock @cashpanel/db/queries with a Proxy to handle any export
 const dbQueriesMock = new Proxy(
   {
     // Transaction functions
@@ -1106,7 +1107,7 @@ const dbQueriesMock = new Proxy(
     createBankConnection: createDefaultMock(),
     reconnectBankConnection: createDefaultMock(),
 
-    // OAuth applications router (additional @midday/db/queries named imports)
+    // OAuth applications router (additional @cashpanel/db/queries named imports)
     claimDCRApplication: createDefaultMock(),
     createAuthorizationCode: createDefaultMock(),
     getOAuthApplicationByClientId: createDefaultMock(),
@@ -1144,7 +1145,7 @@ const dbQueriesMock = new Proxy(
   },
 );
 
-mock.module("@midday/db/queries", () => dbQueriesMock);
+mock.module("@cashpanel/db/queries", () => dbQueriesMock);
 
 const noop = () => undefined;
 const createMockLogger = () => ({
@@ -1156,14 +1157,14 @@ const createMockLogger = () => ({
   fatal: mock(noop),
 });
 const mockLogger = createMockLogger();
-mock.module("@midday/logger", () => ({
+mock.module("@cashpanel/logger", () => ({
   logger: mockLogger,
   default: mockLogger,
   createLoggerWithContext: () => createMockLogger(),
   setLogLevel: mock(noop),
 }));
 
-mock.module("@midday/cache/api-key-cache", () => ({
+mock.module("@cashpanel/cache/api-key-cache", () => ({
   apiKeyCache: {
     delete: mock(() => Promise.resolve()),
     get: mock(() => Promise.resolve(null)),
@@ -1171,8 +1172,8 @@ mock.module("@midday/cache/api-key-cache", () => ({
   },
 }));
 
-// Mock @midday/supabase/storage
-mock.module("@midday/supabase/storage", () => ({
+// Mock @cashpanel/supabase/storage
+mock.module("@cashpanel/supabase/storage", () => ({
   signedUrl: mocks.signedUrl,
   remove: mock(() => Promise.resolve({ error: null })),
   download: mock(() =>
@@ -1180,8 +1181,8 @@ mock.module("@midday/supabase/storage", () => ({
   ),
 }));
 
-// Mock @midday/job-client
-mock.module("@midday/job-client", () => ({
+// Mock @cashpanel/job-client
+mock.module("@cashpanel/job-client", () => ({
   triggerJob: mocks.triggerJob,
   getJobStatus: mocks.getJobStatus,
   getQueue: mock(() => ({
@@ -1191,7 +1192,7 @@ mock.module("@midday/job-client", () => ({
   decodeJobId: mock((id: string) => ({ id, queue: "default" })),
 }));
 
-mock.module("@midday/notifications", () => ({
+mock.module("@cashpanel/notifications", () => ({
   Notifications: class {
     create() {
       return Promise.resolve();
@@ -1199,7 +1200,7 @@ mock.module("@midday/notifications", () => ({
   },
 }));
 
-mock.module("@midday/documents/embed", () => ({
+mock.module("@cashpanel/documents/embed", () => ({
   Embed: class {
     async embed(_content: string) {
       return {
@@ -1219,8 +1220,8 @@ mock.module("@trigger.dev/sdk", () => ({
   },
 }));
 
-// Mock @midday/import
-mock.module("@midday/import", () => ({
+// Mock @cashpanel/import
+mock.module("@cashpanel/import", () => ({
   formatAmountValue: mocks.formatAmountValue,
   compactSampleRows: mock(
     (rows: Record<string, string>[]) => rows?.slice(0, 2) ?? [],
@@ -1229,8 +1230,8 @@ mock.module("@midday/import", () => ({
   buildCsvMappingPrompt: mock(() => "mock-csv-mapping-prompt"),
 }));
 
-// Mock @midday/invoice
-mock.module("@midday/invoice/calculate", () => ({
+// Mock @cashpanel/invoice
+mock.module("@cashpanel/invoice/calculate", () => ({
   calculateTotal: mock(({ lineItems }: { lineItems: any[] }) => ({
     subTotal: lineItems.reduce(
       (sum: number, item: any) => sum + item.price * item.quantity,
@@ -1245,7 +1246,7 @@ mock.module("@midday/invoice/calculate", () => ({
   })),
 }));
 
-mock.module("@midday/invoice/utils", () => ({
+mock.module("@cashpanel/invoice/utils", () => ({
   transformCustomerToContent: mock((customer: any) => ({
     type: "doc",
     content: [
@@ -1257,11 +1258,11 @@ mock.module("@midday/invoice/utils", () => ({
   })),
 }));
 
-mock.module("@midday/invoice/token", () => ({
+mock.module("@cashpanel/invoice/token", () => ({
   verify: mock(() => ({ id: "invoice-123", teamId: "test-team-id" })),
 }));
 
-mock.module("@midday/invoice", () => ({
+mock.module("@cashpanel/invoice", () => ({
   DEFAULT_TEMPLATE: {},
   PdfTemplate: mock(async () => ({})),
   renderToStream: mock(() =>
@@ -1351,15 +1352,15 @@ mock.module("@api/utils/auth", () => ({
   })),
 }));
 
-// Mock @midday/db/client
-mock.module("@midday/db/client", () => ({
+// Mock @cashpanel/db/client
+mock.module("@cashpanel/db/client", () => ({
   db: mockDb,
   primaryDb: mockDb,
   connectDb: mock(async () => mockDb),
 }));
 
-// Mock @midday/cache/team-cache
-mock.module("@midday/cache/team-cache", () => ({
+// Mock @cashpanel/cache/team-cache
+mock.module("@cashpanel/cache/team-cache", () => ({
   teamCache: {
     get: mock(async () => true), // Always return cached access = true
     set: mock(async () => {}),
@@ -1367,7 +1368,7 @@ mock.module("@midday/cache/team-cache", () => ({
   },
 }));
 
-mock.module("@midday/accounting", () => ({
+mock.module("@cashpanel/accounting", () => ({
   getAccountingProvider: mock(() => ({
     getAccounts: mock(() => Promise.resolve([])),
   })),
@@ -1379,7 +1380,7 @@ mock.module("@midday/accounting", () => ({
   parseProviderConfig: mock((v: any) => v),
 }));
 
-mock.module("@midday/banking", () => ({
+mock.module("@cashpanel/banking", () => ({
   getRates: mocks.getRates,
   getProviderErrorDetails: mock((error: unknown) => ({
     message: error instanceof Error ? error.message : String(error),

@@ -1,6 +1,6 @@
-import { getI18n } from "@midday/email/locales";
-import { encrypt } from "@midday/encryption";
-import { getAppUrl } from "@midday/utils/envs";
+import { getI18n } from "@cashpanel/email/locales";
+import { encrypt } from "@cashpanel/encryption";
+import { getAppUrl } from "@cashpanel/utils/envs";
 import type { NotificationHandler } from "../base";
 import { invoiceSentSchema } from "../schemas";
 
@@ -39,7 +39,7 @@ export const invoiceSent: NotificationHandler = {
       emailType: "customer",
       to: [data.customerEmail],
       subject,
-      from: `${team.name} <middaybot@midday.ai>`,
+      from: `${team.name} <cashpanelbot@cashpanel.io>`,
       data: {
         customerName: data.customerName,
         teamName: team.name,

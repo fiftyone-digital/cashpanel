@@ -1,7 +1,7 @@
 "use client";
 
-import { InboxMatchAnimation } from "@midday/ui/animations/inbox-match";
-import { ReceiptAttachmentAnimation } from "@midday/ui/animations/receipt-attachment";
+import { InboxMatchAnimation } from "@cashpanel/ui/animations/inbox-match";
+import { ReceiptAttachmentAnimation } from "@cashpanel/ui/animations/receipt-attachment";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroImage } from "./hero-image";
@@ -70,7 +70,7 @@ export function Inbox() {
                 <span className="text-foreground">Receipts matched</span>
               </h1>
               <p className="text-muted-foreground text-base leading-normal font-sans text-center mx-auto lg:hidden">
-                Midday auto-matches obvious receipts and asks for review only
+                CashPanel auto-matches obvious receipts and asks for review only
                 when needed.
               </p>
               <p className="text-muted-foreground text-base leading-normal font-sans text-center mx-auto hidden lg:block">
@@ -160,7 +160,7 @@ export function Inbox() {
                   <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-2">
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-background">
                       <span className="font-sans text-sm text-foreground">
-                        Personal Midday inbox email
+                        Personal CashPanel inbox email
                       </span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-background">

@@ -4,11 +4,11 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Pricing",
   description:
-    "Simple, transparent pricing for Midday. Start free and upgrade as you grow. Invoicing, expense tracking, and financial tools for small business owners.",
+    "Simple, transparent pricing for CashPanel. Start free and upgrade as you grow. Invoicing, expense tracking, and financial tools for small business owners.",
   path: "/pricing",
   og: { title: "Pricing", description: "Start free, upgrade as you grow" },
   keywords: [
-    "midday pricing",
+    "cashpanel pricing",
     "free accounting software",
     "small business software pricing",
     "invoicing software cost",
@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Midday",
+  name: "CashPanel",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web, macOS",
   description:

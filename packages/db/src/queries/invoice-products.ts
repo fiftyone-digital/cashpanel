@@ -1,4 +1,4 @@
-import type { LineItem } from "@midday/invoice/types";
+import type { LineItem } from "@cashpanel/invoice/types";
 import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
 import type { Database } from "../client";
 import { invoiceProducts } from "../schema";

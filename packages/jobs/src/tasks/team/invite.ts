@@ -1,8 +1,8 @@
+import { InviteEmail } from "@cashpanel/email/emails/invite";
+import { getI18n } from "@cashpanel/email/locales";
+import { render } from "@cashpanel/email/render";
+import { inviteTeamMembersSchema } from "@cashpanel/jobs/schema";
 import { resend } from "@jobs/utils/resend";
-import { InviteEmail } from "@midday/email/emails/invite";
-import { getI18n } from "@midday/email/locales";
-import { render } from "@midday/email/render";
-import { inviteTeamMembersSchema } from "@midday/jobs/schema";
 import { schemaTask } from "@trigger.dev/sdk";
 import { nanoid } from "nanoid";
 
@@ -17,7 +17,7 @@ export const inviteTeamMembers = schemaTask({
     const { t } = getI18n({ locale });
 
     const emails = invites?.map(async (invite) => ({
-      from: "Midday <middaybot@midday.ai>",
+      from: "CashPanel <cashpanelbot@cashpanel.io>",
       to: [invite.email],
       subject: t("invite.subject", {
         invitedByName: invite.invitedByName,

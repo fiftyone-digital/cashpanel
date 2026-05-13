@@ -22,7 +22,7 @@ import {
   stopTimer,
   upsertTrackerEntries,
   upsertTrackerProject,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import {
   mcpTrackerEntrySchema,

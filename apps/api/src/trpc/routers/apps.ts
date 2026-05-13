@@ -12,7 +12,7 @@ import {
   removeWhatsAppConnection,
   updateAppSettings,
   updateAppSettingsBulk,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 
 export const appsRouter = createTRPCRouter({

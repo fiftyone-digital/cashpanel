@@ -1,8 +1,8 @@
+import { connectorsCache } from "@cashpanel/cache/connectors-cache";
+import { CURATED_TOOLKIT_SLUGS } from "@cashpanel/connectors";
+import { logger } from "@cashpanel/logger";
 import { Composio } from "@composio/core";
 import { VercelProvider } from "@composio/vercel";
-import { connectorsCache } from "@midday/cache/connectors-cache";
-import { CURATED_TOOLKIT_SLUGS } from "@midday/connectors";
-import { logger } from "@midday/logger";
 import { LRUCache } from "lru-cache";
 
 export const composio = new Composio({

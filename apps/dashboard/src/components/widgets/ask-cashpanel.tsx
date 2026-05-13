@@ -1,6 +1,6 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
+import { LogEvents } from "@cashpanel/events/events";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { useCallback } from "react";
@@ -11,7 +11,7 @@ import { filesToUIParts } from "@/components/chat/file-utils";
 import { useTRPC } from "@/trpc/client";
 import { ConnectorsBar } from "./connectors-bar";
 
-export function AskMidday({ onChatOpen }: { onChatOpen: () => void }) {
+export function AskCashPanel({ onChatOpen }: { onChatOpen: () => void }) {
   const {
     sendMessage,
     setMessages,

@@ -1,4 +1,4 @@
-import { isValidLogoUrl, OgTemplate } from "@midday/invoice";
+import { isValidLogoUrl, OgTemplate } from "@cashpanel/invoice";
 import { ImageResponse } from "next/og";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { getWebsiteLogo } from "@/utils/logos";
@@ -24,7 +24,7 @@ export default async function Image({ params }: Props) {
   }
 
   const hedvigSansFont = fetch(
-    "https://cdn.midday.ai/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
+    "https://cdn.cashpanel.io/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
   ).then((res) => res.arrayBuffer());
 
   const logoUrl = getWebsiteLogo(invoice.customer?.website);

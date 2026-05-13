@@ -22,7 +22,7 @@ interface Props {
 
 export const TrialActivationEmail = ({ fullName = "" }: Props) => {
   const firstName = fullName ? fullName.split(" ").at(0) : "";
-  const text = `${firstName ? `Hi ${firstName}, ` : ""}Connect your bank account to get the most out of Midday.`;
+  const text = `${firstName ? `Hi ${firstName}, ` : ""}Connect your bank account to get the most out of CashPanel.`;
   const themeClasses = getEmailThemeClasses();
   const lightStyles = getEmailInlineStyles("light");
 
@@ -45,7 +45,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
             className={`font-serif text-[21px] font-normal text-center p-0 my-[30px] mx-0 ${themeClasses.heading}`}
             style={{ color: lightStyles.text.color }}
           >
-            Get the most out of Midday
+            Get the most out of CashPanel
           </Heading>
 
           <br />
@@ -60,7 +60,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
             className={themeClasses.text}
             style={{ color: lightStyles.text.color }}
           >
-            You signed up for Midday a few days ago — great start. The teams
+            You signed up for CashPanel a few days ago — great start. The teams
             that get the most value all do one thing early: connect their bank
             account.
           </Text>
@@ -72,7 +72,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
             reports update automatically. No spreadsheets, no manual entry.
           </Text>
           <Section className="text-center mt-[50px] mb-[50px]">
-            <Button href="https://app.midday.ai">Connect your bank</Button>
+            <Button href="https://app.cashpanel.io">Connect your bank</Button>
           </Section>
           <Text
             className={`text-[14px] ${themeClasses.text}`}
@@ -81,7 +81,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
             It takes about 30 seconds, and you'll immediately see your
             transactions flow in. If you need help getting set up,{" "}
             <Link
-              href="https://cal.com/pontus-midday/15min"
+              href="https://cal.com/pontus-cashpanel/15min"
               className={`underline ${themeClasses.link}`}
               style={{ color: lightStyles.text.color }}
             >

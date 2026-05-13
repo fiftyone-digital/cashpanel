@@ -15,7 +15,6 @@ import {
   updateInvoiceResponseSchema,
 } from "@api/schemas/invoice";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   deleteInvoice,
   draftInvoice,
@@ -28,11 +27,12 @@ import {
   getPaymentStatus,
   isInvoiceNumberUsed,
   updateInvoice,
-} from "@midday/db/queries";
-import { calculateTotal } from "@midday/invoice/calculate";
-import { transformCustomerToContent } from "@midday/invoice/utils";
-import { decodeJobId, getQueue, triggerJob } from "@midday/job-client";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { calculateTotal } from "@cashpanel/invoice/calculate";
+import { transformCustomerToContent } from "@cashpanel/invoice/utils";
+import { decodeJobId, getQueue, triggerJob } from "@cashpanel/job-client";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { addDays } from "date-fns";
 import { HTTPException } from "hono/http-exception";
 import { v4 as uuidv4 } from "uuid";
@@ -121,12 +121,12 @@ app.openapi(
           ...invoiceWithoutToken,
           ...calculatedAmounts,
           pdfUrl:
-            token && process.env.MIDDAY_DASHBOARD_URL
-              ? `${process.env.MIDDAY_DASHBOARD_URL}/api/download/invoice?token=${token}`
+            token && process.env.CASHPANEL_DASHBOARD_URL
+              ? `${process.env.CASHPANEL_DASHBOARD_URL}/api/download/invoice?token=${token}`
               : null,
           previewUrl:
-            token && process.env.MIDDAY_DASHBOARD_URL
-              ? `${process.env.MIDDAY_DASHBOARD_URL}/i/${token}`
+            token && process.env.CASHPANEL_DASHBOARD_URL
+              ? `${process.env.CASHPANEL_DASHBOARD_URL}/i/${token}`
               : null,
         };
       }),
@@ -300,12 +300,12 @@ app.openapi(
         ? JSON.stringify(result.bottomBlock)
         : null,
       pdfUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/api/download/invoice?token=${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/api/download/invoice?token=${token}`
           : null,
       previewUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/i/${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/i/${token}`
           : null,
     };
 
@@ -614,12 +614,12 @@ app.openapi(
         ? JSON.stringify(result.bottomBlock)
         : null,
       pdfUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/api/download/invoice?token=${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/api/download/invoice?token=${token}`
           : null,
       previewUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/i/${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/i/${token}`
           : null,
     };
 
@@ -700,12 +700,12 @@ app.openapi(
         ? JSON.stringify(result.bottomBlock)
         : null,
       pdfUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/api/download/invoice?token=${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/api/download/invoice?token=${token}`
           : null,
       previewUrl:
-        token && process.env.MIDDAY_DASHBOARD_URL
-          ? `${process.env.MIDDAY_DASHBOARD_URL}/i/${token}`
+        token && process.env.CASHPANEL_DASHBOARD_URL
+          ? `${process.env.CASHPANEL_DASHBOARD_URL}/i/${token}`
           : null,
     };
 

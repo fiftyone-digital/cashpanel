@@ -1,9 +1,9 @@
 "use client";
 
-import { ZapierMcpLogo } from "@midday/app-store/logos";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { ZapierMcpLogo } from "@cashpanel/app-store/logos";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -58,7 +58,7 @@ export function MCPZapier() {
 
   const connectionConfig = useMemo(() => {
     const key = apiKey || "YOUR_API_KEY";
-    return `Server URL: https://api.midday.ai/mcp
+    return `Server URL: https://api.cashpanel.io/mcp
 Transport: Streamable HTTP
 OAuth: No
 Bearer Token: ${key}`;
@@ -100,7 +100,7 @@ Bearer Token: ${key}`;
                 Automate your business workflows
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to 7,000+ apps through Zapier. Build automated
+                Connect CashPanel to 7,000+ apps through Zapier. Build automated
                 workflows for reports, alerts, and data syncing—no code
                 required.
               </p>
@@ -134,7 +134,7 @@ Bearer Token: ${key}`;
                   htmlFor="api-key"
                   className="font-sans text-sm text-foreground"
                 >
-                  Your Midday API key
+                  Your CashPanel API key
                 </label>
                 <Input
                   id="api-key"
@@ -147,7 +147,7 @@ Bearer Token: ${key}`;
                 <p className="font-sans text-xs text-muted-foreground">
                   Don't have an API key?{" "}
                   <Link
-                    href="https://app.midday.ai/settings/developer"
+                    href="https://app.cashpanel.io/settings/developer"
                     className="underline hover:text-foreground"
                   >
                     Create one in Settings → Developer
@@ -206,7 +206,7 @@ Bearer Token: ${key}`;
                     <p className="font-sans text-sm text-muted-foreground mt-1">
                       Enter the Server URL:{" "}
                       <code className="font-mono bg-secondary px-1">
-                        https://api.midday.ai/mcp
+                        https://api.cashpanel.io/mcp
                       </code>
                     </p>
                     <p className="font-sans text-sm text-muted-foreground mt-1">
@@ -225,7 +225,7 @@ Bearer Token: ${key}`;
                     <p className="font-sans text-sm text-muted-foreground mt-1">
                       Get an API key from{" "}
                       <Link
-                        href="https://app.midday.ai/settings/developer"
+                        href="https://app.cashpanel.io/settings/developer"
                         className="underline hover:text-foreground"
                       >
                         Settings → Developer
@@ -243,8 +243,9 @@ Bearer Token: ${key}`;
                       Create your first Zap
                     </span>
                     <p className="font-sans text-sm text-muted-foreground mt-1">
-                      Use "MCP Client by Zapier" in your Zaps to access Midday's
-                      tools for transactions, invoices, reports, and more
+                      Use "MCP Client by Zapier" in your Zaps to access
+                      CashPanel's tools for transactions, invoices, reports, and
+                      more
                     </p>
                   </div>
                 </li>

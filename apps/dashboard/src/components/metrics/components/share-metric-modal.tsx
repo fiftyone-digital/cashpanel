@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
 import {
   Dialog,
   DialogContent,
@@ -9,11 +9,11 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { Label } from "@midday/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
-import { SubmitButton } from "@midday/ui/submit-button";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { Label } from "@cashpanel/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { useMutation } from "@tanstack/react-query";
 import { addDays, format } from "date-fns";
 import { CalendarIcon } from "lucide-react";

@@ -1,11 +1,11 @@
+import { TrialActivationEmail } from "@cashpanel/email/emails/trial-activation";
+import { TrialExpiringEmail } from "@cashpanel/email/emails/trial-expiring";
+import { WelcomeEmail } from "@cashpanel/email/emails/welcome";
+import { render } from "@cashpanel/email/render";
+import { createClient } from "@cashpanel/supabase/job";
 import { onboardTeamSchema } from "@jobs/schema";
 import { shouldSendEmail } from "@jobs/utils/check-team-plan";
 import { resend } from "@jobs/utils/resend";
-import { TrialActivationEmail } from "@midday/email/emails/trial-activation";
-import { TrialExpiringEmail } from "@midday/email/emails/trial-expiring";
-import { WelcomeEmail } from "@midday/email/emails/welcome";
-import { render } from "@midday/email/render";
-import { createClient } from "@midday/supabase/job";
 import { logger, schemaTask, wait } from "@trigger.dev/sdk";
 import { subDays } from "date-fns";
 
@@ -42,8 +42,8 @@ export const onboardTeam = schemaTask({
 
     await resend.emails.send({
       to: user.email,
-      subject: "Welcome to Midday",
-      from: "Pontus from Midday <pontus@midday.ai>",
+      subject: "Welcome to CashPanel",
+      from: "Pontus from CashPanel <pontus@cashpanel.io>",
       html: await render(
         WelcomeEmail({
           fullName: user.full_name,
@@ -67,7 +67,7 @@ export const onboardTeam = schemaTask({
 
       if (!count || count === 0) {
         await resend.emails.send({
-          from: "Pontus from Midday <pontus@midday.ai>",
+          from: "Pontus from CashPanel <pontus@cashpanel.io>",
           to: user.email,
           subject: "Connect your bank to see the full picture",
           html: await render(
@@ -117,7 +117,7 @@ export const onboardTeam = schemaTask({
           !freshTeam.canceled_at
         ) {
           await resend.emails.send({
-            from: "Pontus from Midday <pontus@midday.ai>",
+            from: "Pontus from CashPanel <pontus@cashpanel.io>",
             to: user.email,
             subject: "Your trial ends tomorrow — billing starts automatically",
             html: await render(

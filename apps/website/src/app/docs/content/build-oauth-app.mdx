@@ -1,38 +1,38 @@
 ---
 title: Build an OAuth App
-description: Create applications that integrate with Midday using OAuth 2.0.
+description: Create applications that integrate with CashPanel using OAuth 2.0.
 section: developer
 order: 2
 ---
 
-Build applications that let users connect their Midday accounts. OAuth apps can access financial data on behalf of users, enabling integrations, automations, and custom tools.
+Build applications that let users connect their CashPanel accounts. OAuth apps can access financial data on behalf of users, enabling integrations, automations, and custom tools.
 
 ## What you can build
 
 With OAuth, you can build:
 
-- **Browser extensions** that display Midday data
-- **Mobile apps** with Midday integration
+- **Browser extensions** that display CashPanel data
+- **Mobile apps** with CashPanel integration
 - **Automation tools** that sync data between services
 - **Custom dashboards** for specific workflows
 - **Developer tools** like IDE extensions
-- **Public apps** listed in the Midday app directory
+- **Public apps** listed in the CashPanel app directory
 
 ## How OAuth works
 
-OAuth 2.0 lets your app request access to a user's Midday data without handling their password:
+OAuth 2.0 lets your app request access to a user's CashPanel data without handling their password:
 
-1. Your app redirects users to Midday's authorization page
+1. Your app redirects users to CashPanel's authorization page
 2. Users log in and approve the requested permissions
-3. Midday redirects back with an authorization code
+3. CashPanel redirects back with an authorization code
 4. Your app exchanges the code for access tokens
-5. Use access tokens to call the Midday API
+5. Use access tokens to call the CashPanel API
 
 ## Getting started
 
 ### Step 1: Create an OAuth application
 
-1. Go to [Settings → Developer](https://app.midday.ai/settings/developer)
+1. Go to [Settings → Developer](https://app.cashpanel.io/settings/developer)
 2. Click **Create OAuth app**
 3. Fill in your application details:
    - **Name**: Your app's name (shown to users)
@@ -51,7 +51,7 @@ You'll receive:
 Redirect users to start authorization:
 
 ```
-https://app.midday.ai/oauth/authorize?
+https://app.cashpanel.io/oauth/authorize?
   response_type=code&
   client_id=YOUR_CLIENT_ID&
   redirect_uri=YOUR_REDIRECT_URI&
@@ -73,7 +73,7 @@ https://app.midday.ai/oauth/authorize?
 
 ### Step 3: Handle the callback
 
-After the user authorizes, Midday redirects to your `redirect_uri`:
+After the user authorizes, CashPanel redirects to your `redirect_uri`:
 
 ```
 https://yourapp.com/callback?code=AUTH_CODE&state=YOUR_STATE
@@ -90,7 +90,7 @@ https://yourapp.com/callback?error=access_denied&error_description=User%20denied
 Make a POST request to exchange the authorization code:
 
 ```bash
-curl -X POST https://api.midday.ai/v1/oauth/token \
+curl -X POST https://api.cashpanel.io/v1/oauth/token \
   -H "Content-Type: application/json" \
   -d '{
     "grant_type": "authorization_code",
@@ -115,33 +115,33 @@ curl -X POST https://api.midday.ai/v1/oauth/token \
 
 ### Step 5: Make API requests
 
-Install the Midday SDK:
+Install the CashPanel SDK:
 
 ```bash
-npm install @midday-ai/sdk
+npm install @cashpanel-ai/sdk
 ```
 
 Use the access token with the SDK:
 
 ```typescript
-import { Midday } from "@midday-ai/sdk";
+import { CashPanel } from "@cashpanel-ai/sdk";
 
-const midday = new Midday({
+const cashpanel = new CashPanel({
   token: "mid_at_xxxxx", // Access token from OAuth flow
 });
 
 // List transactions
-const transactions = await midday.transactions.list({
+const transactions = await cashpanel.transactions.list({
   pageSize: 50,
 });
 
 // Get invoices
-const invoices = await midday.invoices.list({
+const invoices = await cashpanel.invoices.list({
   pageSize: 20,
 });
 
 // Get financial metrics
-const revenue = await midday.metrics.revenue({
+const revenue = await cashpanel.metrics.revenue({
   from: "2024-01-01",
   to: "2024-12-31",
 });
@@ -180,7 +180,7 @@ async function generateCodeChallenge(verifier: string): Promise<string> {
 ### Include in authorization request
 
 ```
-https://app.midday.ai/oauth/authorize?
+https://app.cashpanel.io/oauth/authorize?
   response_type=code&
   client_id=YOUR_CLIENT_ID&
   redirect_uri=YOUR_REDIRECT_URI&
@@ -193,7 +193,7 @@ https://app.midday.ai/oauth/authorize?
 ### Include verifier in token exchange
 
 ```bash
-curl -X POST https://api.midday.ai/v1/oauth/token \
+curl -X POST https://api.cashpanel.io/v1/oauth/token \
   -H "Content-Type: application/json" \
   -d '{
     "grant_type": "authorization_code",
@@ -211,7 +211,7 @@ Note: Public clients should not send `client_secret`.
 Access tokens expire after 1 hour. Use the refresh token to get new tokens:
 
 ```bash
-curl -X POST https://api.midday.ai/v1/oauth/token \
+curl -X POST https://api.cashpanel.io/v1/oauth/token \
   -H "Content-Type: application/json" \
   -d '{
     "grant_type": "refresh_token",
@@ -228,7 +228,7 @@ Refresh tokens are valid for 30 days and rotate on each use.
 Allow users to disconnect your app by revoking tokens:
 
 ```bash
-curl -X POST https://api.midday.ai/v1/oauth/revoke \
+curl -X POST https://api.cashpanel.io/v1/oauth/revoke \
   -H "Content-Type: application/json" \
   -d '{
     "token": "mid_at_xxxxx",
@@ -242,12 +242,12 @@ curl -X POST https://api.midday.ai/v1/oauth/revoke \
 ```typescript
 import express from "express";
 import crypto from "crypto";
-import { Midday } from "@midday-ai/sdk";
+import { CashPanel } from "@cashpanel-ai/sdk";
 
 const app = express();
 
-const CLIENT_ID = process.env.MIDDAY_CLIENT_ID!;
-const CLIENT_SECRET = process.env.MIDDAY_CLIENT_SECRET!;
+const CLIENT_ID = process.env.CASHPANEL_CLIENT_ID!;
+const CLIENT_SECRET = process.env.CASHPANEL_CLIENT_SECRET!;
 const REDIRECT_URI = "http://localhost:3000/callback";
 
 // In production, use a proper session store
@@ -261,7 +261,7 @@ app.get("/connect", (req, res) => {
   sessions.set(sessionId, { state });
   res.cookie("session_id", sessionId);
   
-  const authUrl = new URL("https://app.midday.ai/oauth/authorize");
+  const authUrl = new URL("https://app.cashpanel.io/oauth/authorize");
   authUrl.searchParams.set("response_type", "code");
   authUrl.searchParams.set("client_id", CLIENT_ID);
   authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
@@ -287,7 +287,7 @@ app.get("/callback", async (req, res) => {
   }
   
   // Exchange code for tokens
-  const response = await fetch("https://api.midday.ai/v1/oauth/token", {
+  const response = await fetch("https://api.cashpanel.io/v1/oauth/token", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -314,11 +314,11 @@ app.get("/transactions", async (req, res) => {
     return res.status(401).send("Not connected");
   }
   
-  const midday = new Midday({
+  const cashpanel = new CashPanel({
     token: session.accessToken,
   });
   
-  const result = await midday.transactions.list({
+  const result = await cashpanel.transactions.list({
     pageSize: 50,
   });
   
@@ -334,7 +334,7 @@ app.listen(3000, () => {
 
 ### Edit application settings
 
-1. Go to [Settings → Developer](https://app.midday.ai/settings/developer)
+1. Go to [Settings → Developer](https://app.cashpanel.io/settings/developer)
 2. Click on your OAuth application
 3. Update settings as needed
 4. Click **Save**

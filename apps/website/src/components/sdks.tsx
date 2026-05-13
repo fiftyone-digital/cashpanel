@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -189,9 +189,9 @@ export function SDKs() {
   };
 
   const sdkRepos: Record<SDKTab, string> = {
-    typescript: "https://github.com/midday-ai/midday-ts",
-    go: "https://github.com/midday-ai/midday-go",
-    php: "https://github.com/midday-ai/midday-php",
+    typescript: "https://github.com/cashpanel-ai/cashpanel-ts",
+    go: "https://github.com/cashpanel-ai/cashpanel-go",
+    php: "https://github.com/cashpanel-ai/cashpanel-php",
   };
 
   return (
@@ -292,10 +292,10 @@ export function SDKs() {
             {/* Title and Description */}
             <div className="space-y-4 text-center max-w-xl w-full">
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground">
-                Build with Midday
+                Build with CashPanel
               </h1>
               <p className="text-muted-foreground text-base leading-normal font-sans text-center mx-auto">
-                Use Midday's SDKs to integrate financial data, insights, and
+                Use CashPanel's SDKs to integrate financial data, insights, and
                 workflows into your product with just a few lines of code.
               </p>
             </div>
@@ -306,14 +306,14 @@ export function SDKs() {
                 asChild
                 className="w-full sm:w-auto h-11 px-6 text-sm font-sans"
               >
-                <Link href="https://app.midday.ai">Get started</Link>
+                <Link href="https://app.cashpanel.io">Get started</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="w-full sm:w-auto h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
               >
-                <Link href="https://api.midday.ai">API documentation</Link>
+                <Link href="https://api.cashpanel.io">API documentation</Link>
               </Button>
             </div>
           </div>
@@ -371,10 +371,10 @@ export function SDKs() {
             {/* Title and Description */}
             <div className="text-center space-y-4 w-full">
               <h1 className="font-serif text-6xl xl:text-7xl 2xl:text-8xl leading-tight text-foreground">
-                Build with Midday
+                Build with CashPanel
               </h1>
               <p className="text-muted-foreground text-sm xl:text-base leading-normal max-w-xl mx-auto font-sans text-center">
-                Use Midday's SDKs to integrate financial data, insights, and
+                Use CashPanel's SDKs to integrate financial data, insights, and
                 workflows into your product with just a few lines of code.
               </p>
             </div>
@@ -382,14 +382,14 @@ export function SDKs() {
             {/* CTA Buttons */}
             <div className="flex gap-6 justify-center mt-8">
               <Button asChild className="h-11 px-6 text-sm font-sans">
-                <Link href="https://app.midday.ai">Get started</Link>
+                <Link href="https://app.cashpanel.io">Get started</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
               >
-                <Link href="https://api.midday.ai">API documentation</Link>
+                <Link href="https://api.cashpanel.io">API documentation</Link>
               </Button>
             </div>
           </div>
@@ -455,8 +455,8 @@ export function SDKs() {
                   TypeScript SDK
                 </h3>
                 <p className="font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
-                  A fully typed SDK for interacting with Midday's APIs, designed
-                  for modern web and backend applications.
+                  A fully typed SDK for interacting with CashPanel's APIs,
+                  designed for modern web and backend applications.
                 </p>
               </div>
 
@@ -477,7 +477,7 @@ export function SDKs() {
                     <p className="font-sans text-sm text-foreground mb-2">
                       Install:
                     </p>
-                    <InstallTabs packageName="@midday-ai/sdk" />
+                    <InstallTabs packageName="@cashpanel-ai/sdk" />
                   </div>
 
                   <div>
@@ -485,16 +485,16 @@ export function SDKs() {
                       Example:
                     </p>
                     <CodeBlock
-                      code={`import { Midday } from "@midday-ai/sdk";
+                      code={`import { CashPanel } from "@cashpanel-ai/sdk";
 
-const midday = new Midday({
+const cashpanel = new CashPanel({
   security: {
-    oauth2: process.env["MIDDAY_OAUTH2"] ?? "",
+    oauth2: process.env["CASHPANEL_OAUTH2"] ?? "",
   },
 });
 
 async function run() {
-  const result = await midday.oAuth.getOAuthAuthorization({
+  const result = await cashpanel.oAuth.getOAuthAuthorization({
     responseType: "code",
     clientId: "mid_client_abcdef123456789",
     redirectUri: "https://myapp.com/callback",
@@ -518,7 +518,7 @@ run();`}
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-ts">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-ts">
                       View TypeScript docs
                     </a>
                   </Button>
@@ -527,7 +527,7 @@ run();`}
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-ts">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-ts">
                       See examples
                     </a>
                   </Button>
@@ -545,7 +545,7 @@ run();`}
                 </h3>
                 <p className="font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
                   A lightweight Go SDK for building server-side applications
-                  with Midday's APIs.
+                  with CashPanel's APIs.
                 </p>
               </div>
 
@@ -555,7 +555,7 @@ run();`}
                     Install:
                   </p>
                   <CodeBlock
-                    code="go get github.com/midday-ai/midday-go"
+                    code="go get github.com/cashpanel-ai/cashpanel-go"
                     language="bash"
                   />
                 </div>
@@ -569,20 +569,20 @@ run();`}
 
 import (
 	"context"
-	middaygo "github.com/midday-ai/midday-go"
-	"github.com/midday-ai/midday-go/models/operations"
+	cashpanelgo "github.com/cashpanel-ai/cashpanel-go"
+	"github.com/cashpanel-ai/cashpanel-go/models/operations"
 	"log"
 )
 
 func main() {
 	ctx := context.Background()
 
-	s := middaygo.New(
-		middaygo.WithSecurity("MIDDAY_API_KEY"),
+	s := cashpanelgo.New(
+		cashpanelgo.WithSecurity("CASHPANEL_API_KEY"),
 	)
 
 	res, err := s.Transactions.List(ctx, operations.ListTransactionsRequest{
-		PageSize: middaygo.Float64(50),
+		PageSize: cashpanelgo.Float64(50),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -601,7 +601,7 @@ func main() {
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-go">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-go">
                       View Go docs
                     </a>
                   </Button>
@@ -610,7 +610,7 @@ func main() {
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-go">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-go">
                       See examples
                     </a>
                   </Button>
@@ -627,7 +627,7 @@ func main() {
                   PHP SDK
                 </h3>
                 <p className="font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
-                  A PHP SDK for integrating Midday's APIs into your PHP
+                  A PHP SDK for integrating CashPanel's APIs into your PHP
                   applications.
                 </p>
               </div>
@@ -638,7 +638,7 @@ func main() {
                     Install:
                   </p>
                   <CodeBlock
-                    code="composer require midday-ai/midday-php"
+                    code="composer require cashpanel-ai/cashpanel-php"
                     language="bash"
                   />
                 </div>
@@ -654,11 +654,11 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-use MiddayMidday;
-use MiddayMiddayModelsOperations;
+use CashPanelCashPanel;
+use CashPanelCashPanelModelsOperations;
 
-$sdk = MiddayMidday::builder()
-    ->setSecurity('MIDDAY_API_KEY')
+$sdk = CashPanelCashPanel::builder()
+    ->setSecurity('CASHPANEL_API_KEY')
     ->build();
 
 $request = new OperationsListTransactionsRequest(
@@ -682,7 +682,7 @@ if ($response->object !== null) {
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-php">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-php">
                       View PHP docs
                     </a>
                   </Button>
@@ -691,7 +691,7 @@ if ($response->object !== null) {
                     variant="outline"
                     className="h-11 px-6 text-sm font-sans bg-background border-border hover:bg-accent"
                   >
-                    <a href="https://github.com/midday-ai/midday-php">
+                    <a href="https://github.com/cashpanel-ai/cashpanel-php">
                       See examples
                     </a>
                   </Button>
@@ -715,7 +715,7 @@ if ($response->object !== null) {
               Build real financial workflows
             </h2>
             <p className="hidden sm:block font-sans text-base text-muted-foreground leading-normal max-w-2xl mx-auto">
-              Use Midday SDKs to integrate financial data, insights, and
+              Use CashPanel SDKs to integrate financial data, insights, and
               workflows into your product.
             </p>
           </div>
@@ -850,7 +850,7 @@ if ($response->object !== null) {
                   Quickstart
                 </h3>
                 <p className="font-sans text-sm text-muted-foreground">
-                  Get started with Midday SDKs in minutes.
+                  Get started with CashPanel SDKs in minutes.
                 </p>
               </Link>
               <Link
@@ -874,7 +874,7 @@ if ($response->object !== null) {
                 </p>
               </Link>
               <Link
-                href="https://api.midday.ai"
+                href="https://api.cashpanel.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-secondary border border-border p-6 hover:border-foreground/20 transition-colors group flex flex-col items-center text-center"

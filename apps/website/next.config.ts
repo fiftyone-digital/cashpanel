@@ -4,9 +4,9 @@ const config = {
   reactStrictMode: true,
   trailingSlash: true,
   transpilePackages: [
-    "@midday/ui",
-    "@midday/tailwind",
-    "@midday/app-store",
+    "@cashpanel/ui",
+    "@cashpanel/tailwind",
+    "@cashpanel/app-store",
     "next-mdx-remote",
   ],
   typescript: {
@@ -17,7 +17,7 @@ const config = {
     optimizePackageImports: [
       "react-icons",
       "motion",
-      "@midday/ui",
+      "@cashpanel/ui",
       "@radix-ui/react-icons",
       "lucide-react",
     ],

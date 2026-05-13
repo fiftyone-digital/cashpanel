@@ -1,6 +1,6 @@
 ---
 title: OAuth Scopes Reference
-description: Complete list of OAuth scopes for Midday API access.
+description: Complete list of OAuth scopes for CashPanel API access.
 section: developer
 order: 3
 ---
@@ -163,7 +163,7 @@ Use meta scopes sparingly. Most apps should request specific scopes.
 Include scopes in the authorization URL as a space-separated list:
 
 ```
-https://app.midday.ai/oauth/authorize?
+https://app.cashpanel.io/oauth/authorize?
   response_type=code&
   client_id=YOUR_CLIENT_ID&
   redirect_uri=YOUR_REDIRECT_URI&
@@ -177,7 +177,7 @@ URL-encode the scope parameter (spaces become `%20`).
 
 When users authorize your app:
 
-1. Midday validates requested scopes against your app's registered scopes
+1. CashPanel validates requested scopes against your app's registered scopes
 2. Invalid or unregistered scopes cause authorization to fail
 3. Users see exactly what permissions they're granting
 

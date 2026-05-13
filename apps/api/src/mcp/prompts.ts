@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@midday/categories";
+import { CATEGORIES } from "@cashpanel/categories";
 import { completable } from "@modelcontextprotocol/sdk/server/completable.js";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";

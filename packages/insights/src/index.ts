@@ -1,5 +1,5 @@
-import type { Database } from "@midday/db/client";
-import { createLoggerWithContext } from "@midday/logger";
+import type { Database } from "@cashpanel/db/client";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 const logger = createLoggerWithContext("insights");
 
@@ -27,7 +27,7 @@ import {
   getUpcomingDueRecurringByTeam,
   getUpcomingInvoicesForInsight,
   type InsightHistoryData,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import {
   ContentGenerator,
   type YearOverYearContext,

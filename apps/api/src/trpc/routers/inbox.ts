@@ -35,10 +35,10 @@ import {
   matchTransaction,
   unmatchTransaction,
   updateInbox,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
-import { logger } from "@midday/logger";
-import { remove } from "@midday/supabase/storage";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
+import { logger } from "@cashpanel/logger";
+import { remove } from "@cashpanel/supabase/storage";
 
 export const inboxRouter = createTRPCRouter({
   get: protectedProcedure

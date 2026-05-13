@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "Privacy Policy for Midday. Learn how we collect, use, and protect your personal data.",
+    "Privacy Policy for CashPanel. Learn how we collect, use, and protect your personal data.",
   path: "/policy",
   og: {
     title: "Privacy Policy",
@@ -29,8 +29,9 @@ export default function PrivacyPage() {
 
               <div className="prose prose-sm sm:prose-base max-w-none space-y-6 font-sans text-foreground">
                 <p className="text-muted-foreground leading-relaxed">
-                  Midday Labs AB ("us", "we", or "our") operates the Midday
-                  application (hereinafter referred to as the "Service").
+                  CashPanel Labs AB ("us", "we", or "our") operates the
+                  CashPanel application (hereinafter referred to as the
+                  "Service").
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
@@ -59,8 +60,8 @@ export default function PrivacyPage() {
                         Service
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Service is the Midday application operated by Midday
-                        Labs AB
+                        Service is the CashPanel application operated by
+                        CashPanel Labs AB
                       </p>
                     </div>
 
@@ -243,7 +244,8 @@ export default function PrivacyPage() {
                     Use of Data
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday Labs AB uses the collected data for various purposes:
+                    CashPanel Labs AB uses the collected data for various
+                    purposes:
                   </p>
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
                     <li>To provide and maintain our Service</li>
@@ -274,8 +276,8 @@ export default function PrivacyPage() {
                     Use of Google User Data
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday's use of information received from Google APIs will
-                    adhere to the Google API Services User Data Policy,
+                    CashPanel's use of information received from Google APIs
+                    will adhere to the Google API Services User Data Policy,
                     including the Limited Use requirements.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
@@ -299,14 +301,14 @@ export default function PrivacyPage() {
                     Data Protection Regulation (GDPR)
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    If you are from the European Economic Area (EEA), Midday
+                    If you are from the European Economic Area (EEA), CashPanel
                     Labs AB legal basis for collecting and using the personal
                     information described in this Privacy Policy depends on the
                     Personal Data we collect and the specific context in which
                     we collect it.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday Labs AB may process your Personal Data because:
+                    CashPanel Labs AB may process your Personal Data because:
                   </p>
                   <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
                     <li>We need to perform a contract with you</li>
@@ -325,7 +327,7 @@ export default function PrivacyPage() {
                     Retention of Data
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday Labs AB will retain your Personal Data only for as
+                    CashPanel Labs AB will retain your Personal Data only for as
                     long as is necessary for the purposes set out in this
                     Privacy Policy. We will retain and use your Personal Data to
                     the extent necessary to comply with our legal obligations
@@ -334,7 +336,7 @@ export default function PrivacyPage() {
                     our legal agreements and policies.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday Labs AB will also retain Usage Data for internal
+                    CashPanel Labs AB will also retain Usage Data for internal
                     analysis purposes. Usage Data is generally retained for a
                     shorter period of time, except when this data is used to
                     strengthen the security or to improve the functionality of
@@ -365,10 +367,10 @@ export default function PrivacyPage() {
                     that transfer.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Midday Labs AB will take all the steps reasonably necessary
-                    to ensure that your data is treated securely and in
-                    accordance with this Privacy Policy and no transfer of your
-                    Personal Data will take place to an organisation or a
+                    CashPanel Labs AB will take all the steps reasonably
+                    necessary to ensure that your data is treated securely and
+                    in accordance with this Privacy Policy and no transfer of
+                    your Personal Data will take place to an organisation or a
                     country unless there are adequate controls in place
                     including the security of your data and other personal
                     information.
@@ -386,11 +388,11 @@ export default function PrivacyPage() {
                         Business Transaction
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        If Midday Labs AB is involved in a merger, acquisition
-                        or asset sale, your Personal Data may be transferred. We
-                        will provide notice before your Personal Data is
-                        transferred and becomes subject to a different Privacy
-                        Policy.
+                        If CashPanel Labs AB is involved in a merger,
+                        acquisition or asset sale, your Personal Data may be
+                        transferred. We will provide notice before your Personal
+                        Data is transferred and becomes subject to a different
+                        Privacy Policy.
                       </p>
                     </div>
 
@@ -399,7 +401,7 @@ export default function PrivacyPage() {
                         Disclosure for Law Enforcement
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Under certain circumstances, Midday Labs AB may be
+                        Under certain circumstances, CashPanel Labs AB may be
                         required to disclose your Personal Data if required to
                         do so by law or in response to valid requests by public
                         authorities (e.g. a court or a government agency).
@@ -411,14 +413,14 @@ export default function PrivacyPage() {
                         Legal Requirements
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        Midday Labs AB may disclose your Personal Data in the
+                        CashPanel Labs AB may disclose your Personal Data in the
                         good faith belief that such action is necessary to:
                       </p>
                       <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-4">
                         <li>To comply with a legal obligation</li>
                         <li>
-                          To protect and defend the rights or property of Midday
-                          Labs AB
+                          To protect and defend the rights or property of
+                          CashPanel Labs AB
                         </li>
                         <li>
                           To prevent or investigate possible wrongdoing in
@@ -470,9 +472,9 @@ export default function PrivacyPage() {
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
                     If you are a resident of the European Economic Area (EEA),
-                    you have certain data protection rights. Midday Labs AB aims
-                    to take reasonable steps to allow you to correct, amend,
-                    delete or limit the use of your Personal Data.
+                    you have certain data protection rights. CashPanel Labs AB
+                    aims to take reasonable steps to allow you to correct,
+                    amend, delete or limit the use of your Personal Data.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     If you wish to be informed about what Personal Data we hold
@@ -517,7 +519,7 @@ export default function PrivacyPage() {
                     <li>
                       <strong>The right to withdraw consent.</strong> You also
                       have the right to withdraw your consent at any time where
-                      Midday Labs AB relied on your consent to process your
+                      CashPanel Labs AB relied on your consent to process your
                       personal information.
                     </li>
                   </ul>
@@ -732,10 +734,10 @@ export default function PrivacyPage() {
                   <p className="text-foreground leading-relaxed">
                     By email:{" "}
                     <a
-                      href="mailto:support@midday.ai"
+                      href="mailto:support@cashpanel.io"
                       className="text-foreground hover:text-muted-foreground transition-colors"
                     >
-                      support@midday.ai
+                      support@cashpanel.io
                     </a>
                   </p>
                 </section>

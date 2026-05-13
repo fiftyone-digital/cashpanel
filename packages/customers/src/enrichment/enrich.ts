@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { lookupCompany, mapToSchema } from "./company-enrich";
 import type {
   EnrichCustomerOptions,

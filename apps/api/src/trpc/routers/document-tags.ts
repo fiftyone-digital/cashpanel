@@ -8,8 +8,8 @@ import {
   createDocumentTagEmbedding,
   deleteDocumentTag,
   getDocumentTags,
-} from "@midday/db/queries";
-import { Embed } from "@midday/documents/embed";
+} from "@cashpanel/db/queries";
+import { Embed } from "@cashpanel/documents/embed";
 import slugify from "@sindresorhus/slugify";
 
 export const documentTagsRouter = createTRPCRouter({

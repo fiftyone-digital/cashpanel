@@ -2,8 +2,8 @@ import {
   CATEGORIES,
   getTaxRateForCategory,
   getTaxTypeForCountry,
-} from "@midday/categories";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/categories";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { subDays } from "date-fns";
 import {
   and,

@@ -1,4 +1,4 @@
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import type { Context, MiddlewareHandler } from "hono";
 import { getRequestTrace } from "./request-trace";
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { ClineMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
+import { ClineMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 
 export function MCPCline() {
@@ -37,9 +37,9 @@ export function MCPCline() {
                 Financial data in VS Code
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Cline and query your transactions, invoices,
-                and reports directly from VS Code. Authentication is handled
-                automatically via OAuth.
+                Connect CashPanel to Cline and query your transactions,
+                invoices, and reports directly from VS Code. Authentication is
+                handled automatically via OAuth.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export function MCPCline() {
                     <span className="font-sans text-sm text-muted-foreground pt-0.5">
                       Add the server URL:{" "}
                       <span className="font-mono text-xs text-foreground">
-                        https://api.midday.ai/mcp
+                        https://api.cashpanel.io/mcp
                       </span>
                     </span>
                   </li>
@@ -81,7 +81,7 @@ export function MCPCline() {
                       <span className="font-medium text-foreground">
                         Authenticate
                       </span>{" "}
-                      and sign in to Midday in your browser
+                      and sign in to CashPanel in your browser
                     </span>
                   </li>
                 </ol>

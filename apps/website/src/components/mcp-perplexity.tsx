@@ -1,8 +1,8 @@
 "use client";
 
-import { PerplexityMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { PerplexityMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -53,12 +53,12 @@ export function MCPPerplexity() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
+          cashpanel: {
             command: "npx",
             args: [
               "-y",
               "mcp-remote@latest",
-              "https://api.midday.ai/mcp",
+              "https://api.cashpanel.io/mcp",
               "--header",
               // biome-ignore lint/suspicious/noTemplateCurlyInString: Intentional shell variable reference in MCP config
               "Authorization:${AUTH_HEADER}",
@@ -110,9 +110,9 @@ export function MCPPerplexity() {
                 AI-powered search meets your data
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Perplexity to your Midday account to query transactions,
-                invoices, and financial reports with natural language. Get
-                instant answers backed by your real business data.
+                Connect Perplexity to your CashPanel account to query
+                transactions, invoices, and financial reports with natural
+                language. Get instant answers backed by your real business data.
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export function MCPPerplexity() {
                 <p className="font-sans text-xs text-muted-foreground">
                   Don't have an API key?{" "}
                   <Link
-                    href="https://app.midday.ai/settings/developer"
+                    href="https://app.cashpanel.io/settings/developer"
                     className="underline hover:text-foreground"
                   >
                     Create one in Settings → Developer
@@ -191,7 +191,7 @@ export function MCPPerplexity() {
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
                     Get an API key from{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Settings → Developer
@@ -219,7 +219,8 @@ export function MCPPerplexity() {
                     4
                   </span>
                   <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                    Restart Perplexity and ask questions about your Midday data
+                    Restart Perplexity and ask questions about your CashPanel
+                    data
                   </span>
                 </li>
               </ol>

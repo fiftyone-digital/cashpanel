@@ -10,17 +10,17 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/card";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
 import { useMutation } from "@tanstack/react-query";
 import { AlertTriangle, ExternalLink, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -59,9 +59,9 @@ export function DeleteTeam() {
       <CardHeader>
         <CardTitle>Delete team</CardTitle>
         <CardDescription>
-          Permanently remove your Team and all of its contents from the Midday
-          platform. This action is not reversible — please continue with
-          caution.
+          Permanently remove your Team and all of its contents from the
+          CashPanel platform. This action is not reversible — please continue
+          with caution.
         </CardDescription>
       </CardHeader>
       <CardFooter className="flex justify-between">

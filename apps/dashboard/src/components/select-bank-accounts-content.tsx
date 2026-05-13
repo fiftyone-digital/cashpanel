@@ -1,25 +1,25 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Avatar, AvatarFallback } from "@midday/ui/avatar";
-import { Button } from "@midday/ui/button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Avatar, AvatarFallback } from "@cashpanel/ui/avatar";
+import { Button } from "@cashpanel/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@midday/ui/form";
-import { Icons } from "@midday/ui/icons";
-import { Skeleton } from "@midday/ui/skeleton";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Switch } from "@midday/ui/switch";
-import { Tabs, TabsContent } from "@midday/ui/tabs";
-import { Textarea } from "@midday/ui/textarea";
-import { useToast } from "@midday/ui/use-toast";
-import { getInitials } from "@midday/utils/format";
+} from "@cashpanel/ui/form";
+import { Icons } from "@cashpanel/ui/icons";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Switch } from "@cashpanel/ui/switch";
+import { Tabs, TabsContent } from "@cashpanel/ui/tabs";
+import { Textarea } from "@cashpanel/ui/textarea";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { getInitials } from "@cashpanel/utils/format";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useAction } from "next-safe-action/hooks";

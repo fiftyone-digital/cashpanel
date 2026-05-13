@@ -4,10 +4,10 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Cursor MCP Integration",
   description:
-    "Connect Cursor to your Midday data via MCP. Track time, query finances, and access business data directly from your AI-powered code editor.",
+    "Connect Cursor to your CashPanel data via MCP. Track time, query finances, and access business data directly from your AI-powered code editor.",
   path: "/mcp/cursor",
   og: {
-    title: "Cursor + Midday",
+    title: "Cursor + CashPanel",
     description: "Track time and query finances from your editor",
   },
   keywords: [

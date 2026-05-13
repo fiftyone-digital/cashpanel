@@ -58,8 +58,8 @@ export function createTrackerCommand(): Command {
       "after",
       `
 Examples:
-  midday tracker projects list
-  midday tracker projects list --status in_progress --json`,
+  cashpanel tracker projects list
+  cashpanel tracker projects list --status in_progress --json`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -112,8 +112,8 @@ Examples:
       "after",
       `
 Examples:
-  midday tracker projects create --name "Website Redesign" --rate 150
-  midday tracker projects create --name "Consulting" --rate 200 --currency EUR`,
+  cashpanel tracker projects create --name "Website Redesign" --rate 150
+  cashpanel tracker projects create --name "Consulting" --rate 200 --currency EUR`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -167,8 +167,8 @@ Examples:
       "after",
       `
 Examples:
-  midday tracker start --project proj_abc123
-  midday tracker start --project proj_abc123 --description "API development"`,
+  cashpanel tracker start --project proj_abc123
+  cashpanel tracker start --project proj_abc123 --description "API development"`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -215,7 +215,7 @@ Examples:
       "after",
       `
 Examples:
-  midday tracker stop`,
+  cashpanel tracker stop`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -256,8 +256,8 @@ Examples:
       "after",
       `
 Examples:
-  midday tracker status
-  midday tracker status --json`,
+  cashpanel tracker status
+  cashpanel tracker status --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -290,7 +290,7 @@ Examples:
           ]);
         } else {
           console.log(
-            `\n  ${chalk.dim("No timer running")}. Use ${chalk.cyan("midday tracker start")} to begin.\n`,
+            `\n  ${chalk.dim("No timer running")}. Use ${chalk.cyan("cashpanel tracker start")} to begin.\n`,
           );
         }
       } catch (error) {

@@ -19,17 +19,17 @@ export function createAuthCommand(): Command {
 
   auth
     .command("login")
-    .description("Authenticate with Midday")
+    .description("Authenticate with CashPanel")
     .option("--token-stdin", "Read API key from stdin instead of browser OAuth")
     .option("--no-browser", "Print auth URL instead of opening browser")
     .addHelpText(
       "after",
       `
 Examples:
-  midday auth login                          # OAuth via browser
-  midday auth login --no-browser             # Print URL to open manually
-  echo $KEY | midday auth login --token-stdin # Use API key from stdin
-  MIDDAY_API_KEY=xxx midday transactions list # Skip login, use env var`,
+  cashpanel auth login                          # OAuth via browser
+  cashpanel auth login --no-browser             # Print URL to open manually
+  echo $KEY | cashpanel auth login --token-stdin # Use API key from stdin
+  CASHPANEL_API_KEY=xxx cashpanel transactions list # Skip login, use env var`,
     )
     .action(async (opts: { tokenStdin?: boolean; browser?: boolean }) => {
       const globals = auth.parent?.opts() as GlobalFlags;
@@ -74,19 +74,19 @@ Examples:
 
           console.log(`\n  ${chalk.dim("What's next?")}\n`);
           console.log(
-            `  ${chalk.cyan("midday transactions list")}    View recent transactions`,
+            `  ${chalk.cyan("cashpanel transactions list")}    View recent transactions`,
           );
           console.log(
-            `  ${chalk.cyan("midday invoices list")}        View your invoices`,
+            `  ${chalk.cyan("cashpanel invoices list")}        View your invoices`,
           );
           console.log(
-            `  ${chalk.cyan("midday tracker start")}        Start tracking time`,
+            `  ${chalk.cyan("cashpanel tracker start")}        Start tracking time`,
           );
           console.log(
-            `  ${chalk.cyan("midday inbox list")}            View your inbox`,
+            `  ${chalk.cyan("cashpanel inbox list")}            View your inbox`,
           );
           console.log(
-            `  ${chalk.cyan("midday --help")}               See all commands`,
+            `  ${chalk.cyan("cashpanel --help")}               See all commands`,
           );
           console.log();
         }
@@ -102,7 +102,7 @@ Examples:
       "after",
       `
 Examples:
-  midday auth logout`,
+  cashpanel auth logout`,
     )
     .action(() => {
       const globals = auth.parent?.opts() as GlobalFlags;
@@ -124,8 +124,8 @@ Examples:
       "after",
       `
 Examples:
-  midday auth status
-  midday auth status --json`,
+  cashpanel auth status
+  cashpanel auth status --json`,
     )
     .action(() => {
       const globals = auth.parent?.opts() as GlobalFlags;
@@ -143,7 +143,7 @@ Examples:
         ]);
       } else {
         console.log(
-          `\n  ${chalk.yellow("Not logged in")}. Run ${chalk.cyan("midday auth login")} to authenticate.\n`,
+          `\n  ${chalk.yellow("Not logged in")}. Run ${chalk.cyan("cashpanel auth login")} to authenticate.\n`,
         );
       }
     });

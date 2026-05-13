@@ -1,7 +1,7 @@
 "use client";
 
-import { ManusMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
+import { ManusMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 
 export function MCPManus() {
@@ -37,8 +37,8 @@ export function MCPManus() {
                 Financial data in Manus
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Manus and automate financial workflows with AI
-                agents. Query transactions, create invoices, and generate
+                Connect CashPanel to Manus and automate financial workflows with
+                AI agents. Query transactions, create invoices, and generate
                 reports using natural language.
               </p>
             </div>
@@ -68,7 +68,7 @@ export function MCPManus() {
                     <span className="font-sans text-sm text-muted-foreground pt-0.5">
                       Enter the server URL:{" "}
                       <span className="font-mono text-xs text-foreground">
-                        https://api.midday.ai/mcp
+                        https://api.cashpanel.io/mcp
                       </span>
                     </span>
                   </li>
@@ -77,7 +77,7 @@ export function MCPManus() {
                       3
                     </span>
                     <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                      Authenticate with your Midday account when prompted
+                      Authenticate with your CashPanel account when prompted
                     </span>
                   </li>
                 </ol>

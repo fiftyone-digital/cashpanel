@@ -7,7 +7,7 @@ import {
   getBankAccounts,
   getBankAccountsBalances,
   getBankAccountsCurrencies,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import {
   mcpBankAccountBalanceSchema,

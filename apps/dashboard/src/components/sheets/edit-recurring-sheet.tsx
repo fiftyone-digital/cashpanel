@@ -1,6 +1,5 @@
 "use client";
 
-import { TZDate } from "@date-fns/tz";
 import {
   calculatePreviewDates,
   formatOrdinal,
@@ -9,24 +8,25 @@ import {
   localDateToUTCMidnight,
   type RecurringConfig,
   validateRecurringConfig,
-} from "@midday/invoice/recurring";
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
-import { RadioGroup, RadioGroupItem } from "@midday/ui/radio-group";
-import { ScrollArea } from "@midday/ui/scroll-area";
+} from "@cashpanel/invoice/recurring";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
+import { RadioGroup, RadioGroupItem } from "@cashpanel/ui/radio-group";
+import { ScrollArea } from "@cashpanel/ui/scroll-area";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { Sheet, SheetContent } from "@midday/ui/sheet";
-import { SubmitButton } from "@midday/ui/submit-button";
+} from "@cashpanel/ui/select";
+import { Sheet, SheetContent } from "@cashpanel/ui/sheet";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { TZDate } from "@date-fns/tz";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { format, getDate, getDay } from "date-fns";
 import * as React from "react";

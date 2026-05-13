@@ -1,4 +1,4 @@
-import { hasTeamData, isTeamStillCanceled } from "@midday/db/queries";
+import { hasTeamData, isTeamStillCanceled } from "@cashpanel/db/queries";
 import type { Job } from "bullmq";
 import { Resend } from "resend";
 import type { CancellationEmailsPayload } from "../../schemas/teams";
@@ -38,8 +38,8 @@ export class CancellationEmailFollowupProcessor extends BaseProcessor<Cancellati
     });
 
     await resend.emails.send({
-      from: "Pontus from Midday <pontus@midday.ai>",
-      replyTo: "pontus@midday.ai",
+      from: "Pontus from CashPanel <pontus@cashpanel.io>",
+      replyTo: "pontus@cashpanel.io",
       to: email,
       subject: "Quick question",
       text: `Hey ${firstName},

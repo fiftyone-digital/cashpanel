@@ -1,11 +1,11 @@
 "use client";
 
+import { Checkbox } from "@cashpanel/ui/checkbox";
+import { TableHead, TableHeader, TableRow } from "@cashpanel/ui/table";
 import {
   horizontalListSortingStrategy,
   SortableContext,
 } from "@dnd-kit/sortable";
-import { Checkbox } from "@midday/ui/checkbox";
-import { TableHead, TableHeader, TableRow } from "@midday/ui/table";
 import type { Header, Table } from "@tanstack/react-table";
 import { useMemo } from "react";
 import { HorizontalPagination } from "@/components/horizontal-pagination";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent } from "@midday/ui/dialog";
+import { Dialog, DialogContent } from "@cashpanel/ui/dialog";
 import { useConnectParams } from "@/hooks/use-connect-params";
 import { SelectBankAccountsContent } from "../select-bank-accounts-content";
 

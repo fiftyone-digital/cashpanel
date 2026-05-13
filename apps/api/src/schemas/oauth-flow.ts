@@ -37,7 +37,7 @@ export const oauthAuthorizationRequestSchema = z.object({
   }),
   resource: z.string().url().optional().openapi({
     description: "Resource parameter per RFC 9728 — identifies the MCP server",
-    example: "https://api.midday.ai",
+    example: "https://api.cashpanel.io",
   }),
 });
 
@@ -46,7 +46,7 @@ export const oauthAuthorizationResponseSchema = z.object({
   authorize_url: z.string().url().openapi({
     description: "URL to redirect user for authorization",
     example:
-      "https://app.midday.ai/oauth/authorize?client_id=mid_abcdef123456789&...",
+      "https://app.cashpanel.io/oauth/authorize?client_id=mid_abcdef123456789&...",
   }),
 });
 
@@ -175,7 +175,7 @@ export const oauthErrorResponseSchema = z
     }),
     error_uri: z.string().url().optional().openapi({
       description: "URI to a human-readable error page",
-      example: "https://docs.midday.ai/errors/invalid_request",
+      example: "https://docs.cashpanel.io/errors/invalid_request",
     }),
     state: z.string().max(1024).optional().openapi({
       description: "Opaque state parameter from the original request",

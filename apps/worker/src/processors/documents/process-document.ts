@@ -1,10 +1,10 @@
-import { loadDocument } from "@midday/documents/loader";
+import { loadDocument } from "@cashpanel/documents/loader";
 import {
   getContentSample,
   isMimeTypeSupportedForProcessing,
-} from "@midday/documents/utils";
-import { triggerJob, triggerJobAndWait } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
+} from "@cashpanel/documents/utils";
+import { triggerJob, triggerJobAndWait } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { ProcessDocumentPayload } from "../../schemas/documents";
 import { getDb } from "../../utils/db";

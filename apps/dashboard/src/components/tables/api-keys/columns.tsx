@@ -1,17 +1,17 @@
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import type { ColumnDef } from "@tanstack/react-table";
 import "@tanstack/react-table";
 import { scopesToName } from "@api/utils/scopes";
-import { Avatar, AvatarFallback, AvatarImageNext } from "@midday/ui/avatar";
-import { Badge } from "@midday/ui/badge";
+import { Avatar, AvatarFallback, AvatarImageNext } from "@cashpanel/ui/avatar";
+import { Badge } from "@cashpanel/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
 import { formatDistanceToNow } from "date-fns";
 import { useTokenModalStore } from "@/store/token-modal";
 

@@ -21,9 +21,9 @@ import { handleError } from "./utils/errors.js";
 const VERSION = "0.1.0";
 
 export function createProgram(): Command {
-  const program = new Command("midday")
+  const program = new Command("cashpanel")
     .version(VERSION, "-v, --version")
-    .description("Midday CLI — run your business from the command line")
+    .description("CashPanel CLI — run your business from the command line")
     .option("--json, -j", "Output as JSON (default when piped)")
     .option("--table", "Output as table (default when TTY)")
     .option("--agent", "Agent mode: JSON output, no prompts, no spinners")
@@ -52,15 +52,15 @@ export function createProgram(): Command {
   program.addHelpText(
     "after",
     `
-Run midday <command> --help for detailed usage and examples.
+Run cashpanel <command> --help for detailed usage and examples.
 
 Examples:
-  midday auth login                              # Authenticate via browser
-  midday transactions list --from 2026-01-01     # List recent transactions
-  midday invoices create --customer cust_123     # Create a new invoice
-  midday tracker start --project proj_abc        # Start time tracking
-  midday reports revenue --json                  # Get revenue report as JSON
-  midday search "office supplies"                # Search across everything`,
+  cashpanel auth login                              # Authenticate via browser
+  cashpanel transactions list --from 2026-01-01     # List recent transactions
+  cashpanel invoices create --customer cust_123     # Create a new invoice
+  cashpanel tracker start --project proj_abc        # Start time tracking
+  cashpanel reports revenue --json                  # Get revenue report as JSON
+  cashpanel search "office supplies"                # Search across everything`,
   );
 
   program.action(() => {

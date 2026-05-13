@@ -1,4 +1,4 @@
-import { getTeamById, getTeamMembers } from "@midday/db/queries";
+import { getTeamById, getTeamMembers } from "@cashpanel/db/queries";
 import { z } from "zod";
 import {
   mcpTeamMemberSchema,

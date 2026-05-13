@@ -1,8 +1,8 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
 import Link from "next/link";
 import type { Competitor } from "@/data/competitors";
 
@@ -36,14 +36,14 @@ export function ComparisonHero({
         </h1>
         <p className="font-sans text-base text-muted-foreground leading-normal mb-8 max-w-2xl">
           {competitor.description} Compare features, pricing, and see why teams
-          are switching to Midday.
+          are switching to CashPanel.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 mb-12">
           <Button asChild className="btn-inverse h-11 px-6">
             <a
-              href="https://app.midday.ai/"
+              href="https://app.cashpanel.io/"
               onClick={() =>
                 track({
                   event: LogEvents.CTA.name,

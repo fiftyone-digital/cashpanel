@@ -17,8 +17,8 @@ import {
 /*  Audio — real MP3 samples for notification & keyboard clicks        */
 /* ------------------------------------------------------------------ */
 
-const NOTIFICATION_MP3 = "https://cdn.midday.ai/notification.mp3";
-const KEYBOARD_MP3 = "https://cdn.midday.ai/keyboard.mp3";
+const NOTIFICATION_MP3 = "https://cdn.cashpanel.io/notification.mp3";
+const KEYBOARD_MP3 = "https://cdn.cashpanel.io/keyboard.mp3";
 let audioCtx: AudioContext | null = null;
 let notificationBuffer: AudioBuffer | null = null;
 let keyboardBuffer: AudioBuffer | null = null;
@@ -227,14 +227,14 @@ type MessageAttachment =
 
 type ChatMessage = {
   id: number;
-  sender: "user" | "midday";
+  sender: "user" | "cashpanel";
   text: string;
   status?: "read";
   attachment?: MessageAttachment;
 };
 
 type ScenarioStep = {
-  sender: "user" | "midday";
+  sender: "user" | "cashpanel";
   text: string;
   typingMs?: number;
   delayAfterMs?: number;
@@ -296,7 +296,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
     transitionMs: 350,
     steps: [
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Invoice #1042 from Acme Corp ($2,400) is 14 days overdue. Want me to send a reminder?",
         typingMs: 800,
         delayAfterMs: 700,
@@ -307,7 +307,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
         delayAfterMs: 550,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Done. I sent a reminder to john@acme.com with a payment link. I’ll keep watching for payment.",
         typingMs: 900,
         delayAfterMs: 1000,
@@ -323,7 +323,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
         delayAfterMs: 650,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "I created a draft invoice for Linear. Total is $6,000. Want me to send it now or schedule it?",
         typingMs: 1000,
         delayAfterMs: 950,
@@ -334,13 +334,13 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
         delayAfterMs: 550,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Sent. I’ll notify you when it’s viewed or paid.",
         typingMs: 900,
         attachment: {
           kind: "og",
           title: "Invoice #1043 | Linear",
-          domain: "app.midday.ai",
+          domain: "app.cashpanel.io",
           status: "Unpaid",
           website: "linear.app",
           invoiceNumber: "1043",
@@ -351,10 +351,10 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
           fromLabel: "From",
           customerLabel: "To",
           fromDetails: [
-            "Midday Studios AB",
+            "CashPanel Studios AB",
             "Regeringsgatan 25",
             "111 53 Stockholm",
-            "billing@midday.ai",
+            "billing@cashpanel.io",
             "+46 8 555 019 20",
           ],
           customerDetails: [
@@ -380,18 +380,18 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
           title: "IMG_4821.HEIC",
           subtitle: "Hemköp receipt",
           amount: "SEK 1,018.35",
-          imageSrc: "https://cdn.midday.ai/chat-receipt-hemkop.png",
+          imageSrc: "https://cdn.cashpanel.io/chat-receipt-hemkop.png",
         },
         delayAfterMs: 700,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Extracted data:\nMerchant: Hemköp\nTotal: SEK 1,018.35\nDate: Feb 25, 2026 at 16:02\nPayment method: Mastercard •••• 3185",
         typingMs: 1100,
         delayAfterMs: 750,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Matched to Hemköp Odenplan for SEK 1,018.35 on Mastercard •••• 3185.",
         typingMs: 800,
         delayAfterMs: 1000,
@@ -407,7 +407,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
         delayAfterMs: 650,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "Here are your latest transactions:\n• Stripe payout, +$4,820.00\n• Vercel, $20.00\n• Figma, $15.00\n• OpenAI, $24.00",
         typingMs: 1000,
         delayAfterMs: 1100,
@@ -418,7 +418,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
         delayAfterMs: 550,
       },
       {
-        sender: "midday",
+        sender: "cashpanel",
         text: "So far this month, software spend is $59.00.",
         typingMs: 900,
         delayAfterMs: 1000,
@@ -429,7 +429,7 @@ const SCENARIOS: Record<ChatDemoScenario, ScenarioConfig> = {
 
 const FALLBACK_READ_LABEL = `Read ${formatShortTime(new Date())}`;
 
-const MIDDAY_LOGO_PATH =
+const CASHPANEL_LOGO_PATH =
   "M21.22 4.763a13.07 13.07 0 0 1 0 8.265l-.774 2.318 2.873-2.546a10.54 10.54 0 0 0 3.333-5.771l.815-3.982 2.477.507-.815 3.982a13.07 13.07 0 0 1-4.132 7.157l-1.832 1.624 3.763-.77a10.541 10.541 0 0 0 5.773-3.332l2.696-3.04 1.892 1.677-2.696 3.04a13.07 13.07 0 0 1-7.158 4.132l-2.4.49 3.645 1.216a10.54 10.54 0 0 0 6.666 0l3.855-1.285.799 2.398-3.855 1.285a13.069 13.069 0 0 1-8.264 0l-2.32-.774 2.547 2.874a10.537 10.537 0 0 0 5.772 3.33l3.98.817-.506 2.477-3.981-.815a13.069 13.069 0 0 1-7.158-4.132l-1.622-1.83.77 3.761a10.537 10.537 0 0 0 3.33 5.772l3.04 2.696-1.677 1.891-3.04-2.696a13.066 13.066 0 0 1-4.132-7.156l-.49-2.397-1.214 3.642a10.54 10.54 0 0 0 0 6.666l1.285 3.855-2.4.8-1.285-3.855a13.069 13.069 0 0 1 0-8.265l.773-2.324-2.873 2.55a10.542 10.542 0 0 0-3.332 5.773l-.815 3.98-2.476-.508.814-3.98a13.07 13.07 0 0 1 4.132-7.157l1.83-1.625-3.761.77A10.539 10.539 0 0 0 7.3 29.603l-2.697 3.04-1.891-1.677 2.696-3.04a13.066 13.066 0 0 1 7.156-4.133l2.398-.492-3.643-1.213a10.54 10.54 0 0 0-6.666 0L.8 23.372 0 20.973l3.855-1.285a13.069 13.069 0 0 1 8.264 0l2.32.773-2.547-2.872a10.539 10.539 0 0 0-5.772-3.333l-3.98-.815.506-2.476 3.981.814a13.069 13.069 0 0 1 7.158 4.133l1.62 1.828-.767-3.76a10.537 10.537 0 0 0-3.332-5.771l-3.04-2.696 1.677-1.894 3.04 2.696a13.069 13.069 0 0 1 4.133 7.158l.49 2.399 1.215-3.644a10.54 10.54 0 0 0 0-6.666l-1.284-3.854 2.398-.8 1.285 3.855ZM20 16.957a3.953 3.953 0 0 0-3.951 3.951l.021.404a3.951 3.951 0 0 0 7.86 0l.02-.404-.02-.404a3.952 3.952 0 0 0-3.526-3.525L20 16.957Z";
 
 function getWebsiteLogo(website?: string) {
@@ -542,7 +542,7 @@ const HOLD_CHAT_OPEN = 450;
 const HOLD_USER_MESSAGE = 700;
 const HOLD_READ_RECEIPT = 500;
 const HOLD_TYPING = 750;
-const HOLD_MIDDAY_MESSAGE = 850;
+const HOLD_CASHPANEL_MESSAGE = 850;
 const HOLD_SCENARIO_BOUNDARY = 350;
 const HOLD_KEYBOARD_UP = 500;
 const CHAR_TYPE_MS = 35;
@@ -697,7 +697,7 @@ function buildGlobalBeats(): DemoBeat[] {
           }
         }
 
-        if (step.sender === "midday" && step.typingMs) {
+        if (step.sender === "cashpanel" && step.typingMs) {
           snap(HOLD_TYPING, { isTyping: true });
         }
 
@@ -707,7 +707,9 @@ function buildGlobalBeats(): DemoBeat[] {
           text: step.text,
           attachment: step.attachment,
         });
-        snap(step.sender === "user" ? HOLD_USER_MESSAGE : HOLD_MIDDAY_MESSAGE);
+        snap(
+          step.sender === "user" ? HOLD_USER_MESSAGE : HOLD_CASHPANEL_MESSAGE,
+        );
 
         if (step.sender === "user") {
           const label =
@@ -749,7 +751,7 @@ function buildGlobalBeats(): DemoBeat[] {
           }
         }
 
-        if (firstStep.sender === "midday" && firstStep.typingMs) {
+        if (firstStep.sender === "cashpanel" && firstStep.typingMs) {
           snap(HOLD_TYPING, { isTyping: true });
         }
 
@@ -761,7 +763,9 @@ function buildGlobalBeats(): DemoBeat[] {
           attachment: firstStep.attachment,
         });
         snap(
-          firstStep.sender === "user" ? HOLD_USER_MESSAGE : HOLD_MIDDAY_MESSAGE,
+          firstStep.sender === "user"
+            ? HOLD_USER_MESSAGE
+            : HOLD_CASHPANEL_MESSAGE,
         );
 
         if (firstStep.sender === "user") {
@@ -791,7 +795,7 @@ function buildGlobalBeats(): DemoBeat[] {
           }
         }
 
-        if (step.sender === "midday" && step.typingMs) {
+        if (step.sender === "cashpanel" && step.typingMs) {
           snap(HOLD_TYPING, { isTyping: true });
         }
 
@@ -801,7 +805,9 @@ function buildGlobalBeats(): DemoBeat[] {
           text: step.text,
           attachment: step.attachment,
         });
-        snap(step.sender === "user" ? HOLD_USER_MESSAGE : HOLD_MIDDAY_MESSAGE);
+        snap(
+          step.sender === "user" ? HOLD_USER_MESSAGE : HOLD_CASHPANEL_MESSAGE,
+        );
 
         if (step.sender === "user") {
           const label =
@@ -865,7 +871,7 @@ function buildGlobalBeats(): DemoBeat[] {
 function IOSKeyboard() {
   return (
     <img
-      src="https://cdn.midday.ai/ios-keyboard-dark-v1.svg"
+      src="https://cdn.cashpanel.io/ios-keyboard-dark-v1.svg"
       alt=""
       draggable={false}
       style={{ width: "100%", display: "block" }}
@@ -874,10 +880,10 @@ function IOSKeyboard() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Midday logo (inlined SVG, white on black)                          */
+/*  CashPanel logo (inlined SVG, white on black)                          */
 /* ------------------------------------------------------------------ */
 
-function MiddayLogo({
+function CashPanelLogo({
   size,
   borderRadius,
 }: {
@@ -896,7 +902,7 @@ function MiddayLogo({
       }}
     >
       <svg width={iconScale} height={iconScale} viewBox="0 0 40 41" fill="#fff">
-        <path d={MIDDAY_LOGO_PATH} />
+        <path d={CASHPANEL_LOGO_PATH} />
       </svg>
     </div>
   );
@@ -924,7 +930,7 @@ function ContactAvatar({ size = 64 }: { size?: number }) {
         fill="#fff"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d={MIDDAY_LOGO_PATH} />
+        <path d={CASHPANEL_LOGO_PATH} />
       </svg>
     </div>
   );
@@ -1281,7 +1287,8 @@ function HomeIndicator({ dark }: { dark?: boolean }) {
 /* ------------------------------------------------------------------ */
 
 const CLOCK_MAX_WIDTH = 390;
-const LOCK_SCREEN_WALLPAPER = "https://cdn.midday.ai/background-remote-v7.png";
+const LOCK_SCREEN_WALLPAPER =
+  "https://cdn.cashpanel.io/background-remote-v7.png";
 
 function LockScreenClock({ timeStr }: { timeStr: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -2331,7 +2338,7 @@ function NotificationBanner({
             "inset 0 1px 0 rgba(255,255,255,0.25), 0 8px 32px rgba(0,0,0,0.15)",
         }}
       >
-        <MiddayLogo size={38} borderRadius={9} />
+        <CashPanelLogo size={38} borderRadius={9} />
 
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
@@ -2343,7 +2350,7 @@ function NotificationBanner({
                 fontFamily: SF_FONT,
               }}
             >
-              Midday
+              CashPanel
             </span>
             <span
               style={{
@@ -2385,7 +2392,7 @@ function SetupNotificationBanner({
 }) {
   return (
     <motion.a
-      href="https://app.midday.ai"
+      href="https://app.cashpanel.io"
       target="_blank"
       rel="noreferrer"
       initial={{ y: -88, opacity: 0, scale: 0.96, filter: "blur(10px)" }}
@@ -2475,7 +2482,7 @@ function SetupNotificationBanner({
         />
 
         <div className="relative">
-          <MiddayLogo size={38} borderRadius={9} />
+          <CashPanelLogo size={38} borderRadius={9} />
         </div>
 
         <div className="relative flex-1 min-w-0">
@@ -3330,7 +3337,7 @@ function MessageBubble({
 /*  iOS Camera viewfinder                                              */
 /* ------------------------------------------------------------------ */
 
-const RECEIPT_IMAGE_SRC = "https://cdn.midday.ai/reciept.jpg";
+const RECEIPT_IMAGE_SRC = "https://cdn.cashpanel.io/reciept.jpg";
 
 const CAMERA_DRIFT_CSS = `
 @keyframes cameraDriftX {
@@ -3742,7 +3749,7 @@ function ChatView({
           </button>
 
           <a
-            href="https://cal.com/pontus-midday/15min"
+            href="https://cal.com/pontus-cashpanel/15min"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center"
@@ -3766,7 +3773,7 @@ function ChatView({
 
         <div className="flex flex-col items-center" style={{ marginTop: -30 }}>
           <a
-            href="https://x.com/middayai"
+            href="https://x.com/cashpanelai"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -3800,7 +3807,7 @@ function ChatView({
                 letterSpacing: -0.2,
               }}
             >
-              Midday
+              CashPanel
             </span>
             <HeaderDisclosureIcon color={detailColor} />
           </LiquidGlass>

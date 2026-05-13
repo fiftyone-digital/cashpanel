@@ -1,10 +1,10 @@
-import { z } from "@hono/zod-openapi";
 import {
   RECURRING_END_TYPES,
   RECURRING_FREQUENCIES,
   RECURRING_STATUSES,
-} from "@midday/invoice/recurring";
-import { isValidTimezone } from "@midday/location/timezones";
+} from "@cashpanel/invoice/recurring";
+import { isValidTimezone } from "@cashpanel/location/timezones";
+import { z } from "@hono/zod-openapi";
 import { draftLineItemSchema, upsertInvoiceTemplateSchema } from "./invoice";
 
 /**

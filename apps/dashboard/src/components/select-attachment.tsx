@@ -1,8 +1,8 @@
+import { Badge } from "@cashpanel/ui/badge";
+import { Combobox } from "@cashpanel/ui/combobox";
+import { Icons } from "@cashpanel/ui/icons";
+import { formatDate } from "@cashpanel/utils/format";
 import { TZDate } from "@date-fns/tz";
-import { Badge } from "@midday/ui/badge";
-import { Combobox } from "@midday/ui/combobox";
-import { Icons } from "@midday/ui/icons";
-import { formatDate } from "@midday/utils/format";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { useState } from "react";

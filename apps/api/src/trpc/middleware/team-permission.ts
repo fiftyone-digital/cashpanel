@@ -1,8 +1,8 @@
 import type { Session } from "@api/utils/auth";
 import { withRetryOnPrimary } from "@api/utils/db-retry";
-import { teamCache } from "@midday/cache/team-cache";
-import type { Database } from "@midday/db/client";
-import { createLoggerWithContext } from "@midday/logger";
+import { teamCache } from "@cashpanel/cache/team-cache";
+import type { Database } from "@cashpanel/db/client";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { TRPCError } from "@trpc/server";
 
 const DEBUG_PERF = process.env.DEBUG_PERF === "true";

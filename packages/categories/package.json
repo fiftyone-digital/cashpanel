@@ -1,5 +1,5 @@
 {
-  "name": "@midday/categories",
+  "name": "@cashpanel/categories",
   "version": "0.1.0",
   "description": "Transaction categories with parent-child structure for financial reports",
   "main": "./src/index.ts",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@ai-sdk/google": "catalog:",
-    "@midday/logger": "workspace:*",
+    "@cashpanel/logger": "workspace:*",
     "ai": "catalog:",
     "zod": "catalog:"
   },

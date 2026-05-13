@@ -1,17 +1,17 @@
 // Import Sentry instrumentation first, before any other modules
 import "./instrument";
 
-import { trpcServer } from "@hono/trpc-server";
-import { OpenAPIHono } from "@hono/zod-openapi";
-import { closeSharedRedisClient } from "@midday/cache/shared-redis";
-import { closeDb, getPoolStats } from "@midday/db/client";
+import { closeSharedRedisClient } from "@cashpanel/cache/shared-redis";
+import { closeDb, getPoolStats } from "@cashpanel/db/client";
 import {
   buildDependenciesResponse,
   buildReadinessResponse,
   checkDependencies,
-} from "@midday/health/checker";
-import { apiDependencies } from "@midday/health/probes";
-import { createLoggerWithContext, logger } from "@midday/logger";
+} from "@cashpanel/health/checker";
+import { apiDependencies } from "@cashpanel/health/probes";
+import { createLoggerWithContext, logger } from "@cashpanel/logger";
+import { trpcServer } from "@hono/trpc-server";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import { Scalar } from "@scalar/hono-api-reference";
 import * as Sentry from "@sentry/bun";
 
@@ -156,22 +156,22 @@ const openAPIConfig = {
   openapi: "3.1.0",
   info: {
     version: "0.0.1",
-    title: "Midday API",
+    title: "CashPanel API",
     description:
-      "Midday is a platform for Invoicing, Time tracking, File reconciliation, Storage & Financial Overview.",
+      "CashPanel is a platform for Invoicing, Time tracking, File reconciliation, Storage & Financial Overview.",
     contact: {
-      name: "Midday Support",
-      email: "engineer@midday.ai",
-      url: "https://midday.ai",
+      name: "CashPanel Support",
+      email: "engineer@cashpanel.io",
+      url: "https://cashpanel.io",
     },
     license: {
       name: "AGPL-3.0 license",
-      url: "https://github.com/midday-ai/midday/blob/main/LICENSE",
+      url: "https://github.com/fiftyone-digital/cashpanel/blob/main/LICENSE",
     },
   },
   servers: [
     {
-      url: "https://api.midday.ai",
+      url: "https://api.cashpanel.io",
       description: "Production API",
     },
   ],
@@ -278,12 +278,12 @@ app.openAPIRegistry.registerComponent("securitySchemes", "token", {
   type: "http",
   scheme: "bearer",
   description: "Default authentication mechanism",
-  "x-speakeasy-example": "MIDDAY_API_KEY",
+  "x-speakeasy-example": "CASHPANEL_API_KEY",
 });
 
 const dashboardUrl =
-  process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
-const apiUrl = process.env.MIDDAY_API_URL || "https://api.midday.ai";
+  process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
+const apiUrl = process.env.CASHPANEL_API_URL || "https://api.cashpanel.io";
 
 app.openAPIRegistry.registerComponent("securitySchemes", "oauth2", {
   type: "oauth2",
@@ -326,7 +326,7 @@ app.openAPIRegistry.registerComponent("securitySchemes", "oauth2", {
 
 app.get(
   "/",
-  Scalar({ url: "/openapi", pageTitle: "Midday API", theme: "saturn" }),
+  Scalar({ url: "/openapi", pageTitle: "CashPanel API", theme: "saturn" }),
 );
 
 app.route("/", routers);

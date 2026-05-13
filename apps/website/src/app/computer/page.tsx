@@ -4,17 +4,17 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Computer — Autonomous AI agents for your business",
   description:
-    "Describe what you need, and Midday deploys an autonomous agent that runs on your schedule, learns over time, and delivers results while you sleep.",
+    "Describe what you need, and CashPanel deploys an autonomous agent that runs on your schedule, learns over time, and delivers results while you sleep.",
   path: "/computer",
   og: {
-    title: "Midday Computer",
+    title: "CashPanel Computer",
     description: "Your business runs even when you don't",
   },
   keywords: [
     "autonomous agents",
     "business automation",
     "AI agents",
-    "Midday Computer",
+    "CashPanel Computer",
     "business workflows",
     "scheduled agents",
   ],

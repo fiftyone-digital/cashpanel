@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import type React from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -35,7 +35,7 @@ function InfraDiagram() {
       {"│\n"}
       {" │"}
       {d("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")}
-      {"  Midday  "}
+      {"  CashPanel  "}
       {d("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")}
       {"│\n"}
       {" │"}
@@ -94,7 +94,7 @@ function CopyInstall() {
   const [copied, setCopied] = useState(false);
 
   const copyCommand = () => {
-    navigator.clipboard.writeText("npx @midday-ai/cli@latest");
+    navigator.clipboard.writeText("npx @cashpanel-ai/cli@latest");
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
@@ -110,7 +110,7 @@ function CopyInstall() {
       }}
     >
       <span className="text-foreground truncate">
-        $ npx @midday-ai/cli@latest
+        $ npx @cashpanel-ai/cli@latest
       </span>
 
       <div className="flex items-center space-x-2 ml-auto">
@@ -165,8 +165,8 @@ type Scenario = {
 const SCENARIOS: Scenario[] = [
   {
     label: "Bill from time",
-    cmd1: 'midday invoices create --from-tracker "Website Redesign" --period 2026-03',
-    cmd2: "midday invoices send inv_0048",
+    cmd1: 'cashpanel invoices create --from-tracker "Website Redesign" --period 2026-03',
+    cmd2: "cashpanel invoices send inv_0048",
     spin1: "Creating invoice from time entries...",
     spin2: "Sending invoice...",
     done2: "Sending invoice...",
@@ -228,8 +228,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Reconcile",
-    cmd1: "midday inbox list --unmatched",
-    cmd2: "midday inbox match --all --auto",
+    cmd1: "cashpanel inbox list --unmatched",
+    cmd2: "cashpanel inbox match --all --auto",
     spin1: "Fetching unmatched items...",
     spin2: "Matching 3 receipts to transactions...",
     done2: "Matching 3 receipts to transactions...",
@@ -278,8 +278,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Export",
-    cmd1: "midday transactions export --to quickbooks --period 2026-Q1",
-    cmd2: "midday export status job_4401",
+    cmd1: "cashpanel transactions export --to quickbooks --period 2026-Q1",
+    cmd2: "cashpanel export status job_4401",
     spin1: "Exporting 142 transactions to QuickBooks...",
     spin2: "Checking export status...",
     done2: "Checking export status...",
@@ -296,8 +296,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Forecast",
-    cmd1: "midday reports revenue-forecast",
-    cmd2: "midday reports cash-flow --period 2026-Q2",
+    cmd1: "cashpanel reports revenue-forecast",
+    cmd2: "cashpanel reports cash-flow --period 2026-Q2",
     spin1: "Generating revenue forecast...",
     spin2: "Calculating cash flow...",
     done2: "Calculating cash flow...",
@@ -485,7 +485,7 @@ function Terminal({ pixelFontClass }: { pixelFontClass?: string }) {
             <span className="block w-2 h-2 rounded-full bg-[hsl(225,50%,40%)]" />
           </div>
           <span className="flex-1 text-center text-[10px] tracking-wide text-foreground -ml-10">
-            midday — zsh
+            cashpanel — zsh
           </span>
         </div>
 
@@ -512,7 +512,7 @@ function Terminal({ pixelFontClass }: { pixelFontClass?: string }) {
           ref={termRef}
           className="overflow-y-auto h-[380px] md:h-[460px] scroll-smooth p-5 bg-background text-[13px] leading-[1.7] text-foreground"
         >
-          <div>{prompt}npx @midday-ai/cli@latest</div>
+          <div>{prompt}npx @cashpanel-ai/cli@latest</div>
 
           <div
             className={cn(
@@ -520,10 +520,10 @@ function Terminal({ pixelFontClass }: { pixelFontClass?: string }) {
               pixelFontClass,
             )}
           >
-            midday
+            cashpanel
           </div>
           <div className="text-[hsl(225,60%,75%)] text-[10px] tracking-widest mt-1.5 mb-5">
-            v0.1.0 · agent@acme.corp · Midday Labs AB
+            v0.1.0 · agent@acme.corp · CashPanel Labs AB
           </div>
 
           <div>
@@ -667,7 +667,7 @@ const possibilities = [
     agent: "Any MCP client",
     title: "One protocol, every tool",
     description:
-      "Any app that speaks MCP gets instant access to 80+ Midday tools. No custom integration code, no API wrangling.",
+      "Any app that speaks MCP gets instant access to 80+ CashPanel tools. No custom integration code, no API wrangling.",
   },
   {
     agent: "Raycast",
@@ -725,8 +725,8 @@ export function Agents({ pixelFontClass }: { pixelFontClass?: string }) {
             </h1>
             <p className="text-[hsl(225,60%,75%)] text-base leading-normal mt-4 md:mt-8">
               One CLI. 80+ tools. Your agent can send invoices, reconcile
-              transactions, track time, pull reports. Anything you do in Midday,
-              it can do too.
+              transactions, track time, pull reports. Anything you do in
+              CashPanel, it can do too.
             </p>
           </div>
 
@@ -739,14 +739,14 @@ export function Agents({ pixelFontClass }: { pixelFontClass?: string }) {
               asChild
               className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(225,50%,92%)]"
             >
-              <Link href="https://app.midday.ai">Start automating</Link>
+              <Link href="https://app.cashpanel.io">Start automating</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               className="hidden md:inline-flex h-11 px-6 text-sm font-mono hover:!bg-[hsl(225,70%,28%)] hover:!text-foreground"
             >
-              <Link href="https://github.com/midday-ai/midday/tree/main/packages/cli">
+              <Link href="https://github.com/fiftyone-digital/cashpanel/tree/main/packages/cli">
                 Read documentation
               </Link>
             </Button>
@@ -860,7 +860,7 @@ export function Agents({ pixelFontClass }: { pixelFontClass?: string }) {
             asChild
             className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(225,50%,92%)]"
           >
-            <Link href="https://app.midday.ai">Start automating</Link>
+            <Link href="https://app.cashpanel.io">Start automating</Link>
           </Button>
         </div>
 
@@ -873,8 +873,8 @@ export function Agents({ pixelFontClass }: { pixelFontClass?: string }) {
             Infrastructure
           </h2>
           <p className="text-[hsl(225,60%,75%)] text-base leading-normal mt-4 max-w-md mx-auto">
-            Midday is the backbone. Agents connect via MCP, CLI, or API. Every
-            operation syncs back to your dashboard.
+            CashPanel is the backbone. Agents connect via MCP, CLI, or API.
+            Every operation syncs back to your dashboard.
           </p>
 
           <div className="hidden md:flex flex-col items-center justify-center mt-2">
@@ -907,14 +907,14 @@ export function Agents({ pixelFontClass }: { pixelFontClass?: string }) {
                 asChild
                 className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(225,50%,92%)]"
               >
-                <Link href="https://app.midday.ai">Start automating</Link>
+                <Link href="https://app.cashpanel.io">Start automating</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-11 px-6 text-sm font-mono border-primary bg-background hover:!bg-[hsl(225,70%,45%)] hover:!text-foreground"
               >
-                <Link href="https://github.com/midday-ai/midday/tree/main/packages/cli">
+                <Link href="https://github.com/fiftyone-digital/cashpanel/tree/main/packages/cli">
                   Read documentation
                 </Link>
               </Button>

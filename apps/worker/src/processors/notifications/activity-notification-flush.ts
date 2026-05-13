@@ -1,4 +1,4 @@
-import { flushDueActivityNotificationBatches } from "@midday/bot";
+import { flushDueActivityNotificationBatches } from "@cashpanel/bot";
 import type { Job } from "bullmq";
 import { z } from "zod";
 import { getDb } from "../../utils/db";

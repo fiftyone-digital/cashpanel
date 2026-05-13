@@ -1,9 +1,9 @@
 "use client";
 
-import { track } from "@midday/events/client";
-import { LogEvents } from "@midday/events/events";
-import { PlanCards } from "@midday/ui/plan-cards";
-import { SubmitButton } from "@midday/ui/submit-button";
+import { track } from "@cashpanel/events/client";
+import { LogEvents } from "@cashpanel/events/events";
+import { PlanCards } from "@cashpanel/ui/plan-cards";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { PolarEmbedCheckout } from "@polar-sh/checkout/embed";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTheme } from "next-themes";

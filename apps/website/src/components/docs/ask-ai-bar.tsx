@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
+import { cn } from "@cashpanel/ui/cn";
 
 type AskAiBarProps = {
   title: string;
@@ -79,7 +79,7 @@ function PerplexityIcon({ className }: { className?: string }) {
 
 export function AskAiBar({ title, description }: AskAiBarProps) {
   const prompt = encodeURIComponent(
-    `I'm reading the Midday documentation about "${title}". ${description ? `The page describes: ${description}` : ""}\n\nHelp me understand this topic better. What are the key things I should know about ${title.toLowerCase()} in Midday?`,
+    `I'm reading the CashPanel documentation about "${title}". ${description ? `The page describes: ${description}` : ""}\n\nHelp me understand this topic better. What are the key things I should know about ${title.toLowerCase()} in CashPanel?`,
   );
 
   const aiLinks = [

@@ -1,7 +1,7 @@
+import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
+import { Calendar } from "@cashpanel/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
 import { TZDate } from "@date-fns/tz";
-import { localDateToUTCMidnight } from "@midday/invoice/recurring";
-import { Calendar } from "@midday/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
 import { format } from "date-fns";
 import { useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";

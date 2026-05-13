@@ -1,4 +1,4 @@
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import { LogLevel, App as SlackApp } from "@slack/bolt";
 import { InstallProvider } from "@slack/oauth";
 import { WebClient } from "@slack/web-api";

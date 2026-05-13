@@ -1,13 +1,13 @@
 // Import Sentry instrumentation first, before any other modules
 import "./instrument";
 
-import { closeWorkerDb, getWorkerPoolStats } from "@midday/db/worker-client";
+import { closeWorkerDb, getWorkerPoolStats } from "@cashpanel/db/worker-client";
 import {
   buildReadinessResponse,
   checkDependencies,
-} from "@midday/health/checker";
-import { workerDependencies } from "@midday/health/probes";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/health/checker";
+import { workerDependencies } from "@cashpanel/health/probes";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import * as Sentry from "@sentry/bun";
 import { Worker } from "bullmq";
 import { Hono } from "hono";
@@ -151,7 +151,7 @@ function initializeWorkbench() {
               password: process.env.BOARD_PASSWORD,
             }
           : undefined,
-      title: "Midday Jobs",
+      title: "CashPanel Jobs",
       tags: ["teamId"],
     }),
   );

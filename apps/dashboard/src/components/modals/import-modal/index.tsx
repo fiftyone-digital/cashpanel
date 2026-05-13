@@ -1,19 +1,19 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { uniqueCurrencies } from "@midday/location/currencies";
-import { AnimatedSizeContainer } from "@midday/ui/animated-size-container";
+import { LogEvents } from "@cashpanel/events/events";
+import { uniqueCurrencies } from "@cashpanel/location/currencies";
+import { AnimatedSizeContainer } from "@cashpanel/ui/animated-size-container";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { SubmitButtonMorph } from "@midday/ui/submit-button-morph";
-import { useToast } from "@midday/ui/use-toast";
-import { stripSpecialCharacters } from "@midday/utils";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { SubmitButtonMorph } from "@cashpanel/ui/submit-button-morph";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs";

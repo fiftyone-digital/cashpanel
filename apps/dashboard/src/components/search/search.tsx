@@ -1,7 +1,7 @@
 "use client";
 
-import { emit, invoke, listen, Window } from "@midday/desktop-client/core";
-import { isDesktopApp } from "@midday/desktop-client/platform";
+import { emit, invoke, listen, Window } from "@cashpanel/desktop-client/core";
+import { isDesktopApp } from "@cashpanel/desktop-client/platform";
 import {
   Command,
   CommandEmpty,
@@ -9,10 +9,10 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@midday/ui/command";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
-import { formatDate } from "@midday/utils/format";
+} from "@cashpanel/ui/command";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { formatDate } from "@cashpanel/utils/format";
 import { useQuery } from "@tanstack/react-query";
 import { formatISO } from "date-fns";
 import { useRouter } from "next/navigation";

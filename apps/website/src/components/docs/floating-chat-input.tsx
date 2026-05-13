@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@midday/ui/icons";
+import { Icons } from "@cashpanel/ui/icons";
 import { motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { docsNavigation } from "@/lib/docs";

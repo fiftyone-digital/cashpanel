@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const year = new Date().getFullYear();
-  const title = `Best ${competitor.name} Alternative for Founders (${year}) | Midday`;
-  const description = `Looking for a ${competitor.name} alternative? Switch to Midday - built for founders, not accountants. Compare features, pricing, and see why teams are making the switch. Free trial available.`;
+  const title = `Best ${competitor.name} Alternative for Founders (${year}) | CashPanel`;
+  const description = `Looking for a ${competitor.name} alternative? Switch to CashPanel - built for founders, not accountants. Compare features, pricing, and see why teams are making the switch. Free trial available.`;
   const url = `${baseUrl}/compare/${slug}`;
 
   return {
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [
       `${competitor.name.toLowerCase()} alternative`,
       `${competitor.name.toLowerCase()} alternative ${year}`,
-      `${competitor.name.toLowerCase()} vs midday`,
+      `${competitor.name.toLowerCase()} vs cashpanel`,
       `switch from ${competitor.name.toLowerCase()}`,
       `${competitor.name.toLowerCase()} pricing`,
       `${competitor.name.toLowerCase()} competitor`,
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: `${baseUrl}/api/og/compare?name=${encodeURIComponent(competitor.name)}`,
           width: 1200,
           height: 630,
-          alt: `Midday vs ${competitor.name} comparison`,
+          alt: `CashPanel vs ${competitor.name} comparison`,
         },
       ],
     },
@@ -87,11 +87,11 @@ export default async function Page({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `Best ${competitor.name} Alternative for Founders (${year})`,
-    description: `Looking for a ${competitor.name} alternative? Switch to Midday - built for founders, not accountants.`,
+    description: `Looking for a ${competitor.name} alternative? Switch to CashPanel - built for founders, not accountants.`,
     url: `${baseUrl}/compare/${slug}`,
     mainEntity: {
       "@type": "SoftwareApplication",
-      name: "Midday",
+      name: "CashPanel",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, macOS",
       description:

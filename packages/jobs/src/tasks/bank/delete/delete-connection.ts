@@ -1,5 +1,5 @@
-import { deleteConnectionSchema } from "@midday/jobs/schema";
-import { trpc } from "@midday/trpc";
+import { deleteConnectionSchema } from "@cashpanel/jobs/schema";
+import { trpc } from "@cashpanel/trpc";
 import { schemaTask } from "@trigger.dev/sdk";
 
 export const deleteConnection = schemaTask({

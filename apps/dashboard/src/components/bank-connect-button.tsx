@@ -1,4 +1,4 @@
-import { Spinner } from "@midday/ui/spinner";
+import { Spinner } from "@cashpanel/ui/spinner";
 import type { MutableRefObject } from "react";
 import { useEffect, useState } from "react";
 

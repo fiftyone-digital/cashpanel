@@ -1,7 +1,7 @@
 "use client";
 
-import { BulkReconciliationAnimation } from "@midday/ui/animations/bulk-reconciliation";
-import { TransactionFlowAnimation } from "@midday/ui/animations/transaction-flow";
+import { BulkReconciliationAnimation } from "@cashpanel/ui/animations/bulk-reconciliation";
+import { TransactionFlowAnimation } from "@cashpanel/ui/animations/transaction-flow";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroImage } from "./hero-image";

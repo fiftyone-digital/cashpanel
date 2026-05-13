@@ -1,5 +1,5 @@
 {
-  "name": "@midday/insights",
+  "name": "@cashpanel/insights",
   "version": "0.1.0",
   "private": true,
   "main": "src/index.ts",
@@ -20,14 +20,14 @@
   },
   "dependencies": {
     "@ai-sdk/openai": "catalog:",
-    "@midday/db": "workspace:*",
-    "@midday/logger": "workspace:*",
+    "@cashpanel/db": "workspace:*",
+    "@cashpanel/logger": "workspace:*",
     "ai": "catalog:",
     "date-fns": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@midday/tsconfig": "workspace:*",
+    "@cashpanel/tsconfig": "workspace:*",
     "dotenv": "^17.3.1",
     "evalite": "^0.19.0",
     "typescript": "catalog:",

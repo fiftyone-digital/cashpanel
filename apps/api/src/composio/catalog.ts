@@ -1,9 +1,9 @@
-import { connectorsCache } from "@midday/cache/connectors-cache";
+import { connectorsCache } from "@cashpanel/cache/connectors-cache";
 import {
   CURATED_TOOLKIT_SLUGS,
   connectorApps,
   toComposioSlug,
-} from "@midday/connectors";
+} from "@cashpanel/connectors";
 import { composioFetch } from "./client";
 
 export type CatalogEntry = {

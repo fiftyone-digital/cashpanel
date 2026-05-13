@@ -1,8 +1,8 @@
 import { protectedMiddleware } from "@api/rest/middleware";
 import type { Context } from "@api/rest/types";
+import { InboxConnector } from "@cashpanel/inbox/connector";
+import { encryptOAuthState } from "@cashpanel/inbox/utils";
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
-import { InboxConnector } from "@midday/inbox/connector";
-import { encryptOAuthState } from "@midday/inbox/utils";
 import { HTTPException } from "hono/http-exception";
 
 const app = new OpenAPIHono<Context>();

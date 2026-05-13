@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import { useCustomerParams } from "@/hooks/use-customer-params";
 
 export function EmptyState() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -8,9 +8,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@midday/ui/dialog";
-import { Icons } from "@midday/ui/icons";
-import { Spinner } from "@midday/ui/spinner";
+} from "@cashpanel/ui/dialog";
+import { Icons } from "@cashpanel/ui/icons";
+import { Spinner } from "@cashpanel/ui/spinner";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import QRCode from "qrcode";
 import { useEffect, useState } from "react";
@@ -136,7 +136,7 @@ export function ConnectTelegram({ showTrigger = true }: ConnectTelegramProps) {
           <DialogHeader>
             <DialogTitle>Connect Telegram</DialogTitle>
             <DialogDescription>
-              Scan the QR code or open Telegram to start the Midday bot with
+              Scan the QR code or open Telegram to start the CashPanel bot with
               your workspace connection code.
             </DialogDescription>
           </DialogHeader>
@@ -207,7 +207,7 @@ export function ConnectTelegram({ showTrigger = true }: ConnectTelegramProps) {
 
           <p className="text-xs text-[#878787] text-center">
             Telegram opens the bot with a one-time code that links this account
-            to your Midday user.
+            to your CashPanel user.
           </p>
 
           {connections.length > 0 && (

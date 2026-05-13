@@ -1,6 +1,6 @@
-import { getInvoiceById, updateInvoice } from "@midday/db/queries";
-import { PdfTemplate, renderToBuffer } from "@midday/invoice";
-import { createClient } from "@midday/supabase/job";
+import { getInvoiceById, updateInvoice } from "@cashpanel/db/queries";
+import { PdfTemplate, renderToBuffer } from "@cashpanel/invoice";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import { DEFAULT_JOB_OPTIONS } from "../../config/job-options";
 import { documentsQueue } from "../../queues/documents";

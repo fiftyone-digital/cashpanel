@@ -1,14 +1,14 @@
 "use client";
 
-import { formatAmountValue, formatDate } from "@midday/import";
+import { formatAmountValue, formatDate } from "@cashpanel/import";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Icons } from "@midday/ui/icons";
-import { Label } from "@midday/ui/label";
+} from "@cashpanel/ui/accordion";
+import { Icons } from "@cashpanel/ui/icons";
+import { Label } from "@cashpanel/ui/label";
 import {
   Select,
   SelectContent,
@@ -17,15 +17,15 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { Spinner } from "@midday/ui/spinner";
-import { Switch } from "@midday/ui/switch";
+} from "@cashpanel/ui/select";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { Switch } from "@cashpanel/ui/switch";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@midday/ui/tooltip";
+} from "@cashpanel/ui/tooltip";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { capitalCase } from "change-case";
 import { useEffect, useRef, useState } from "react";
@@ -179,7 +179,7 @@ export function FieldMapping({ currencies }: { currencies: string[] }) {
     <div className="mt-6">
       <div className="grid grid-cols-2 gap-x-4 gap-y-2">
         <div className="text-sm">CSV Data column</div>
-        <div className="text-sm">Midday data column</div>
+        <div className="text-sm">CashPanel data column</div>
         {(Object.keys(mappableFields) as (keyof typeof mappableFields)[]).map(
           (field) => (
             <FieldRow

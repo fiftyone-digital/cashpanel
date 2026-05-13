@@ -26,11 +26,11 @@ import {
   revokeUserApplicationTokens,
   updateOAuthApplication,
   updateOAuthApplicationstatus,
-} from "@midday/db/queries";
-import { AppInstalledEmail } from "@midday/email/emails/app-installed";
-import { AppReviewRequestEmail } from "@midday/email/emails/app-review-request";
-import { render } from "@midday/email/render";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { AppInstalledEmail } from "@cashpanel/email/emails/app-installed";
+import { AppReviewRequestEmail } from "@cashpanel/email/emails/app-review-request";
+import { render } from "@cashpanel/email/render";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 const logger = createLoggerWithContext("trpc:oauth-applications");
 
@@ -197,7 +197,7 @@ export const oauthApplicationsRouter = createTRPCRouter({
             );
 
             await resend.emails.send({
-              from: "Midday <middaybot@midday.ai>",
+              from: "CashPanel <cashpanelbot@cashpanel.io>",
               to: session.user.email,
               subject: "An app has been added to your team",
               html,
@@ -366,8 +366,8 @@ export const oauthApplicationsRouter = createTRPCRouter({
             );
 
             await resend.emails.send({
-              from: "Midday <middaybot@midday.ai>",
-              to: "pontus@midday.ai",
+              from: "CashPanel <cashpanelbot@cashpanel.io>",
+              to: "pontus@cashpanel.io",
               subject: `Application Review Request - ${application.name}`,
               html,
             });

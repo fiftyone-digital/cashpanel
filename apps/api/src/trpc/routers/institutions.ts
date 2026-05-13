@@ -3,8 +3,8 @@ import {
   getInstitutionById,
   getInstitutions,
   updateInstitutionUsage,
-} from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

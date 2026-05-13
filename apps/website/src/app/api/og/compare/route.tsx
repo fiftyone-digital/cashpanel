@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   const competitorName = searchParams.get("name");
 
   const hedvigSansFont = fetch(
-    "https://cdn.midday.ai/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
+    "https://cdn.cashpanel.io/fonts/HedvigSans/HedvigLettersSans-Regular.ttf",
   ).then((res) => res.arrayBuffer());
 
   const title = competitorName
@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     : "Compare Alternatives";
 
   const subtitle = competitorName
-    ? `See why founders are switching from ${competitorName} to Midday`
+    ? `See why founders are switching from ${competitorName} to CashPanel`
     : "Built for founders, not accountants";
 
   return new ImageResponse(

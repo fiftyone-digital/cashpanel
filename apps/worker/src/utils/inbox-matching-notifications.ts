@@ -1,12 +1,12 @@
-import type { Database } from "@midday/db/client";
-import type { MatchResult } from "@midday/db/queries";
+import type { Database } from "@cashpanel/db/client";
+import type { MatchResult } from "@cashpanel/db/queries";
 import {
   getInboxById,
   getTransactionById,
   hasSuggestion,
-} from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
-import { Notifications } from "@midday/notifications";
+} from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { Notifications } from "@cashpanel/notifications";
 import { sendToProviders } from "./provider-notifications";
 
 const logger = createLoggerWithContext("inbox-matching-notifications");

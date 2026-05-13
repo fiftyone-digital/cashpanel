@@ -1,5 +1,5 @@
+import { createClient } from "@cashpanel/supabase/job";
 import { sendInvoiceNotifications } from "@jobs/tasks/invoice/notifications/send-notifications";
-import { createClient } from "@midday/supabase/job";
 import { logger } from "@trigger.dev/sdk";
 
 export async function updateInvoiceStatus({

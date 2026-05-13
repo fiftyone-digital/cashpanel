@@ -1,18 +1,17 @@
 "use client";
 
-import { utc } from "@date-fns/utc";
-import { LogEvents } from "@midday/events/events";
-import { uniqueCurrencies } from "@midday/location/currencies";
+import { LogEvents } from "@cashpanel/events/events";
+import { uniqueCurrencies } from "@cashpanel/location/currencies";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Button } from "@midday/ui/button";
-import { Calendar } from "@midday/ui/calendar";
-import { cn } from "@midday/ui/cn";
-import { CurrencyInput } from "@midday/ui/currency-input";
+} from "@cashpanel/ui/accordion";
+import { Button } from "@cashpanel/ui/button";
+import { Calendar } from "@cashpanel/ui/calendar";
+import { cn } from "@cashpanel/ui/cn";
+import { CurrencyInput } from "@cashpanel/ui/currency-input";
 import {
   Form,
   FormControl,
@@ -21,14 +20,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@midday/ui/form";
-import { Input } from "@midday/ui/input";
-import { Label } from "@midday/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
-import { Select } from "@midday/ui/select";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Switch } from "@midday/ui/switch";
-import { Textarea } from "@midday/ui/textarea";
+} from "@cashpanel/ui/form";
+import { Input } from "@cashpanel/ui/input";
+import { Label } from "@cashpanel/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
+import { Select } from "@cashpanel/ui/select";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Switch } from "@cashpanel/ui/switch";
+import { Textarea } from "@cashpanel/ui/textarea";
+import { utc } from "@date-fns/utc";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { format, formatISO } from "date-fns";

@@ -1,5 +1,5 @@
 import type { Scope } from "@api/utils/scopes";
-import type { Database } from "@midday/db/client";
+import type { Database } from "@cashpanel/db/client";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 export interface McpContext {

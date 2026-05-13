@@ -5,10 +5,10 @@ import {
   buildSuccessRedirect,
   mapOAuthError,
 } from "@api/rest/utils/oauth";
+import { InboxConnector } from "@cashpanel/inbox/connector";
+import { decryptOAuthState } from "@cashpanel/inbox/utils";
+import { logger } from "@cashpanel/logger";
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
-import { InboxConnector } from "@midday/inbox/connector";
-import { decryptOAuthState } from "@midday/inbox/utils";
-import { logger } from "@midday/logger";
 import { tasks } from "@trigger.dev/sdk";
 import { HTTPException } from "hono/http-exception";
 
@@ -88,7 +88,7 @@ app.openapi(
     const query = c.req.valid("query");
     const { code, state, error } = query;
     const dashboardUrl =
-      process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+      process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 
     // Try to decrypt state first to determine redirect target (apps vs inbox)
     const parsedState = decryptOAuthState(state);

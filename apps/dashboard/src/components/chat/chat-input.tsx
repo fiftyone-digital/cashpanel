@@ -7,11 +7,11 @@ import {
   CursorMcpLogo,
   ManusMcpLogo,
   PerplexityMcpLogo,
-} from "@midday/app-store/logos";
-import { LogEvents } from "@midday/events/events";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
+} from "@cashpanel/app-store/logos";
+import { LogEvents } from "@cashpanel/events/events";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -785,7 +785,7 @@ export function ChatInput({
               className="w-[180px] p-1 bg-[rgba(247,247,247,0.96)] dark:bg-[rgba(19,19,19,0.98)] backdrop-blur-lg border-border shadow-sm"
             >
               <p className="px-2 py-1 text-[10px] text-[#878787]">
-                Use Midday in
+                Use CashPanel in
               </p>
               {MCP_CLIENTS.map(({ id, name, Logo }) => (
                 <button

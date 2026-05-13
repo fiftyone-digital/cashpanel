@@ -40,8 +40,8 @@ export function createDocumentsCommand(): Command {
       "after",
       `
 Examples:
-  midday documents list
-  midday documents list --json`,
+  cashpanel documents list
+  cashpanel documents list --json`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -84,7 +84,7 @@ Examples:
             rows,
             pageInfo:
               data.meta?.hasNextPage && data.meta?.cursor
-                ? `Next page: midday documents list --cursor ${data.meta.cursor}`
+                ? `Next page: cashpanel documents list --cursor ${data.meta.cursor}`
                 : undefined,
           });
         }
@@ -101,7 +101,7 @@ Examples:
       "after",
       `
 Examples:
-  midday documents get doc_abc123`,
+  cashpanel documents get doc_abc123`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -145,8 +145,8 @@ Examples:
       "after",
       `
 Examples:
-  midday documents delete doc_abc123
-  midday documents delete doc_abc123 --yes`,
+  cashpanel documents delete doc_abc123
+  cashpanel documents delete doc_abc123 --yes`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

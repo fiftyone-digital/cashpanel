@@ -1,5 +1,5 @@
 {
-  "name": "@midday/invoice",
+  "name": "@cashpanel/invoice",
   "private": true,
   "main": "src/index.tsx",
   "scripts": {
@@ -26,8 +26,8 @@
     "./recurring": "./src/utils/recurring.ts"
   },
   "dependencies": {
-    "@midday/ui": "workspace:*",
-    "@midday/utils": "workspace:*",
+    "@cashpanel/ui": "workspace:*",
+    "@cashpanel/utils": "workspace:*",
     "@react-pdf/renderer": "catalog:",
     "date-fns": "catalog:",
     "jose": "catalog:",

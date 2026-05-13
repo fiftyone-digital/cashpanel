@@ -1,7 +1,7 @@
 "use client";
 
-import { localDateToUTCMidnight } from "@midday/invoice/recurring";
-import { uniqueCurrencies } from "@midday/location/currencies";
+import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
+import { uniqueCurrencies } from "@cashpanel/location/currencies";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,8 +11,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@midday/ui/alert-dialog";
-import { Button } from "@midday/ui/button";
+} from "@cashpanel/ui/alert-dialog";
+import { Button } from "@cashpanel/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -20,7 +20,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
+} from "@cashpanel/ui/dialog";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -31,11 +31,11 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { addDays, parseISO } from "date-fns";
 import { useState } from "react";

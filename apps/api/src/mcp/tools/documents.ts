@@ -8,7 +8,7 @@ import {
   getDocumentById,
   getDocuments,
   getDocumentTags,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import {
   mcpDocumentSchema,

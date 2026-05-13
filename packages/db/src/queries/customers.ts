@@ -1,5 +1,5 @@
-import { buildSearchQuery } from "@midday/db/utils/search-query";
-import { generateToken } from "@midday/invoice/token";
+import { buildSearchQuery } from "@cashpanel/db/utils/search-query";
+import { generateToken } from "@cashpanel/invoice/token";
 import { and, asc, desc, eq, inArray, sql } from "drizzle-orm";
 import type { SQL } from "drizzle-orm/sql/sql";
 import { nanoid } from "nanoid";

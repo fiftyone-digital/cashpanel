@@ -1,5 +1,5 @@
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { IconMap } from "streamdown";

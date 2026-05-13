@@ -198,7 +198,7 @@ Account type constants ensure consistent classification across the codebase:
 
 ```typescript
 // packages/banking/src/utils/account.ts
-import { CASH_ACCOUNT_TYPES, DEBT_ACCOUNT_TYPES } from "@midday/banking/account";
+import { CASH_ACCOUNT_TYPES, DEBT_ACCOUNT_TYPES } from "@cashpanel/banking/account";
 
 export const CASH_ACCOUNT_TYPES = ["depository", "other_asset"] as const;
 export const DEBT_ACCOUNT_TYPES = ["credit", "loan"] as const;

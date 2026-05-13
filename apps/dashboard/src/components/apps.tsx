@@ -1,8 +1,8 @@
 "use client";
 
-import { apps as appStoreApps } from "@midday/app-store";
-import type { UnifiedApp } from "@midday/app-store/types";
-import { Button } from "@midday/ui/button";
+import { apps as appStoreApps } from "@cashpanel/app-store";
+import type { UnifiedApp } from "@cashpanel/app-store/types";
+import { Button } from "@cashpanel/ui/button";
 import {
   useQuery,
   useQueryClient,

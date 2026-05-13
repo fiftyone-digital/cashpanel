@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Tabs, TabsList, TabsTrigger } from "@midday/ui/tabs";
+import { cn } from "@cashpanel/ui/cn";
+import { Tabs, TabsList, TabsTrigger } from "@cashpanel/ui/tabs";
 import { useQueryState } from "nuqs";
 
 export function AppsTabs() {

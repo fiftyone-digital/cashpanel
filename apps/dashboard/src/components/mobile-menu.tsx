@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
-import { Sheet, SheetContent } from "@midday/ui/sheet";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
+import { Sheet, SheetContent } from "@cashpanel/ui/sheet";
 import { useState } from "react";
 import { MainMenu } from "./main-menu";
 

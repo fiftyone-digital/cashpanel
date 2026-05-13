@@ -1,8 +1,8 @@
 "use client";
 
-import { ClaudeMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { ClaudeMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -85,7 +85,7 @@ export function MCPClaude() {
 
   const cliCommand = useMemo(() => {
     const key = apiKey || "YOUR_API_KEY";
-    return `claude mcp add --transport http midday https://api.midday.ai/mcp --header "Authorization: Bearer ${key}"`;
+    return `claude mcp add --transport http cashpanel https://api.cashpanel.io/mcp --header "Authorization: Bearer ${key}"`;
   }, [apiKey]);
 
   const desktopConfig = useMemo(() => {
@@ -93,12 +93,12 @@ export function MCPClaude() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
+          cashpanel: {
             command: "npx",
             args: [
               "-y",
               "mcp-remote@latest",
-              "https://api.midday.ai/mcp",
+              "https://api.cashpanel.io/mcp",
               "--header",
               // biome-ignore lint/suspicious/noTemplateCurlyInString: Intentional shell variable reference in MCP config
               "Authorization:${AUTH_HEADER}",
@@ -146,9 +146,9 @@ export function MCPClaude() {
                 Conversations with real numbers
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Claude and get AI-powered financial insights
-                grounded in your real business data. Authentication is handled
-                automatically via OAuth.
+                Connect CashPanel to Claude and get AI-powered financial
+                insights grounded in your real business data. Authentication is
+                handled automatically via OAuth.
               </p>
             </div>
 
@@ -207,7 +207,7 @@ export function MCPClaude() {
                   <p className="font-sans text-sm text-muted-foreground">
                     Copy this URL and add it as a connector in Claude:
                   </p>
-                  <CopyableUrl url="https://api.midday.ai/mcp" />
+                  <CopyableUrl url="https://api.cashpanel.io/mcp" />
                 </div>
 
                 <div className="mt-12 space-y-4">
@@ -244,7 +244,7 @@ export function MCPClaude() {
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
                         When you use the tools, you'll be prompted to sign in to
-                        Midday and select a team
+                        CashPanel and select a team
                       </span>
                     </li>
                   </ol>
@@ -256,10 +256,10 @@ export function MCPClaude() {
             {activeTab === "code" && (
               <div className="space-y-6">
                 <p className="font-sans text-sm text-muted-foreground">
-                  Add the Midday MCP server to Claude Code. OAuth authentication
-                  will be handled automatically in your browser:
+                  Add the CashPanel MCP server to Claude Code. OAuth
+                  authentication will be handled automatically in your browser:
                 </p>
-                <CodeBlock code="claude mcp add --transport http midday https://api.midday.ai/mcp" />
+                <CodeBlock code="claude mcp add --transport http cashpanel https://api.cashpanel.io/mcp" />
 
                 <div className="mt-12 space-y-4">
                   <h3 className="font-sans text-sm font-medium text-foreground">
@@ -279,7 +279,7 @@ export function MCPClaude() {
                         2
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        When prompted, sign in to Midday in your browser and
+                        When prompted, sign in to CashPanel in your browser and
                         select a team
                       </span>
                     </li>
@@ -288,7 +288,7 @@ export function MCPClaude() {
                         3
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        Use @midday in Claude Code to access your data
+                        Use @cashpanel in Claude Code to access your data
                       </span>
                     </li>
                   </ol>
@@ -321,7 +321,7 @@ export function MCPClaude() {
                   <p className="font-sans text-xs text-muted-foreground">
                     Don't have an API key?{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Create one in Settings → Developer

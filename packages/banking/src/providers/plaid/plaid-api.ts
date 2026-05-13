@@ -1,4 +1,4 @@
-import { bankingCache, CacheTTL } from "@midday/cache/banking-cache";
+import { bankingCache, CacheTTL } from "@cashpanel/cache/banking-cache";
 import { formatISO, subDays } from "date-fns";
 import {
   Configuration,
@@ -58,10 +58,10 @@ export class PlaidApi {
 
   #generateWebhookUrl(environment: "sandbox" | "production") {
     if (environment === "sandbox") {
-      return "https://api-staging.midday.ai/webhook/plaid";
+      return "https://api-staging.cashpanel.io/webhook/plaid";
     }
 
-    return "https://api.midday.ai/webhook/plaid";
+    return "https://api.cashpanel.io/webhook/plaid";
   }
 
   async getHealthCheck() {
@@ -208,7 +208,7 @@ export class PlaidApi {
     return this.#client.linkTokenCreate({
       client_id: this.#clientId,
       secret: this.#clientSecret,
-      client_name: "Midday",
+      client_name: "CashPanel",
       products: [Products.Transactions],
       language,
       access_token: accessToken,

@@ -1,5 +1,5 @@
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -9,7 +9,7 @@ import { UserMenu } from "@/components/user-menu";
 import { getQueryClient, HydrateClient, trpc } from "@/trpc/server";
 
 export const metadata: Metadata = {
-  title: "Teams | Midday",
+  title: "Teams | CashPanel",
 };
 
 export default async function Teams() {

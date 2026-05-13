@@ -1,5 +1,5 @@
 {
-  "name": "@midday/notifications",
+  "name": "@cashpanel/notifications",
   "version": "0.1.0",
   "private": true,
   "main": "src/index.ts",
@@ -14,15 +14,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@midday/db": "workspace:*",
-    "@midday/email": "workspace:*",
-    "@midday/inbox": "workspace:*",
+    "@cashpanel/db": "workspace:*",
+    "@cashpanel/email": "workspace:*",
+    "@cashpanel/inbox": "workspace:*",
     "nanoid": "catalog:",
     "resend": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@midday/tsconfig": "workspace:*",
+    "@cashpanel/tsconfig": "workspace:*",
     "typescript": "catalog:"
   }
 }

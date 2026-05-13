@@ -8,27 +8,27 @@ import {
   setDay,
 } from "date-fns";
 
-// Re-export canonical types from @midday/invoice
+// Re-export canonical types from @cashpanel/invoice
 // This ensures a single source of truth for recurring invoice types
 export type {
   InvoiceRecurringEndType,
   InvoiceRecurringFrequency,
   InvoiceRecurringStatus,
-} from "@midday/invoice/recurring";
+} from "@cashpanel/invoice/recurring";
 
 export {
   isDateInFutureUTC,
   RECURRING_END_TYPES,
   RECURRING_FREQUENCIES,
   RECURRING_STATUSES,
-} from "@midday/invoice/recurring";
+} from "@cashpanel/invoice/recurring";
 
 // Import types and utilities for local use
 import {
   type InvoiceRecurringEndType,
   type InvoiceRecurringFrequency,
   isDateInFutureUTC,
-} from "@midday/invoice/recurring";
+} from "@cashpanel/invoice/recurring";
 
 export interface RecurringInvoiceParams {
   frequency: InvoiceRecurringFrequency;
@@ -92,7 +92,7 @@ function getNthWeekdayOfMonth(
  * This function handles proper timezone-aware date calculations using `@date-fns/tz`.
  * It should be used for all actual invoice scheduling operations.
  *
- * Note: There is a similar `getNextDate` function in `@midday/invoice/recurring`
+ * Note: There is a similar `getNextDate` function in `@cashpanel/invoice/recurring`
  * that provides simplified client-side calculations for UI preview purposes only.
  * That version does NOT handle timezones and should not be used for scheduling.
  *

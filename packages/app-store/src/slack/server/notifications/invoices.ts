@@ -1,5 +1,5 @@
-import { createLoggerWithContext } from "@midday/logger";
-import { getAppUrl } from "@midday/utils/envs";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { getAppUrl } from "@cashpanel/utils/envs";
 import { createSlackWebClient, ensureBotInChannel } from "../client";
 
 const logger = createLoggerWithContext("slack:invoice-notification");

@@ -12,8 +12,8 @@ import {
   createShortLink,
   getDocumentById,
   getShortLinkByShortId,
-} from "@midday/db/queries";
-import { signedUrl } from "@midday/supabase/storage";
+} from "@cashpanel/db/queries";
+import { signedUrl } from "@cashpanel/supabase/storage";
 
 export const shortLinksRouter = createTRPCRouter({
   createForUrl: protectedProcedure
@@ -32,7 +32,7 @@ export const shortLinksRouter = createTRPCRouter({
 
       return {
         ...result,
-        shortUrl: `${process.env.MIDDAY_DASHBOARD_URL}/s/${result.shortId}`,
+        shortUrl: `${process.env.CASHPANEL_DASHBOARD_URL}/s/${result.shortId}`,
       };
     }),
 
@@ -85,7 +85,7 @@ export const shortLinksRouter = createTRPCRouter({
 
       return {
         ...result,
-        shortUrl: `${process.env.MIDDAY_DASHBOARD_URL}/s/${result.shortId}`,
+        shortUrl: `${process.env.CASHPANEL_DASHBOARD_URL}/s/${result.shortId}`,
         originalUrl: response.data.signedUrl,
       };
     }),

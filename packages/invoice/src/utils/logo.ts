@@ -3,14 +3,14 @@
  * Prevents SSRF by only allowing trusted domains.
  */
 const ALLOWED_LOGO_HOSTS = new Set([
-  "cdn.midday.ai",
-  "midday.ai",
+  "cdn.cashpanel.io",
+  "cashpanel.io",
   "img.logo.dev", // Used for customer website logos
 ]);
 
 function isAllowedLogoHost(hostname: string): boolean {
   const lower = hostname.toLowerCase();
-  return ALLOWED_LOGO_HOSTS.has(lower) || lower.endsWith(".midday.ai");
+  return ALLOWED_LOGO_HOSTS.has(lower) || lower.endsWith(".cashpanel.io");
 }
 
 export async function isValidLogoUrl(url: string): Promise<boolean> {

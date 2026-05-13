@@ -1,5 +1,5 @@
+import { isValidEmailList } from "@cashpanel/utils";
 import { z } from "@hono/zod-openapi";
-import { isValidEmailList } from "@midday/utils";
 
 export const getCustomersSchema = z
   .object({

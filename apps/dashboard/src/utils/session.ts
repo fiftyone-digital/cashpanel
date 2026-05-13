@@ -1,4 +1,4 @@
-import { createClient } from "@midday/supabase/client";
+import { createClient } from "@cashpanel/supabase/client";
 
 export async function getAccessToken(): Promise<string | null> {
   const supabase = createClient();

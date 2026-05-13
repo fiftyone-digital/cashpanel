@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SetupMfa } from "@/components/setup-mfa";
 
 export const metadata: Metadata = {
-  title: "Setup MFA | Midday",
+  title: "Setup MFA | CashPanel",
 };
 
 export default function Setup() {

@@ -1,5 +1,5 @@
 {
-  "name": "@midday/mcp-apps",
+  "name": "@cashpanel/mcp-apps",
   "version": "1.0.0",
   "private": true,
   "sideEffects": false,
@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@date-fns/tz": "^1.4.1",
-    "@midday/invoice": "workspace:*",
-    "@midday/ui": "workspace:*",
-    "@midday/utils": "workspace:*",
+    "@cashpanel/invoice": "workspace:*",
+    "@cashpanel/ui": "workspace:*",
+    "@cashpanel/utils": "workspace:*",
     "@modelcontextprotocol/ext-apps": "^1.3.2",
     "date-fns": "^4.1.0",
     "react": "19.2.4",

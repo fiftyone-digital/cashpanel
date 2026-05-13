@@ -1,4 +1,4 @@
-import { Button } from "@midday/ui/button";
+import { Button } from "@cashpanel/ui/button";
 import Link from "next/link";
 import { AppLogo } from "@/components/app-logo";
 import { CustomMDX } from "@/components/mdx";
@@ -15,7 +15,7 @@ export function IntegrationDetailPage({ app }: Props) {
     .slice(0, 3);
 
   const dashboardUrl = app.active
-    ? `https://app.midday.ai/apps?app=${app.id}`
+    ? `https://app.cashpanel.io/apps?app=${app.id}`
     : undefined;
 
   return (
@@ -114,7 +114,7 @@ export function IntegrationDetailPage({ app }: Props) {
                 </h3>
                 <p className="font-sans text-sm text-muted-foreground mb-6">
                   {app.active
-                    ? `Connect ${app.name} to your Midday account and start automating your workflow.`
+                    ? `Connect ${app.name} to your CashPanel account and start automating your workflow.`
                     : `We're working on the ${app.name} integration. Sign up to be notified when it's ready.`}
                 </p>
                 {dashboardUrl ? (

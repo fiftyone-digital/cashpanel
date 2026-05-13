@@ -3,15 +3,15 @@ import { resend } from "@api/services/resend";
 import { createAdminClient } from "@api/services/supabase";
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
 import { withRetryOnPrimary } from "@api/utils/db-retry";
-import { teamCache } from "@midday/cache/team-cache";
+import { teamCache } from "@cashpanel/cache/team-cache";
 import {
   deleteUser,
   getUserById,
   getUserInvites,
   switchUserTeam,
   updateUser,
-} from "@midday/db/queries";
-import { generateFileKey } from "@midday/encryption";
+} from "@cashpanel/db/queries";
+import { generateFileKey } from "@cashpanel/encryption";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 

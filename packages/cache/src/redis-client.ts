@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { getSharedRedisClient, waitForRedisReady } from "./shared-redis";
 
 const logger = createLoggerWithContext("redis-cache");

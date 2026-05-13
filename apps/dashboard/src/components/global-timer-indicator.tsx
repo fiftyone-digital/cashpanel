@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import { useGlobalTimerStatus } from "@/hooks/use-global-timer-status";
 import { secondsToHoursAndMinutes } from "@/utils/format";
 

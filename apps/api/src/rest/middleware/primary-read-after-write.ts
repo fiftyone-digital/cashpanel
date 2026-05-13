@@ -1,8 +1,8 @@
-import { replicationCache } from "@midday/cache/replication-cache";
-import { teamPermissionsCache } from "@midday/cache/team-permissions-cache";
-import type { DatabaseWithPrimary } from "@midday/db/client";
-import { getUserTeamId } from "@midday/db/queries";
-import { logger } from "@midday/logger";
+import { replicationCache } from "@cashpanel/cache/replication-cache";
+import { teamPermissionsCache } from "@cashpanel/cache/team-permissions-cache";
+import type { DatabaseWithPrimary } from "@cashpanel/db/client";
+import { getUserTeamId } from "@cashpanel/db/queries";
+import { logger } from "@cashpanel/logger";
 import type { MiddlewareHandler } from "hono";
 
 /**

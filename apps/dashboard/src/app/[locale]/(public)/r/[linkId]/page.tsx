@@ -1,5 +1,5 @@
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import { format, parseISO } from "date-fns";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -124,10 +124,10 @@ export default async function Page({ params }: Props) {
           <p className="text-center text-xs text-muted-foreground">
             Powered by{" "}
             <a
-              href="https://midday.ai"
+              href="https://cashpanel.io"
               className="hover:text-foreground transition-colors"
             >
-              Midday
+              CashPanel
             </a>
           </p>
         </div>

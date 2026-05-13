@@ -1,8 +1,8 @@
 "use client";
 
-import { GeminiMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { GeminiMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -53,7 +53,7 @@ export function MCPGemini() {
 
   const cliCommand = useMemo(() => {
     const key = apiKey || "YOUR_API_KEY";
-    return `gemini mcp add --transport http --header "Authorization: Bearer ${key}" midday https://api.midday.ai/mcp`;
+    return `gemini mcp add --transport http --header "Authorization: Bearer ${key}" cashpanel https://api.cashpanel.io/mcp`;
   }, [apiKey]);
 
   const settingsConfig = useMemo(() => {
@@ -61,8 +61,8 @@ export function MCPGemini() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
-            url: "https://api.midday.ai/mcp",
+          cashpanel: {
+            url: "https://api.cashpanel.io/mcp",
             headers: {
               Authorization: `Bearer ${key}`,
             },
@@ -106,7 +106,7 @@ export function MCPGemini() {
                 Financial data in Gemini CLI
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Gemini CLI and query your transactions,
+                Connect CashPanel to Gemini CLI and query your transactions,
                 invoices, and reports directly from your terminal.
                 Authentication is handled automatically via OAuth.
               </p>
@@ -151,10 +151,10 @@ export function MCPGemini() {
               <div className="space-y-6">
                 <div className="space-y-3">
                   <p className="font-sans text-sm text-muted-foreground">
-                    Run this command to add the Midday MCP server. OAuth will be
-                    handled automatically in your browser:
+                    Run this command to add the CashPanel MCP server. OAuth will
+                    be handled automatically in your browser:
                   </p>
-                  <CodeBlock code="gemini mcp add --transport http midday https://api.midday.ai/mcp" />
+                  <CodeBlock code="gemini mcp add --transport http cashpanel https://api.cashpanel.io/mcp" />
                 </div>
 
                 <div className="mt-12 space-y-4">
@@ -175,7 +175,7 @@ export function MCPGemini() {
                         2
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        When prompted, sign in to Midday in your browser and
+                        When prompted, sign in to CashPanel in your browser and
                         select a team
                       </span>
                     </li>
@@ -184,8 +184,8 @@ export function MCPGemini() {
                         3
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        Use Midday tools in Gemini CLI to access your financial
-                        data
+                        Use CashPanel tools in Gemini CLI to access your
+                        financial data
                       </span>
                     </li>
                   </ol>
@@ -236,7 +236,7 @@ export function MCPGemini() {
                   <p className="font-sans text-xs text-muted-foreground">
                     Don't have an API key?{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Create one in Settings → Developer

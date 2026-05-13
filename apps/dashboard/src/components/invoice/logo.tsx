@@ -1,8 +1,8 @@
 "use client";
 
-import { Icons } from "@midday/ui/icons";
-import { Skeleton } from "@midday/ui/skeleton";
-import { useToast } from "@midday/ui/use-toast";
+import { Icons } from "@cashpanel/ui/icons";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useFormContext } from "react-hook-form";
 import { useTemplateUpdate } from "@/hooks/use-template-update";
 import { useUpload } from "@/hooks/use-upload";

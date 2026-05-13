@@ -1,7 +1,7 @@
 "use client";
 
-import { localDateToUTCMidnight } from "@midday/invoice/recurring";
-import { cn } from "@midday/ui/cn";
+import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11,8 +11,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { addDays, parseISO } from "date-fns";
 import { useState } from "react";

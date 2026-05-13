@@ -1,4 +1,4 @@
-import type { NotificationChannel } from "@midday/db/queries";
+import type { NotificationChannel } from "@cashpanel/db/queries";
 
 export interface NotificationType {
   type: string;

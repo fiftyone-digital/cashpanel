@@ -1,8 +1,8 @@
 "use client";
 
-import { WindsurfMcpLogo } from "@midday/app-store/logos";
-import { Icons } from "@midday/ui/icons";
-import { Input } from "@midday/ui/input";
+import { WindsurfMcpLogo } from "@cashpanel/app-store/logos";
+import { Icons } from "@cashpanel/ui/icons";
+import { Input } from "@cashpanel/ui/input";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { highlight } from "sugar-high";
@@ -56,8 +56,8 @@ export function MCPWindsurf() {
     return JSON.stringify(
       {
         mcpServers: {
-          midday: {
-            serverUrl: "https://api.midday.ai/mcp",
+          cashpanel: {
+            serverUrl: "https://api.cashpanel.io/mcp",
             headers: {
               Authorization: `Bearer ${key}`,
             },
@@ -101,7 +101,7 @@ export function MCPWindsurf() {
                 Financial data in Windsurf
               </h2>
               <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Connect Midday to Windsurf and query your transactions,
+                Connect CashPanel to Windsurf and query your transactions,
                 invoices, and reports directly from your AI IDE. Authentication
                 is handled automatically via OAuth.
               </p>
@@ -170,7 +170,7 @@ export function MCPWindsurf() {
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
                         Add a new server with URL:{" "}
                         <span className="font-mono text-xs text-foreground">
-                          https://api.midday.ai/mcp
+                          https://api.cashpanel.io/mcp
                         </span>
                       </span>
                     </li>
@@ -179,7 +179,7 @@ export function MCPWindsurf() {
                         3
                       </span>
                       <span className="font-sans text-sm text-muted-foreground pt-0.5">
-                        When prompted, sign in to Midday in your browser and
+                        When prompted, sign in to CashPanel in your browser and
                         select a team
                       </span>
                     </li>
@@ -212,7 +212,7 @@ export function MCPWindsurf() {
                   <p className="font-sans text-xs text-muted-foreground">
                     Don't have an API key?{" "}
                     <Link
-                      href="https://app.midday.ai/settings/developer"
+                      href="https://app.cashpanel.io/settings/developer"
                       className="underline hover:text-foreground"
                     >
                       Create one in Settings → Developer

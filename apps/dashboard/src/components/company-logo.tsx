@@ -1,15 +1,15 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@midday/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@cashpanel/ui/avatar";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
-import { Spinner } from "@midday/ui/spinner";
-import { stripSpecialCharacters } from "@midday/utils";
+} from "@cashpanel/ui/card";
+import { Spinner } from "@cashpanel/ui/spinner";
+import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useRef } from "react";
 import { useTeamMutation, useTeamQuery } from "@/hooks/use-team";
 import { useUpload } from "@/hooks/use-upload";

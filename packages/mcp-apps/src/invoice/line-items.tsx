@@ -1,5 +1,5 @@
-import { calculateLineItemTotal } from "@midday/invoice/calculate";
-import { formatAmount } from "@midday/utils/format";
+import { calculateLineItemTotal } from "@cashpanel/invoice/calculate";
+import { formatAmount } from "@cashpanel/utils/format";
 import { EditorContent } from "./editor-content";
 
 function isValidJSON(str: string): boolean {

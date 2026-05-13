@@ -1,24 +1,24 @@
 /**
- * Production-grade E2E tests for the Midday REST API.
+ * Production-grade E2E tests for the CashPanel REST API.
  *
  * Runs against a live API server (localhost or production).
  * Every test that creates data cleans up after itself.
  *
  * Usage:
- *   API_BASE_URL=http://localhost:3003 MIDDAY_API_KEY=mid_... bun test src/__tests__/e2e/
+ *   API_BASE_URL=http://localhost:3003 CASHPANEL_API_KEY=mid_... bun test src/__tests__/e2e/
  *
  * Environment variables:
  *   API_BASE_URL  - defaults to http://localhost:3003
- *   MIDDAY_API_KEY - required, no default
+ *   CASHPANEL_API_KEY - required, no default
  */
 import { afterAll, describe, expect, test } from "bun:test";
 
 const BASE_URL = process.env.API_BASE_URL || "http://localhost:3003";
-const API_KEY = process.env.MIDDAY_API_KEY;
+const API_KEY = process.env.CASHPANEL_API_KEY;
 
 if (!API_KEY) {
   throw new Error(
-    "MIDDAY_API_KEY env var is required. Set it to a valid API key for the test team.",
+    "CASHPANEL_API_KEY env var is required. Set it to a valid API key for the test team.",
   );
 }
 
@@ -77,13 +77,13 @@ describe("Customers CRUD", () => {
   test("POST /customers -> 201", async () => {
     const { status, data } = await api<any>("POST", "/customers", {
       name: "E2E Test Customer",
-      email: "e2e-test@midday.ai",
+      email: "e2e-test@cashpanel.io",
     });
 
     expect(status).toBe(201);
     expect(data.id).toBeDefined();
     expect(data.name).toBe("E2E Test Customer");
-    expect(data.email).toBe("e2e-test@midday.ai");
+    expect(data.email).toBe("e2e-test@cashpanel.io");
     expect(data).toHaveProperty("invoiceCount");
     expect(data).toHaveProperty("projectCount");
     expect(data).toHaveProperty("tags");
@@ -125,13 +125,13 @@ describe("Customers CRUD", () => {
 
     const { status, data } = await api<any>("PATCH", `/customers/${id}`, {
       name: "E2E Updated Customer",
-      email: "e2e-updated@midday.ai",
+      email: "e2e-updated@cashpanel.io",
     });
 
     expect(status).toBe(200);
     expect(data.id).toBe(id);
     expect(data.name).toBe("E2E Updated Customer");
-    expect(data.email).toBe("e2e-updated@midday.ai");
+    expect(data.email).toBe("e2e-updated@cashpanel.io");
     expect(data).toHaveProperty("enrichmentStatus");
     expect(data).toHaveProperty("enrichedAt");
   });
@@ -984,7 +984,7 @@ describe("Invoices", () => {
   test("POST /invoices -> 200 (draft)", async () => {
     const custRes = await api<any>("POST", "/customers", {
       name: "E2E Invoice Customer",
-      email: "e2e-invoice@midday.ai",
+      email: "e2e-invoice@cashpanel.io",
     });
     if (custRes.status === 201) testCustomerId = custRes.data.id;
     if (!testCustomerId) return;

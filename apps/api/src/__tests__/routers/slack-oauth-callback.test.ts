@@ -26,14 +26,14 @@ const createSlackAppMock = mock(() => ({
 }));
 const ensureBotInChannelMock = mock(() => Promise.resolve());
 
-mock.module("@midday/bot", () => ({
+mock.module("@cashpanel/bot", () => ({
   bot: {
     initialize: initializeMock,
     getAdapter: getAdapterMock,
   },
 }));
 
-mock.module("@midday/app-store/slack", () => ({
+mock.module("@cashpanel/app-store/slack", () => ({
   config: {
     id: "slack",
     settings: {
@@ -42,7 +42,7 @@ mock.module("@midday/app-store/slack", () => ({
   },
 }));
 
-mock.module("@midday/app-store/slack/server", () => ({
+mock.module("@cashpanel/app-store/slack/server", () => ({
   getSlackInstaller: () => ({
     stateStore: {
       verifyStateParam: verifyStateParamMock,
@@ -76,7 +76,7 @@ const slackOAuthResponse = {
   bot_user_id: "B123",
   team: {
     id: "T123",
-    name: "Midday Test Team",
+    name: "CashPanel Test Team",
   },
   incoming_webhook: {
     channel: "#general",

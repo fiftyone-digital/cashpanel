@@ -12,18 +12,18 @@ import {
   rememberThreadState,
 } from "@api/bot/thread-helpers";
 import type { BotThreadState } from "@api/bot/thread-state";
-import { db } from "@midday/db/client";
+import { db } from "@cashpanel/db/client";
 import {
   PlatformIdentityAlreadyLinkedToAnotherTeamError,
   PlatformIdentityAlreadyLinkedToAnotherUserError,
-} from "@midday/db/errors";
-import type { PlatformProvider } from "@midday/db/queries";
+} from "@cashpanel/db/errors";
+import type { PlatformProvider } from "@cashpanel/db/queries";
 import {
   consumePlatformLinkToken,
   createOrUpdatePlatformIdentity,
   getPlatformIdentity,
   getTeamById,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type { Message, Thread } from "chat";
 
 type LinkablePlatform = "whatsapp" | "telegram" | "sendblue";
@@ -122,7 +122,7 @@ export async function resolvePlatformLinkCode(
           externalUserId,
         });
 
-        await thread.post(config.welcomeMessage(team?.name ?? "Midday"));
+        await thread.post(config.welcomeMessage(team?.name ?? "CashPanel"));
 
         return consumeResolvedConversation({
           connected: true,
@@ -226,11 +226,11 @@ export function mapPlatformLinkError(
   }
 
   if (error instanceof PlatformIdentityAlreadyLinkedToAnotherUserError) {
-    return `This ${displayName} is already linked to another Midday user.`;
+    return `This ${displayName} is already linked to another CashPanel user.`;
   }
 
   if (error instanceof PlatformIdentityAlreadyLinkedToAnotherTeamError) {
-    return `This ${displayName} is already linked to another Midday workspace.`;
+    return `This ${displayName} is already linked to another CashPanel workspace.`;
   }
 
   return null;
@@ -244,7 +244,7 @@ export function buildWelcomeMessage(
   return (
     `Connected to ${teamName}. ${config.capabilities}\n\n` +
     `You'll receive notifications for ${config.notifications} (all on by default). ` +
-    `To manage these, go to Apps \u2192 ${config.settingsLabel} \u2192 Settings in Midday.\n\n` +
+    `To manage these, go to Apps \u2192 ${config.settingsLabel} \u2192 Settings in CashPanel.\n\n` +
     config.callToAction
   );
 }
@@ -260,7 +260,7 @@ const WELCOME_CONFIGS: Record<
 > = {
   whatsapp: {
     capabilities:
-      "You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from WhatsApp.",
+      "You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from WhatsApp.",
     notifications: "new transactions, invoices, and receipt matches",
     settingsLabel: "WhatsApp",
     callToAction:
@@ -268,7 +268,7 @@ const WELCOME_CONFIGS: Record<
   },
   telegram: {
     capabilities:
-      "You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from Telegram.",
+      "You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from Telegram.",
     notifications: "new transactions, invoices, and receipt matches",
     settingsLabel: "Telegram",
     callToAction:
@@ -276,7 +276,7 @@ const WELCOME_CONFIGS: Record<
   },
   sendblue: {
     capabilities:
-      "You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from iMessage.",
+      "You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from iMessage.",
     notifications: "new transactions, invoices, and receipt matches",
     settingsLabel: "iMessage",
     callToAction:
@@ -284,7 +284,7 @@ const WELCOME_CONFIGS: Record<
   },
   slack: {
     capabilities:
-      "You can ask Midday questions, upload receipts, and track invoices right from Slack.",
+      "You can ask CashPanel questions, upload receipts, and track invoices right from Slack.",
     notifications: "new transactions, invoices, and match suggestions",
     settingsLabel: "Slack",
     callToAction: "Try asking \u201cWhat's my cash flow this month?\u201d",

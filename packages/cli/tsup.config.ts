@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["bin/midday.ts"],
+  entry: ["bin/cashpanel.ts"],
   format: ["esm"],
   target: "node20",
   outDir: "dist/bin",

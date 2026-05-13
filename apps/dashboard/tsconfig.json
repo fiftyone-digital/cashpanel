@@ -1,5 +1,5 @@
 {
-  "extends": "@midday/tsconfig/nextjs.json",
+  "extends": "@cashpanel/tsconfig/nextjs.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],

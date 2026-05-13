@@ -12,7 +12,7 @@ import {
   getCategories,
   getCategoryById,
   updateTransactionCategory,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 
 export const transactionCategoriesRouter = createTRPCRouter({
   get: protectedProcedure

@@ -1,3 +1,3 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 export const logger = createLoggerWithContext("banking");

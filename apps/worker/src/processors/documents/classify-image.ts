@@ -1,7 +1,10 @@
-import { limitWords, mapLanguageCodeToPostgresConfig } from "@midday/documents";
-import { DocumentClassifier } from "@midday/documents/classifier";
-import { triggerJob } from "@midday/job-client";
-import { createClient } from "@midday/supabase/job";
+import {
+  limitWords,
+  mapLanguageCodeToPostgresConfig,
+} from "@cashpanel/documents";
+import { DocumentClassifier } from "@cashpanel/documents/classifier";
+import { triggerJob } from "@cashpanel/job-client";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { ClassifyImagePayload } from "../../schemas/documents";
 import { getDb } from "../../utils/db";

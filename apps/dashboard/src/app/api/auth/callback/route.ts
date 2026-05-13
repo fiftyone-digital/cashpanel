@@ -1,8 +1,8 @@
-import { LogEvents } from "@midday/events/events";
-import { setupAnalytics } from "@midday/events/server";
-import { getSession } from "@midday/supabase/cached-queries";
-import { createClient } from "@midday/supabase/server";
-import { sanitizeRedirectPath } from "@midday/utils/sanitize-redirect";
+import { LogEvents } from "@cashpanel/events/events";
+import { setupAnalytics } from "@cashpanel/events/server";
+import { getSession } from "@cashpanel/supabase/cached-queries";
+import { createClient } from "@cashpanel/supabase/server";
+import { sanitizeRedirectPath } from "@cashpanel/utils/sanitize-redirect";
 import { addSeconds, addYears } from "date-fns";
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";

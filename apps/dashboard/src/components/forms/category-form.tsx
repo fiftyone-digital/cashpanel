@@ -8,11 +8,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@midday/ui/form";
-import { Input } from "@midday/ui/input";
-import { SubmitButton } from "@midday/ui/submit-button";
-import { Switch } from "@midday/ui/switch";
-import { getTaxTypeForCountry, taxTypes } from "@midday/utils/tax";
+} from "@cashpanel/ui/form";
+import { Input } from "@cashpanel/ui/input";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { Switch } from "@cashpanel/ui/switch";
+import { getTaxTypeForCountry, taxTypes } from "@cashpanel/utils/tax";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { z } from "zod/v3";

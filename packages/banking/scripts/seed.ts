@@ -9,9 +9,9 @@
  *   bun run src/scripts/seed-institutions.ts
  */
 
-import { fetchAllInstitutions, syncInstitutionLogos } from "@midday/banking";
-import { db } from "@midday/db/client";
-import { upsertInstitutions } from "@midday/db/queries";
+import { fetchAllInstitutions, syncInstitutionLogos } from "@cashpanel/banking";
+import { db } from "@cashpanel/db/client";
+import { upsertInstitutions } from "@cashpanel/db/queries";
 
 async function main() {
   // 1. Fetch institutions from all providers

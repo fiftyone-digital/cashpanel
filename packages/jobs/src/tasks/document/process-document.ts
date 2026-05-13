@@ -1,9 +1,9 @@
+import { updateDocumentByPath } from "@cashpanel/db/queries";
+import { loadDocument } from "@cashpanel/documents/loader";
+import { getContentSample } from "@cashpanel/documents/utils";
+import { createClient } from "@cashpanel/supabase/job";
 import { getDb } from "@jobs/init";
 import { processDocumentSchema } from "@jobs/schema";
-import { updateDocumentByPath } from "@midday/db/queries";
-import { loadDocument } from "@midday/documents/loader";
-import { getContentSample } from "@midday/documents/utils";
-import { createClient } from "@midday/supabase/job";
 import { schemaTask, tasks } from "@trigger.dev/sdk";
 import { classifyDocument } from "./classify-document";
 import { classifyImage } from "./classify-image";

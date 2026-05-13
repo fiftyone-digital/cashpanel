@@ -1,5 +1,5 @@
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import type { Metadata } from "next";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { notFound, redirect } from "next/navigation";

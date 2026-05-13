@@ -7,7 +7,7 @@ import { DataTable } from "@/components/tables/products/table";
 import { prefetch, trpc } from "@/trpc/server";
 
 export const metadata: Metadata = {
-  title: "Products | Midday",
+  title: "Products | CashPanel",
 };
 
 export default function Page() {

@@ -5,15 +5,15 @@ import {
   buildSuccessRedirect,
   mapOAuthError,
 } from "@api/rest/utils/oauth";
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import {
   decryptAccountingOAuthState,
   getAccountingProvider,
   XERO_SCOPES,
-} from "@midday/accounting";
-import config from "@midday/app-store/xero";
-import { createApp } from "@midday/db/queries";
-import { logger } from "@midday/logger";
+} from "@cashpanel/accounting";
+import config from "@cashpanel/app-store/xero";
+import { createApp } from "@cashpanel/db/queries";
+import { logger } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 
 const app = new OpenAPIHono<Context>();
@@ -87,7 +87,7 @@ app.openapi(
     const query = c.req.valid("query");
     const { code, state, error } = query;
     const dashboardUrl =
-      process.env.MIDDAY_DASHBOARD_URL || "https://app.midday.ai";
+      process.env.CASHPANEL_DASHBOARD_URL || "https://app.cashpanel.io";
 
     // Try to decrypt state first to determine redirect target (apps vs settings)
     const parsedState = decryptAccountingOAuthState(state);

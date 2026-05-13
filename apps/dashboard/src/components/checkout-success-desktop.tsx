@@ -1,6 +1,6 @@
 "use client";
 
-import { getDesktopSchemeUrl } from "@midday/desktop-client/platform";
+import { getDesktopSchemeUrl } from "@cashpanel/desktop-client/platform";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import appIcon from "../../public/appicon.png";
@@ -29,13 +29,13 @@ export function CheckoutSuccessDesktop({
           src={appIcon}
           width={80}
           height={80}
-          alt="Midday"
+          alt="CashPanel"
           quality={100}
           className="mb-10"
         />
         <p>Checkout successful</p>
         <p className="mb-4">
-          If Midday dosen't open in a few seconds,{" "}
+          If CashPanel dosen't open in a few seconds,{" "}
           <a className="underline" href={`${schemeUrl}${redirectPath}`}>
             click here
           </a>

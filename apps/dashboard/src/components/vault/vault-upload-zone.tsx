@@ -1,9 +1,9 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { createClient } from "@midday/supabase/client";
-import { cn } from "@midday/ui/cn";
-import { useToast } from "@midday/ui/use-toast";
+import { LogEvents } from "@cashpanel/events/events";
+import { createClient } from "@cashpanel/supabase/client";
+import { cn } from "@cashpanel/ui/cn";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation } from "@tanstack/react-query";
 import { type ReactNode, useEffect, useRef, useState } from "react";

@@ -1,7 +1,7 @@
 "use client";
 
+import { Table, TableBody } from "@cashpanel/ui/table";
 import { closestCenter, DndContext } from "@dnd-kit/core";
-import { Table, TableBody } from "@midday/ui/table";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useVirtualizer, type VirtualItem } from "@tanstack/react-virtual";

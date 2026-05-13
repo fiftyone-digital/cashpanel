@@ -2,19 +2,19 @@ import {
   type AccountingProvider,
   type ProviderEntityType,
   RATE_LIMITS,
-} from "@midday/accounting";
+} from "@cashpanel/accounting";
 import {
   PROVIDER_ATTACHMENT_CONFIG,
   resolveMimeType,
   sleep,
   throttledConcurrent,
-} from "@midday/accounting/utils";
+} from "@cashpanel/accounting/utils";
 import {
   getAccountingSyncStatus,
   getTransactionAttachmentsForSync,
   updateSyncedAttachmentMapping,
-} from "@midday/db/queries";
-import { createClient } from "@midday/supabase/job";
+} from "@cashpanel/db/queries";
+import { createClient } from "@cashpanel/supabase/job";
 import type { Job } from "bullmq";
 import type { AccountingAttachmentSyncPayload } from "../../schemas/accounting";
 import { AccountingProcessorBase, type AccountingProviderId } from "./base";
@@ -44,7 +44,7 @@ const RATE_LIMIT_RETRY_BASE_DELAY_MS = 30000; // 30 seconds
  * Supports:
  * - Uploading new attachments
  * - Deleting/unlinking removed attachments (where supported by provider)
- * - Tracking mappings between Midday IDs and provider IDs
+ * - Tracking mappings between CashPanel IDs and provider IDs
  */
 export class SyncAttachmentsProcessor extends AccountingProcessorBase<AccountingAttachmentSyncPayload> {
   async process(job: Job<AccountingAttachmentSyncPayload>): Promise<{
@@ -118,20 +118,20 @@ export class SyncAttachmentsProcessor extends AccountingProcessorBase<Accounting
             if (deleteResult.success) {
               deletedCount++;
               this.logger.info("Attachment deleted from provider", {
-                middayId: removed.middayId,
+                cashpanelId: removed.cashpanelId,
                 providerId: removed.providerId,
               });
             } else {
               // Log warning but don't fail - some providers don't support deletion
               this.logger.warn("Failed to delete attachment from provider", {
-                middayId: removed.middayId,
+                cashpanelId: removed.cashpanelId,
                 providerId: removed.providerId,
                 error: deleteResult.error,
               });
             }
           } catch (error) {
             this.logger.warn("Error deleting attachment from provider", {
-              middayId: removed.middayId,
+              cashpanelId: removed.cashpanelId,
               providerId: removed.providerId,
               error: error instanceof Error ? error.message : "Unknown error",
             });
@@ -139,8 +139,8 @@ export class SyncAttachmentsProcessor extends AccountingProcessorBase<Accounting
         }
 
         // Remove from mapping regardless of API success
-        // (the file is gone from Midday, so we shouldn't track it)
-        delete currentMapping[removed.middayId];
+        // (the file is gone from CashPanel, so we shouldn't track it)
+        delete currentMapping[removed.cashpanelId];
       }
     }
 

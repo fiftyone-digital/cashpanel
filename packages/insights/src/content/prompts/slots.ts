@@ -1,4 +1,4 @@
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { formatMetricValue } from "../../metrics/calculator";
 import type {
   ExpenseAnomaly,

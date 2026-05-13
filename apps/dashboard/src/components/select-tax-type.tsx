@@ -6,8 +6,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@midday/ui/select";
-import { taxTypes } from "@midday/utils/tax";
+} from "@cashpanel/ui/select";
+import { taxTypes } from "@cashpanel/utils/tax";
 
 type Props = {
   value: string;

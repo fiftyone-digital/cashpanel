@@ -1,8 +1,8 @@
 "use client";
 
-import { SubmitButton } from "@midday/ui/submit-button";
-import { useToast } from "@midday/ui/use-toast";
-import { formatDate } from "@midday/utils/format";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { formatDate } from "@cashpanel/utils/format";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { useInboxParams } from "@/hooks/use-inbox-params";
@@ -108,7 +108,7 @@ export function SuggestedMatch() {
   const showLearningToast = () => {
     if (!hasSeenLearningToast) {
       toast({
-        title: "Midday AI",
+        title: "CashPanel AI",
         description: "We learn from your choices to improve matches over time.",
         variant: "ai",
         duration: 5000,

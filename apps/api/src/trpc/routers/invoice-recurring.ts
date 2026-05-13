@@ -19,12 +19,12 @@ import {
   resumeInvoiceRecurring,
   updateInvoice,
   updateInvoiceRecurring,
-} from "@midday/db/queries";
-import { calculateNextScheduledDate } from "@midday/db/utils/invoice-recurring";
-import { isDateInFutureUTC } from "@midday/invoice/recurring";
-import { decodeJobId, getQueue } from "@midday/job-client";
-import { createLoggerWithContext } from "@midday/logger";
-import { Notifications } from "@midday/notifications";
+} from "@cashpanel/db/queries";
+import { calculateNextScheduledDate } from "@cashpanel/db/utils/invoice-recurring";
+import { isDateInFutureUTC } from "@cashpanel/invoice/recurring";
+import { decodeJobId, getQueue } from "@cashpanel/job-client";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { Notifications } from "@cashpanel/notifications";
 import { TRPCError } from "@trpc/server";
 
 const logger = createLoggerWithContext("trpc:invoice-recurring");

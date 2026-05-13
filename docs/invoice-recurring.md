@@ -371,7 +371,7 @@ const selectedDate = new TZDate(dueDate, "UTC");
 When a user selects a date in a calendar picker, the browser returns a `Date` object at local midnight. We convert this to UTC midnight using the **local** date components:
 
 ```typescript
-import { localDateToUTCMidnight } from "@midday/invoice/recurring";
+import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
 
 // Storage: Convert local date selection to UTC midnight
 const handleSelect = (date: Date) => {

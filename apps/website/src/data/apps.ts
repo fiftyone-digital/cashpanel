@@ -1,8 +1,8 @@
-import { apps as appStoreApps } from "@midday/app-store";
+import { apps as appStoreApps } from "@cashpanel/app-store";
 import {
   connectorApps as connectorAppDefs,
   getConnectorLogoUrl,
-} from "@midday/connectors";
+} from "@cashpanel/connectors";
 
 export interface WebsiteApp {
   id: string;
@@ -52,7 +52,7 @@ const appExtensions: Record<
   telegram: {
     slug: "telegram",
     features: [
-      "Open the Midday bot instantly",
+      "Open the CashPanel bot instantly",
       "Forward receipts while on the go",
       "Smart document matching",
       "Real-time invoice and transaction notifications",
@@ -70,7 +70,7 @@ const appExtensions: Record<
   sendblue: {
     slug: "imessage",
     features: [
-      "Use Midday directly from iMessage",
+      "Use CashPanel directly from iMessage",
       "Forward receipts from your iPhone",
       "Create invoices in chat",
       "Real-time invoice and transaction notifications",
@@ -130,15 +130,15 @@ const appExtensions: Record<
       "Real-time updates",
     ],
   },
-  "midday-desktop": {
-    slug: "midday-desktop",
+  "cashpanel-desktop": {
+    slug: "cashpanel-desktop",
     features: [
       "One-click access to finances",
       "Track time from menu bar",
       "Manage invoices",
       "Native Mac experience",
     ],
-    installUrl: "https://midday.ai/download",
+    installUrl: "https://cashpanel.io/download",
   },
   "google-drive": {
     slug: "google-drive",
@@ -193,7 +193,7 @@ const appExtensions: Record<
       "One-click install via deeplink",
       "80+ tools for your entire business",
     ],
-    installUrl: "https://midday.ai/mcp/cursor",
+    installUrl: "https://cashpanel.io/mcp/cursor",
   },
   "claude-mcp": {
     slug: "claude-mcp",
@@ -203,7 +203,7 @@ const appExtensions: Record<
       "Query invoices and reports",
       "Granular permission controls",
     ],
-    installUrl: "https://midday.ai/mcp/claude",
+    installUrl: "https://cashpanel.io/mcp/claude",
   },
   "perplexity-mcp": {
     slug: "perplexity-mcp",
@@ -213,7 +213,7 @@ const appExtensions: Record<
       "Query transactions and reports",
       "Natural language questions",
     ],
-    installUrl: "https://midday.ai/mcp/perplexity",
+    installUrl: "https://cashpanel.io/mcp/perplexity",
   },
   "raycast-mcp": {
     slug: "raycast-mcp",
@@ -223,7 +223,7 @@ const appExtensions: Record<
       "One-click install via deeplink",
       "@-mention in Raycast AI",
     ],
-    installUrl: "https://midday.ai/mcp/raycast",
+    installUrl: "https://cashpanel.io/mcp/raycast",
   },
   "chatgpt-mcp": {
     slug: "chatgpt-mcp",
@@ -233,7 +233,7 @@ const appExtensions: Record<
       "Programmatic data access",
       "TypeScript support",
     ],
-    installUrl: "https://midday.ai/mcp/chatgpt",
+    installUrl: "https://cashpanel.io/mcp/chatgpt",
   },
   "opencode-mcp": {
     slug: "opencode-mcp",
@@ -243,7 +243,7 @@ const appExtensions: Record<
       "Query finances from any editor",
       "Open source AI coding agent",
     ],
-    installUrl: "https://midday.ai/mcp/opencode",
+    installUrl: "https://cashpanel.io/mcp/opencode",
   },
   "zapier-mcp": {
     slug: "zapier-mcp",
@@ -253,7 +253,7 @@ const appExtensions: Record<
       "No-code workflow builder",
       "Sync data across tools",
     ],
-    installUrl: "https://midday.ai/mcp/zapier",
+    installUrl: "https://cashpanel.io/mcp/zapier",
   },
   "copilot-mcp": {
     slug: "copilot-mcp",
@@ -263,17 +263,17 @@ const appExtensions: Record<
       "Build custom Copilot agents",
       "Enterprise-ready integration",
     ],
-    installUrl: "https://midday.ai/mcp/copilot",
+    installUrl: "https://cashpanel.io/mcp/copilot",
   },
   "n8n-mcp": {
     slug: "n8n-mcp",
     features: [
       "Build automated financial workflows",
-      "AI agents with Midday tools",
+      "AI agents with CashPanel tools",
       "Connect to 400+ apps via n8n",
       "MCP Client & Server support",
     ],
-    installUrl: "https://midday.ai/mcp/n8n",
+    installUrl: "https://cashpanel.io/mcp/n8n",
   },
   "make-mcp": {
     slug: "make-mcp",
@@ -283,7 +283,7 @@ const appExtensions: Record<
       "MCP Client module support",
       "No-code workflow automation",
     ],
-    installUrl: "https://midday.ai/mcp/make",
+    installUrl: "https://cashpanel.io/mcp/make",
   },
 };
 

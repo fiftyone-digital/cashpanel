@@ -3,7 +3,7 @@
  * Extracted common logic from inbox processors for better maintainability
  */
 
-import { createLoggerWithContext } from "@midday/logger";
+import { createLoggerWithContext } from "@cashpanel/logger";
 
 const logger = createLoggerWithContext("worker:inbox-processing");
 

@@ -13,18 +13,18 @@
  * Requires DATABASE_PRIMARY_URL + provider API credentials in your environment.
  */
 
-import { primaryDb as db } from "@midday/db/client";
+import { primaryDb as db } from "@cashpanel/db/client";
 import {
   bankAccounts,
   bankConnections,
   transactions as transactionsTable,
-} from "@midday/db/schema";
-import { setLogLevel } from "@midday/logger";
+} from "@cashpanel/db/schema";
+import { setLogLevel } from "@cashpanel/logger";
 import {
   type ApiAccount,
   type DbAccount,
   findMatchingAccount,
-} from "@midday/supabase/account-matching";
+} from "@cashpanel/supabase/account-matching";
 import { and, desc, eq } from "drizzle-orm";
 import { Provider } from "../src/index";
 import { EnableBankingApi } from "../src/providers/enablebanking/enablebanking-api";

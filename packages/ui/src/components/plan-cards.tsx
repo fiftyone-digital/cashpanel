@@ -5,7 +5,7 @@ import {
   type PlanFeature,
   proFeatures,
   starterFeatures,
-} from "@midday/plans";
+} from "@cashpanel/plans";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { cn } from "../utils/cn";

@@ -1,20 +1,20 @@
-import { getDb } from "@jobs/init";
-import { processBatch } from "@jobs/utils/process-batch";
 import {
   getInboxAccountInfo,
   getInboxBlocklist,
   updateInboxAccount,
-} from "@midday/db/queries";
-import { separateBlocklistEntries } from "@midday/db/utils/blocklist";
-import { InboxConnector } from "@midday/inbox/connector";
+} from "@cashpanel/db/queries";
+import { separateBlocklistEntries } from "@cashpanel/db/utils/blocklist";
+import { InboxConnector } from "@cashpanel/inbox/connector";
 import {
   assertInboxAuthError,
   InboxSyncError,
   isInboxAuthError,
-} from "@midday/inbox/errors";
-import { createClient } from "@midday/supabase/job";
-import { getExistingInboxAttachmentsQuery } from "@midday/supabase/queries";
-import { ensureFileExtension } from "@midday/utils";
+} from "@cashpanel/inbox/errors";
+import { createClient } from "@cashpanel/supabase/job";
+import { getExistingInboxAttachmentsQuery } from "@cashpanel/supabase/queries";
+import { ensureFileExtension } from "@cashpanel/utils";
+import { getDb } from "@jobs/init";
+import { processBatch } from "@jobs/utils/process-batch";
 import { logger, schemaTask, tasks } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { processAttachment } from "../process-attachment";

@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "midday",
+      "name": "cashpanel",
       "dependencies": {
         "toolpick": "^0.4.0",
         "use-stick-to-bottom": "^1.1.3",
@@ -15,41 +15,41 @@
       },
     },
     "apps/api": {
-      "name": "@midday/api",
+      "name": "@cashpanel/api",
       "dependencies": {
         "@ai-sdk/anthropic": "^3.0.64",
         "@ai-sdk/mcp": "^1.0.30",
         "@ai-sdk/openai": "catalog:",
+        "@cashpanel/accounting": "workspace:*",
+        "@cashpanel/app-store": "workspace:*",
+        "@cashpanel/banking": "workspace:*",
+        "@cashpanel/bot": "workspace:*",
+        "@cashpanel/cache": "workspace:*",
+        "@cashpanel/categories": "workspace:*",
+        "@cashpanel/connectors": "workspace:*",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/documents": "workspace:*",
+        "@cashpanel/encryption": "workspace:*",
+        "@cashpanel/events": "workspace:*",
+        "@cashpanel/health": "workspace:*",
+        "@cashpanel/import": "workspace:*",
+        "@cashpanel/inbox": "workspace:*",
+        "@cashpanel/invoice": "workspace:*",
+        "@cashpanel/job-client": "workspace:*",
+        "@cashpanel/jobs": "workspace:*",
+        "@cashpanel/location": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
+        "@cashpanel/mcp-apps": "workspace:*",
+        "@cashpanel/notifications": "workspace:*",
+        "@cashpanel/plans": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@composio/core": "^0.6.7",
         "@composio/vercel": "^0.6.7",
         "@date-fns/tz": "catalog:",
         "@hono/mcp": "^0.2.4",
         "@hono/trpc-server": "^0.4.2",
         "@hono/zod-openapi": "1.2.3",
-        "@midday/accounting": "workspace:*",
-        "@midday/app-store": "workspace:*",
-        "@midday/banking": "workspace:*",
-        "@midday/bot": "workspace:*",
-        "@midday/cache": "workspace:*",
-        "@midday/categories": "workspace:*",
-        "@midday/connectors": "workspace:*",
-        "@midday/db": "workspace:*",
-        "@midday/documents": "workspace:*",
-        "@midday/encryption": "workspace:*",
-        "@midday/events": "workspace:*",
-        "@midday/health": "workspace:*",
-        "@midday/import": "workspace:*",
-        "@midday/inbox": "workspace:*",
-        "@midday/invoice": "workspace:*",
-        "@midday/job-client": "workspace:*",
-        "@midday/jobs": "workspace:*",
-        "@midday/location": "workspace:*",
-        "@midday/logger": "workspace:*",
-        "@midday/mcp-apps": "workspace:*",
-        "@midday/notifications": "workspace:*",
-        "@midday/plans": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/utils": "workspace:*",
         "@modelcontextprotocol/ext-apps": "^1.3.2",
         "@modelcontextprotocol/sdk": "^1.28.0",
         "@polar-sh/sdk": "^0.46.7",
@@ -80,32 +80,32 @@
       },
     },
     "apps/dashboard": {
-      "name": "@midday/dashboard",
+      "name": "@cashpanel/dashboard",
       "version": "1.0.0",
       "dependencies": {
         "@ai-sdk/openai": "catalog:",
         "@ai-sdk/react": "^3.0.143",
+        "@cashpanel/api": "workspace:*",
+        "@cashpanel/app-store": "workspace:*",
+        "@cashpanel/connectors": "workspace:*",
+        "@cashpanel/desktop-client": "workspace:*",
+        "@cashpanel/documents": "workspace:*",
+        "@cashpanel/events": "workspace:*",
+        "@cashpanel/inbox": "workspace:*",
+        "@cashpanel/invoice": "workspace:*",
+        "@cashpanel/location": "workspace:*",
+        "@cashpanel/mcp-apps": "workspace:*",
+        "@cashpanel/plans": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/trpc": "workspace:*",
+        "@cashpanel/ui": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@date-fns/tz": "catalog:",
         "@date-fns/utc": "^2.1.1",
         "@dnd-kit/core": "^6.3.1",
         "@dnd-kit/sortable": "^10.0.0",
         "@dnd-kit/utilities": "^3.2.2",
         "@hookform/resolvers": "^5.2.2",
-        "@midday/api": "workspace:*",
-        "@midday/app-store": "workspace:*",
-        "@midday/connectors": "workspace:*",
-        "@midday/desktop-client": "workspace:*",
-        "@midday/documents": "workspace:*",
-        "@midday/events": "workspace:*",
-        "@midday/inbox": "workspace:*",
-        "@midday/invoice": "workspace:*",
-        "@midday/location": "workspace:*",
-        "@midday/mcp-apps": "workspace:*",
-        "@midday/plans": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/trpc": "workspace:*",
-        "@midday/ui": "workspace:*",
-        "@midday/utils": "workspace:*",
         "@number-flow/react": "^0.6.0",
         "@polar-sh/checkout": "^0.2.0",
         "@react-google-maps/api": "^2.20.8",
@@ -159,7 +159,7 @@
         "zustand": "^5.0.12",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "@types/file-saver": "^2.0.7",
         "@types/node": "^25.5.0",
         "@types/papaparse": "^5.5.2",
@@ -171,7 +171,7 @@
       },
     },
     "apps/desktop": {
-      "name": "@midday/desktop",
+      "name": "@cashpanel/desktop",
       "version": "0.5.0",
       "dependencies": {
         "@tauri-apps/api": "^2.10.1",
@@ -196,14 +196,14 @@
       },
     },
     "apps/website": {
-      "name": "@midday/website",
+      "name": "@cashpanel/website",
       "version": "1.0.0",
       "dependencies": {
         "@ai-sdk/openai": "^3.0.48",
         "@ai-sdk/react": "^3.0.140",
-        "@midday/app-store": "workspace:*",
-        "@midday/connectors": "workspace:*",
-        "@midday/ui": "workspace:*",
+        "@cashpanel/app-store": "workspace:*",
+        "@cashpanel/connectors": "workspace:*",
+        "@cashpanel/ui": "workspace:*",
         "@openpanel/nextjs": "^1.4.0",
         "@openstatus/react": "^0.0.3",
         "@upstash/ratelimit": "^2.0.8",
@@ -222,38 +222,38 @@
         "sugar-high": "^1.0.0",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "@types/node": "^25.5.0",
         "@types/react": "^19.2.14",
       },
     },
     "apps/worker": {
-      "name": "@midday/worker",
+      "name": "@cashpanel/worker",
       "version": "0.0.1",
       "dependencies": {
         "@ai-sdk/openai": "catalog:",
+        "@cashpanel/accounting": "workspace:*",
+        "@cashpanel/app-store": "workspace:*",
+        "@cashpanel/banking": "workspace:*",
+        "@cashpanel/bot": "workspace:*",
+        "@cashpanel/customers": "workspace:*",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/documents": "workspace:*",
+        "@cashpanel/email": "workspace:*",
+        "@cashpanel/health": "workspace:*",
+        "@cashpanel/import": "workspace:*",
+        "@cashpanel/insights": "workspace:*",
+        "@cashpanel/invoice": "workspace:*",
+        "@cashpanel/job-client": "workspace:*",
+        "@cashpanel/jobs": "workspace:*",
+        "@cashpanel/location": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
+        "@cashpanel/notifications": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/trpc": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@fast-csv/format": "catalog:",
         "@hono/node-server": "^1.19.11",
-        "@midday/accounting": "workspace:*",
-        "@midday/app-store": "workspace:*",
-        "@midday/banking": "workspace:*",
-        "@midday/bot": "workspace:*",
-        "@midday/customers": "workspace:*",
-        "@midday/db": "workspace:*",
-        "@midday/documents": "workspace:*",
-        "@midday/email": "workspace:*",
-        "@midday/health": "workspace:*",
-        "@midday/import": "workspace:*",
-        "@midday/insights": "workspace:*",
-        "@midday/invoice": "workspace:*",
-        "@midday/job-client": "workspace:*",
-        "@midday/jobs": "workspace:*",
-        "@midday/location": "workspace:*",
-        "@midday/logger": "workspace:*",
-        "@midday/notifications": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/trpc": "workspace:*",
-        "@midday/utils": "workspace:*",
         "@sentry/bun": "catalog:",
         "@types/archiver": "^7.0.0",
         "archiver": "^7.0.1",
@@ -276,23 +276,23 @@
       },
     },
     "packages/accounting": {
-      "name": "@midday/accounting",
+      "name": "@cashpanel/accounting",
       "version": "0.0.1",
       "dependencies": {
-        "@midday/encryption": "workspace:*",
-        "@midday/logger": "workspace:*",
+        "@cashpanel/encryption": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
         "intuit-oauth": "^4.2.2",
         "xero-node": "^15.0.0",
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "@types/bun": "latest",
         "typescript": "catalog:",
       },
     },
     "packages/app-store": {
-      "name": "@midday/app-store",
+      "name": "@cashpanel/app-store",
       "version": "1.0.0",
       "dependencies": {
         "@slack/bolt": "^4.6.0",
@@ -306,12 +306,12 @@
       },
     },
     "packages/banking": {
-      "name": "@midday/banking",
+      "name": "@cashpanel/banking",
       "version": "0.0.1",
       "dependencies": {
-        "@midday/cache": "workspace:*",
-        "@midday/location": "workspace:*",
-        "@midday/logger": "workspace:*",
+        "@cashpanel/cache": "workspace:*",
+        "@cashpanel/location": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
         "@t3-oss/env-core": "^0.13.11",
         "axios": "^1.14.0",
         "change-case": "catalog:",
@@ -326,43 +326,43 @@
       },
     },
     "packages/bot": {
-      "name": "@midday/bot",
+      "name": "@cashpanel/bot",
       "version": "0.1.0",
       "dependencies": {
+        "@cashpanel/app-store": "workspace:*",
+        "@cashpanel/cache": "workspace:*",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/documents": "workspace:*",
+        "@cashpanel/job-client": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@chat-adapter/slack": "^4.23.0",
         "@chat-adapter/state-redis": "^4.23.0",
         "@chat-adapter/telegram": "^4.23.0",
         "@chat-adapter/whatsapp": "^4.23.0",
-        "@midday/app-store": "workspace:*",
-        "@midday/cache": "workspace:*",
-        "@midday/db": "workspace:*",
-        "@midday/documents": "workspace:*",
-        "@midday/job-client": "workspace:*",
-        "@midday/logger": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/utils": "workspace:*",
         "chat": "^4.23.0",
         "chat-adapter-sendblue": "^0.2.0",
         "nanoid": "catalog:",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "typescript": "catalog:",
       },
     },
     "packages/cache": {
-      "name": "@midday/cache",
+      "name": "@cashpanel/cache",
       "version": "0.0.1",
       "dependencies": {
-        "@midday/logger": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
       },
     },
     "packages/categories": {
-      "name": "@midday/categories",
+      "name": "@cashpanel/categories",
       "version": "0.1.0",
       "dependencies": {
         "@ai-sdk/google": "catalog:",
-        "@midday/logger": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
         "ai": "catalog:",
         "zod": "catalog:",
       },
@@ -373,10 +373,10 @@
       },
     },
     "packages/cli": {
-      "name": "@midday-ai/cli",
+      "name": "@cashpanel-ai/cli",
       "version": "0.1.2",
       "bin": {
-        "midday": "dist/bin/midday.js",
+        "cashpanel": "dist/bin/cashpanel.js",
       },
       "dependencies": {
         "chalk": "^5.6.2",
@@ -393,35 +393,35 @@
       },
     },
     "packages/connectors": {
-      "name": "@midday/connectors",
+      "name": "@cashpanel/connectors",
       "version": "1.0.0",
       "devDependencies": {
         "typescript": "catalog:",
       },
     },
     "packages/customers": {
-      "name": "@midday/customers",
+      "name": "@cashpanel/customers",
       "version": "1.0.0",
       "dependencies": {
-        "@midday/logger": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "@types/node": "^25.5.0",
         "typescript": "catalog:",
       },
     },
     "packages/db": {
-      "name": "@midday/db",
+      "name": "@cashpanel/db",
       "dependencies": {
+        "@cashpanel/banking": "workspace:*",
+        "@cashpanel/categories": "workspace:*",
+        "@cashpanel/encryption": "workspace:*",
+        "@cashpanel/invoice": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@date-fns/tz": "catalog:",
         "@date-fns/utc": "^2.1.1",
-        "@midday/banking": "workspace:*",
-        "@midday/categories": "workspace:*",
-        "@midday/encryption": "workspace:*",
-        "@midday/invoice": "workspace:*",
-        "@midday/logger": "workspace:*",
-        "@midday/utils": "workspace:*",
         "@sindresorhus/slugify": "catalog:",
         "@types/pg": "^8.20.0",
         "camelcase-keys": "catalog:",
@@ -436,7 +436,7 @@
       },
     },
     "packages/desktop-client": {
-      "name": "@midday/desktop-client",
+      "name": "@cashpanel/desktop-client",
       "version": "0.1.0",
       "dependencies": {
         "@tauri-apps/api": "^2.10.1",
@@ -447,14 +447,14 @@
       },
     },
     "packages/documents": {
-      "name": "@midday/documents",
+      "name": "@cashpanel/documents",
       "version": "1.0.0",
       "dependencies": {
         "@ai-sdk/google": "catalog:",
         "@ai-sdk/mistral": "^2.0.26",
+        "@cashpanel/utils": "workspace:*",
         "@langchain/community": "1.0.3",
         "@langchain/core": "1.0.5",
-        "@midday/utils": "workspace:*",
         "ai": "catalog:",
         "canvas": "^3.2.0",
         "langchain": "^1.0.5",
@@ -468,11 +468,11 @@
       },
     },
     "packages/email": {
-      "name": "@midday/email",
+      "name": "@cashpanel/email",
       "version": "1.0.0",
       "dependencies": {
-        "@midday/ui": "workspace:*",
-        "@midday/utils": "workspace:*",
+        "@cashpanel/ui": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@react-email/components": "1.0.10",
         "@react-email/render": "2.0.4",
         "@react-email/tailwind": "2.0.6",
@@ -487,7 +487,7 @@
       },
     },
     "packages/encryption": {
-      "name": "@midday/encryption",
+      "name": "@cashpanel/encryption",
       "version": "1.0.0",
       "dependencies": {
         "jose": "catalog:",
@@ -497,7 +497,7 @@
       },
     },
     "packages/events": {
-      "name": "@midday/events",
+      "name": "@cashpanel/events",
       "version": "1.0.0",
       "dependencies": {
         "@openpanel/nextjs": "^1.4.0",
@@ -507,16 +507,16 @@
       },
     },
     "packages/health": {
-      "name": "@midday/health",
+      "name": "@cashpanel/health",
       "version": "0.0.1",
       "dependencies": {
-        "@midday/banking": "workspace:*",
-        "@midday/cache": "workspace:*",
-        "@midday/db": "workspace:*",
+        "@cashpanel/banking": "workspace:*",
+        "@cashpanel/cache": "workspace:*",
+        "@cashpanel/db": "workspace:*",
       },
     },
     "packages/import": {
-      "name": "@midday/import",
+      "name": "@cashpanel/import",
       "version": "1.0.0",
       "dependencies": {
         "change-case": "catalog:",
@@ -525,31 +525,31 @@
       },
     },
     "packages/inbox": {
-      "name": "@midday/inbox",
+      "name": "@cashpanel/inbox",
       "version": "1.0.0",
       "dependencies": {
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/encryption": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@microsoft/microsoft-graph-client": "^3.0.7",
-        "@midday/db": "workspace:*",
-        "@midday/encryption": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/utils": "workspace:*",
         "googleapis": "^171.4.0",
         "zod": "catalog:",
       },
     },
     "packages/insights": {
-      "name": "@midday/insights",
+      "name": "@cashpanel/insights",
       "version": "0.1.0",
       "dependencies": {
         "@ai-sdk/openai": "catalog:",
-        "@midday/db": "workspace:*",
-        "@midday/logger": "workspace:*",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
         "ai": "catalog:",
         "date-fns": "catalog:",
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "dotenv": "^17.3.1",
         "evalite": "^0.19.0",
         "typescript": "catalog:",
@@ -557,10 +557,10 @@
       },
     },
     "packages/invoice": {
-      "name": "@midday/invoice",
+      "name": "@cashpanel/invoice",
       "dependencies": {
-        "@midday/ui": "workspace:*",
-        "@midday/utils": "workspace:*",
+        "@cashpanel/ui": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@react-pdf/renderer": "catalog:",
         "date-fns": "catalog:",
         "jose": "catalog:",
@@ -571,10 +571,10 @@
       },
     },
     "packages/job-client": {
-      "name": "@midday/job-client",
+      "name": "@cashpanel/job-client",
       "version": "0.0.1",
       "dependencies": {
-        "@midday/logger": "workspace:*",
+        "@cashpanel/logger": "workspace:*",
         "bullmq": "catalog:",
       },
       "devDependencies": {
@@ -583,17 +583,17 @@
       },
     },
     "packages/jobs": {
-      "name": "@midday/jobs",
+      "name": "@cashpanel/jobs",
       "version": "0.0.1",
       "dependencies": {
         "@ai-sdk/google": "catalog:",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/email": "workspace:*",
+        "@cashpanel/encryption": "workspace:*",
+        "@cashpanel/notifications": "workspace:*",
+        "@cashpanel/supabase": "workspace:*",
+        "@cashpanel/trpc": "workspace:*",
         "@fast-csv/format": "catalog:",
-        "@midday/db": "workspace:*",
-        "@midday/email": "workspace:*",
-        "@midday/encryption": "workspace:*",
-        "@midday/notifications": "workspace:*",
-        "@midday/supabase": "workspace:*",
-        "@midday/trpc": "workspace:*",
         "@sindresorhus/slugify": "catalog:",
         "@zip.js/zip.js": "^2.8.23",
         "ai": "catalog:",
@@ -610,14 +610,14 @@
       },
     },
     "packages/location": {
-      "name": "@midday/location",
+      "name": "@cashpanel/location",
       "version": "1.0.0",
       "devDependencies": {
         "typescript": "catalog:",
       },
     },
     "packages/logger": {
-      "name": "@midday/logger",
+      "name": "@cashpanel/logger",
       "version": "0.0.0",
       "dependencies": {
         "pino": "catalog:",
@@ -628,13 +628,13 @@
       },
     },
     "packages/mcp-apps": {
-      "name": "@midday/mcp-apps",
+      "name": "@cashpanel/mcp-apps",
       "version": "1.0.0",
       "dependencies": {
+        "@cashpanel/invoice": "workspace:*",
+        "@cashpanel/ui": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@date-fns/tz": "^1.4.1",
-        "@midday/invoice": "workspace:*",
-        "@midday/ui": "workspace:*",
-        "@midday/utils": "workspace:*",
         "@modelcontextprotocol/ext-apps": "^1.3.2",
         "date-fns": "^4.1.0",
         "react": "19.2.4",
@@ -655,23 +655,23 @@
       },
     },
     "packages/notifications": {
-      "name": "@midday/notifications",
+      "name": "@cashpanel/notifications",
       "version": "0.1.0",
       "dependencies": {
-        "@midday/db": "workspace:*",
-        "@midday/email": "workspace:*",
-        "@midday/inbox": "workspace:*",
+        "@cashpanel/db": "workspace:*",
+        "@cashpanel/email": "workspace:*",
+        "@cashpanel/inbox": "workspace:*",
         "nanoid": "catalog:",
         "resend": "catalog:",
         "zod": "catalog:",
       },
       "devDependencies": {
-        "@midday/tsconfig": "workspace:*",
+        "@cashpanel/tsconfig": "workspace:*",
         "typescript": "catalog:",
       },
     },
     "packages/plans": {
-      "name": "@midday/plans",
+      "name": "@cashpanel/plans",
       "version": "1.0.0",
       "devDependencies": {
         "@types/node": "^25.5.0",
@@ -679,10 +679,10 @@
       },
     },
     "packages/supabase": {
-      "name": "@midday/supabase",
+      "name": "@cashpanel/supabase",
       "version": "1.0.0",
       "dependencies": {
-        "@midday/banking": "workspace:*",
+        "@cashpanel/banking": "workspace:*",
         "@supabase/postgrest-js": "^2.101.1",
         "@supabase/ssr": "^0.10.0",
         "@supabase/supabase-js": "^2.101.1",
@@ -696,7 +696,7 @@
       },
     },
     "packages/trpc": {
-      "name": "@midday/trpc",
+      "name": "@cashpanel/trpc",
       "version": "0.0.1",
       "dependencies": {
         "@trpc/client": "^11.16.0",
@@ -708,15 +708,15 @@
       },
     },
     "packages/tsconfig": {
-      "name": "@midday/tsconfig",
+      "name": "@cashpanel/tsconfig",
       "version": "1.0.0",
     },
     "packages/ui": {
-      "name": "@midday/ui",
+      "name": "@cashpanel/ui",
       "version": "1.0.0",
       "dependencies": {
-        "@midday/plans": "workspace:*",
-        "@midday/utils": "workspace:*",
+        "@cashpanel/plans": "workspace:*",
+        "@cashpanel/utils": "workspace:*",
         "@radix-ui/react-accordion": "^1.2.11",
         "@radix-ui/react-alert-dialog": "^1.1.14",
         "@radix-ui/react-avatar": "^1.1.10",
@@ -782,7 +782,7 @@
       ],
     },
     "packages/utils": {
-      "name": "@midday/utils",
+      "name": "@cashpanel/utils",
       "version": "1.0.0",
       "devDependencies": {
         "typescript": "catalog:",
@@ -977,6 +977,80 @@
     "@browserbasehq/stagehand": ["@browserbasehq/stagehand@1.14.0", "", { "dependencies": { "@anthropic-ai/sdk": "^0.27.3", "@browserbasehq/sdk": "^2.0.0", "ws": "^8.18.0", "zod-to-json-schema": "^3.23.5" }, "peerDependencies": { "@playwright/test": "^1.42.1", "deepmerge": "^4.3.1", "dotenv": "^16.4.5", "openai": "^4.62.1", "zod": "^3.23.8" } }, "sha512-Hi/EzgMFWz+FKyepxHTrqfTPjpsuBS4zRy3e9sbMpBgLPv+9c0R+YZEvS7Bw4mTS66QtvvURRT6zgDGFotthVQ=="],
 
     "@bugsnag/cuid": ["@bugsnag/cuid@3.2.1", "", {}, "sha512-zpvN8xQ5rdRWakMd/BcVkdn2F8HKlDSbM3l7duueK590WmI1T0ObTLc1V/1e55r14WNjPd5AJTYX4yPEAFVi+Q=="],
+
+    "@cashpanel-ai/cli": ["@cashpanel-ai/cli@workspace:packages/cli"],
+
+    "@cashpanel/accounting": ["@cashpanel/accounting@workspace:packages/accounting"],
+
+    "@cashpanel/api": ["@cashpanel/api@workspace:apps/api"],
+
+    "@cashpanel/app-store": ["@cashpanel/app-store@workspace:packages/app-store"],
+
+    "@cashpanel/banking": ["@cashpanel/banking@workspace:packages/banking"],
+
+    "@cashpanel/bot": ["@cashpanel/bot@workspace:packages/bot"],
+
+    "@cashpanel/cache": ["@cashpanel/cache@workspace:packages/cache"],
+
+    "@cashpanel/categories": ["@cashpanel/categories@workspace:packages/categories"],
+
+    "@cashpanel/connectors": ["@cashpanel/connectors@workspace:packages/connectors"],
+
+    "@cashpanel/customers": ["@cashpanel/customers@workspace:packages/customers"],
+
+    "@cashpanel/dashboard": ["@cashpanel/dashboard@workspace:apps/dashboard"],
+
+    "@cashpanel/db": ["@cashpanel/db@workspace:packages/db"],
+
+    "@cashpanel/desktop": ["@cashpanel/desktop@workspace:apps/desktop"],
+
+    "@cashpanel/desktop-client": ["@cashpanel/desktop-client@workspace:packages/desktop-client"],
+
+    "@cashpanel/documents": ["@cashpanel/documents@workspace:packages/documents"],
+
+    "@cashpanel/email": ["@cashpanel/email@workspace:packages/email"],
+
+    "@cashpanel/encryption": ["@cashpanel/encryption@workspace:packages/encryption"],
+
+    "@cashpanel/events": ["@cashpanel/events@workspace:packages/events"],
+
+    "@cashpanel/health": ["@cashpanel/health@workspace:packages/health"],
+
+    "@cashpanel/import": ["@cashpanel/import@workspace:packages/import"],
+
+    "@cashpanel/inbox": ["@cashpanel/inbox@workspace:packages/inbox"],
+
+    "@cashpanel/insights": ["@cashpanel/insights@workspace:packages/insights"],
+
+    "@cashpanel/invoice": ["@cashpanel/invoice@workspace:packages/invoice"],
+
+    "@cashpanel/job-client": ["@cashpanel/job-client@workspace:packages/job-client"],
+
+    "@cashpanel/jobs": ["@cashpanel/jobs@workspace:packages/jobs"],
+
+    "@cashpanel/location": ["@cashpanel/location@workspace:packages/location"],
+
+    "@cashpanel/logger": ["@cashpanel/logger@workspace:packages/logger"],
+
+    "@cashpanel/mcp-apps": ["@cashpanel/mcp-apps@workspace:packages/mcp-apps"],
+
+    "@cashpanel/notifications": ["@cashpanel/notifications@workspace:packages/notifications"],
+
+    "@cashpanel/plans": ["@cashpanel/plans@workspace:packages/plans"],
+
+    "@cashpanel/supabase": ["@cashpanel/supabase@workspace:packages/supabase"],
+
+    "@cashpanel/trpc": ["@cashpanel/trpc@workspace:packages/trpc"],
+
+    "@cashpanel/tsconfig": ["@cashpanel/tsconfig@workspace:packages/tsconfig"],
+
+    "@cashpanel/ui": ["@cashpanel/ui@workspace:packages/ui"],
+
+    "@cashpanel/utils": ["@cashpanel/utils@workspace:packages/utils"],
+
+    "@cashpanel/website": ["@cashpanel/website@workspace:apps/website"],
+
+    "@cashpanel/worker": ["@cashpanel/worker@workspace:apps/worker"],
 
     "@cfworker/json-schema": ["@cfworker/json-schema@4.1.1", "", {}, "sha512-gAmrUZSGtKc3AiBL71iNWxDsyUC5uMaKKGdvzYsBoTW/xi42JQHl7eKV2OYzCUqvc+D2RCcf7EXY2iCyFIk6og=="],
 
@@ -1275,80 +1349,6 @@
     "@microsoft/fetch-event-source": ["@microsoft/fetch-event-source@2.0.1", "", {}, "sha512-W6CLUJ2eBMw3Rec70qrsEW0jOm/3twwJv21mrmj2yORiaVmVYGS4sSS5yUwvQc1ZlDLYGPnClVWmUUMagKNsfA=="],
 
     "@microsoft/microsoft-graph-client": ["@microsoft/microsoft-graph-client@3.0.7", "", { "dependencies": { "@babel/runtime": "^7.12.5", "tslib": "^2.2.0" } }, "sha512-/AazAV/F+HK4LIywF9C+NYHcJo038zEnWkteilcxC1FM/uK/4NVGDKGrxx7nNq1ybspAroRKT4I1FHfxQzxkUw=="],
-
-    "@midday-ai/cli": ["@midday-ai/cli@workspace:packages/cli"],
-
-    "@midday/accounting": ["@midday/accounting@workspace:packages/accounting"],
-
-    "@midday/api": ["@midday/api@workspace:apps/api"],
-
-    "@midday/app-store": ["@midday/app-store@workspace:packages/app-store"],
-
-    "@midday/banking": ["@midday/banking@workspace:packages/banking"],
-
-    "@midday/bot": ["@midday/bot@workspace:packages/bot"],
-
-    "@midday/cache": ["@midday/cache@workspace:packages/cache"],
-
-    "@midday/categories": ["@midday/categories@workspace:packages/categories"],
-
-    "@midday/connectors": ["@midday/connectors@workspace:packages/connectors"],
-
-    "@midday/customers": ["@midday/customers@workspace:packages/customers"],
-
-    "@midday/dashboard": ["@midday/dashboard@workspace:apps/dashboard"],
-
-    "@midday/db": ["@midday/db@workspace:packages/db"],
-
-    "@midday/desktop": ["@midday/desktop@workspace:apps/desktop"],
-
-    "@midday/desktop-client": ["@midday/desktop-client@workspace:packages/desktop-client"],
-
-    "@midday/documents": ["@midday/documents@workspace:packages/documents"],
-
-    "@midday/email": ["@midday/email@workspace:packages/email"],
-
-    "@midday/encryption": ["@midday/encryption@workspace:packages/encryption"],
-
-    "@midday/events": ["@midday/events@workspace:packages/events"],
-
-    "@midday/health": ["@midday/health@workspace:packages/health"],
-
-    "@midday/import": ["@midday/import@workspace:packages/import"],
-
-    "@midday/inbox": ["@midday/inbox@workspace:packages/inbox"],
-
-    "@midday/insights": ["@midday/insights@workspace:packages/insights"],
-
-    "@midday/invoice": ["@midday/invoice@workspace:packages/invoice"],
-
-    "@midday/job-client": ["@midday/job-client@workspace:packages/job-client"],
-
-    "@midday/jobs": ["@midday/jobs@workspace:packages/jobs"],
-
-    "@midday/location": ["@midday/location@workspace:packages/location"],
-
-    "@midday/logger": ["@midday/logger@workspace:packages/logger"],
-
-    "@midday/mcp-apps": ["@midday/mcp-apps@workspace:packages/mcp-apps"],
-
-    "@midday/notifications": ["@midday/notifications@workspace:packages/notifications"],
-
-    "@midday/plans": ["@midday/plans@workspace:packages/plans"],
-
-    "@midday/supabase": ["@midday/supabase@workspace:packages/supabase"],
-
-    "@midday/trpc": ["@midday/trpc@workspace:packages/trpc"],
-
-    "@midday/tsconfig": ["@midday/tsconfig@workspace:packages/tsconfig"],
-
-    "@midday/ui": ["@midday/ui@workspace:packages/ui"],
-
-    "@midday/utils": ["@midday/utils@workspace:packages/utils"],
-
-    "@midday/website": ["@midday/website@workspace:apps/website"],
-
-    "@midday/worker": ["@midday/worker@workspace:apps/worker"],
 
     "@modelcontextprotocol/ext-apps": ["@modelcontextprotocol/ext-apps@1.3.2", "", { "peerDependencies": { "@modelcontextprotocol/sdk": "^1.24.0", "react": "^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0", "zod": "^3.25.0 || ^4.0.0" }, "optionalPeers": ["react", "react-dom"] }, "sha512-DGG1FxN3s8g4KV+BF64dxph8j2mtxgU56Lu/WgBjylomqRIPshW0ut47OtBN4+V8r+Qp8kKUvCOBBzPY9+GurA=="],
 
@@ -2154,7 +2154,7 @@
 
     "@types/body-parser": ["@types/body-parser@1.19.6", "", { "dependencies": { "@types/connect": "*", "@types/node": "*" } }, "sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g=="],
 
-    "@types/bun": ["@types/bun@1.3.11", "", { "dependencies": { "bun-types": "1.3.11" } }, "sha512-5vPne5QvtpjGpsGYXiFyycfpDF2ECyPcTSsFBMa0fraoxiQyMJ3SmuQIGhzPg2WJuWxVBoxWJ2kClYTcw/4fAg=="],
+    "@types/bun": ["@types/bun@1.3.14", "", { "dependencies": { "bun-types": "1.3.14" } }, "sha512-h1hFqFVcvAvD9j9K7ZW7vd82aSA+rTdznZa+5bwvCwqSB1jmmfLcbIWhOLx1/+boy/xmjgCs/OMUL8hRJSmnPw=="],
 
     "@types/chai": ["@types/chai@5.2.3", "", { "dependencies": { "@types/deep-eql": "*", "assertion-error": "^2.0.1" } }, "sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA=="],
 
@@ -2526,7 +2526,7 @@
 
     "bullmq": ["bullmq@5.71.1", "", { "dependencies": { "cron-parser": "4.9.0", "ioredis": "5.10.1", "msgpackr": "1.11.5", "node-abort-controller": "3.1.1", "semver": "7.7.4", "tslib": "2.8.1", "uuid": "11.1.0" } }, "sha512-kOBfdcsHmO6wwmIjpersoVdYQ7jkjTgky4Yop0loc7QwSdgxliSzD69U9ijZuRrkyCJwz5p5eqxeGeQkJ0YGZQ=="],
 
-    "bun-types": ["bun-types@1.3.11", "", { "dependencies": { "@types/node": "*" } }, "sha512-1KGPpoxQWl9f6wcZh57LvrPIInQMn2TQ7jsgxqpRzg+l0QPOFvJVH7HmvHo/AiPgwXy+/Thf6Ov3EdVn1vOabg=="],
+    "bun-types": ["bun-types@1.3.14", "", { "dependencies": { "@types/node": "*" } }, "sha512-4N0ig0fEomHt5R0KCFWjovxow98rIoRwKolrYdCcknNwMekCXRnWEUvgu5soYV8QXtVsrUD8B95MBOZGPvr6KQ=="],
 
     "bundle-name": ["bundle-name@4.1.0", "", { "dependencies": { "run-applescript": "^7.0.0" } }, "sha512-tjwM5exMg6BGRI+kNmTntNsvdZS1X8BFYS6tnJ2hdH0kVxM6/eVZ2xy+FqStSWvYmtfFMDLIxurorHwDKfDz5Q=="],
 
@@ -4756,6 +4756,16 @@
 
     "@browserbasehq/stagehand/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
+    "@cashpanel/encryption/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
+
+    "@cashpanel/job-client/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
+
+    "@cashpanel/mcp-apps/vite": ["vite@8.0.2", "", { "dependencies": { "lightningcss": "^1.32.0", "picomatch": "^4.0.3", "postcss": "^8.5.8", "rolldown": "1.0.0-rc.11", "tinyglobby": "^0.2.15" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^20.19.0 || >=22.12.0", "@vitejs/devtools": "^0.1.0", "esbuild": "^0.27.0", "jiti": ">=1.21.0", "less": "^4.0.0", "sass": "^1.70.0", "sass-embedded": "^1.70.0", "stylus": ">=0.54.8", "sugarss": "^5.0.0", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "@vitejs/devtools", "esbuild", "jiti", "less", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-1gFhNi+bHhRE/qKZOJXACm6tX4bA3Isy9KuKF15AgSRuRazNBOJfdDemPBU16/mpMxApDPrWvZ08DcLPEoRnuA=="],
+
+    "@cashpanel/plans/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
+
+    "@cashpanel/website/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
+
     "@chevrotain/cst-dts-gen/lodash-es": ["lodash-es@4.17.21", "", {}, "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw=="],
 
     "@chevrotain/gast/lodash-es": ["lodash-es@4.17.21", "", {}, "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw=="],
@@ -4795,8 +4805,6 @@
     "@langchain/langgraph-sdk/p-queue": ["p-queue@9.1.0", "", { "dependencies": { "eventemitter3": "^5.0.1", "p-timeout": "^7.0.0" } }, "sha512-O/ZPaXuQV29uSLbxWBGGZO1mCQXV2BLIwUr59JUU9SoH76mnYvtms7aafH/isNSNGwuEfP6W/4xD0/TJXxrizw=="],
 
     "@langchain/langgraph-sdk/p-retry": ["p-retry@7.1.1", "", { "dependencies": { "is-network-error": "^1.1.0" } }, "sha512-J5ApzjyRkkf601HpEeykoiCvzHQjWxPAHhyjFcEUP2SWq0+35NKh8TLhpLw+Dkq5TZBFvUM6UigdE9hIVYTl5w=="],
-
-    "@midday/mcp-apps/vite": ["vite@8.0.2", "", { "dependencies": { "lightningcss": "^1.32.0", "picomatch": "^4.0.3", "postcss": "^8.5.8", "rolldown": "1.0.0-rc.11", "tinyglobby": "^0.2.15" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^20.19.0 || >=22.12.0", "@vitejs/devtools": "^0.1.0", "esbuild": "^0.27.0", "jiti": ">=1.21.0", "less": "^4.0.0", "sass": "^1.70.0", "sass-embedded": "^1.70.0", "stylus": ">=0.54.8", "sugarss": "^5.0.0", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "@vitejs/devtools", "esbuild", "jiti", "less", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-1gFhNi+bHhRE/qKZOJXACm6tX4bA3Isy9KuKF15AgSRuRazNBOJfdDemPBU16/mpMxApDPrWvZ08DcLPEoRnuA=="],
 
     "@modelcontextprotocol/sdk/@hono/node-server": ["@hono/node-server@1.19.9", "", { "peerDependencies": { "hono": "^4" } }, "sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw=="],
 
@@ -5160,7 +5168,7 @@
 
     "bullmq/uuid": ["uuid@11.1.0", "", { "bin": { "uuid": "dist/esm/bin/uuid" } }, "sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A=="],
 
-    "bun-types/@types/node": ["@types/node@25.2.2", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-BkmoP5/FhRYek5izySdkOneRyXYN35I860MFAGupTdebyE66uZaR+bXLHq8k4DirE5DwQi3NuhvRU1jqTVwUrQ=="],
+    "bun-types/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
 
     "c12/chokidar": ["chokidar@3.6.0", "", { "dependencies": { "anymatch": "~3.1.2", "braces": "~3.0.2", "glob-parent": "~5.1.2", "is-binary-path": "~2.1.0", "is-glob": "~4.0.1", "normalize-path": "~3.0.0", "readdirp": "~3.6.0" }, "optionalDependencies": { "fsevents": "~2.3.2" } }, "sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw=="],
 
@@ -5464,6 +5472,8 @@
 
     "winston-transport/readable-stream": ["readable-stream@3.6.2", "", { "dependencies": { "inherits": "^2.0.3", "string_decoder": "^1.1.1", "util-deprecate": "^1.0.1" } }, "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA=="],
 
+    "workbench/@types/node": ["@types/node@25.7.0", "", { "dependencies": { "undici-types": "~7.21.0" } }, "sha512-z+pdZyxE+RTQE9AcboAZCb4otwcrvgHD+GlBpPgn0emDVt0ohrTMhAwlr2Wd9nZ+nihhYFxO2pThz3C5qSu2Eg=="],
+
     "workbench/lucide-react": ["lucide-react@1.7.0", "", { "peerDependencies": { "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-yI7BeItCLZJTXikmK4KNUGCKoGzSvbKlfCvw44bU4fXAL6v3gYS4uHD1jzsLkfwODYwI6Drw5Tu9Z5ulDe0TSg=="],
 
     "workbench/tailwind-merge": ["tailwind-merge@3.5.0", "", {}, "sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A=="],
@@ -5501,6 +5511,18 @@
     "@babel/helper-module-transforms/@babel/traverse/@babel/parser": ["@babel/parser@7.29.0", "", { "dependencies": { "@babel/types": "^7.29.0" }, "bin": "./bin/babel-parser.js" }, "sha512-IyDgFV5GeDUVX4YdF/3CPULtVGSXXMLh1xVIgdCgxApktqnQV0r7/8Nqthg+8YLGaAtdyIlo2qIdZrbCv4+7ww=="],
 
     "@browserbasehq/sdk/@types/node/undici-types": ["undici-types@5.26.5", "", {}, "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="],
+
+    "@cashpanel/encryption/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
+
+    "@cashpanel/job-client/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
+
+    "@cashpanel/mcp-apps/vite/picomatch": ["picomatch@4.0.4", "", {}, "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown": ["rolldown@1.0.0-rc.11", "", { "dependencies": { "@oxc-project/types": "=0.122.0", "@rolldown/pluginutils": "1.0.0-rc.11" }, "optionalDependencies": { "@rolldown/binding-android-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-x64": "1.0.0-rc.11", "@rolldown/binding-freebsd-x64": "1.0.0-rc.11", "@rolldown/binding-linux-arm-gnueabihf": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-musl": "1.0.0-rc.11", "@rolldown/binding-linux-ppc64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-s390x-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-musl": "1.0.0-rc.11", "@rolldown/binding-openharmony-arm64": "1.0.0-rc.11", "@rolldown/binding-wasm32-wasi": "1.0.0-rc.11", "@rolldown/binding-win32-arm64-msvc": "1.0.0-rc.11", "@rolldown/binding-win32-x64-msvc": "1.0.0-rc.11" }, "bin": { "rolldown": "bin/cli.mjs" } }, "sha512-NRjoKMusSjfRbSYiH3VSumlkgFe7kYAa3pzVOsVYVFY3zb5d7nS+a3KGQ7hJKXuYWbzJKPVQ9Wxq2UvyK+ENpw=="],
+
+    "@cashpanel/plans/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
+
+    "@cashpanel/website/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
 
     "@composio/core/chalk/ansi-styles": ["ansi-styles@4.3.0", "", { "dependencies": { "color-convert": "^2.0.1" } }, "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg=="],
 
@@ -5565,10 +5587,6 @@
     "@ibm-cloud/watsonx-ai/@types/node/undici-types": ["undici-types@5.26.5", "", {}, "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="],
 
     "@langchain/langgraph-sdk/p-queue/p-timeout": ["p-timeout@7.0.1", "", {}, "sha512-AxTM2wDGORHGEkPCt8yqxOTMgpfbEHqF51f/5fJCmwFC3C/zNcGT63SymH2ttOAaiIws2zVg4+izQCjrakcwHg=="],
-
-    "@midday/mcp-apps/vite/picomatch": ["picomatch@4.0.4", "", {}, "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A=="],
-
-    "@midday/mcp-apps/vite/rolldown": ["rolldown@1.0.0-rc.11", "", { "dependencies": { "@oxc-project/types": "=0.122.0", "@rolldown/pluginutils": "1.0.0-rc.11" }, "optionalDependencies": { "@rolldown/binding-android-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-x64": "1.0.0-rc.11", "@rolldown/binding-freebsd-x64": "1.0.0-rc.11", "@rolldown/binding-linux-arm-gnueabihf": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-musl": "1.0.0-rc.11", "@rolldown/binding-linux-ppc64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-s390x-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-musl": "1.0.0-rc.11", "@rolldown/binding-openharmony-arm64": "1.0.0-rc.11", "@rolldown/binding-wasm32-wasi": "1.0.0-rc.11", "@rolldown/binding-win32-arm64-msvc": "1.0.0-rc.11", "@rolldown/binding-win32-x64-msvc": "1.0.0-rc.11" }, "bin": { "rolldown": "bin/cli.mjs" } }, "sha512-NRjoKMusSjfRbSYiH3VSumlkgFe7kYAa3pzVOsVYVFY3zb5d7nS+a3KGQ7hJKXuYWbzJKPVQ9Wxq2UvyK+ENpw=="],
 
     "@opentelemetry/instrumentation-amqplib/@opentelemetry/instrumentation/@opentelemetry/api-logs": ["@opentelemetry/api-logs@0.213.0", "", { "dependencies": { "@opentelemetry/api": "^1.3.0" } }, "sha512-zRM5/Qj6G84Ej3F1yt33xBVY/3tnMxtL1fiDIxYbDWYaZ/eudVw3/PBiZ8G7JwUxXxjW8gU4g6LnOyfGKYHYgw=="],
 
@@ -5892,7 +5910,7 @@
 
     "archiver-utils/glob/path-scurry": ["path-scurry@1.11.1", "", { "dependencies": { "lru-cache": "^10.2.0", "minipass": "^5.0.0 || ^6.0.2 || ^7.0.0" } }, "sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA=="],
 
-    "bun-types/@types/node/undici-types": ["undici-types@7.16.0", "", {}, "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="],
+    "bun-types/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
 
     "c12/chokidar/glob-parent": ["glob-parent@5.1.2", "", { "dependencies": { "is-glob": "^4.0.1" } }, "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="],
 
@@ -6156,6 +6174,8 @@
 
     "webpack/mime-types/mime-db": ["mime-db@1.52.0", "", {}, "sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg=="],
 
+    "workbench/@types/node/undici-types": ["undici-types@7.21.0", "", {}, "sha512-w9IMgQrz4O0YN1LtB7K5P63vhlIOvC7opSmouCJ+ZywlPAlO9gIkJ+otk6LvGpAs2wg4econaCz3TvQ9xPoyuQ=="],
+
     "workbench/vite/picomatch": ["picomatch@4.0.4", "", {}, "sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A=="],
 
     "workbench/vite/rolldown": ["rolldown@1.0.0-rc.11", "", { "dependencies": { "@oxc-project/types": "=0.122.0", "@rolldown/pluginutils": "1.0.0-rc.11" }, "optionalDependencies": { "@rolldown/binding-android-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-arm64": "1.0.0-rc.11", "@rolldown/binding-darwin-x64": "1.0.0-rc.11", "@rolldown/binding-freebsd-x64": "1.0.0-rc.11", "@rolldown/binding-linux-arm-gnueabihf": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-arm64-musl": "1.0.0-rc.11", "@rolldown/binding-linux-ppc64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-s390x-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-gnu": "1.0.0-rc.11", "@rolldown/binding-linux-x64-musl": "1.0.0-rc.11", "@rolldown/binding-openharmony-arm64": "1.0.0-rc.11", "@rolldown/binding-wasm32-wasi": "1.0.0-rc.11", "@rolldown/binding-win32-arm64-msvc": "1.0.0-rc.11", "@rolldown/binding-win32-x64-msvc": "1.0.0-rc.11" }, "bin": { "rolldown": "bin/cli.mjs" } }, "sha512-NRjoKMusSjfRbSYiH3VSumlkgFe7kYAa3pzVOsVYVFY3zb5d7nS+a3KGQ7hJKXuYWbzJKPVQ9Wxq2UvyK+ENpw=="],
@@ -6166,6 +6186,38 @@
 
     "yargs/find-up/locate-path": ["locate-path@5.0.0", "", { "dependencies": { "p-locate": "^4.1.0" } }, "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="],
 
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.0.0-rc.11", "", { "os": "android", "cpu": "arm64" }, "sha512-SJ+/g+xNnOh6NqYxD0V3uVN4W3VfnrGsC9/hoglicgTNfABFG9JjISvkkU0dNY84MNHLWyOgxP9v9Y9pX4S7+A=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-darwin-arm64": ["@rolldown/binding-darwin-arm64@1.0.0-rc.11", "", { "os": "darwin", "cpu": "arm64" }, "sha512-7WQgR8SfOPwmDZGFkThUvsmd/nwAWv91oCO4I5LS7RKrssPZmOt7jONN0cW17ydGC1n/+puol1IpoieKqQidmg=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-darwin-x64": ["@rolldown/binding-darwin-x64@1.0.0-rc.11", "", { "os": "darwin", "cpu": "x64" }, "sha512-39Ks6UvIHq4rEogIfQBoBRusj0Q0nPVWIvqmwBLaT6aqQGIakHdESBVOPRRLacy4WwUPIx4ZKzfZ9PMW+IeyUQ=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-freebsd-x64": ["@rolldown/binding-freebsd-x64@1.0.0-rc.11", "", { "os": "freebsd", "cpu": "x64" }, "sha512-jfsm0ZHfhiqrvWjJAmzsqiIFPz5e7mAoCOPBNTcNgkiid/LaFKiq92+0ojH+nmJmKYkre4t71BWXUZDNp7vsag=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm-gnueabihf": ["@rolldown/binding-linux-arm-gnueabihf@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm" }, "sha512-zjQaUtSyq1nVe3nxmlSCuR96T1LPlpvmJ0SZy0WJFEsV4kFbXcq2u68L4E6O0XeFj4aex9bEauqjW8UQBeAvfQ=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm64-gnu": ["@rolldown/binding-linux-arm64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm64" }, "sha512-WMW1yE6IOnehTcFE9eipFkm3XN63zypWlrJQ2iF7NrQ9b2LDRjumFoOGJE8RJJTJCTBAdmLMnJ8uVitACUUo1Q=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm64-musl": ["@rolldown/binding-linux-arm64-musl@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm64" }, "sha512-jfndI9tsfm4APzjNt6QdBkYwre5lRPUgHeDHoI7ydKUuJvz3lZeCfMsI56BZj+7BYqiKsJm7cfd/6KYV7ubrBg=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-ppc64-gnu": ["@rolldown/binding-linux-ppc64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "ppc64" }, "sha512-ZlFgw46NOAGMgcdvdYwAGu2Q+SLFA9LzbJLW+iyMOJyhj5wk6P3KEE9Gct4xWwSzFoPI7JCdYmYMzVtlgQ+zfw=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-s390x-gnu": ["@rolldown/binding-linux-s390x-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "s390x" }, "sha512-hIOYmuT6ofM4K04XAZd3OzMySEO4K0/nc9+jmNcxNAxRi6c5UWpqfw3KMFV4MVFWL+jQsSh+bGw2VqmaPMTLyw=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-x64-gnu": ["@rolldown/binding-linux-x64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "x64" }, "sha512-qXBQQO9OvkjjQPLdUVr7Nr2t3QTZI7s4KZtfw7HzBgjbmAPSFwSv4rmET9lLSgq3rH/ndA3ngv3Qb8l2njoPNA=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-linux-x64-musl": ["@rolldown/binding-linux-x64-musl@1.0.0-rc.11", "", { "os": "linux", "cpu": "x64" }, "sha512-/tpFfoSTzUkH9LPY+cYbqZBDyyX62w5fICq9qzsHLL8uTI6BHip3Q9Uzft0wylk/i8OOwKik8OxW+QAhDmzwmg=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-openharmony-arm64": ["@rolldown/binding-openharmony-arm64@1.0.0-rc.11", "", { "os": "none", "cpu": "arm64" }, "sha512-mcp3Rio2w72IvdZG0oQ4bM2c2oumtwHfUfKncUM6zGgz0KgPz4YmDPQfnXEiY5t3+KD/i8HG2rOB/LxdmieK2g=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-wasm32-wasi": ["@rolldown/binding-wasm32-wasi@1.0.0-rc.11", "", { "dependencies": { "@napi-rs/wasm-runtime": "^1.1.1" }, "cpu": "none" }, "sha512-LXk5Hii1Ph9asuGRjBuz8TUxdc1lWzB7nyfdoRgI0WGPZKmCxvlKk8KfYysqtr4MfGElu/f/pEQRh8fcEgkrWw=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-win32-arm64-msvc": ["@rolldown/binding-win32-arm64-msvc@1.0.0-rc.11", "", { "os": "win32", "cpu": "arm64" }, "sha512-dDwf5otnx0XgRY1yqxOC4ITizcdzS/8cQ3goOWv3jFAo4F+xQYni+hnMuO6+LssHHdJW7+OCVL3CoU4ycnh35Q=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.0.0-rc.11", "", { "os": "win32", "cpu": "x64" }, "sha512-LN4/skhSggybX71ews7dAj6r2geaMJfm3kMbK2KhFMg9B10AZXnKoLCVVgzhMHL0S+aKtr4p8QbAW8k+w95bAA=="],
+
+    "@cashpanel/mcp-apps/vite/rolldown/@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-rc.11", "", {}, "sha512-xQO9vbwBecJRv9EUcQ/y0dzSTJgA7Q6UVN7xp6B81+tBGSLVAK03yJ9NkJaUA7JFD91kbjxRSC/mDnmvXzbHoQ=="],
+
     "@composio/core/chalk/supports-color/has-flag": ["has-flag@4.0.0", "", {}, "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ=="],
 
     "@fastify/otel/@opentelemetry/instrumentation/import-in-the-middle/cjs-module-lexer": ["cjs-module-lexer@2.2.0", "", {}, "sha512-4bHTS2YuzUvtoLjdy+98ykbNB5jS0+07EvFNXerqZQJ89F7DI6ET7OQo/HJuW6K0aVsKA9hj9/RVb2kQVOrPDQ=="],
@@ -6173,38 +6225,6 @@
     "@fastify/otel/minimatch/brace-expansion/balanced-match": ["balanced-match@4.0.4", "", {}, "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA=="],
 
     "@fastify/static/glob/path-scurry/lru-cache": ["lru-cache@11.2.5", "", {}, "sha512-vFrFJkWtJvJnD5hg+hJvVE8Lh/TcMzKnTgCWmtBipwI5yLX/iX+5UB2tfuyODF5E7k9xEzMdYgGqaSb1c0c5Yw=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-android-arm64": ["@rolldown/binding-android-arm64@1.0.0-rc.11", "", { "os": "android", "cpu": "arm64" }, "sha512-SJ+/g+xNnOh6NqYxD0V3uVN4W3VfnrGsC9/hoglicgTNfABFG9JjISvkkU0dNY84MNHLWyOgxP9v9Y9pX4S7+A=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-darwin-arm64": ["@rolldown/binding-darwin-arm64@1.0.0-rc.11", "", { "os": "darwin", "cpu": "arm64" }, "sha512-7WQgR8SfOPwmDZGFkThUvsmd/nwAWv91oCO4I5LS7RKrssPZmOt7jONN0cW17ydGC1n/+puol1IpoieKqQidmg=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-darwin-x64": ["@rolldown/binding-darwin-x64@1.0.0-rc.11", "", { "os": "darwin", "cpu": "x64" }, "sha512-39Ks6UvIHq4rEogIfQBoBRusj0Q0nPVWIvqmwBLaT6aqQGIakHdESBVOPRRLacy4WwUPIx4ZKzfZ9PMW+IeyUQ=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-freebsd-x64": ["@rolldown/binding-freebsd-x64@1.0.0-rc.11", "", { "os": "freebsd", "cpu": "x64" }, "sha512-jfsm0ZHfhiqrvWjJAmzsqiIFPz5e7mAoCOPBNTcNgkiid/LaFKiq92+0ojH+nmJmKYkre4t71BWXUZDNp7vsag=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm-gnueabihf": ["@rolldown/binding-linux-arm-gnueabihf@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm" }, "sha512-zjQaUtSyq1nVe3nxmlSCuR96T1LPlpvmJ0SZy0WJFEsV4kFbXcq2u68L4E6O0XeFj4aex9bEauqjW8UQBeAvfQ=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm64-gnu": ["@rolldown/binding-linux-arm64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm64" }, "sha512-WMW1yE6IOnehTcFE9eipFkm3XN63zypWlrJQ2iF7NrQ9b2LDRjumFoOGJE8RJJTJCTBAdmLMnJ8uVitACUUo1Q=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-arm64-musl": ["@rolldown/binding-linux-arm64-musl@1.0.0-rc.11", "", { "os": "linux", "cpu": "arm64" }, "sha512-jfndI9tsfm4APzjNt6QdBkYwre5lRPUgHeDHoI7ydKUuJvz3lZeCfMsI56BZj+7BYqiKsJm7cfd/6KYV7ubrBg=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-ppc64-gnu": ["@rolldown/binding-linux-ppc64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "ppc64" }, "sha512-ZlFgw46NOAGMgcdvdYwAGu2Q+SLFA9LzbJLW+iyMOJyhj5wk6P3KEE9Gct4xWwSzFoPI7JCdYmYMzVtlgQ+zfw=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-s390x-gnu": ["@rolldown/binding-linux-s390x-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "s390x" }, "sha512-hIOYmuT6ofM4K04XAZd3OzMySEO4K0/nc9+jmNcxNAxRi6c5UWpqfw3KMFV4MVFWL+jQsSh+bGw2VqmaPMTLyw=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-x64-gnu": ["@rolldown/binding-linux-x64-gnu@1.0.0-rc.11", "", { "os": "linux", "cpu": "x64" }, "sha512-qXBQQO9OvkjjQPLdUVr7Nr2t3QTZI7s4KZtfw7HzBgjbmAPSFwSv4rmET9lLSgq3rH/ndA3ngv3Qb8l2njoPNA=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-linux-x64-musl": ["@rolldown/binding-linux-x64-musl@1.0.0-rc.11", "", { "os": "linux", "cpu": "x64" }, "sha512-/tpFfoSTzUkH9LPY+cYbqZBDyyX62w5fICq9qzsHLL8uTI6BHip3Q9Uzft0wylk/i8OOwKik8OxW+QAhDmzwmg=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-openharmony-arm64": ["@rolldown/binding-openharmony-arm64@1.0.0-rc.11", "", { "os": "none", "cpu": "arm64" }, "sha512-mcp3Rio2w72IvdZG0oQ4bM2c2oumtwHfUfKncUM6zGgz0KgPz4YmDPQfnXEiY5t3+KD/i8HG2rOB/LxdmieK2g=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-wasm32-wasi": ["@rolldown/binding-wasm32-wasi@1.0.0-rc.11", "", { "dependencies": { "@napi-rs/wasm-runtime": "^1.1.1" }, "cpu": "none" }, "sha512-LXk5Hii1Ph9asuGRjBuz8TUxdc1lWzB7nyfdoRgI0WGPZKmCxvlKk8KfYysqtr4MfGElu/f/pEQRh8fcEgkrWw=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-win32-arm64-msvc": ["@rolldown/binding-win32-arm64-msvc@1.0.0-rc.11", "", { "os": "win32", "cpu": "arm64" }, "sha512-dDwf5otnx0XgRY1yqxOC4ITizcdzS/8cQ3goOWv3jFAo4F+xQYni+hnMuO6+LssHHdJW7+OCVL3CoU4ycnh35Q=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/binding-win32-x64-msvc": ["@rolldown/binding-win32-x64-msvc@1.0.0-rc.11", "", { "os": "win32", "cpu": "x64" }, "sha512-LN4/skhSggybX71ews7dAj6r2geaMJfm3kMbK2KhFMg9B10AZXnKoLCVVgzhMHL0S+aKtr4p8QbAW8k+w95bAA=="],
-
-    "@midday/mcp-apps/vite/rolldown/@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-rc.11", "", {}, "sha512-xQO9vbwBecJRv9EUcQ/y0dzSTJgA7Q6UVN7xp6B81+tBGSLVAK03yJ9NkJaUA7JFD91kbjxRSC/mDnmvXzbHoQ=="],
 
     "@opentelemetry/instrumentation-amqplib/@opentelemetry/instrumentation/import-in-the-middle/cjs-module-lexer": ["cjs-module-lexer@2.2.0", "", {}, "sha512-4bHTS2YuzUvtoLjdy+98ykbNB5jS0+07EvFNXerqZQJ89F7DI6ET7OQo/HJuW6K0aVsKA9hj9/RVb2kQVOrPDQ=="],
 

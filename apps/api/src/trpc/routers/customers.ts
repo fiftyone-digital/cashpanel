@@ -25,9 +25,9 @@ import {
   toggleCustomerPortal,
   updateCustomerEnrichmentStatus,
   upsertCustomer,
-} from "@midday/db/queries";
-import { triggerJob } from "@midday/job-client";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { triggerJob } from "@cashpanel/job-client";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { TRPCError } from "@trpc/server";
 
 const logger = createLoggerWithContext("trpc:customers");

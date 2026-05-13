@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@midday/ui/card";
+} from "@cashpanel/ui/card";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 export function ChangeTheme() {
@@ -13,7 +13,7 @@ export function ChangeTheme() {
       <CardHeader>
         <CardTitle>Appearance</CardTitle>
         <CardDescription>
-          Customize how Midday looks on your device.
+          Customize how CashPanel looks on your device.
         </CardDescription>
       </CardHeader>
 

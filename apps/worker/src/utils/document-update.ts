@@ -1,9 +1,9 @@
-import type { Database } from "@midday/db/client";
+import type { Database } from "@cashpanel/db/client";
 import {
   type UpdateDocumentByPathParams,
   updateDocumentByPath,
-} from "@midday/db/queries";
-import type { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import type { createLoggerWithContext } from "@cashpanel/logger";
 
 /**
  * Update a document by path with retry logic for race conditions.

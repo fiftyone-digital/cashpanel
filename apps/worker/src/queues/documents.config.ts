@@ -1,5 +1,5 @@
-import { updateDocumentByPath } from "@midday/db/queries";
-import { createLoggerWithContext } from "@midday/logger";
+import { updateDocumentByPath } from "@cashpanel/db/queries";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import type { QueueOptions, WorkerOptions } from "bullmq";
 import { getRedisConnection } from "../config";
 import type { JobInfo, QueueConfig } from "../types/queue-config";

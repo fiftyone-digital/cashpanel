@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { Checkbox } from "@midday/ui/checkbox";
-import { Icons } from "@midday/ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@midday/ui/popover";
+import { Button } from "@cashpanel/ui/button";
+import { Checkbox } from "@cashpanel/ui/checkbox";
+import { Icons } from "@cashpanel/ui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@cashpanel/ui/popover";
 import { useTransactionsStore } from "@/store/transactions";
 
 export function TransactionsColumnVisibility() {

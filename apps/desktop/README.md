@@ -1,6 +1,6 @@
-# Midday Desktop App
+# CashPanel Desktop App
 
-A Tauri-based desktop application for Midday that supports multiple environments with a native transparent titlebar on macOS.
+A Tauri-based desktop application for CashPanel that supports multiple environments with a native transparent titlebar on macOS.
 
 ## Features
 
@@ -13,8 +13,8 @@ A Tauri-based desktop application for Midday that supports multiple environments
 The desktop app supports three environments, each loading a different URL:
 
 - **Development**: `http://localhost:3001`
-- **Staging**: `https://beta.midday.ai`
-- **Production**: `https://app.midday.ai`
+- **Staging**: `https://beta.cashpanel.io`
+- **Production**: `https://app.cashpanel.io`
 
 ## Running the App
 
@@ -26,13 +26,13 @@ bun run tauri:dev
 
 ### Staging Mode
 ```bash
-# Run in staging environment (loads beta.midday.ai)
+# Run in staging environment (loads beta.cashpanel.io)
 bun run tauri:staging
 ```
 
 ### Production Mode
 ```bash
-# Run in production environment (loads app.midday.ai)
+# Run in production environment (loads app.cashpanel.io)
 bun run tauri:prod
 ```
 
@@ -55,11 +55,11 @@ bun run tauri:build:prod
 
 ## Environment Variable
 
-The environment is controlled by the `MIDDAY_ENV` environment variable:
+The environment is controlled by the `CASHPANEL_ENV` environment variable:
 
 - `development` or `dev` → `http://localhost:3001`
-- `staging` → `https://beta.midday.ai`
-- `production` or `prod` → `https://app.midday.ai`
+- `staging` → `https://beta.cashpanel.io`
+- `production` or `prod` → `https://app.cashpanel.io`
 
 If no environment is specified, it defaults to development mode.
 
@@ -69,11 +69,11 @@ You can also set the environment manually:
 
 ```bash
 # macOS/Linux
-MIDDAY_ENV=staging tauri dev
+CASHPANEL_ENV=staging tauri dev
 
 # Windows (PowerShell)
-$env:MIDDAY_ENV="staging"; tauri dev
+$env:CASHPANEL_ENV="staging"; tauri dev
 
 # Windows (Command Prompt)
-set MIDDAY_ENV=staging && tauri dev
+set CASHPANEL_ENV=staging && tauri dev
 ```

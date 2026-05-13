@@ -10,10 +10,10 @@ import {
   deleteInboxAccount,
   getInboxAccountById,
   getInboxAccounts,
-} from "@midday/db/queries";
-import { InboxConnector } from "@midday/inbox/connector";
-import { encryptOAuthState } from "@midday/inbox/utils";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { InboxConnector } from "@cashpanel/inbox/connector";
+import { encryptOAuthState } from "@cashpanel/inbox/utils";
+import { createLoggerWithContext } from "@cashpanel/logger";
 import { schedules, tasks } from "@trigger.dev/sdk";
 import { TRPCError } from "@trpc/server";
 

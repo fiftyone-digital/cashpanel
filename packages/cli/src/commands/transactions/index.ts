@@ -49,11 +49,11 @@ export function createTransactionsCommand(): Command {
       "after",
       `
 Examples:
-  midday transactions list
-  midday transactions list --from 2026-01-01 --to 2026-03-31
-  midday transactions list --search "Spotify" --json
-  midday transactions list --category software --page-size 50
-  midday transactions list --cursor abc123`,
+  cashpanel transactions list
+  cashpanel transactions list --from 2026-01-01 --to 2026-03-31
+  cashpanel transactions list --search "Spotify" --json
+  cashpanel transactions list --category software --page-size 50
+  cashpanel transactions list --cursor abc123`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -103,7 +103,7 @@ Examples:
             rows,
             pageInfo:
               data.meta?.hasNextPage && data.meta?.cursor
-                ? `Next page: midday transactions list --cursor ${data.meta.cursor}`
+                ? `Next page: cashpanel transactions list --cursor ${data.meta.cursor}`
                 : undefined,
           });
         }
@@ -120,8 +120,8 @@ Examples:
       "after",
       `
 Examples:
-  midday transactions get txn_abc123
-  midday transactions get txn_abc123 --json`,
+  cashpanel transactions get txn_abc123
+  cashpanel transactions get txn_abc123 --json`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -171,9 +171,9 @@ Examples:
       "after",
       `
 Examples:
-  midday transactions create --name "Office Supplies" --amount -49.99 --currency USD --account acc_123
-  midday transactions create --name "Client Payment" --amount 5000 --currency USD --account acc_123 --date 2026-03-01
-  cat txn.json | midday transactions create --stdin`,
+  cashpanel transactions create --name "Office Supplies" --amount -49.99 --currency USD --account acc_123
+  cashpanel transactions create --name "Client Payment" --amount 5000 --currency USD --account acc_123 --date 2026-03-01
+  cat txn.json | cashpanel transactions create --stdin`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -237,9 +237,9 @@ Examples:
       "after",
       `
 Examples:
-  midday transactions update txn_abc123 --category software
-  midday transactions update txn_abc123 --name "Updated Name" --category travel
-  cat update.json | midday transactions update txn_abc123 --stdin`,
+  cashpanel transactions update txn_abc123 --category software
+  cashpanel transactions update txn_abc123 --name "Updated Name" --category travel
+  cat update.json | cashpanel transactions update txn_abc123 --stdin`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -293,9 +293,9 @@ Examples:
       "after",
       `
 Examples:
-  midday transactions delete txn_abc123
-  midday transactions delete txn_abc123 --yes
-  midday transactions delete txn_abc123 --dry-run`,
+  cashpanel transactions delete txn_abc123
+  cashpanel transactions delete txn_abc123 --yes
+  cashpanel transactions delete txn_abc123 --dry-run`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

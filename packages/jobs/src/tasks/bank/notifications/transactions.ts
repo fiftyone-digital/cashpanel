@@ -1,6 +1,6 @@
+import { Notifications } from "@cashpanel/notifications";
+import { createClient } from "@cashpanel/supabase/job";
 import { getDb } from "@jobs/init";
-import { Notifications } from "@midday/notifications";
-import { createClient } from "@midday/supabase/job";
 import { logger, schemaTask } from "@trigger.dev/sdk";
 import { parseISO } from "date-fns";
 import { z } from "zod";

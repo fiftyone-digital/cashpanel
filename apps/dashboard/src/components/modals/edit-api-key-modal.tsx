@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@midday/ui/dialog";
+} from "@cashpanel/ui/dialog";
 import { ApiKeyForm } from "@/components/forms/api-key-form";
 import { useTokenModalStore } from "@/store/token-modal";
 

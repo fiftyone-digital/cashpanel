@@ -1,7 +1,7 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { Table, TableBody } from "@midday/ui/table";
+import { LogEvents } from "@cashpanel/events/events";
+import { Table, TableBody } from "@cashpanel/ui/table";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { useMutation, useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { useDeferredValue, useEffect } from "react";

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "bun:test";
-import { REVENUE_CATEGORIES } from "@midday/categories";
+import { REVENUE_CATEGORIES } from "@cashpanel/categories";
 import type { Database } from "../client";
 import {
   getBalanceSheet,

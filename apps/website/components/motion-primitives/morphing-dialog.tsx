@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@midday/ui/cn";
+import { cn } from "@cashpanel/ui/cn";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import {
   AnimatePresence,

@@ -1,7 +1,7 @@
 "use client";
 
-import { ToastAction } from "@midday/ui/toast";
-import { toast } from "@midday/ui/use-toast";
+import { ToastAction } from "@cashpanel/ui/toast";
+import { toast } from "@cashpanel/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useInvalidateTransactionQueries } from "@/hooks/use-invalidate-transaction-queries";
 import { useTRPC } from "@/trpc/client";
@@ -88,7 +88,7 @@ export function useUpdateTransactionCategory(
       toast({
         duration: 6000,
         variant: "ai",
-        title: "Midday AI",
+        title: "CashPanel AI",
         description: `We found ${similarTransactions.length} similar transactions to "${transactionName}". Mark them as ${category.name} too?`,
         footer: (
           <div className="flex space-x-2 mt-4">

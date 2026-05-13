@@ -4,7 +4,7 @@ import { openai } from "@ai-sdk/openai";
 import { createMcpServer } from "@api/mcp/server";
 import type { McpContext } from "@api/mcp/types";
 import { expandScopes } from "@api/utils/scopes";
-import { logger } from "@midday/logger";
+import { logger } from "@cashpanel/logger";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 import type { PrepareStepFunction, Tool } from "ai";
 import type { ToolIndex } from "toolpick";
@@ -26,7 +26,7 @@ async function bootstrapTools(ctx: McpContext) {
 
   const client = await createMCPClient({
     transport: clientTransport,
-    name: "midday-bootstrap",
+    name: "cashpanel-bootstrap",
   });
 
   const definitions = await client.listTools();
@@ -131,7 +131,7 @@ export function warmToolIndex(): void {
     userId: "warmup",
     userEmail: null,
     scopes: expandScopes(["apis.all"]) as McpContext["scopes"],
-    apiUrl: process.env.MIDDAY_API_URL ?? "https://api.midday.ai",
+    apiUrl: process.env.CASHPANEL_API_URL ?? "https://api.cashpanel.io",
     timezone: "UTC",
     locale: "en",
     countryCode: null,
@@ -156,6 +156,6 @@ export async function createExecutionClient(ctx: McpContext) {
   await mcpServer.connect(serverTransport);
   return createMCPClient({
     transport: clientTransport,
-    name: "midday-chat",
+    name: "cashpanel-chat",
   });
 }

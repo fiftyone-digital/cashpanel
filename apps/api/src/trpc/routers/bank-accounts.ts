@@ -18,7 +18,7 @@ import {
   getBankAccountsWithPaymentInfo,
   getTransactionCountByBankAccountId,
   updateBankAccount,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 
 export const bankAccountsRouter = createTRPCRouter({
   get: protectedProcedure

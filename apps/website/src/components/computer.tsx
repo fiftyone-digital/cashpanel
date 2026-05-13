@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
-import { Icons } from "@midday/ui/icons";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
+import { Icons } from "@cashpanel/ui/icons";
 import Link from "next/link";
 import type React from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -37,7 +37,7 @@ function InfraDiagram() {
       {"│\n"}
       {" │"}
       {d("░░░░░░░░░░░░░░░░░░░░░░░░░░░")}
-      {"  Midday Computer  "}
+      {"  CashPanel Computer  "}
       {d("░░░░░░░░░░░░░░░░░░░░░░░")}
       {"│\n"}
       {" │"}
@@ -98,7 +98,7 @@ function CopyInstall() {
   const [copied, setCopied] = useState(false);
 
   const copyCommand = () => {
-    navigator.clipboard.writeText("npx @midday-ai/cli@latest computer");
+    navigator.clipboard.writeText("npx @cashpanel-ai/cli@latest computer");
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
@@ -114,7 +114,7 @@ function CopyInstall() {
       }}
     >
       <span className="text-foreground truncate">
-        $ npx @midday-ai/cli@latest computer
+        $ npx @cashpanel-ai/cli@latest computer
       </span>
 
       <div className="flex items-center space-x-2 ml-auto">
@@ -171,8 +171,8 @@ const g = (text: string) => <span className="text-foreground">{text}</span>;
 const SCENARIOS: Scenario[] = [
   {
     label: "Create agent",
-    cmd1: 'midday computer create "close my books at the end of every month"',
-    cmd2: "midday computer confirm",
+    cmd1: 'cashpanel computer create "close my books at the end of every month"',
+    cmd2: "cashpanel computer confirm",
     spin1: "Generating agent...",
     spin2: "Deploying agent...",
     done2: "Deploying agent...",
@@ -196,7 +196,7 @@ const SCENARIOS: Scenario[] = [
             </span>
           </div>
           <div className="pt-1 text-[11px] text-muted-foreground">
-            Run `midday computer confirm` to deploy.
+            Run `cashpanel computer confirm` to deploy.
           </div>
         </div>
       </div>
@@ -209,8 +209,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Weekly briefing",
-    cmd1: "midday computer run weekly-briefing --wait",
-    cmd2: "midday computer memory weekly-briefing",
+    cmd1: "cashpanel computer run weekly-briefing --wait",
+    cmd2: "cashpanel computer memory weekly-briefing",
     spin1: "Running Weekly Briefing...",
     spin2: "Fetching memory...",
     done2: "Fetching memory...",
@@ -234,8 +234,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Chase invoices",
-    cmd1: "midday computer proposals invoice-chaser",
-    cmd2: "midday computer approve invoice-chaser run_182",
+    cmd1: "cashpanel computer proposals invoice-chaser",
+    cmd2: "cashpanel computer approve invoice-chaser run_182",
     spin1: "Fetching proposals...",
     spin2: "Sending reminders...",
     done2: "Sending reminders...",
@@ -279,8 +279,8 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Expense alert",
-    cmd1: "midday computer run expense-detector --wait",
-    cmd2: "midday computer logs expense-detector",
+    cmd1: "cashpanel computer run expense-detector --wait",
+    cmd2: "cashpanel computer logs expense-detector",
     spin1: "Running Expense Detector...",
     spin2: "Fetching run history...",
     done2: "Fetching run history...",
@@ -440,7 +440,7 @@ function Terminal() {
             <span className="block w-2 h-2 rounded-full bg-[hsl(0,0%,25%)]" />
           </div>
           <span className="flex-1 text-center text-[10px] tracking-wide text-foreground -ml-10">
-            midday computer — zsh
+            cashpanel computer — zsh
           </span>
         </div>
 
@@ -468,7 +468,7 @@ function Terminal() {
           className="overflow-y-auto h-[380px] md:h-[460px] scroll-smooth p-5 bg-background text-[13px] leading-[1.7] text-foreground"
         >
           <div className="text-[hsl(0,0%,55%)] text-[10px] tracking-widest mb-5">
-            midday computer v0.1.0 · agent@acme.corp
+            cashpanel computer v0.1.0 · agent@acme.corp
           </div>
 
           <div>
@@ -515,7 +515,7 @@ const features = [
   {
     title: "You describe, it builds",
     description:
-      "Tell Midday what you need in plain English. It builds the agent, shows you the plan, and deploys when you're ready.",
+      "Tell CashPanel what you need in plain English. It builds the agent, shows you the plan, and deploys when you're ready.",
   },
   {
     title: "Ready-made agents",
@@ -540,7 +540,7 @@ const features = [
   {
     title: "Access to all your data",
     description:
-      "Invoices, transactions, customers, reports, bank accounts, and more. Agents work with everything Midday knows about your business.",
+      "Invoices, transactions, customers, reports, bank accounts, and more. Agents work with everything CashPanel knows about your business.",
   },
   {
     title: "Thinks, not just executes",
@@ -626,13 +626,13 @@ const howItWorks = [
     step: "01",
     title: "Describe",
     description:
-      "Tell Midday what you need in plain English, or pick a ready-made agent from the catalog.",
+      "Tell CashPanel what you need in plain English, or pick a ready-made agent from the catalog.",
   },
   {
     step: "02",
     title: "Review",
     description:
-      "Midday builds the agent and shows you the plan. You confirm when it looks right.",
+      "CashPanel builds the agent and shows you the plan. You confirm when it looks right.",
   },
   {
     step: "03",
@@ -702,7 +702,9 @@ function PromptShowcase() {
             "repeating-linear-gradient(-60deg, hsla(var(--border), 0.4), hsla(var(--border), 0.4) 1px, transparent 1px, transparent 6px)",
         }}
       >
-        <span className="text-muted-foreground">$ midday computer create </span>
+        <span className="text-muted-foreground">
+          $ cashpanel computer create{" "}
+        </span>
         &quot;{displayed}
         {cursor}&quot;
       </div>
@@ -727,9 +729,9 @@ export function Computer() {
               The operating system for your business.
             </h1>
             <p className="text-base leading-normal mt-4 md:mt-8 text-muted-foreground">
-              Midday Computer puts your business on autopilot. Agents that run
-              on your schedule, learn over time, and take care of the work you
-              keep putting off.
+              CashPanel Computer puts your business on autopilot. Agents that
+              run on your schedule, learn over time, and take care of the work
+              you keep putting off.
             </p>
           </div>
 
@@ -742,14 +744,14 @@ export function Computer() {
               asChild
               className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(0,0%,85%)]"
             >
-              <Link href="https://app.midday.ai">Get started</Link>
+              <Link href="https://app.cashpanel.io">Get started</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               className="hidden md:inline-flex h-11 px-6 text-sm font-mono hover:!bg-[hsl(0,0%,15%)] hover:!text-foreground"
             >
-              <Link href="https://github.com/midday-ai/midday/tree/main/packages/cli">
+              <Link href="https://github.com/fiftyone-digital/cashpanel/tree/main/packages/cli">
                 View documentation
               </Link>
             </Button>
@@ -925,7 +927,7 @@ export function Computer() {
             asChild
             className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(0,0%,85%)]"
           >
-            <Link href="https://app.midday.ai">Get started</Link>
+            <Link href="https://app.cashpanel.io">Get started</Link>
           </Button>
         </div>
 
@@ -939,8 +941,8 @@ export function Computer() {
             How it works
           </h2>
           <p className="text-base leading-normal mt-4 max-w-md mx-auto text-muted-foreground">
-            You describe what you need. Midday builds the agent, runs it on your
-            schedule, and delivers results.
+            You describe what you need. CashPanel builds the agent, runs it on
+            your schedule, and delivers results.
           </p>
 
           <div className="hidden md:flex flex-col items-center justify-center mt-2">
@@ -976,22 +978,22 @@ export function Computer() {
               Get started
             </h2>
             <p className="font-sans text-base mb-6 max-w-lg mx-auto text-muted-foreground">
-              Midday Computer puts your business on autopilot. Describe what you
-              need and it takes care of the rest.
+              CashPanel Computer puts your business on autopilot. Describe what
+              you need and it takes care of the rest.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
                 asChild
                 className="h-11 px-6 text-sm font-mono hover:!bg-[hsl(0,0%,85%)]"
               >
-                <Link href="https://app.midday.ai">Get started</Link>
+                <Link href="https://app.cashpanel.io">Get started</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="h-11 px-6 text-sm font-mono border-primary bg-background hover:!bg-[hsl(0,0%,15%)] hover:!text-foreground"
               >
-                <Link href="https://github.com/midday-ai/midday/tree/main/packages/cli">
+                <Link href="https://github.com/fiftyone-digital/cashpanel/tree/main/packages/cli">
                   View documentation
                 </Link>
               </Button>

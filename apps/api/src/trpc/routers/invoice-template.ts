@@ -9,7 +9,7 @@ import {
   getInvoiceTemplates,
   setDefaultTemplate,
   upsertInvoiceTemplate,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 
 export const invoiceTemplateRouter = createTRPCRouter({

@@ -22,8 +22,8 @@ export function createTagsCommand(): Command {
       "after",
       `
 Examples:
-  midday tags list
-  midday tags list --json`,
+  cashpanel tags list
+  cashpanel tags list --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -65,8 +65,8 @@ Examples:
       "after",
       `
 Examples:
-  midday tags create --name "Q1-2026"
-  midday tags create --name "priority"`,
+  cashpanel tags create --name "Q1-2026"
+  cashpanel tags create --name "priority"`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -105,7 +105,7 @@ Examples:
       "after",
       `
 Examples:
-  midday tags delete tag_abc123`,
+  cashpanel tags delete tag_abc123`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

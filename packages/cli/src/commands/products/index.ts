@@ -26,8 +26,8 @@ export function createProductsCommand(): Command {
       "after",
       `
 Examples:
-  midday products list
-  midday products list --json`,
+  cashpanel products list
+  cashpanel products list --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -78,8 +78,8 @@ Examples:
       "after",
       `
 Examples:
-  midday products create --name "Consulting" --price 150 --unit hours
-  midday products create --name "License Fee" --price 99 --currency EUR`,
+  cashpanel products create --name "Consulting" --price 150 --unit hours
+  cashpanel products create --name "License Fee" --price 99 --currency EUR`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -136,8 +136,8 @@ Examples:
       "after",
       `
 Examples:
-  midday products update prod_abc123 --price 175
-  midday products update prod_abc123 --name "Senior Consulting" --price 200`,
+  cashpanel products update prod_abc123 --price 175
+  cashpanel products update prod_abc123 --name "Senior Consulting" --price 200`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -190,7 +190,7 @@ Examples:
       "after",
       `
 Examples:
-  midday products delete prod_abc123`,
+  cashpanel products delete prod_abc123`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

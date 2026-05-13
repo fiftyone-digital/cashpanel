@@ -1,6 +1,6 @@
-import { teamCache } from "@midday/cache/team-cache";
-import type { Database } from "@midday/db/client";
-import { hasTeamAccess } from "@midday/db/queries";
+import { teamCache } from "@cashpanel/cache/team-cache";
+import type { Database } from "@cashpanel/db/client";
+import { hasTeamAccess } from "@cashpanel/db/queries";
 import { HTTPException } from "hono/http-exception";
 
 /**

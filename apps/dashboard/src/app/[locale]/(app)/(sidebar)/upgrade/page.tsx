@@ -7,7 +7,7 @@ import { getQueryClient, trpc } from "@/trpc/server";
 import { getTrialDaysLeft } from "@/utils/trial";
 
 export const metadata: Metadata = {
-  title: "Upgrade | Midday",
+  title: "Upgrade | CashPanel",
 };
 
 export default async function UpgradePage() {
@@ -28,7 +28,7 @@ export default async function UpgradePage() {
       <div className="w-full max-w-[960px] p-8">
         <div className="mb-8 md:mt-8 text-center">
           <h1 className="font-serif text-2xl text-foreground mb-2">
-            Continue with Midday
+            Continue with CashPanel
           </h1>
           <p className="font-sans text-base text-muted-foreground leading-normal">
             {trialEnded
@@ -48,7 +48,7 @@ export default async function UpgradePage() {
           </Link>{" "}
           or{" "}
           <OpenURL
-            href="https://cal.com/pontus-midday/15min"
+            href="https://cal.com/pontus-cashpanel/15min"
             className="hover:underline"
           >
             book a call with the founders

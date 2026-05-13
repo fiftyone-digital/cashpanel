@@ -1,5 +1,5 @@
+import { inbox } from "@cashpanel/db/schema";
 import { getDb } from "@jobs/init";
-import { inbox } from "@midday/db/schema";
 import { logger, schedules } from "@trigger.dev/sdk";
 import { subDays } from "date-fns";
 import { and, eq, lt, sql } from "drizzle-orm";

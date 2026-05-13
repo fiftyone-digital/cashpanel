@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, mock, test } from "bun:test";
 import { mocks } from "../setup";
 
-const streamMiddayAssistantMock = mock(() =>
+const streamCashPanelAssistantMock = mock(() =>
   Promise.resolve({
     fullStream: "assistant reply",
     cleanup: () => Promise.resolve(),
@@ -18,7 +18,7 @@ let slackDmMessageHandler:
   | undefined;
 
 mock.module("@api/chat/assistant-runtime", () => ({
-  streamMiddayAssistant: streamMiddayAssistantMock,
+  streamCashPanelAssistant: streamCashPanelAssistantMock,
 }));
 
 mock.module("@api/chat/prompt", () => ({
@@ -33,7 +33,7 @@ mock.module("chat", () => ({
   toAiMessages: toAiMessagesMock,
 }));
 
-mock.module("@midday/logger", () => ({
+mock.module("@cashpanel/logger", () => ({
   createLoggerWithContext: () => ({
     info: mock(() => undefined),
     error: mock(() => undefined),
@@ -44,7 +44,7 @@ mock.module("@midday/logger", () => ({
   }),
 }));
 
-mock.module("@midday/bot", () => ({
+mock.module("@cashpanel/bot", () => ({
   bot: {
     onNewMention: mock(() => undefined),
     onSubscribedMessage: mock(
@@ -74,9 +74,9 @@ mock.module("@midday/bot", () => ({
   processInboxUpload: mock(() => Promise.resolve(null)),
 }));
 
-const { registerMiddayBotRuntime } = await import("../../bot/runtime");
+const { registerCashPanelBotRuntime } = await import("../../bot/runtime");
 
-registerMiddayBotRuntime();
+registerCashPanelBotRuntime();
 
 function createLinkedUser() {
   return {
@@ -89,7 +89,7 @@ function createLinkedUser() {
     fullName: "Test User",
     team: {
       baseCurrency: "USD",
-      name: "Midday Test Team",
+      name: "CashPanel Test Team",
       countryCode: "US",
     },
   };
@@ -128,7 +128,7 @@ function primeCommonLinkingMocks() {
   mocks.hasTeamAccess.mockImplementation(() => Promise.resolve(true));
   mocks.getTeamById.mockReset();
   mocks.getTeamById.mockImplementation(() =>
-    Promise.resolve({ name: "Midday Test Team" }),
+    Promise.resolve({ name: "CashPanel Test Team" }),
   );
   mocks.getUserById.mockReset();
   mocks.getUserById.mockImplementation(() =>
@@ -139,8 +139,8 @@ function primeCommonLinkingMocks() {
     Promise.resolve({ id: "identity_123" }),
   );
 
-  streamMiddayAssistantMock.mockReset();
-  streamMiddayAssistantMock.mockImplementation(() =>
+  streamCashPanelAssistantMock.mockReset();
+  streamCashPanelAssistantMock.mockImplementation(() =>
     Promise.resolve({
       fullStream: "assistant reply",
       cleanup: () => Promise.resolve(),
@@ -196,7 +196,7 @@ describe("bot runtime link-code consumption", () => {
     const { posts, thread } = createThread("whatsapp");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: abc12345",
+      text: "Connect to CashPanel: abc12345",
       author: {
         userId: "+15551234567",
         fullName: "WhatsApp User",
@@ -208,9 +208,9 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to Midday Test Team. You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from WhatsApp.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 WhatsApp \u2192 Settings in Midday.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
+      "Connected to CashPanel Test Team. You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from WhatsApp.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 WhatsApp \u2192 Settings in CashPanel.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
     expect(toAiMessagesMock).not.toHaveBeenCalled();
     expect(mocks.getUserById).not.toHaveBeenCalled();
     expect(thread.startTyping).not.toHaveBeenCalled();
@@ -242,9 +242,9 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to Midday Test Team. You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from Telegram.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 Telegram \u2192 Settings in Midday.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
+      "Connected to CashPanel Test Team. You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from Telegram.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 Telegram \u2192 Settings in CashPanel.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
     expect(toAiMessagesMock).not.toHaveBeenCalled();
     expect(mocks.getUserById).not.toHaveBeenCalled();
     expect(thread.startTyping).not.toHaveBeenCalled();
@@ -254,7 +254,7 @@ describe("bot runtime link-code consumption", () => {
     const { posts, thread } = createThread("slack");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: abc12345",
+      text: "Connect to CashPanel: abc12345",
       raw: {
         team: "T123",
       },
@@ -279,9 +279,9 @@ describe("bot runtime link-code consumption", () => {
     await slackDmMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to Midday Test Team. You can ask Midday questions, upload receipts, and track invoices right from Slack.\n\nYou'll receive notifications for new transactions, invoices, and match suggestions (all on by default). To manage these, go to Apps \u2192 Slack \u2192 Settings in Midday.\n\nTry asking \u201cWhat's my cash flow this month?\u201d",
+      "Connected to CashPanel Test Team. You can ask CashPanel questions, upload receipts, and track invoices right from Slack.\n\nYou'll receive notifications for new transactions, invoices, and match suggestions (all on by default). To manage these, go to Apps \u2192 Slack \u2192 Settings in CashPanel.\n\nTry asking \u201cWhat's my cash flow this month?\u201d",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
     expect(toAiMessagesMock).not.toHaveBeenCalled();
     expect(mocks.getUserById).not.toHaveBeenCalled();
     expect(thread.startTyping).not.toHaveBeenCalled();
@@ -313,13 +313,13 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to Midday Test Team. You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from iMessage.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 iMessage \u2192 Settings in Midday.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
+      "Connected to CashPanel Test Team. You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from iMessage.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 iMessage \u2192 Settings in CashPanel.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
     ]);
     expect(sendMediaMessageMock).toHaveBeenCalledWith(
       thread.id,
-      "https://cdn.midday.ai/midday-contact.vcf",
+      "https://cdn.cashpanel.io/cashpanel-contact.vcf",
     );
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
     expect(toAiMessagesMock).not.toHaveBeenCalled();
     expect(mocks.getUserById).not.toHaveBeenCalled();
     expect(thread.startTyping).not.toHaveBeenCalled();
@@ -329,7 +329,7 @@ describe("bot runtime link-code consumption", () => {
     const { posts, thread } = createThread("slack");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: xyzABCDE",
+      text: "Connect to CashPanel: xyzABCDE",
       raw: {
         team: "T123",
       },
@@ -377,11 +377,11 @@ describe("bot runtime link-code consumption", () => {
     await slackDmMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to New Slack Team. You can ask Midday questions, upload receipts, and track invoices right from Slack.\n\nYou'll receive notifications for new transactions, invoices, and match suggestions (all on by default). To manage these, go to Apps \u2192 Slack \u2192 Settings in Midday.\n\nTry asking \u201cWhat's my cash flow this month?\u201d",
+      "Connected to New Slack Team. You can ask CashPanel questions, upload receipts, and track invoices right from Slack.\n\nYou'll receive notifications for new transactions, invoices, and match suggestions (all on by default). To manage these, go to Apps \u2192 Slack \u2192 Settings in CashPanel.\n\nTry asking \u201cWhat's my cash flow this month?\u201d",
     ]);
     expect(mocks.consumePlatformLinkToken).toHaveBeenCalled();
     expect(mocks.createOrUpdatePlatformIdentity).toHaveBeenCalled();
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("re-connects Sendblue when a stale identity exists and a new link code is sent", async () => {
@@ -433,11 +433,11 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connected to New Team. You can chat with Midday, send receipts and PDFs, or create invoices \u2014 all from iMessage.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 iMessage \u2192 Settings in Midday.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
+      "Connected to New Team. You can chat with CashPanel, send receipts and PDFs, or create invoices \u2014 all from iMessage.\n\nYou'll receive notifications for new transactions, invoices, and receipt matches (all on by default). To manage these, go to Apps \u2192 iMessage \u2192 Settings in CashPanel.\n\nTry sending a receipt or asking \u201cWhat did I spend this week?\u201d",
     ]);
     expect(mocks.consumePlatformLinkToken).toHaveBeenCalled();
     expect(mocks.createOrUpdatePlatformIdentity).toHaveBeenCalled();
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("bare alphanumeric message from unlinked WhatsApp user shows prompt, not invalid-code error", async () => {
@@ -464,9 +464,9 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connect WhatsApp from Midday first, then send the prefilled connection message here.",
+      "Connect WhatsApp from CashPanel first, then send the prefilled connection message here.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("bare alphanumeric message from unlinked Sendblue user shows prompt, not invalid-code error", async () => {
@@ -493,9 +493,9 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "Connect iMessage from Midday first, then send the connection code here.",
+      "Connect iMessage from CashPanel first, then send the connection code here.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("connected Slack DM user sending bare alphanumeric message gets assistant reply, not invalid-code error", async () => {
@@ -540,9 +540,9 @@ describe("bot runtime link-code consumption", () => {
     await slackDmMessageHandler?.(thread, message);
 
     expect(posts).not.toContain(
-      "That Slack link code is invalid or expired. Open Midday and generate a new one.",
+      "That Slack link code is invalid or expired. Open CashPanel and generate a new one.",
     );
-    expect(streamMiddayAssistantMock).toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).toHaveBeenCalled();
     expect(thread.startTyping).toHaveBeenCalled();
   });
 
@@ -550,7 +550,7 @@ describe("bot runtime link-code consumption", () => {
     const { posts, thread } = createThread("whatsapp");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: abc12345",
+      text: "Connect to CashPanel: abc12345",
       author: {
         userId: "+15551234567",
         fullName: "WhatsApp User",
@@ -568,7 +568,7 @@ describe("bot runtime link-code consumption", () => {
       "Connected, but I couldn't finish setup. Try again.",
     ]);
     expect(mocks.createOrUpdatePlatformIdentity).not.toHaveBeenCalled();
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("afterConnect failure does not leave an orphaned identity (Telegram)", async () => {
@@ -603,14 +603,14 @@ describe("bot runtime link-code consumption", () => {
       "Connected, but I couldn't finish setup. Try again.",
     ]);
     expect(mocks.createOrUpdatePlatformIdentity).not.toHaveBeenCalled();
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
-  test("explicit 'Connect to Midday:' with invalid code shows invalid-code error", async () => {
+  test("explicit 'Connect to CashPanel:' with invalid code shows invalid-code error", async () => {
     const { posts, thread } = createThread("whatsapp");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: xyzW0000",
+      text: "Connect to CashPanel: xyzW0000",
       author: {
         userId: "+15559999999",
         fullName: "New User",
@@ -630,16 +630,16 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "That WhatsApp link code is invalid or expired. Open Midday and generate a new one.",
+      "That WhatsApp link code is invalid or expired. Open CashPanel and generate a new one.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
-  test("explicit 'Connect to Midday:' with invalid code shows error even when existing identity exists", async () => {
+  test("explicit 'Connect to CashPanel:' with invalid code shows error even when existing identity exists", async () => {
     const { posts, thread } = createThread("whatsapp");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: xyzW0000",
+      text: "Connect to CashPanel: xyzW0000",
       author: {
         userId: "+15551234567",
         fullName: "WhatsApp User",
@@ -669,16 +669,16 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "That WhatsApp link code is invalid or expired. Open Midday and generate a new one.",
+      "That WhatsApp link code is invalid or expired. Open CashPanel and generate a new one.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
-  test("explicit 'Connect to Midday:' with malformed code (too short) shows invalid-code error", async () => {
+  test("explicit 'Connect to CashPanel:' with malformed code (too short) shows invalid-code error", async () => {
     const { posts, thread } = createThread("whatsapp");
     const message = {
       id: "message_123",
-      text: "Connect to Midday: short",
+      text: "Connect to CashPanel: short",
       author: {
         userId: "+15559999999",
         fullName: "New User",
@@ -698,9 +698,9 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "That WhatsApp link code is invalid or expired. Open Midday and generate a new one.",
+      "That WhatsApp link code is invalid or expired. Open CashPanel and generate a new one.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 
   test("telegram /start with malformed code (too long) shows invalid-code error", async () => {
@@ -727,8 +727,8 @@ describe("bot runtime link-code consumption", () => {
     await subscribedMessageHandler?.(thread, message);
 
     expect(posts).toEqual([
-      "That Telegram link code is invalid or expired. Open Midday and generate a new one.",
+      "That Telegram link code is invalid or expired. Open CashPanel and generate a new one.",
     ]);
-    expect(streamMiddayAssistantMock).not.toHaveBeenCalled();
+    expect(streamCashPanelAssistantMock).not.toHaveBeenCalled();
   });
 });

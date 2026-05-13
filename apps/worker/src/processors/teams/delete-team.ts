@@ -1,4 +1,4 @@
-import { trpc } from "@midday/trpc";
+import { trpc } from "@cashpanel/trpc";
 import type { Job } from "bullmq";
 import type { DeleteTeamPayload } from "../../schemas/teams";
 import { BaseProcessor } from "../base";

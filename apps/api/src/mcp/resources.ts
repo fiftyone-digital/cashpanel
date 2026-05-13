@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@midday/categories";
+import { CATEGORIES } from "@cashpanel/categories";
 import {
   getCustomerById,
   getCustomers,
@@ -8,7 +8,7 @@ import {
   getTeamById,
   getTransactionById,
   getTransactions,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import {
@@ -49,7 +49,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "teams.read")) {
     server.registerResource(
       "team",
-      "midday://team/info",
+      "cashpanel://team/info",
       {
         description:
           "Current team information including name, base currency, and settings",
@@ -62,7 +62,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
         return {
           contents: [
             {
-              uri: "midday://team/info",
+              uri: "cashpanel://team/info",
               mimeType: "application/json",
               text: JSON.stringify(clean),
             },
@@ -74,7 +74,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
 
   server.registerResource(
     "categories",
-    "midday://categories",
+    "cashpanel://categories",
     {
       description:
         "List of all transaction categories with their hierarchy, colors, and slugs",
@@ -84,7 +84,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
       return {
         contents: [
           {
-            uri: "midday://categories",
+            uri: "cashpanel://categories",
             mimeType: "application/json",
             text: JSON.stringify(CATEGORIES),
           },
@@ -96,7 +96,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "tags.read")) {
     server.registerResource(
       "tags",
-      "midday://tags",
+      "cashpanel://tags",
       {
         description: "List of all custom tags used for organizing data",
         mimeType: "application/json",
@@ -108,7 +108,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
         return {
           contents: [
             {
-              uri: "midday://tags",
+              uri: "cashpanel://tags",
               mimeType: "application/json",
               text: JSON.stringify(clean),
             },
@@ -125,7 +125,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "transactions.read")) {
     server.registerResource(
       "transaction",
-      new ResourceTemplate("midday://transactions/{transactionId}", {
+      new ResourceTemplate("cashpanel://transactions/{transactionId}", {
         list: async () => {
           const result = await getTransactions(db, {
             teamId,
@@ -150,7 +150,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
 
           return {
             resources: (result.data ?? []).map((t) => ({
-              uri: `midday://transactions/${t.id}`,
+              uri: `cashpanel://transactions/${t.id}`,
               name: t.name ?? `Transaction ${t.id}`,
               mimeType: "application/json" as const,
             })),
@@ -190,7 +190,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "invoices.read")) {
     server.registerResource(
       "invoice",
-      new ResourceTemplate("midday://invoices/{invoiceId}", {
+      new ResourceTemplate("cashpanel://invoices/{invoiceId}", {
         list: async () => {
           const result = await getInvoices(db, {
             teamId,
@@ -206,7 +206,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
 
           return {
             resources: (result.data ?? []).map((inv) => ({
-              uri: `midday://invoices/${inv.id}`,
+              uri: `cashpanel://invoices/${inv.id}`,
               name: inv.invoiceNumber ?? `Invoice ${inv.id}`,
               mimeType: "application/json" as const,
             })),
@@ -250,7 +250,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "customers.read")) {
     server.registerResource(
       "customer",
-      new ResourceTemplate("midday://customers/{customerId}", {
+      new ResourceTemplate("cashpanel://customers/{customerId}", {
         list: async () => {
           const result = await getCustomers(db, {
             teamId,
@@ -262,7 +262,7 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
 
           return {
             resources: (result.data ?? []).map((c) => ({
-              uri: `midday://customers/${c.id}`,
+              uri: `cashpanel://customers/${c.id}`,
               name: c.name ?? `Customer ${c.id}`,
               mimeType: "application/json" as const,
             })),
@@ -300,10 +300,10 @@ export function registerResources(server: McpServer, ctx: McpContext): void {
   if (hasScope(ctx, "reports.read")) {
     server.registerResource(
       "report-type",
-      new ResourceTemplate("midday://reports/{reportType}", {
+      new ResourceTemplate("cashpanel://reports/{reportType}", {
         list: async () => ({
           resources: REPORT_TYPES.map((type) => ({
-            uri: `midday://reports/${type}`,
+            uri: `cashpanel://reports/${type}`,
             name: type
               .split("_")
               .map((w) => w.charAt(0).toUpperCase() + w.slice(1))

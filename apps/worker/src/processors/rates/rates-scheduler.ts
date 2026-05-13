@@ -1,5 +1,5 @@
-import { upsertExchangeRates } from "@midday/db/queries";
-import { trpc } from "@midday/trpc";
+import { upsertExchangeRates } from "@cashpanel/db/queries";
+import { trpc } from "@cashpanel/trpc";
 import type { Job } from "bullmq";
 import type { RatesSchedulerPayload } from "../../schemas/rates";
 import { getDb } from "../../utils/db";

@@ -27,8 +27,8 @@ export function createCategoriesCommand(): Command {
       "after",
       `
 Examples:
-  midday categories list
-  midday categories list --json`,
+  cashpanel categories list
+  cashpanel categories list --json`,
     )
     .action(async () => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -78,8 +78,8 @@ Examples:
       "after",
       `
 Examples:
-  midday categories create --name "Software" --color "#4F46E5"
-  midday categories create --name "Travel" --description "Business travel expenses"`,
+  cashpanel categories create --name "Software" --color "#4F46E5"
+  cashpanel categories create --name "Travel" --description "Business travel expenses"`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -134,8 +134,8 @@ Examples:
       "after",
       `
 Examples:
-  midday categories update cat_abc123 --name "Office Supplies"
-  midday categories update cat_abc123 --color "#10B981"`,
+  cashpanel categories update cat_abc123 --name "Office Supplies"
+  cashpanel categories update cat_abc123 --color "#10B981"`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -188,8 +188,8 @@ Examples:
       "after",
       `
 Examples:
-  midday categories delete cat_abc123
-  midday categories delete cat_abc123 --yes`,
+  cashpanel categories delete cat_abc123
+  cashpanel categories delete cat_abc123 --yes`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

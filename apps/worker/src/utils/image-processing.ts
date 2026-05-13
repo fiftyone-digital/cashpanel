@@ -1,4 +1,4 @@
-import type { createLoggerWithContext } from "@midday/logger";
+import type { createLoggerWithContext } from "@cashpanel/logger";
 import convert from "heic-convert";
 import sharp from "sharp";
 import { IMAGE_SIZES } from "./timeout";

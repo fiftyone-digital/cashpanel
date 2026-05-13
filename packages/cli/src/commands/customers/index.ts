@@ -42,9 +42,9 @@ export function createCustomersCommand(): Command {
       "after",
       `
 Examples:
-  midday customers list
-  midday customers list --search "Acme"
-  midday customers list --json`,
+  cashpanel customers list
+  cashpanel customers list --search "Acme"
+  cashpanel customers list --json`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -88,7 +88,7 @@ Examples:
             rows,
             pageInfo:
               data.meta?.hasNextPage && data.meta?.cursor
-                ? `Next page: midday customers list --cursor ${data.meta.cursor}`
+                ? `Next page: cashpanel customers list --cursor ${data.meta.cursor}`
                 : undefined,
           });
         }
@@ -105,8 +105,8 @@ Examples:
       "after",
       `
 Examples:
-  midday customers get cust_abc123
-  midday customers get cust_abc123 --json`,
+  cashpanel customers get cust_abc123
+  cashpanel customers get cust_abc123 --json`,
     )
     .action(async (id: string) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -153,9 +153,9 @@ Examples:
       "after",
       `
 Examples:
-  midday customers create --name "Acme Corp" --email billing@acme.com
-  midday customers create --name "Startup Inc" --contact "Jane Doe" --phone "+1-555-0123"
-  cat customer.json | midday customers create --stdin`,
+  cashpanel customers create --name "Acme Corp" --email billing@acme.com
+  cashpanel customers create --name "Startup Inc" --contact "Jane Doe" --phone "+1-555-0123"
+  cat customer.json | cashpanel customers create --stdin`,
     )
     .action(async (opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -215,8 +215,8 @@ Examples:
       "after",
       `
 Examples:
-  midday customers update cust_abc123 --email new@acme.com
-  cat update.json | midday customers update cust_abc123 --stdin`,
+  cashpanel customers update cust_abc123 --email new@acme.com
+  cat update.json | cashpanel customers update cust_abc123 --stdin`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;
@@ -272,9 +272,9 @@ Examples:
       "after",
       `
 Examples:
-  midday customers delete cust_abc123
-  midday customers delete cust_abc123 --yes
-  midday customers delete cust_abc123 --dry-run`,
+  cashpanel customers delete cust_abc123
+  cashpanel customers delete cust_abc123 --yes
+  cashpanel customers delete cust_abc123 --dry-run`,
     )
     .action(async (id: string, opts) => {
       const globals = cmd.parent?.opts() as GlobalFlags;

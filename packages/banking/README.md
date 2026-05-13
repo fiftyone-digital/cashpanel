@@ -1,6 +1,6 @@
 # Banking Provider Implementation
 
-Technical documentation for Midday's multi-provider banking integration.
+Technical documentation for CashPanel's multi-provider banking integration.
 
 ## Architecture Overview
 
@@ -150,7 +150,7 @@ The maximum history is determined per-institution via the end user agreement:
 
 ## Caching Strategy
 
-All caching uses `bankingCache` from `@midday/cache/banking-cache`, backed by
+All caching uses `bankingCache` from `@cashpanel/cache/banking-cache`, backed by
 Redis (Upstash) with the `"banking"` key prefix.
 
 ### Cache TTLs

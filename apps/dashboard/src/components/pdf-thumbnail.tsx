@@ -1,6 +1,6 @@
 "use client";
 
-import { Skeleton } from "@midday/ui/skeleton";
+import { Skeleton } from "@cashpanel/ui/skeleton";
 import { useEffect, useRef, useState } from "react";
 import { pdfjs } from "react-pdf";
 import { FilePreviewIcon } from "@/components/file-preview-icon";

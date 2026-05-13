@@ -1,7 +1,7 @@
 import { getCredentials } from "../config/store.js";
 import { isTTY } from "../utils/env.js";
 
-const MIDDAY_ASCII = [
+const CASHPANEL_ASCII = [
   "  ███╗   ███╗██╗██████╗ ██████╗  █████╗ ██╗   ██╗",
   "  ████╗ ████║██║██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝",
   "  ██╔████╔██║██║██║  ██║██║  ██║███████║ ╚████╔╝ ",
@@ -17,7 +17,7 @@ export function getBrandingText(version: string): string {
   const lines: string[] = [];
 
   lines.push("");
-  lines.push(MIDDAY_ASCII);
+  lines.push(CASHPANEL_ASCII);
   lines.push("");
 
   const parts: string[] = [`v${version}`];

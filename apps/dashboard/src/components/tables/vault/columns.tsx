@@ -1,20 +1,20 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
-import { isMimeTypeSupportedForProcessing } from "@midday/documents/utils";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
-import { Checkbox } from "@midday/ui/checkbox";
-import { cn } from "@midday/ui/cn";
+import { isMimeTypeSupportedForProcessing } from "@cashpanel/documents/utils";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
+import { Checkbox } from "@cashpanel/ui/checkbox";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Skeleton } from "@midday/ui/skeleton";
-import { formatDate } from "@midday/utils/format";
+} from "@cashpanel/ui/dropdown-menu";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { formatDate } from "@cashpanel/utils/format";
 import type { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 import { useState } from "react";

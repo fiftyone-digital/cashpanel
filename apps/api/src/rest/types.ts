@@ -1,7 +1,7 @@
 import type { Session } from "@api/utils/auth";
 import type { Scope } from "@api/utils/scopes";
-import type { Database } from "@midday/db/client";
-import type { getUserById } from "@midday/db/queries";
+import type { Database } from "@cashpanel/db/client";
+import type { getUserById } from "@cashpanel/db/queries";
 
 export type User = NonNullable<Awaited<ReturnType<typeof getUserById>>>;
 

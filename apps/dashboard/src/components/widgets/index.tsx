@@ -1,8 +1,8 @@
 "use client";
 
-import { LogEvents } from "@midday/events/events";
-import { Button } from "@midday/ui/button";
-import { Icons } from "@midday/ui/icons";
+import { LogEvents } from "@cashpanel/events/events";
+import { Button } from "@cashpanel/ui/button";
+import { Icons } from "@cashpanel/ui/icons";
 import { useOpenPanel } from "@openpanel/nextjs";
 import { parseAsBoolean, useQueryState } from "nuqs";
 import { Suspense, useCallback } from "react";
@@ -11,7 +11,7 @@ import { ChatTitle } from "@/components/chat/chat-title";
 import { ChatView } from "@/components/chat/chat-view";
 import { NewChatButton } from "@/components/chat/new-chat-button";
 import { useInvoiceParams } from "@/hooks/use-invoice-params";
-import { AskMidday } from "./ask-midday";
+import { AskCashPanel } from "./ask-cashpanel";
 import { McpBanner } from "./mcp-banner";
 import { SummarySkeleton, WidgetCardsSkeleton } from "./overview-skeleton";
 import { QuickActions } from "./quick-actions";
@@ -61,7 +61,7 @@ export function OverviewView() {
               <WelcomeSummary />
             </Suspense>
           </div>
-          <AskMidday onChatOpen={openChat} />
+          <AskCashPanel onChatOpen={openChat} />
           <QuickActions onChatOpen={openChat} />
           <Suspense fallback={<WidgetCardsSkeleton />}>
             <WidgetCards />

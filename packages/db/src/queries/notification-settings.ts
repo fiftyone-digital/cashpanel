@@ -1,4 +1,4 @@
-import { getUserSettingsNotificationTypes } from "@midday/notifications";
+import { getUserSettingsNotificationTypes } from "@cashpanel/notifications";
 import { and, eq } from "drizzle-orm";
 import type { Database } from "../client";
 import { notificationSettings } from "../schema";

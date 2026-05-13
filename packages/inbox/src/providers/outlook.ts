@@ -1,11 +1,11 @@
+import type { Database } from "@cashpanel/db/client";
+import { updateInboxAccount } from "@cashpanel/db/queries";
+import { encrypt } from "@cashpanel/encryption";
+import { ensureFileExtension } from "@cashpanel/utils";
 import {
   type AuthenticationProvider,
   Client,
 } from "@microsoft/microsoft-graph-client";
-import type { Database } from "@midday/db/client";
-import { updateInboxAccount } from "@midday/db/queries";
-import { encrypt } from "@midday/encryption";
-import { ensureFileExtension } from "@midday/utils";
 import { InboxAuthError, InboxSyncError } from "../errors";
 import { generateDeterministicId } from "../generate-id";
 import type {

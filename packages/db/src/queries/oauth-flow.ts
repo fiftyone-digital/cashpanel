@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { hash } from "@midday/encryption";
+import { hash } from "@cashpanel/encryption";
 import { and, desc, eq, gt, gte, lte } from "drizzle-orm";
 import { nanoid } from "nanoid";
 import type { Database } from "../client";

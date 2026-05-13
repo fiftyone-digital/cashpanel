@@ -2,7 +2,7 @@
 
 ## Overview
 
-The bot integration extends Midday into external messaging platforms — Telegram, WhatsApp, and Slack — so users can chat with the Midday AI assistant, submit receipts/invoices, and receive proactive notifications without opening the dashboard.
+The bot integration extends CashPanel into external messaging platforms — Telegram, WhatsApp, and Slack — so users can chat with the CashPanel AI assistant, submit receipts/invoices, and receive proactive notifications without opening the dashboard.
 
 The system is built around three pillars:
 
@@ -95,7 +95,7 @@ graph TB
 
 | File | Purpose |
 |------|---------|
-| `runtime.ts` | `registerMiddayBotRuntime()` — wires chat events to message handlers. Resolves conversations, hydrates identities, streams the AI assistant, handles attachments. |
+| `runtime.ts` | `registerCashPanelBotRuntime()` — wires chat events to message handlers. Resolves conversations, hydrates identities, streams the AI assistant, handles attachments. |
 | `conversation-identity.ts` | Types and helpers for resolving a connected conversation's identity and extracting notification context from metadata. |
 | `linking.ts` | `extractConnectionToken()` — parses `mb_*` link codes from Telegram `/start` payloads, WhatsApp/Slack connection messages. |
 | `thread-state.ts` | Redis-backed `BotThreadState` and `canReuseCachedThreadState()` to avoid re-resolving identity on every message from the same user. |
@@ -106,14 +106,14 @@ graph TB
 
 ### `platform_identities`
 
-Links an external messaging account to a Midday user and team.
+Links an external messaging account to a CashPanel user and team.
 
 | Column | Type | Description |
 |--------|------|-------------|
 | `id` | uuid | Primary key |
 | `provider` | `platform_provider` enum | `slack`, `telegram`, or `whatsapp` |
-| `team_id` | uuid FK → teams | The Midday team |
-| `user_id` | uuid FK → users | The Midday user |
+| `team_id` | uuid FK → teams | The CashPanel team |
+| `user_id` | uuid FK → users | The CashPanel user |
 | `external_user_id` | text | Platform-specific user ID (phone number, Telegram user ID, Slack user ID) |
 | `external_team_id` | text | Platform-specific workspace ID (Slack team ID; empty string for Telegram/WhatsApp) |
 | `external_channel_id` | text | Outbound channel (e.g. Telegram chat ID for sending notifications) |
@@ -123,7 +123,7 @@ Links an external messaging account to a Midday user and team.
 
 ### `platform_link_tokens`
 
-Short-lived, one-time codes for securely connecting a messaging account to a Midday user.
+Short-lived, one-time codes for securely connecting a messaging account to a CashPanel user.
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -163,7 +163,7 @@ All three tables have RLS enabled. Policies restrict all operations (SELECT, INS
 
 ### 1. Account Linking
 
-Users connect their messaging account from the Midday dashboard. The flow is the same across platforms, with platform-specific deep links.
+Users connect their messaging account from the CashPanel dashboard. The flow is the same across platforms, with platform-specific deep links.
 
 ```mermaid
 sequenceDiagram
@@ -183,11 +183,11 @@ sequenceDiagram
         Dashboard->>User: Opens t.me/{bot}?start={code}
         User->>Platform: /start mb_abc123...
     else WhatsApp
-        Dashboard->>User: Opens wa.me/{number}?text=Connect to Midday: {code}
+        Dashboard->>User: Opens wa.me/{number}?text=Connect to CashPanel: {code}
         User->>Platform: Sends prefilled message
     else Slack
         Dashboard->>User: Shows code to DM the bot
-        User->>Platform: DMs "Connect to Midday: {code}"
+        User->>Platform: DMs "Connect to CashPanel: {code}"
     end
 
     Platform->>API (webhook): Delivers message
@@ -244,7 +244,7 @@ sequenceDiagram
 
     Runtime->>DB: getUserById(actingUserId)
     Runtime->>Runtime: Build system prompt + platform instructions
-    Runtime->>AI Assistant: streamMiddayAssistant({ systemPrompt, history })
+    Runtime->>AI Assistant: streamCashPanelAssistant({ systemPrompt, history })
     AI Assistant-->>Runtime: { fullStream }
     Runtime->>Platform: Post response
 
@@ -336,17 +336,17 @@ flowchart TD
 
 | Internal Event | Template Name |
 |---------------|---------------|
-| `transaction` | `midday_new_transactions` |
-| `invoice_paid` | `midday_invoice_paid` |
-| `invoice_overdue` | `midday_invoice_overdue` |
-| `recurring_invoice_upcoming` | `midday_recurring_upcoming` |
-| `match` | `midday_receipt_matched` |
+| `transaction` | `cashpanel_new_transactions` |
+| `invoice_paid` | `cashpanel_invoice_paid` |
+| `invoice_overdue` | `cashpanel_invoice_overdue` |
+| `recurring_invoice_upcoming` | `cashpanel_recurring_upcoming` |
+| `match` | `cashpanel_receipt_matched` |
 
 Templates are always sent with `language.code = "en"`.
 
 ### 5. Inbox Upload from Chat
 
-Users can send images or PDFs directly in any chat platform. The bot processes them into the Midday inbox.
+Users can send images or PDFs directly in any chat platform. The bot processes them into the CashPanel inbox.
 
 ```mermaid
 sequenceDiagram
@@ -399,7 +399,7 @@ When the user replies, this context is injected into the AI assistant's system p
 Every message goes through a multi-step authorization chain:
 
 1. **Thread state cache** — Redis stores `{ teamId, actingUserId, platform, externalUserId }`. Reused only if the same external user on the same platform continues the conversation (`canReuseCachedThreadState`).
-2. **Platform identity lookup** — `getPlatformIdentity()` resolves the external user to a Midday user/team.
+2. **Platform identity lookup** — `getPlatformIdentity()` resolves the external user to a CashPanel user/team.
 3. **Identity validation** — `requireResolvedConversationIdentity()` confirms `identity.teamId == resolved.teamId` and `identity.userId == resolved.actingUserId`.
 4. **Team access check** — `hasTeamAccess()` verifies the user still has access to the team (handles removed members).
 5. **Slack channel validation** — for non-DM Slack messages, `getAppBySlackTeamId()` confirms the channel's Slack workspace matches the resolved team's installed app.
@@ -421,7 +421,7 @@ If any check fails, the thread state is cleared and the user is told to reconnec
 
 ### Bot User Scopes
 
-Connected bot users operate with `apis.all` scope, granting full Midday assistant capabilities. This is intentional — the bot should be able to answer any question the user could ask in the dashboard.
+Connected bot users operate with `apis.all` scope, granting full CashPanel assistant capabilities. This is intentional — the bot should be able to answer any question the user could ask in the dashboard.
 
 ---
 

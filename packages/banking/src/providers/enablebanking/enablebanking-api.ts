@@ -1,5 +1,5 @@
 import { Buffer } from "node:buffer";
-import { bankingCache, CacheTTL } from "@midday/cache/banking-cache";
+import { bankingCache, CacheTTL } from "@cashpanel/cache/banking-cache";
 import { formatISO, subDays } from "date-fns";
 import * as jose from "jose";
 import xior, { type XiorInstance, type XiorRequestConfig } from "xior";

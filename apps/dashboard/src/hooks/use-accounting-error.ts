@@ -1,10 +1,10 @@
 "use client";
 
-import { useToast } from "@midday/ui/use-toast";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { useCallback } from "react";
 
 /**
- * Error codes for accounting operations (mirrored from @midday/accounting for client use)
+ * Error codes for accounting operations (mirrored from @cashpanel/accounting for client use)
  */
 const ACCOUNTING_ERROR_CODES = {
   FINANCIAL_YEAR_MISSING: "FINANCIAL_YEAR_MISSING",

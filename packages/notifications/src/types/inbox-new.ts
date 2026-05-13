@@ -1,5 +1,5 @@
-import type { Database } from "@midday/db/client";
-import { type Activity, findRecentActivity } from "@midday/db/queries";
+import type { Database } from "@cashpanel/db/client";
+import { type Activity, findRecentActivity } from "@cashpanel/db/queries";
 import type { NotificationHandler, UserData } from "../base";
 import { type InboxNewInput, inboxNewSchema } from "../schemas";
 

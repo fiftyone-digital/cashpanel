@@ -1,7 +1,7 @@
 "use client";
 
-import { InvoicePaymentAnimation } from "@midday/ui/animations/invoice-payment";
-import { InvoicePromptAnimation } from "@midday/ui/animations/invoice-prompt";
+import { InvoicePaymentAnimation } from "@cashpanel/ui/animations/invoice-payment";
+import { InvoicePromptAnimation } from "@cashpanel/ui/animations/invoice-prompt";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroImage } from "./hero-image";

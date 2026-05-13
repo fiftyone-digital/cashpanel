@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { createJobDb } from "@midday/db/job-client";
+import { createJobDb } from "@cashpanel/db/job-client";
 import { schedules } from "@trigger.dev/sdk";
 import { bankSyncScheduler } from "../src/tasks/bank/scheduler/bank-scheduler";
 import { generateCronTag } from "../src/utils/generate-cron-tag";

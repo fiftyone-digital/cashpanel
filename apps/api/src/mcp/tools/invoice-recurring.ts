@@ -6,7 +6,7 @@ import {
   getUpcomingInvoices,
   pauseInvoiceRecurring,
   resumeInvoiceRecurring,
-} from "@midday/db/queries";
+} from "@cashpanel/db/queries";
 import { z } from "zod";
 import { sanitize, sanitizeArray } from "../schemas";
 import {

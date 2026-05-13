@@ -1,25 +1,24 @@
 "use client";
 
-import { TZDate } from "@date-fns/tz";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@midday/ui/accordion";
-import { Badge } from "@midday/ui/badge";
-import { Button } from "@midday/ui/button";
-import { cn } from "@midday/ui/cn";
+} from "@cashpanel/ui/accordion";
+import { Badge } from "@cashpanel/ui/badge";
+import { Button } from "@cashpanel/ui/button";
+import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@midday/ui/dropdown-menu";
-import { Icons } from "@midday/ui/icons";
-import { SheetFooter, SheetHeader } from "@midday/ui/sheet";
-import { Skeleton } from "@midday/ui/skeleton";
-import { Switch } from "@midday/ui/switch";
+} from "@cashpanel/ui/dropdown-menu";
+import { Icons } from "@cashpanel/ui/icons";
+import { SheetFooter, SheetHeader } from "@cashpanel/ui/sheet";
+import { Skeleton } from "@cashpanel/ui/skeleton";
+import { Switch } from "@cashpanel/ui/switch";
 import {
   Table,
   TableBody,
@@ -27,8 +26,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@midday/ui/table";
-import { useToast } from "@midday/ui/use-toast";
+} from "@cashpanel/ui/table";
+import { useToast } from "@cashpanel/ui/use-toast";
+import { TZDate } from "@date-fns/tz";
 import {
   keepPreviousData,
   useInfiniteQuery,

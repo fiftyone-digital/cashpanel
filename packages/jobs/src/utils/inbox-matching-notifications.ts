@@ -1,6 +1,6 @@
-import type { Database } from "@midday/db/client";
-import type { MatchResult } from "@midday/db/queries";
-import { getInboxById, getTransactionById } from "@midday/db/queries";
+import type { Database } from "@cashpanel/db/client";
+import type { MatchResult } from "@cashpanel/db/queries";
+import { getInboxById, getTransactionById } from "@cashpanel/db/queries";
 import { logger, tasks } from "@trigger.dev/sdk";
 
 // Helper function to trigger appropriate notifications based on matching results

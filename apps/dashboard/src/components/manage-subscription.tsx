@@ -1,8 +1,8 @@
 "use client";
 
-import { getPlanName } from "@midday/plans";
-import { Card } from "@midday/ui/card";
-import { SubmitButton } from "@midday/ui/submit-button";
+import { getPlanName } from "@cashpanel/plans";
+import { Card } from "@cashpanel/ui/card";
+import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { useTeamQuery } from "@/hooks/use-team";

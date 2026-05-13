@@ -1,4 +1,4 @@
-import { getAppUrl } from "@midday/utils/envs";
+import { getAppUrl } from "@cashpanel/utils/envs";
 import {
   Body,
   Container,
@@ -25,7 +25,7 @@ const baseAppUrl = getAppUrl();
 
 export const PaymentIssueEmail = ({
   fullName = "",
-  teamName = "Midday",
+  teamName = "CashPanel",
 }: Props) => {
   const firstName = fullName ? fullName.split(" ").at(0) : "";
   const previewText = `Your last payment for ${teamName} didn't go through.`;

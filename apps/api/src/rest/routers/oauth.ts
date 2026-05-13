@@ -15,8 +15,7 @@ import { resend } from "@api/services/resend";
 import { verifyAccessToken } from "@api/utils/auth";
 import { validateClientCredentials } from "@api/utils/oauth";
 import { validateResponse } from "@api/utils/validate-response";
-import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
-import type { Database } from "@midday/db/client";
+import type { Database } from "@cashpanel/db/client";
 import {
   claimDCRApplication,
   createAuthorizationCode,
@@ -27,10 +26,11 @@ import {
   hasUserEverAuthorizedApp,
   refreshAccessToken,
   revokeAccessToken,
-} from "@midday/db/queries";
-import { AppInstalledEmail } from "@midday/email/emails/app-installed";
-import { render } from "@midday/email/render";
-import { createLoggerWithContext } from "@midday/logger";
+} from "@cashpanel/db/queries";
+import { AppInstalledEmail } from "@cashpanel/email/emails/app-installed";
+import { render } from "@cashpanel/email/render";
+import { createLoggerWithContext } from "@cashpanel/logger";
+import { createRoute, OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import { rateLimiter } from "hono-rate-limiter";
 import { z } from "zod";
@@ -407,7 +407,7 @@ app.openapi(
           );
 
           await resend.emails.send({
-            from: "Midday <middaybot@midday.ai>",
+            from: "CashPanel <cashpanelbot@cashpanel.io>",
             to: session.user.email,
             subject: "An app has been added to your team",
             html,

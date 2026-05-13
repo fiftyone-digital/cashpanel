@@ -28,11 +28,15 @@ import {
   isInvoiceNumberUsed,
   searchInvoiceNumber,
   updateInvoice,
-} from "@midday/db/queries";
-import { DEFAULT_TEMPLATE, PdfTemplate, renderToStream } from "@midday/invoice";
-import { calculateTotal } from "@midday/invoice/calculate";
-import { transformCustomerToContent } from "@midday/invoice/utils";
-import { triggerJob } from "@midday/job-client";
+} from "@cashpanel/db/queries";
+import {
+  DEFAULT_TEMPLATE,
+  PdfTemplate,
+  renderToStream,
+} from "@cashpanel/invoice";
+import { calculateTotal } from "@cashpanel/invoice/calculate";
+import { transformCustomerToContent } from "@cashpanel/invoice/utils";
+import { triggerJob } from "@cashpanel/job-client";
 import { registerAppTool } from "@modelcontextprotocol/ext-apps/server";
 import { addDays } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
@@ -60,7 +64,7 @@ import {
 } from "../utils";
 
 function isAllowedLogoUrl(url: string): boolean {
-  return url.startsWith("https://service.midday.ai/");
+  return url.startsWith("https://service.cashpanel.io/");
 }
 
 async function embedLogoAsDataUrl(
@@ -205,7 +209,7 @@ export const registerInvoiceTools: RegisterTools = (server, ctx) => {
             .describe("Include the rendered PDF as a downloadable file"),
         },
         annotations: READ_ONLY_ANNOTATIONS,
-        _meta: { ui: { resourceUri: "ui://midday/invoice-preview" } },
+        _meta: { ui: { resourceUri: "ui://cashpanel/invoice-preview" } },
       },
       withErrorHandling(async ({ id, download: includePdf }) => {
         const result = await getInvoiceById(db, { id, teamId });
@@ -868,7 +872,7 @@ export const registerInvoiceTools: RegisterTools = (server, ctx) => {
         title: "Create Invoice",
         description:
           "Create a new invoice for a customer. Uses the team's saved invoice template by default (logo, labels, payment details, tax settings), but VAT, tax, and discount settings can be overridden per-invoice. Line items are required. Invoices are created as drafts by default — use invoices_send to send after review. Set deliveryType to 'create' to finalize without sending, or 'create_and_send' to finalize and email immediately.",
-        _meta: { ui: { resourceUri: "ui://midday/invoice-preview" } },
+        _meta: { ui: { resourceUri: "ui://cashpanel/invoice-preview" } },
         inputSchema: {
           customerId: z
             .string()
@@ -1216,7 +1220,7 @@ export const registerInvoiceTools: RegisterTools = (server, ctx) => {
         title: "Update Draft Invoice",
         description:
           "Edit a draft invoice's content: line items, customer, dates, payment terms, note, discount, and tax/VAT settings. Only works on invoices in draft status. Amounts are automatically recalculated when line items, discount, or tax settings change. Use paymentTermsDays to set the due date relative to the issue date (e.g. 30 for net-30). Prefer this tool over invoice_template_update when the user wants to change an existing draft invoice.",
-        _meta: { ui: { resourceUri: "ui://midday/invoice-preview" } },
+        _meta: { ui: { resourceUri: "ui://cashpanel/invoice-preview" } },
         inputSchema: {
           id: z.string().uuid().describe("ID of the draft invoice to update"),
           customerId: z
@@ -1656,7 +1660,7 @@ export const registerInvoiceTools: RegisterTools = (server, ctx) => {
         title: "Create Invoice from Time Tracker",
         description:
           "Create an invoice from tracked time entries on a project. Specify the project and date range to include. Line items are auto-generated from time entries using the project's billable rate. The invoice is created as a draft. VAT, tax, and discount settings can be overridden per-invoice.",
-        _meta: { ui: { resourceUri: "ui://midday/invoice-preview" } },
+        _meta: { ui: { resourceUri: "ui://cashpanel/invoice-preview" } },
         inputSchema: {
           projectId: z
             .string()

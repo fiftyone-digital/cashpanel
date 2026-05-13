@@ -4,10 +4,10 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Microsoft Copilot MCP Integration",
   description:
-    "Connect Midday to Microsoft Copilot Studio via MCP. Query invoices, transactions, and reports from Word, Excel, Outlook, or any Copilot-enabled app.",
+    "Connect CashPanel to Microsoft Copilot Studio via MCP. Query invoices, transactions, and reports from Word, Excel, Outlook, or any Copilot-enabled app.",
   path: "/mcp/copilot",
   og: {
-    title: "Copilot + Midday",
+    title: "Copilot + CashPanel",
     description: "Business data in Word, Excel, and Outlook",
   },
   keywords: [

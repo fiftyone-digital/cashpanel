@@ -7,10 +7,10 @@ import {
   markInvoiceGenerated,
   recordInvoiceGenerationFailure,
   updateInvoice,
-} from "@midday/db/queries";
-import { getStartOfDayUTC } from "@midday/invoice/recurring";
-import { generateToken } from "@midday/invoice/token";
-import { transformCustomerToContent } from "@midday/invoice/utils";
+} from "@cashpanel/db/queries";
+import { getStartOfDayUTC } from "@cashpanel/invoice/recurring";
+import { generateToken } from "@cashpanel/invoice/token";
+import { transformCustomerToContent } from "@cashpanel/invoice/utils";
 import type { Job } from "bullmq";
 import { addDays } from "date-fns";
 import { v4 as uuidv4 } from "uuid";

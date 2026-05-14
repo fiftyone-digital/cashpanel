@@ -563,7 +563,7 @@ export function InvoiceTemplateManager() {
               </p>
               <div className="flex max-w-40 items-end gap-2">
                 <div className="space-y-2">
-                  <Label>Max width</Label>
+                  <Label>Logo max width</Label>
                   <Input
                     key={`${selectedTemplate.id}-logo-width`}
                     type="number"

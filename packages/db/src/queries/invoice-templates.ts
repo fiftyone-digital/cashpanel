@@ -22,6 +22,7 @@ type InvoiceTemplateParams = {
   paymentLabel?: string;
   noteLabel?: string;
   logoUrl?: string | null;
+  logoWidth?: number | null;
   currency?: string;
   invoiceNumberPrefix?: string | null;
   paymentDetails?: string | null; // Stringified JSON
@@ -80,6 +81,7 @@ const templateSelectFields = {
   paymentLabel: invoiceTemplates.paymentLabel,
   noteLabel: invoiceTemplates.noteLabel,
   logoUrl: invoiceTemplates.logoUrl,
+  logoWidth: invoiceTemplates.logoWidth,
   currency: invoiceTemplates.currency,
   invoiceNumberPrefix: invoiceTemplates.invoiceNumberPrefix,
   subtotalLabel: invoiceTemplates.subtotalLabel,

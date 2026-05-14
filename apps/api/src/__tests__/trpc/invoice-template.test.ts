@@ -127,6 +127,7 @@ describe("tRPC: invoiceTemplate.upsert", () => {
       name: "Upserted",
       currency: "USD",
       invoiceNumberPrefix: "ASTL-INV",
+      logoWidth: 180,
     });
 
     expect(result).toMatchObject({
@@ -142,6 +143,7 @@ describe("tRPC: invoiceTemplate.upsert", () => {
         name: "Upserted",
         currency: "USD",
         invoiceNumberPrefix: "ASTL-INV",
+        logoWidth: 180,
       }),
     );
   });

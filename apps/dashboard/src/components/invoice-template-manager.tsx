@@ -110,6 +110,7 @@ const withTemplateDefaults = (
   return {
     ...previewTemplate,
     logoUrl: template.logoUrl ?? teamLogoUrl ?? DEFAULT_TEMPLATE.logoUrl,
+    logoWidth: template.logoWidth ?? DEFAULT_TEMPLATE.logoWidth,
   };
 };
 
@@ -188,6 +189,17 @@ const selectedTemplateBlock = (value: unknown) =>
 const toNumber = (value: string) => {
   const parsed = Number.parseInt(value, 10);
   return Number.isNaN(parsed) ? 0 : parsed;
+};
+
+const toBoundedNumber = (
+  value: string,
+  fallback: number,
+  min: number,
+  max: number,
+) => {
+  const parsed = Number.parseInt(value, 10);
+  if (Number.isNaN(parsed)) return fallback;
+  return Math.min(Math.max(parsed, min), max);
 };
 
 const toFieldList = (value: unknown, fallback: readonly string[]) =>
@@ -549,6 +561,31 @@ export function InvoiceTemplateManager() {
               <p className="text-xs text-muted-foreground">
                 Leave empty to use the team logo by default.
               </p>
+              <div className="flex max-w-40 items-end gap-2">
+                <div className="space-y-2">
+                  <Label>Max width</Label>
+                  <Input
+                    key={`${selectedTemplate.id}-logo-width`}
+                    type="number"
+                    min={40}
+                    max={300}
+                    defaultValue={
+                      selectedTemplate.logoWidth ?? DEFAULT_TEMPLATE.logoWidth
+                    }
+                    onBlur={(event) =>
+                      updateSelected({
+                        logoWidth: toBoundedNumber(
+                          event.target.value,
+                          DEFAULT_TEMPLATE.logoWidth,
+                          40,
+                          300,
+                        ),
+                      })
+                    }
+                  />
+                </div>
+                <span className="pb-2 text-xs text-muted-foreground">px</span>
+              </div>
             </div>
             <div className="space-y-2">
               <Label>Title</Label>

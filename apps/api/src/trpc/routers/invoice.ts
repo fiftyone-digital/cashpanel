@@ -249,6 +249,7 @@ export const invoiceRouter = createTRPCRouter({
           | "create_and_send"
           | undefined,
         logoUrl: template?.logoUrl ?? team?.logoUrl ?? defaultTemplate.logoUrl,
+        logoWidth: template?.logoWidth ?? defaultTemplate.logoWidth,
       };
 
       const fromFields = normalizeTemplateFields(
@@ -345,6 +346,7 @@ export const invoiceRouter = createTRPCRouter({
         isDefault: template?.isDefault ?? true,
         title: template?.title ?? defaultTemplate.title,
         logoUrl,
+        logoWidth: template?.logoWidth ?? defaultTemplate.logoWidth,
         currency,
         invoiceNumberPrefix:
           template?.invoiceNumberPrefix ?? defaultTemplate.invoiceNumberPrefix,

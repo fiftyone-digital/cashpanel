@@ -2151,6 +2151,7 @@ export const invoiceTemplates = pgTable(
     paymentLabel: text("payment_label"),
     noteLabel: text("note_label"),
     logoUrl: text("logo_url"),
+    logoWidth: integer("logo_width").default(150),
     currency: text(),
     invoiceNumberPrefix: text("invoice_number_prefix").default("INV-"),
     paymentDetails: jsonb("payment_details"),

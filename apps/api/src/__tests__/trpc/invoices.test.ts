@@ -472,6 +472,7 @@ describe("tRPC: invoice.defaultSettings", () => {
       currency: "EUR",
       size: "a4",
       logoUrl: "https://cdn.cashpanel.io/template-logo.png",
+      logoWidth: 180,
     }));
     mocks.getTeamById.mockImplementation(() => ({
       id: "test-team-id",
@@ -485,6 +486,7 @@ describe("tRPC: invoice.defaultSettings", () => {
     expect(result.template.logoUrl).toBe(
       "https://cdn.cashpanel.io/template-logo.png",
     );
+    expect(result.template.logoWidth).toBe(180);
   });
 });
 

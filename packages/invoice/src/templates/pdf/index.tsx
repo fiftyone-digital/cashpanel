@@ -134,11 +134,18 @@ export async function PdfTemplate(
           </View>
 
           {template?.logoUrl && (
-            <View style={{ maxWidth: 300, flexShrink: 0 }}>
+            <View
+              style={{
+                width: template.logoWidth ?? 150,
+                flexShrink: 0,
+                alignItems: "flex-end",
+              }}
+            >
               <Image
                 src={template.logoUrl}
                 style={{
-                  height: 75,
+                  width: template.logoWidth ?? 150,
+                  maxHeight: 75,
                   objectFit: "contain",
                 }}
               />

@@ -71,6 +71,7 @@ export interface BuiltInvoiceTemplate {
   paymentLabel: string;
   noteLabel: string;
   logoUrl: string | null;
+  logoWidth?: number | null;
   currency: string;
   invoiceNumberPrefix?: string | null;
   dateFormat: string;
@@ -152,6 +153,9 @@ export function buildInvoiceTemplateFromRecurring(
 
     // Optional fields with defaults
     logoUrl: (template.logoUrl as string | null) ?? null,
+    logoWidth:
+      (template.logoWidth as number | null) ??
+      DEFAULT_TEMPLATE_SETTINGS.logoWidth,
     currency: recurring.currency ?? DEFAULT_TEMPLATE_SETTINGS.currency,
     invoiceNumberPrefix:
       (template.invoiceNumberPrefix as string | null) ??

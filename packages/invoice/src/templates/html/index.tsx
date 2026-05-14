@@ -62,7 +62,11 @@ export function HtmlTemplate({ data, width, height }: Props) {
 
           {template.logoUrl && (
             <div className="flex-shrink-0">
-              <Logo logo={template.logoUrl} customerName={customerName || ""} />
+              <Logo
+                logo={template.logoUrl}
+                customerName={customerName || ""}
+                maxWidth={template.logoWidth}
+              />
             </div>
           )}
         </div>

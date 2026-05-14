@@ -26,16 +26,34 @@ export function useUpload() {
     setLoading(true);
 
     try {
-      const url = await upload(supabase, {
-        path,
-        file,
-        bucket,
+      if (!["avatars", "apps"].includes(bucket)) {
+        const url = await upload(supabase, {
+          path,
+          file,
+          bucket,
+        });
+
+        return {
+          url,
+          path,
+        };
+      }
+
+      const formData = new FormData();
+      formData.set("file", file);
+      formData.set("bucket", bucket);
+      formData.set("path", JSON.stringify(path));
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
       });
 
-      return {
-        url,
-        path,
-      };
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      return (await response.json()) as UploadResult;
     } finally {
       setLoading(false);
     }

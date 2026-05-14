@@ -9,6 +9,14 @@ export function formatEditorContent(doc?: EditorDoc): React.ReactNode | null {
     <>
       {doc.content.map((node, nodeIndex) => {
         if (node.type === "paragraph") {
+          if (!node.content?.length) {
+            return (
+              <p key={`paragraph-${nodeIndex.toString()}`}>
+                <br />
+              </p>
+            );
+          }
+
           return (
             <p key={`paragraph-${nodeIndex.toString()}`}>
               {node.content?.map((inlineContent, inlineIndex) => {

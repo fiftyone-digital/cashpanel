@@ -21,6 +21,25 @@ export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
     <>
       {doc.content.map((node, nodeIndex) => {
         if (node.type === "paragraph") {
+          if (!node.content?.length) {
+            return (
+              <View
+                key={`paragraph-${nodeIndex.toString()}`}
+                style={{ alignItems: "flex-start" }}
+              >
+                <Text
+                  style={{
+                    fontSize: 9,
+                    fontFamily: "Inter",
+                    ...textStyle,
+                  }}
+                >
+                  {" "}
+                </Text>
+              </View>
+            );
+          }
+
           return (
             <View
               key={`paragraph-${nodeIndex.toString()}`}

@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@cashpanel/ui/card";
 import { Spinner } from "@cashpanel/ui/spinner";
+import { useToast } from "@cashpanel/ui/use-toast";
 import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useRef } from "react";
 import { useTeamMutation, useTeamQuery } from "@/hooks/use-team";
@@ -18,22 +19,37 @@ export function CompanyLogo() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { isLoading, uploadFile } = useUpload();
   const { data } = useTeamQuery();
-  const { mutate: updateTeam } = useTeamMutation();
+  const { mutateAsync: updateTeam } = useTeamMutation();
+  const { toast } = useToast();
 
   const handleUpload = async (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = evt.target;
-    const selectedFile = files as FileList;
+    const file = evt.target.files?.[0];
 
-    const filename = stripSpecialCharacters(selectedFile[0]?.name ?? "");
+    if (!file || !data?.id) {
+      evt.target.value = "";
+      return;
+    }
 
-    const { url } = await uploadFile({
-      bucket: "avatars",
-      path: [data?.id ?? "", filename],
-      file: selectedFile[0] as File,
-    });
+    try {
+      const filename = stripSpecialCharacters(file.name);
 
-    if (url) {
-      updateTeam({ logoUrl: url });
+      const { url } = await uploadFile({
+        bucket: "avatars",
+        path: [data.id, filename],
+        file,
+      });
+
+      if (url) {
+        await updateTeam({ logoUrl: url });
+      }
+    } catch (_error) {
+      toast({
+        title: "Logo upload failed",
+        description: "Please try again.",
+        variant: "error",
+      });
+    } finally {
+      evt.target.value = "";
     }
   };
 
@@ -73,6 +89,7 @@ export function CompanyLogo() {
             type="file"
             style={{ display: "none" }}
             multiple={false}
+            accept="image/jpeg,image/jpg,image/png,image/webp"
             onChange={handleUpload}
           />
         </Avatar>

@@ -106,6 +106,30 @@ describe("tRPC: team.update", () => {
     );
   });
 
+  test("accepts configured Supabase storage logo URL", async () => {
+    const caller = createCaller(createTestContext());
+    const logoUrl =
+      "https://test.supabase.co/storage/v1/object/public/avatars/test-team-id/logo.png";
+
+    await caller.update({ logoUrl });
+
+    expect(mocks.updateTeam).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        id: "test-team-id",
+        data: expect.objectContaining({ logoUrl }),
+      }),
+    );
+  });
+
+  test("rejects logo URL from an unknown host", async () => {
+    const caller = createCaller(createTestContext());
+
+    await expect(
+      caller.update({ logoUrl: "https://example.test/logo.png" }),
+    ).rejects.toThrow();
+  });
+
   test("rejects name shorter than minimum length", async () => {
     const caller = createCaller(createTestContext());
 

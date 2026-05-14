@@ -117,19 +117,40 @@ export const getTeamByIdSchema = z.object({
     }),
 });
 
+function getConfiguredSupabaseHostnames(): string[] {
+  return [process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_URL]
+    .map((url) => {
+      if (!url) {
+        return null;
+      }
+
+      try {
+        return new URL(url).hostname.toLowerCase();
+      } catch {
+        return null;
+      }
+    })
+    .filter((hostname): hostname is string => Boolean(hostname));
+}
+
 /**
- * Validates that a URL is hosted on a trusted cashpanel.io domain.
- * Prevents SSRF by checking the hostname, not just URL contents.
+ * Validates that a logo URL is hosted on CashPanel or the configured Supabase
+ * Storage project used by the dashboard upload flow.
  */
-function isValidCashPanelUrl(url: string): boolean {
+function isValidTeamLogoUrl(url: string): boolean {
   try {
     const parsed = new URL(url);
     const hostname = parsed.hostname.toLowerCase();
-    return (
+
+    if (
       hostname === "cdn.cashpanel.io" ||
       hostname === "cashpanel.io" ||
       hostname.endsWith(".cashpanel.io")
-    );
+    ) {
+      return true;
+    }
+
+    return getConfiguredSupabaseHostnames().includes(hostname);
   } catch {
     return false;
   }
@@ -148,13 +169,14 @@ export const updateTeamByIdSchema = z.object({
   logoUrl: z
     .string()
     .url()
-    .refine(isValidCashPanelUrl, {
-      message: "logoUrl must be hosted on cashpanel.io domain",
+    .refine(isValidTeamLogoUrl, {
+      message:
+        "logoUrl must be hosted on cashpanel.io or the configured Supabase project",
     })
     .optional()
     .openapi({
       description:
-        "URL to the team's logo image. Must be hosted on cashpanel.io domain",
+        "URL to the team's logo image. Must be hosted on cashpanel.io or the configured Supabase project",
       example: "https://cdn.cashpanel.io/logos/acme-corp.png",
     }),
   baseCurrency: z.string().optional().openapi({

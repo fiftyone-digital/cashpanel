@@ -293,7 +293,7 @@ export const invoiceRouter = createTRPCRouter({
           : null,
         noteDetails: null,
         topBlock: null,
-        bottomBlock: null,
+        bottomBlock: template?.bottomBlock ?? null,
         vat: null,
         tax: null,
         discount: null,
@@ -398,6 +398,7 @@ export const invoiceRouter = createTRPCRouter({
         paymentDetails:
           template?.paymentDetails ?? defaultTemplate.paymentDetails,
         noteDetails: template?.noteDetails ?? defaultTemplate.noteDetails,
+        bottomBlock: template?.bottomBlock ?? null,
         timezone,
         locale,
         paymentEnabled:
@@ -442,7 +443,7 @@ export const invoiceRouter = createTRPCRouter({
         discount: undefined,
         subtotal: undefined,
         topBlock: undefined,
-        bottomBlock: undefined,
+        bottomBlock: savedTemplate.bottomBlock,
         amount: undefined,
         customerName: undefined,
         logoUrl: undefined,

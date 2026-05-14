@@ -32,6 +32,7 @@ export const invoiceTemplateSchema = z.object({
   currency: z.string(),
   paymentDetails: z.any().nullable().optional(),
   fromDetails: z.any().nullable().optional(),
+  bottomBlock: z.any().nullable().optional(),
   size: z.enum(["a4", "letter"]),
   includeVat: z.boolean().optional(),
   includeTax: z.boolean().optional(),

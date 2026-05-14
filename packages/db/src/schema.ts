@@ -2184,6 +2184,7 @@ export const invoiceTemplates = pgTable(
     emailButtonText: text("email_button_text"),
     fromFields: jsonb("from_fields"),
     customerFields: jsonb("customer_fields"),
+    bottomBlock: jsonb("bottom_block"),
   },
   (table) => [
     foreignKey({

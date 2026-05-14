@@ -257,6 +257,9 @@ export function SettingsMenu() {
           setValue("noteDetails", data.newDefault.noteDetails ?? null, {
             shouldDirty: true,
           });
+          setValue("bottomBlock", data.newDefault.bottomBlock ?? null, {
+            shouldDirty: true,
+          });
         }
 
         setDeleteDialogOpen(false);
@@ -291,6 +294,9 @@ export function SettingsMenu() {
             shouldDirty: true,
           });
           setValue("noteDetails", data.noteDetails ?? null, {
+            shouldDirty: true,
+          });
+          setValue("bottomBlock", data.bottomBlock ?? null, {
             shouldDirty: true,
           });
         }
@@ -386,6 +392,7 @@ export function SettingsMenu() {
     const fromDetails = watch("fromDetails");
     const paymentDetails = watch("paymentDetails");
     const noteDetails = watch("noteDetails");
+    const bottomBlock = watch("bottomBlock");
 
     // Exclude id and create with new name
     const {
@@ -400,6 +407,7 @@ export function SettingsMenu() {
       fromDetails: fromDetails ? JSON.stringify(fromDetails) : null,
       paymentDetails: paymentDetails ? JSON.stringify(paymentDetails) : null,
       noteDetails: noteDetails ? JSON.stringify(noteDetails) : null,
+      bottomBlock: bottomBlock ? JSON.stringify(bottomBlock) : null,
       name: `${templateName || "Template"} (Copy)`,
       isDefault: false,
     });

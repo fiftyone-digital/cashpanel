@@ -83,6 +83,7 @@ export function CreateTemplateDialog({ open, onOpenChange, onCreated }: Props) {
     const fromDetails = invoiceForm?.getValues("fromDetails");
     const paymentDetails = invoiceForm?.getValues("paymentDetails");
     const noteDetails = invoiceForm?.getValues("noteDetails");
+    const bottomBlock = invoiceForm?.getValues("bottomBlock");
 
     // Exclude id from current template since we're creating a new one
     const { id: _id, ...templateSettings } = currentTemplate || {};
@@ -93,6 +94,7 @@ export function CreateTemplateDialog({ open, onOpenChange, onCreated }: Props) {
       fromDetails: fromDetails ? JSON.stringify(fromDetails) : null,
       paymentDetails: paymentDetails ? JSON.stringify(paymentDetails) : null,
       noteDetails: noteDetails ? JSON.stringify(noteDetails) : null,
+      bottomBlock: bottomBlock ? JSON.stringify(bottomBlock) : null,
       name: values.name,
       isDefault: false,
     });

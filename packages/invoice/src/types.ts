@@ -100,6 +100,7 @@ export type Template = {
   paymentDetails: EditorDoc | null;
   fromDetails: EditorDoc | null;
   noteDetails: EditorDoc | null;
+  bottomBlock?: EditorDoc | null;
   dateFormat: string;
   includeVat: boolean;
   includeTax: boolean;

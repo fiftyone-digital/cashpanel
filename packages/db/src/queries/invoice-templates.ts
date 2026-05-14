@@ -26,6 +26,7 @@ type InvoiceTemplateParams = {
   paymentDetails?: string | null; // Stringified JSON
   fromDetails?: string | null; // Stringified JSON
   noteDetails?: string | null; // Stringified JSON
+  bottomBlock?: string | null; // Stringified JSON
   dateFormat?: string;
   includeVat?: boolean;
   includeTax?: boolean;
@@ -108,6 +109,7 @@ const templateSelectFields = {
   emailButtonText: invoiceTemplates.emailButtonText,
   fromFields: invoiceTemplates.fromFields,
   customerFields: invoiceTemplates.customerFields,
+  bottomBlock: invoiceTemplates.bottomBlock,
 };
 
 /**

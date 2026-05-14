@@ -61,9 +61,33 @@ const textDoc = (lines: string[]): EditorDoc => ({
   type: "doc",
   content: lines.map((line) => ({
     type: "paragraph",
-    content: [{ type: "text", text: line }],
+    content: line ? [{ type: "text", text: line }] : [],
   })),
 });
+
+const textToDoc = (value: string) => {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+
+  return textDoc(trimmed.split(/\n/));
+};
+
+const getPlainText = (value: unknown) => {
+  if (!value || typeof value !== "object" || !("content" in value)) {
+    return "";
+  }
+
+  const content = (value as EditorDoc).content;
+  if (!Array.isArray(content)) return "";
+
+  return content
+    .map((node) =>
+      Array.isArray(node.content)
+        ? node.content.map((item) => item.text ?? "").join("")
+        : "",
+    )
+    .join("\n");
+};
 
 const optionLabel = (
   field: string,
@@ -143,7 +167,7 @@ const createPreviewInvoice = (
     sentTo: null,
     discount: null,
     topBlock: null,
-    bottomBlock: null,
+    bottomBlock: selectedTemplateBlock(template.bottomBlock),
     customer: {
       name: "Customer",
       website: null,
@@ -155,6 +179,9 @@ const createPreviewInvoice = (
     },
   };
 };
+
+const selectedTemplateBlock = (value: unknown) =>
+  value && typeof value === "object" ? (value as EditorDoc) : null;
 
 const toNumber = (value: string) => {
   const parsed = Number.parseInt(value, 10);
@@ -584,6 +611,40 @@ export function InvoiceTemplateManager() {
               options={customerFieldOptions}
               onChange={(customerFields) => updateSelected({ customerFields })}
             />
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="space-y-2">
+              <Label>Payment details</Label>
+              <Textarea
+                key={`${selectedTemplate.id}-payment-details`}
+                rows={4}
+                placeholder={"Bank: Example Bank\nIBAN: GB00 0000 0000 0000"}
+                defaultValue={getPlainText(selectedTemplate.paymentDetails)}
+                onBlur={(event) =>
+                  updateSelected({
+                    paymentDetails: textToDoc(event.target.value),
+                  })
+                }
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Footer note</Label>
+              <Textarea
+                key={`${selectedTemplate.id}-footer-note`}
+                rows={4}
+                placeholder="Questions? Contact support@example.com."
+                defaultValue={getPlainText(selectedTemplate.bottomBlock)}
+                onBlur={(event) =>
+                  updateSelected({
+                    bottomBlock: textToDoc(event.target.value),
+                  })
+                }
+              />
+              <p className="text-xs text-muted-foreground">
+                Rendered as the small full-width footer block on new invoices.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-2">

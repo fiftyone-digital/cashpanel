@@ -48,6 +48,9 @@ export function TemplateSelector() {
     setValue("noteDetails", template.noteDetails ?? null, {
       shouldDirty: true,
     });
+    setValue("bottomBlock", template.bottomBlock ?? null, {
+      shouldDirty: true,
+    });
 
     // Recalculate dueDate based on the new template's paymentTermsDays
     const paymentTermsDays = template.paymentTermsDays ?? 30;

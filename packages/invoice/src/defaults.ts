@@ -84,6 +84,7 @@ export const DEFAULT_TEMPLATE = {
   paymentDetails: null,
   fromDetails: null,
   noteDetails: null,
+  bottomBlock: null,
 } as const;
 
 export type DefaultTemplate = typeof DEFAULT_TEMPLATE;

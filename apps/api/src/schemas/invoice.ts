@@ -132,6 +132,7 @@ export const upsertInvoiceTemplateSchema = baseInvoiceTemplateSchema.extend({
   paymentDetails: z.any().nullable().optional(),
   fromDetails: z.any().nullable().optional(),
   noteDetails: z.any().nullable().optional(),
+  bottomBlock: z.any().nullable().optional(),
 });
 
 // Template schema with TipTap validation for editor fields
@@ -146,6 +147,9 @@ export const restUpsertInvoiceTemplateSchema = baseInvoiceTemplateSchema.extend(
     noteDetails: editorFieldSchema.openapi({
       description:
         "Default footer notes in TipTap JSONContent format for new invoices",
+    }),
+    bottomBlock: editorFieldSchema.openapi({
+      description: "Default full-width footer block for new invoices",
     }),
   },
 );
@@ -503,6 +507,7 @@ export const invoiceTemplateSchema = z.object({
   currency: z.string(),
   paymentDetails: z.any().nullable().optional(),
   fromDetails: z.any().nullable().optional(),
+  bottomBlock: z.any().nullable().optional(),
   size: z.enum(["a4", "letter"]),
   includeVat: z.boolean().optional(),
   includeTax: z.boolean().optional(),

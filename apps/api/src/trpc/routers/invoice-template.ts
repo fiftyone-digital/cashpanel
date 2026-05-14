@@ -40,6 +40,7 @@ export const invoiceTemplateRouter = createTRPCRouter({
         fromDetails: parseInputValue(input.fromDetails),
         paymentDetails: parseInputValue(input.paymentDetails),
         noteDetails: parseInputValue(input.noteDetails),
+        bottomBlock: parseInputValue(input.bottomBlock),
       });
     }),
 
@@ -58,6 +59,7 @@ export const invoiceTemplateRouter = createTRPCRouter({
         fromDetails: parseInputValue(input.fromDetails),
         paymentDetails: parseInputValue(input.paymentDetails),
         noteDetails: parseInputValue(input.noteDetails),
+        bottomBlock: parseInputValue(input.bottomBlock),
       });
     }),
 

@@ -1,4 +1,6 @@
-import { createClient } from "@cashpanel/supabase/server";
+import { createClient as createServerClient } from "@cashpanel/supabase/server";
+import type { Database } from "@cashpanel/supabase/types";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 
 const serverUploadBuckets = new Set(["avatars", "apps"]);
@@ -33,12 +35,12 @@ function parsePath(value: FormDataEntryValue | null) {
 }
 
 export async function POST(request: Request) {
-  const supabase = await createClient();
+  const supabase = await createServerClient();
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (!session) {
+  if (!user) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -59,7 +61,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid upload path" }, { status: 400 });
   }
 
-  const adminSupabase = await createClient({ admin: true });
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SECRET_KEY;
+
+  if (!supabaseUrl || !serviceKey) {
+    console.error("Upload failed: missing Supabase service configuration");
+    return NextResponse.json(
+      { error: "Upload service is not configured" },
+      { status: 500 },
+    );
+  }
+
+  const adminSupabase = createSupabaseClient<Database>(
+    supabaseUrl,
+    serviceKey,
+    {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
+      },
+    },
+  );
   const objectPath = path.join("/");
   const storage = adminSupabase.storage.from(bucket);
   const result = await storage.upload(objectPath, file, {
@@ -69,6 +92,12 @@ export async function POST(request: Request) {
   });
 
   if (result.error) {
+    console.error("Upload failed", {
+      bucket,
+      objectPath,
+      message: result.error.message,
+    });
+
     return NextResponse.json({ error: result.error.message }, { status: 400 });
   }
 

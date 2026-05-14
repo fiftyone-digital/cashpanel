@@ -14,18 +14,20 @@ import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useRef } from "react";
 import { useTeamMutation, useTeamQuery } from "@/hooks/use-team";
 import { useUpload } from "@/hooks/use-upload";
+import { useUserQuery } from "@/hooks/use-user";
 
 export function CompanyLogo() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { isLoading, uploadFile } = useUpload();
   const { data } = useTeamQuery();
+  const { data: user } = useUserQuery();
   const { mutateAsync: updateTeam } = useTeamMutation();
   const { toast } = useToast();
 
   const handleUpload = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const file = evt.target.files?.[0];
 
-    if (!file || !data?.id) {
+    if (!file || !data?.id || !user?.id) {
       evt.target.value = "";
       return;
     }
@@ -35,7 +37,7 @@ export function CompanyLogo() {
 
       const { url } = await uploadFile({
         bucket: "avatars",
-        path: [data.id, filename],
+        path: [user.id, "teams", data.id, filename],
         file,
       });
 

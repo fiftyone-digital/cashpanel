@@ -15,6 +15,7 @@ import { Input } from "@cashpanel/ui/input";
 import { Label } from "@cashpanel/ui/label";
 import { Textarea } from "@cashpanel/ui/textarea";
 import { useToast } from "@cashpanel/ui/use-toast";
+import { stripSpecialCharacters } from "@cashpanel/utils";
 import {
   useMutation,
   useQueryClient,
@@ -23,6 +24,7 @@ import {
 import { useMemo, useState } from "react";
 import { useTeamQuery } from "@/hooks/use-team";
 import { useUpload } from "@/hooks/use-upload";
+import { useUserQuery } from "@/hooks/use-user";
 import { useTRPC } from "@/trpc/client";
 
 const fromFieldOptions = [
@@ -267,6 +269,7 @@ export function InvoiceTemplateManager() {
   const trpc = useTRPC();
   const queryClient = useQueryClient();
   const { data: team } = useTeamQuery();
+  const { data: user } = useUserQuery();
   const { uploadFile, isLoading: isUploadingLogo } = useUpload();
   const { toast } = useToast();
   const { data: templates } = useSuspenseQuery(
@@ -355,13 +358,22 @@ export function InvoiceTemplateManager() {
     if (!file) return;
 
     try {
-      if (!team?.id) {
-        throw new Error("Missing team");
+      if (!team?.id || !user?.id) {
+        throw new Error("Missing team or user");
       }
+
+      const filename = stripSpecialCharacters(file.name);
 
       const { url } = await uploadFile({
         file,
-        path: [team.id, "invoice-templates", selectedTemplate.id, file.name],
+        path: [
+          user.id,
+          "teams",
+          team.id,
+          "invoice-templates",
+          selectedTemplate.id,
+          filename,
+        ],
         bucket: "avatars",
       });
 

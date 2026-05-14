@@ -3,6 +3,7 @@
 import { Icons } from "@cashpanel/ui/icons";
 import { Skeleton } from "@cashpanel/ui/skeleton";
 import { useToast } from "@cashpanel/ui/use-toast";
+import { stripSpecialCharacters } from "@cashpanel/utils";
 import { useFormContext } from "react-hook-form";
 import { useTemplateUpdate } from "@/hooks/use-template-update";
 import { useUpload } from "@/hooks/use-upload";
@@ -21,9 +22,15 @@ export function Logo() {
     const file = event.target.files?.[0];
     if (file) {
       try {
+        if (!user?.id || !user?.teamId) {
+          throw new Error("Missing user or team");
+        }
+
+        const filename = stripSpecialCharacters(file.name);
+
         const { url } = await uploadFile({
           file,
-          path: [user?.teamId ?? "", "invoice", file.name],
+          path: [user.id, "teams", user.teamId, "invoice", filename],
           bucket: "avatars",
         });
 
@@ -38,6 +45,8 @@ export function Logo() {
           title: "Something went wrong, please try again.",
           variant: "error",
         });
+      } finally {
+        event.target.value = "";
       }
     }
   };

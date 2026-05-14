@@ -47,6 +47,7 @@ export const DEFAULT_TEMPLATE_SETTINGS = {
   includeDecimals: false,
   includeUnits: false,
   includeQr: true,
+  paymentDetailsFullWidth: false,
   // Email settings
   includePdf: true, // Attach PDF to emails
   sendCopy: false, // Send copy to invoice creator

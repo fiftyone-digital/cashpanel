@@ -112,6 +112,7 @@ const baseInvoiceTemplateSchema = z.object({
   includeQr: z.boolean().optional(),
   includeLineItemTax: z.boolean().optional(),
   lineItemTaxLabel: z.string().optional(),
+  paymentDetailsFullWidth: z.boolean().optional(),
   taxRate: z.number().min(0).max(100).optional().nullable(),
   vatRate: z.number().min(0).max(100).optional().nullable(),
   size: z.enum(["a4", "letter"]).optional(),

@@ -120,7 +120,13 @@ export function HtmlTemplate({ data, width, height }: Props) {
         </div>
 
         <div className="flex flex-col space-y-6 md:space-y-8 mt-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div
+            className={
+              template.paymentDetailsFullWidth
+                ? "grid grid-cols-1 gap-4 md:gap-6"
+                : "grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+            }
+          >
             <div>
               <p className="text-[11px] text-[#878787] mb-2 block">
                 {template.paymentLabel}
@@ -128,7 +134,11 @@ export function HtmlTemplate({ data, width, height }: Props) {
               <EditorContent content={paymentDetails} />
             </div>
             {noteDetails && (
-              <div className="mt-4 md:mt-0">
+              <div
+                className={
+                  template.paymentDetailsFullWidth ? "" : "mt-4 md:mt-0"
+                }
+              >
                 <p className="text-[11px] text-[#878787] mb-2 block">
                   {template.noteLabel}
                 </p>
@@ -137,7 +147,11 @@ export function HtmlTemplate({ data, width, height }: Props) {
             )}
           </div>
 
-          <EditorContent content={bottomBlock} />
+          {bottomBlock && (
+            <div className="text-[#878787] [&_a]:!text-[10px] [&_p]:leading-[14px] [&_span]:!text-[10px]">
+              <EditorContent content={bottomBlock} />
+            </div>
+          )}
         </div>
       </div>
     </ScrollArea>

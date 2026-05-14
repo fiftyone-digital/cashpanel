@@ -2176,6 +2176,9 @@ export const invoiceTemplates = pgTable(
     sendCopy: boolean("send_copy"),
     includeLineItemTax: boolean("include_line_item_tax").default(false),
     lineItemTaxLabel: text("line_item_tax_label"),
+    paymentDetailsFullWidth: boolean("payment_details_full_width").default(
+      false,
+    ),
     paymentEnabled: boolean("payment_enabled").default(false),
     paymentTermsDays: integer("payment_terms_days").default(30),
     emailSubject: text("email_subject"),

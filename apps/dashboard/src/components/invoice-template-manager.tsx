@@ -627,7 +627,20 @@ export function InvoiceTemplateManager() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="space-y-2">
-              <Label>Payment details</Label>
+              <div className="flex items-center justify-between gap-3">
+                <Label>Payment details</Label>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Checkbox
+                    checked={selectedTemplate.paymentDetailsFullWidth ?? false}
+                    onCheckedChange={(checked) =>
+                      updateSelected({
+                        paymentDetailsFullWidth: checked === true,
+                      })
+                    }
+                  />
+                  <span>Full width</span>
+                </div>
+              </div>
               <Textarea
                 key={`${selectedTemplate.id}-payment-details`}
                 rows={4}
@@ -641,22 +654,42 @@ export function InvoiceTemplateManager() {
               />
             </div>
             <div className="space-y-2">
-              <Label>Footer note</Label>
+              <Label>Note</Label>
               <Textarea
-                key={`${selectedTemplate.id}-footer-note`}
+                key={`${selectedTemplate.id}-note`}
                 rows={4}
                 placeholder="Questions? Contact support@example.com."
-                defaultValue={getPlainText(selectedTemplate.bottomBlock)}
+                defaultValue={getPlainText(selectedTemplate.noteDetails)}
                 onBlur={(event) =>
                   updateSelected({
-                    bottomBlock: textToDoc(event.target.value),
+                    noteDetails: textToDoc(event.target.value),
                   })
                 }
               />
               <p className="text-xs text-muted-foreground">
-                Rendered as the small full-width footer block on new invoices.
+                Rendered to the right of payment details unless payment details
+                are full width.
               </p>
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <Label>Contact details</Label>
+            <Textarea
+              key={`${selectedTemplate.id}-contact-details`}
+              rows={3}
+              placeholder="Questions? Contact us at support@example.com."
+              defaultValue={getPlainText(selectedTemplate.bottomBlock)}
+              onBlur={(event) =>
+                updateSelected({
+                  bottomBlock: textToDoc(event.target.value),
+                })
+              }
+            />
+            <p className="text-xs text-muted-foreground">
+              Rendered as small light-grey text at the very bottom of the
+              invoice.
+            </p>
           </div>
 
           <div className="space-y-2">

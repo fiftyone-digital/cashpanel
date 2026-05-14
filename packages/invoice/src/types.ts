@@ -110,6 +110,7 @@ export type Template = {
   includeQr: boolean;
   includeLineItemTax?: boolean;
   lineItemTaxLabel?: string;
+  paymentDetailsFullWidth?: boolean;
   taxRate: number;
   vatRate: number;
   size: "a4" | "letter";

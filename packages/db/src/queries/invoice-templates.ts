@@ -36,6 +36,7 @@ type InvoiceTemplateParams = {
   includeQr?: boolean;
   includeLineItemTax?: boolean;
   lineItemTaxLabel?: string;
+  paymentDetailsFullWidth?: boolean;
   taxRate?: number | null;
   vatRate?: number | null;
   size?: "a4" | "letter";
@@ -95,6 +96,7 @@ const templateSelectFields = {
   includeQr: invoiceTemplates.includeQr,
   includeLineItemTax: invoiceTemplates.includeLineItemTax,
   lineItemTaxLabel: invoiceTemplates.lineItemTaxLabel,
+  paymentDetailsFullWidth: invoiceTemplates.paymentDetailsFullWidth,
   totalSummaryLabel: invoiceTemplates.totalSummaryLabel,
   title: invoiceTemplates.title,
   vatRate: invoiceTemplates.vatRate,

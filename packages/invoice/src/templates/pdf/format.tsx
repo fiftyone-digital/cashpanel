@@ -2,7 +2,7 @@ import { Link, Text, View } from "@react-pdf/renderer";
 import type { Style } from "@react-pdf/types";
 import type { EditorDoc } from "../../types";
 
-type PDFTextStyle = Style & {
+export type PDFTextStyle = Style & {
   fontFamily?: string;
   fontStyle?: "normal" | "italic" | "oblique";
   textDecoration?:
@@ -12,7 +12,7 @@ type PDFTextStyle = Style & {
     | "underline line-through";
 };
 
-export function formatEditorContent(doc?: EditorDoc) {
+export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
   if (!doc?.content) {
     return null;
   }
@@ -32,6 +32,7 @@ export function formatEditorContent(doc?: EditorDoc) {
                     const style: PDFTextStyle = {
                       fontSize: 9,
                       fontFamily: "Inter",
+                      ...textStyle,
                     };
                     let href: string | undefined;
                     let hasUnderline = false;
@@ -77,7 +78,7 @@ export function formatEditorContent(doc?: EditorDoc) {
                           src={linkHref}
                           style={{
                             ...style,
-                            color: "black",
+                            color: style.color ?? "black",
                             textDecoration: "underline",
                           }}
                         >

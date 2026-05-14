@@ -221,8 +221,21 @@ export async function PdfTemplate(
             )}
           </View>
 
-          <View wrap={false} style={{ flexDirection: "row", marginTop: 20 }}>
-            <View style={{ flex: 1, marginRight: 10 }}>
+          <View
+            wrap={false}
+            style={{
+              flexDirection: template.paymentDetailsFullWidth
+                ? "column"
+                : "row",
+              marginTop: 20,
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                marginRight: template.paymentDetailsFullWidth ? 0 : 10,
+              }}
+            >
               <PaymentDetails
                 content={paymentDetails}
                 paymentLabel={template.paymentLabel}
@@ -231,12 +244,24 @@ export async function PdfTemplate(
               {qrCode && <QRCode data={qrCode} />}
             </View>
 
-            <View style={{ flex: 1, marginLeft: 10 }}>
+            <View
+              style={{
+                flex: 1,
+                marginLeft: template.paymentDetailsFullWidth ? 0 : 10,
+              }}
+            >
               <Note content={noteDetails} noteLabel={template.noteLabel} />
             </View>
           </View>
 
-          <EditorContent content={bottomBlock} />
+          {bottomBlock && (
+            <View>
+              <EditorContent
+                content={bottomBlock}
+                textStyle={{ color: "#878787", fontSize: 8 }}
+              />
+            </View>
+          )}
         </View>
       </Page>
     </Document>

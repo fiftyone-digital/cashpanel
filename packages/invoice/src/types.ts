@@ -97,6 +97,7 @@ export type Template = {
   noteLabel: string;
   logoUrl: string | null;
   currency: string;
+  invoiceNumberPrefix?: string | null;
   paymentDetails: EditorDoc | null;
   fromDetails: EditorDoc | null;
   noteDetails: EditorDoc | null;

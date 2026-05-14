@@ -72,6 +72,7 @@ export interface BuiltInvoiceTemplate {
   noteLabel: string;
   logoUrl: string | null;
   currency: string;
+  invoiceNumberPrefix?: string | null;
   dateFormat: string;
   includeVat: boolean;
   includeTax: boolean;
@@ -152,6 +153,9 @@ export function buildInvoiceTemplateFromRecurring(
     // Optional fields with defaults
     logoUrl: (template.logoUrl as string | null) ?? null,
     currency: recurring.currency ?? DEFAULT_TEMPLATE_SETTINGS.currency,
+    invoiceNumberPrefix:
+      (template.invoiceNumberPrefix as string | null) ??
+      DEFAULT_TEMPLATE_SETTINGS.invoiceNumberPrefix,
     dateFormat:
       (template.dateFormat as string) ?? DEFAULT_TEMPLATE_SETTINGS.dateFormat,
     locale: (template.locale as string) ?? DEFAULT_TEMPLATE_SETTINGS.locale,

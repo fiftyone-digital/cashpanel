@@ -33,6 +33,7 @@ export const DEFAULT_TEMPLATE_LABELS = {
  */
 export const DEFAULT_TEMPLATE_SETTINGS = {
   currency: "USD",
+  invoiceNumberPrefix: "INV-",
   locale: "en-US",
   dateFormat: "dd/MM/yyyy",
   size: "a4" as const,

@@ -101,6 +101,7 @@ const baseInvoiceTemplateSchema = z.object({
   noteLabel: z.string().optional(),
   logoUrl: z.string().optional().nullable(),
   currency: z.string().optional(),
+  invoiceNumberPrefix: z.string().max(32).optional().nullable(),
   dateFormat: z.string().optional(),
   includeVat: z.boolean().optional(),
   includeTax: z.boolean().optional(),

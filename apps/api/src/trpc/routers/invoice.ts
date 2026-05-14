@@ -195,19 +195,22 @@ export const invoiceRouter = createTRPCRouter({
       }
 
       // Get default invoice settings and customer details
-      const [nextInvoiceNumber, template, team, fullCustomer, user] =
-        await Promise.all([
-          getNextInvoiceNumber(db, teamId!),
-          getInvoiceTemplate(db, teamId!),
-          getTeamById(db, teamId!),
-          projectData.customerId
-            ? getCustomerById(db, {
-                id: projectData.customerId,
-                teamId: teamId!,
-              })
-            : null,
-          getUserById(db, session.user.id),
-        ]);
+      const [template, team, fullCustomer, user] = await Promise.all([
+        getInvoiceTemplate(db, teamId!),
+        getTeamById(db, teamId!),
+        projectData.customerId
+          ? getCustomerById(db, {
+              id: projectData.customerId,
+              teamId: teamId!,
+            })
+          : null,
+        getUserById(db, session.user.id),
+      ]);
+      const nextInvoiceNumber = await getNextInvoiceNumber(
+        db,
+        teamId!,
+        template?.invoiceNumberPrefix ?? defaultTemplate.invoiceNumberPrefix,
+      );
 
       const invoiceId = uuidv4();
       const currency = projectData.currency || team?.baseCurrency || "USD";
@@ -305,13 +308,18 @@ export const invoiceRouter = createTRPCRouter({
 
   defaultSettings: protectedProcedure.query(
     async ({ ctx: { db, teamId, session, geo } }) => {
-      // Fetch invoice number, template, and team details concurrently
-      const [nextInvoiceNumber, template, team, user] = await Promise.all([
-        getNextInvoiceNumber(db, teamId!),
+      // Fetch template and team details before generating the next number so
+      // template-specific prefixes are used for new invoices.
+      const [template, team, user] = await Promise.all([
         getInvoiceTemplate(db, teamId!),
         getTeamById(db, teamId!),
         getUserById(db, session.user.id),
       ]);
+      const nextInvoiceNumber = await getNextInvoiceNumber(
+        db,
+        teamId!,
+        template?.invoiceNumberPrefix ?? defaultTemplate.invoiceNumberPrefix,
+      );
 
       const locale = user?.locale ?? geo?.locale ?? "en";
       const timezone = user?.timezone ?? geo?.timezone ?? "America/New_York";
@@ -338,6 +346,8 @@ export const invoiceRouter = createTRPCRouter({
         title: template?.title ?? defaultTemplate.title,
         logoUrl,
         currency,
+        invoiceNumberPrefix:
+          template?.invoiceNumberPrefix ?? defaultTemplate.invoiceNumberPrefix,
         size: template?.size ?? defaultTemplate.size,
         includeTax: template?.includeTax ?? includeTax,
         includeVat: template?.includeVat ?? !includeTax,
@@ -351,6 +361,9 @@ export const invoiceRouter = createTRPCRouter({
           template?.includeLineItemTax ?? defaultTemplate.includeLineItemTax,
         lineItemTaxLabel:
           template?.lineItemTaxLabel ?? defaultTemplate.lineItemTaxLabel,
+        paymentDetailsFullWidth:
+          template?.paymentDetailsFullWidth ??
+          defaultTemplate.paymentDetailsFullWidth,
         includePdf: template?.includePdf ?? defaultTemplate.includePdf,
         sendCopy: template?.sendCopy ?? defaultTemplate.sendCopy,
         customerLabel: template?.customerLabel ?? defaultTemplate.customerLabel,
@@ -477,7 +490,13 @@ export const invoiceRouter = createTRPCRouter({
     .mutation(async ({ input, ctx: { db, teamId, session } }) => {
       // Generate invoice number if not provided
       const invoiceNumber =
-        input.invoiceNumber || (await getNextInvoiceNumber(db, teamId!));
+        input.invoiceNumber ||
+        (await getNextInvoiceNumber(
+          db,
+          teamId!,
+          input.template?.invoiceNumberPrefix ??
+            defaultTemplate.invoiceNumberPrefix,
+        ));
 
       return draftInvoice(db, {
         ...input,

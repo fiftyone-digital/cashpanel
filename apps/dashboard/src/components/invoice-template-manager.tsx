@@ -131,7 +131,7 @@ const createPreviewInvoice = (
   return {
     id: "template-preview",
     dueDate: "2026-06-12",
-    invoiceNumber: "INV-0001",
+    invoiceNumber: `${previewTemplate.invoiceNumberPrefix ?? DEFAULT_TEMPLATE.invoiceNumberPrefix}0001`,
     createdAt: "2026-05-13",
     amount: 5000,
     currency,
@@ -571,6 +571,27 @@ export function InvoiceTemplateManager() {
                   updateSelected({ currency: event.target.value.toUpperCase() })
                 }
               />
+            </div>
+            <div className="space-y-2">
+              <Label>Invoice number prefix</Label>
+              <Input
+                key={`${selectedTemplate.id}-invoice-number-prefix`}
+                defaultValue={
+                  selectedTemplate.invoiceNumberPrefix ??
+                  DEFAULT_TEMPLATE.invoiceNumberPrefix
+                }
+                placeholder="INV-"
+                onBlur={(event) =>
+                  updateSelected({
+                    invoiceNumberPrefix:
+                      event.target.value ||
+                      DEFAULT_TEMPLATE.invoiceNumberPrefix,
+                  })
+                }
+              />
+              <p className="text-xs text-muted-foreground">
+                Include the separator if needed, for example INV- or ASTL-INV.
+              </p>
             </div>
             <div className="space-y-2">
               <Label>Payment terms days</Label>

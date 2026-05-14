@@ -325,7 +325,6 @@ export class InvoiceRecurringSchedulerProcessor extends BaseProcessor<InvoiceRec
 
         // Generate new invoice ID and number
         const invoiceId = uuidv4();
-        const invoiceNumber = await getNextInvoiceNumber(db, recurring.teamId);
         const token = await generateToken(invoiceId);
 
         // Calculate dates using the scheduled date, normalized to UTC midnight
@@ -344,6 +343,11 @@ export class InvoiceRecurringSchedulerProcessor extends BaseProcessor<InvoiceRec
 
         // Build template from recurring data using shared utility
         const template = buildInvoiceTemplateFromRecurring(recurring);
+        const invoiceNumber = await getNextInvoiceNumber(
+          db,
+          recurring.teamId,
+          template.invoiceNumberPrefix ?? undefined,
+        );
 
         // Use transaction to ensure atomicity of invoice creation and recurring series update
         // This prevents partial state where invoice is created but recurring counter isn't updated

@@ -386,6 +386,26 @@ describe("tRPC: invoice.defaultSettings", () => {
     expect(mocks.getUserById).toHaveBeenCalled();
   });
 
+  test("uses template invoice number prefix for the next draft number", async () => {
+    mocks.getInvoiceTemplate.mockImplementation(() => ({
+      id: "tmpl-1",
+      name: "Default",
+      currency: "EUR",
+      size: "a4",
+      invoiceNumberPrefix: "ASTL-INV",
+    }));
+
+    const caller = createCaller(createTestContext());
+    const result = await caller.defaultSettings();
+
+    expect(result.template.invoiceNumberPrefix).toBe("ASTL-INV");
+    expect(mocks.getNextInvoiceNumber).toHaveBeenCalledWith(
+      expect.anything(),
+      "test-team-id",
+      "ASTL-INV",
+    );
+  });
+
   test("prefills sender details from invoice profile when template has no custom sender block", async () => {
     mocks.getInvoiceTemplate.mockImplementation(() => ({
       id: "tmpl-1",

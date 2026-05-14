@@ -641,8 +641,9 @@ export async function searchInvoiceNumber(
 export async function getNextInvoiceNumber(
   db: DatabaseOrTransaction,
   teamId: string,
+  prefix = "INV-",
 ): Promise<string> {
-  const PREFIX = "INV-";
+  const PREFIX = prefix;
   const PAD_LENGTH = 4;
 
   // Find the highest invoice number with a numeric suffix for this team
@@ -654,6 +655,7 @@ export async function getNextInvoiceNumber(
       and(
         eq(invoices.teamId, teamId),
         sql`${invoices.invoiceNumber} ~ '[0-9]+$'`,
+        sql`${invoices.invoiceNumber} LIKE ${`${PREFIX}%`}`,
       ),
     )
     .orderBy(

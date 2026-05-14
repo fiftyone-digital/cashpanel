@@ -28,6 +28,7 @@ import {
   isInvoiceNumberUsed,
   updateInvoice,
 } from "@cashpanel/db/queries";
+import { DEFAULT_TEMPLATE as defaultTemplate } from "@cashpanel/invoice";
 import { calculateTotal } from "@cashpanel/invoice/calculate";
 import { transformCustomerToContent } from "@cashpanel/invoice/utils";
 import { decodeJobId, getQueue, triggerJob } from "@cashpanel/job-client";
@@ -409,10 +410,20 @@ app.openapi(
     const userId = c.get("session").user.id;
     const input = c.req.valid("json");
 
+    // Get template for default payment terms and invoice-number prefix
+    const template = await getInvoiceTemplate(db, teamId);
+
     // Generate invoice ID and number if not provided
     const invoiceId = uuidv4();
     const finalInvoiceNumber =
-      input.invoiceNumber || (await getNextInvoiceNumber(db, teamId));
+      input.invoiceNumber ||
+      (await getNextInvoiceNumber(
+        db,
+        teamId,
+        input.template?.invoiceNumberPrefix ??
+          template?.invoiceNumberPrefix ??
+          defaultTemplate.invoiceNumberPrefix,
+      ));
 
     // Check if the provided invoice number is already used
     if (input.invoiceNumber) {
@@ -424,8 +435,6 @@ app.openapi(
       }
     }
 
-    // Get template for default payment terms
-    const template = await getInvoiceTemplate(db, teamId);
     const paymentTermsDays = template?.paymentTermsDays ?? 30;
 
     // Set default dates if not provided

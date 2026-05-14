@@ -126,6 +126,7 @@ describe("tRPC: invoiceTemplate.upsert", () => {
       id: TEMPLATE_ID,
       name: "Upserted",
       currency: "USD",
+      invoiceNumberPrefix: "ASTL-INV",
     });
 
     expect(result).toMatchObject({
@@ -140,6 +141,7 @@ describe("tRPC: invoiceTemplate.upsert", () => {
         teamId: "test-team-id",
         name: "Upserted",
         currency: "USD",
+        invoiceNumberPrefix: "ASTL-INV",
       }),
     );
   });

@@ -21,6 +21,7 @@ import { SubmitButton } from "@cashpanel/ui/submit-button";
 import { z } from "zod/v3";
 import { useTeamMutation, useTeamQuery } from "@/hooks/use-team";
 import { useZodForm } from "@/hooks/use-zod-form";
+import { CountrySelector } from "./country-selector";
 
 const nullableText = z.string().optional().nullable();
 
@@ -115,11 +116,20 @@ export function InvoiceProfileSettings() {
                         {label}
                       </FormLabel>
                       <FormControl>
-                        <Input
-                          {...field}
-                          value={field.value ?? ""}
-                          autoComplete="off"
-                        />
+                        {name === "invoiceCountry" ? (
+                          <CountrySelector
+                            defaultValue={field.value ?? ""}
+                            onSelect={(_code, countryName) => {
+                              field.onChange(countryName);
+                            }}
+                          />
+                        ) : (
+                          <Input
+                            {...field}
+                            value={field.value ?? ""}
+                            autoComplete="off"
+                          />
+                        )}
                       </FormControl>
                       <FormMessage />
                     </FormItem>

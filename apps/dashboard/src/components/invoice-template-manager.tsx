@@ -2,6 +2,12 @@
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
 import { DEFAULT_TEMPLATE } from "@cashpanel/invoice";
+import { HtmlTemplate } from "@cashpanel/invoice/templates/html";
+import type {
+  EditorDoc,
+  Invoice,
+  Template as InvoiceTemplate,
+} from "@cashpanel/invoice/types";
 import { Button } from "@cashpanel/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@cashpanel/ui/card";
 import { Checkbox } from "@cashpanel/ui/checkbox";
@@ -47,6 +53,93 @@ const labelFields = [
 ] as const;
 
 type Template = RouterOutputs["invoiceTemplate"]["list"][number];
+
+const textDoc = (lines: string[]): EditorDoc => ({
+  type: "doc",
+  content: lines.map((line) => ({
+    type: "paragraph",
+    content: [{ type: "text", text: line }],
+  })),
+});
+
+const optionLabel = (
+  field: string,
+  options: readonly (readonly [string, string])[],
+) => options.find(([value]) => value === field)?.[1] ?? field;
+
+const withTemplateDefaults = (template: Template): InvoiceTemplate =>
+  Object.fromEntries(
+    Object.entries(DEFAULT_TEMPLATE).map(([key, value]) => [
+      key,
+      (template as Record<string, unknown>)[key] ?? value,
+    ]),
+  ) as InvoiceTemplate;
+
+const createPreviewInvoice = (template: Template): Invoice => {
+  const previewTemplate = withTemplateDefaults(template);
+  const fromFields = toFieldList(
+    template.fromFields,
+    DEFAULT_TEMPLATE.fromFields,
+  );
+  const customerFields = toFieldList(
+    template.customerFields,
+    DEFAULT_TEMPLATE.customerFields,
+  );
+  const currency = previewTemplate.currency ?? DEFAULT_TEMPLATE.currency;
+
+  return {
+    id: "template-preview",
+    dueDate: "2026-06-12",
+    invoiceNumber: "INV-0001",
+    createdAt: "2026-05-13",
+    amount: 5000,
+    currency,
+    lineItems: [
+      {
+        name: "Product or service",
+        description: "Optional copied product description",
+        quantity: 1,
+        price: 5000,
+      },
+    ],
+    paymentDetails: previewTemplate.paymentDetails,
+    customerDetails: textDoc(
+      customerFields.map((field) => optionLabel(field, customerFieldOptions)),
+    ),
+    reminderSentAt: null,
+    updatedAt: null,
+    note: null,
+    internalNote: null,
+    paidAt: null,
+    vat: null,
+    tax: null,
+    filePath: null,
+    status: "draft",
+    viewedAt: null,
+    fromDetails: textDoc(
+      fromFields.map((field) => optionLabel(field, fromFieldOptions)),
+    ),
+    issueDate: "2026-05-13",
+    sentAt: null,
+    template: previewTemplate,
+    noteDetails: previewTemplate.noteDetails,
+    customerName: "Customer",
+    token: "template-preview",
+    sentTo: null,
+    discount: null,
+    topBlock: null,
+    bottomBlock: null,
+    customer: {
+      name: "Customer",
+      website: null,
+      email: null,
+    },
+    customerId: null,
+    team: {
+      name: "Company",
+    },
+  };
+};
 
 const toNumber = (value: string) => {
   const parsed = Number.parseInt(value, 10);
@@ -104,88 +197,18 @@ function FieldToggleGroup({
 }
 
 function TemplatePreview({ template }: { template: Template }) {
-  const fromFields = toFieldList(
-    template.fromFields,
-    DEFAULT_TEMPLATE.fromFields,
-  );
-  const customerFields = toFieldList(
-    template.customerFields,
-    DEFAULT_TEMPLATE.customerFields,
-  );
+  const previewInvoice = createPreviewInvoice(template);
+  const height = previewInvoice.template.size === "letter" ? 971 : 842;
+  const width = previewInvoice.template.size === "letter" ? 750 : 595;
 
   return (
-    <Card>
+    <Card className="min-w-0">
       <CardHeader>
         <CardTitle>Preview</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="border border-border bg-[#0f0f0f] p-8 min-h-[520px] text-xs">
-          <div className="flex justify-between">
-            <div>
-              <div className="font-serif text-2xl mb-3">
-                {template.title ?? DEFAULT_TEMPLATE.title}
-              </div>
-              <div className="text-muted-foreground">
-                {template.invoiceNoLabel ?? DEFAULT_TEMPLATE.invoiceNoLabel}:
-                INV-0001
-              </div>
-              <div className="text-muted-foreground">
-                {template.issueDateLabel ?? DEFAULT_TEMPLATE.issueDateLabel}:
-                13/05/2026
-              </div>
-              <div className="text-muted-foreground">
-                {template.dueDateLabel ?? DEFAULT_TEMPLATE.dueDateLabel}:
-                12/06/2026
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-10 mt-10">
-            <div>
-              <div className="text-muted-foreground mb-3">
-                {template.fromLabel ?? DEFAULT_TEMPLATE.fromLabel}
-              </div>
-              {fromFields.map((field) => (
-                <div key={field} className="mb-2">
-                  {field}
-                </div>
-              ))}
-            </div>
-            <div>
-              <div className="text-muted-foreground mb-3">
-                {template.customerLabel ?? DEFAULT_TEMPLATE.customerLabel}
-              </div>
-              {customerFields.map((field) => (
-                <div key={field} className="mb-2">
-                  {field}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-[1.5fr_15%_15%_15%] gap-4 mt-12 border-b border-border pb-2 text-muted-foreground">
-            <div>
-              {template.descriptionLabel ?? DEFAULT_TEMPLATE.descriptionLabel}
-            </div>
-            <div>
-              {template.quantityLabel ?? DEFAULT_TEMPLATE.quantityLabel}
-            </div>
-            <div>{template.priceLabel ?? DEFAULT_TEMPLATE.priceLabel}</div>
-            <div className="text-right">
-              {template.totalLabel ?? DEFAULT_TEMPLATE.totalLabel}
-            </div>
-          </div>
-          <div className="grid grid-cols-[1.5fr_15%_15%_15%] gap-4 py-3">
-            <div>
-              <div>Product or service</div>
-              <div className="text-muted-foreground text-[11px] mt-1">
-                Optional copied product description
-              </div>
-            </div>
-            <div>1</div>
-            <div>{template.currency ?? DEFAULT_TEMPLATE.currency} 5,000</div>
-            <div className="text-right">5,000</div>
-          </div>
+      <CardContent className="overflow-x-auto">
+        <div className="w-full max-w-[595px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.16)] dark:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)]">
+          <HtmlTemplate data={previewInvoice} width={width} height={height} />
         </div>
       </CardContent>
     </Card>
@@ -291,7 +314,7 @@ export function InvoiceTemplateManager() {
   };
 
   return (
-    <div className="grid grid-cols-[260px_minmax(0,1fr)_420px] gap-6">
+    <div className="grid grid-cols-1 gap-4 xl:grid-cols-[240px_minmax(420px,1fr)_minmax(360px,595px)]">
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">

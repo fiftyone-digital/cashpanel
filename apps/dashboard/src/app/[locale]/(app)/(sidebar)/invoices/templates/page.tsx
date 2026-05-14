@@ -13,7 +13,7 @@ export default function Page() {
   prefetch(trpc.invoiceTemplate.list.queryOptions());
 
   return (
-    <div className="max-w-[1400px]">
+    <div className="max-w-[1400px] p-4 md:p-6">
       <ErrorBoundary errorComponent={ErrorFallback}>
         <Suspense
           fallback={<div className="text-sm">Loading templates...</div>}

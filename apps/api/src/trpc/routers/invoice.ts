@@ -245,6 +245,7 @@ export const invoiceRouter = createTRPCRouter({
           | "create"
           | "create_and_send"
           | undefined,
+        logoUrl: template?.logoUrl ?? team?.logoUrl ?? defaultTemplate.logoUrl,
       };
 
       const fromFields = normalizeTemplateFields(
@@ -318,7 +319,8 @@ export const invoiceRouter = createTRPCRouter({
         template?.currency ?? team?.baseCurrency ?? defaultTemplate.currency;
       const dateFormat =
         template?.dateFormat ?? user?.dateFormat ?? defaultTemplate.dateFormat;
-      const logoUrl = template?.logoUrl ?? defaultTemplate.logoUrl;
+      const logoUrl =
+        template?.logoUrl ?? team?.logoUrl ?? defaultTemplate.logoUrl;
       const countryCode = geo?.country ?? "US";
 
       // Default to letter size for US/CA, A4 for rest of world

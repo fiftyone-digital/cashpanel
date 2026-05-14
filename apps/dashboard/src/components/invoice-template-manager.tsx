@@ -14,12 +14,15 @@ import { Checkbox } from "@cashpanel/ui/checkbox";
 import { Input } from "@cashpanel/ui/input";
 import { Label } from "@cashpanel/ui/label";
 import { Textarea } from "@cashpanel/ui/textarea";
+import { useToast } from "@cashpanel/ui/use-toast";
 import {
   useMutation,
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
+import { useTeamQuery } from "@/hooks/use-team";
+import { useUpload } from "@/hooks/use-upload";
 import { useTRPC } from "@/trpc/client";
 
 const fromFieldOptions = [
@@ -67,16 +70,28 @@ const optionLabel = (
   options: readonly (readonly [string, string])[],
 ) => options.find(([value]) => value === field)?.[1] ?? field;
 
-const withTemplateDefaults = (template: Template): InvoiceTemplate =>
-  Object.fromEntries(
+const withTemplateDefaults = (
+  template: Template,
+  teamLogoUrl?: string | null,
+): InvoiceTemplate => {
+  const previewTemplate = Object.fromEntries(
     Object.entries(DEFAULT_TEMPLATE).map(([key, value]) => [
       key,
       (template as Record<string, unknown>)[key] ?? value,
     ]),
   ) as InvoiceTemplate;
 
-const createPreviewInvoice = (template: Template): Invoice => {
-  const previewTemplate = withTemplateDefaults(template);
+  return {
+    ...previewTemplate,
+    logoUrl: template.logoUrl ?? teamLogoUrl ?? DEFAULT_TEMPLATE.logoUrl,
+  };
+};
+
+const createPreviewInvoice = (
+  template: Template,
+  teamLogoUrl?: string | null,
+): Invoice => {
+  const previewTemplate = withTemplateDefaults(template, teamLogoUrl);
   const fromFields = toFieldList(
     template.fromFields,
     DEFAULT_TEMPLATE.fromFields,
@@ -196,8 +211,14 @@ function FieldToggleGroup({
   );
 }
 
-function TemplatePreview({ template }: { template: Template }) {
-  const previewInvoice = createPreviewInvoice(template);
+function TemplatePreview({
+  template,
+  teamLogoUrl,
+}: {
+  template: Template;
+  teamLogoUrl?: string | null;
+}) {
+  const previewInvoice = createPreviewInvoice(template, teamLogoUrl);
   const height = previewInvoice.template.size === "letter" ? 971 : 842;
   const width = previewInvoice.template.size === "letter" ? 750 : 595;
 
@@ -218,6 +239,9 @@ function TemplatePreview({ template }: { template: Template }) {
 export function InvoiceTemplateManager() {
   const trpc = useTRPC();
   const queryClient = useQueryClient();
+  const { data: team } = useTeamQuery();
+  const { uploadFile, isLoading: isUploadingLogo } = useUpload();
+  const { toast } = useToast();
   const { data: templates } = useSuspenseQuery(
     trpc.invoiceTemplate.list.queryOptions(),
   );
@@ -288,11 +312,41 @@ export function InvoiceTemplateManager() {
     );
   }
 
+  const teamLogoUrl = team?.logoUrl ?? null;
+
   const updateSelected = (data: Record<string, unknown>) => {
     updateTemplateMutation.mutate({
       id: selectedTemplate.id,
       ...data,
     });
+  };
+
+  const uploadTemplateLogo = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      if (!team?.id) {
+        throw new Error("Missing team");
+      }
+
+      const { url } = await uploadFile({
+        file,
+        path: [team.id, "invoice-templates", selectedTemplate.id, file.name],
+        bucket: "avatars",
+      });
+
+      updateSelected({ logoUrl: url });
+      event.target.value = "";
+    } catch {
+      toast({
+        title: "Logo upload failed",
+        description: "Please try again.",
+        variant: "error",
+      });
+    }
   };
 
   const duplicateSelected = () => {
@@ -394,6 +448,70 @@ export function InvoiceTemplateManager() {
               />
             </div>
             <div className="space-y-2">
+              <Label>Logo</Label>
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-16 items-center justify-center border border-border bg-background">
+                  {selectedTemplate.logoUrl || teamLogoUrl ? (
+                    <img
+                      src={selectedTemplate.logoUrl ?? teamLogoUrl ?? ""}
+                      alt="Invoice logo preview"
+                      className="max-h-8 max-w-14 object-contain"
+                    />
+                  ) : (
+                    <div className="h-8 w-8 bg-[repeating-linear-gradient(-60deg,#DBDBDB,#DBDBDB_1px,transparent_1px,transparent_5px)] dark:bg-[repeating-linear-gradient(-60deg,#2C2C2C,#2C2C2C_1px,transparent_1px,transparent_5px)]" />
+                  )}
+                </div>
+                <div className="flex min-w-0 flex-1 gap-2">
+                  <Input
+                    key={`${selectedTemplate.id}-logo`}
+                    defaultValue={selectedTemplate.logoUrl ?? ""}
+                    placeholder={
+                      teamLogoUrl
+                        ? "Using team logo"
+                        : "https://example.com/logo.png"
+                    }
+                    onBlur={(event) =>
+                      updateSelected({ logoUrl: event.target.value || null })
+                    }
+                  />
+                  <input
+                    id={`template-logo-${selectedTemplate.id}`}
+                    type="file"
+                    accept="image/jpeg,image/jpg,image/png"
+                    className="hidden"
+                    onChange={uploadTemplateLogo}
+                    disabled={isUploadingLogo}
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    disabled={isUploadingLogo}
+                    onClick={() =>
+                      document
+                        .getElementById(`template-logo-${selectedTemplate.id}`)
+                        ?.click()
+                    }
+                  >
+                    {isUploadingLogo ? "Uploading..." : "Upload"}
+                  </Button>
+                  {selectedTemplate.logoUrl && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => updateSelected({ logoUrl: null })}
+                    >
+                      Use team
+                    </Button>
+                  )}
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Leave empty to use the team logo by default.
+              </p>
+            </div>
+            <div className="space-y-2">
               <Label>Title</Label>
               <Input
                 key={`${selectedTemplate.id}-title`}
@@ -492,7 +610,7 @@ export function InvoiceTemplateManager() {
         </CardContent>
       </Card>
 
-      <TemplatePreview template={selectedTemplate} />
+      <TemplatePreview template={selectedTemplate} teamLogoUrl={teamLogoUrl} />
     </div>
   );
 }

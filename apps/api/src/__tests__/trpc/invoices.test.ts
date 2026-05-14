@@ -422,6 +422,50 @@ describe("tRPC: invoice.defaultSettings", () => {
       ],
     });
   });
+
+  test("uses team logo by default when template has no logo override", async () => {
+    mocks.getInvoiceTemplate.mockImplementation(() => ({
+      id: "tmpl-1",
+      name: "Default",
+      currency: "EUR",
+      size: "a4",
+      logoUrl: null,
+    }));
+    mocks.getTeamById.mockImplementation(() => ({
+      id: "test-team-id",
+      baseCurrency: "SEK",
+      logoUrl: "https://cdn.cashpanel.io/team-logo.png",
+    }));
+
+    const caller = createCaller(createTestContext());
+    const result = await caller.defaultSettings();
+
+    expect(result.template.logoUrl).toBe(
+      "https://cdn.cashpanel.io/team-logo.png",
+    );
+  });
+
+  test("uses template logo override before team logo", async () => {
+    mocks.getInvoiceTemplate.mockImplementation(() => ({
+      id: "tmpl-1",
+      name: "Default",
+      currency: "EUR",
+      size: "a4",
+      logoUrl: "https://cdn.cashpanel.io/template-logo.png",
+    }));
+    mocks.getTeamById.mockImplementation(() => ({
+      id: "test-team-id",
+      baseCurrency: "SEK",
+      logoUrl: "https://cdn.cashpanel.io/team-logo.png",
+    }));
+
+    const caller = createCaller(createTestContext());
+    const result = await caller.defaultSettings();
+
+    expect(result.template.logoUrl).toBe(
+      "https://cdn.cashpanel.io/template-logo.png",
+    );
+  });
 });
 
 describe("tRPC: invoice.paymentStatus", () => {

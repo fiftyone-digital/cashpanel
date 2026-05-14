@@ -54,13 +54,17 @@ export const invoiceTemplateSchema = z.object({
   emailHeading: z.string().optional().nullable(),
   emailBody: z.string().optional().nullable(),
   emailButtonText: z.string().optional().nullable(),
+  fromFields: z.array(z.string()).optional().nullable(),
+  customerFields: z.array(z.string()).optional().nullable(),
 });
 
 export const lineItemSchema = z.object({
   name: z.string().min(1, "Name is required"),
+  description: z.string().optional().nullable(),
   quantity: z.number().min(0, "Quantity must be at least 0"),
   unit: z.string().optional(),
   price: z.number(),
+  productId: z.string().uuid().optional(),
   vat: z.number().min(0, "VAT must be at least 0").optional(),
   tax: z.number().min(0, "Tax must be at least 0").optional(),
   taxRate: z.number().min(0).max(100).optional().nullable(),

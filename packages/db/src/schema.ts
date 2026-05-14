@@ -1683,6 +1683,18 @@ export const teams = pgTable(
     stripeConnectStatus: text("stripe_connect_status"),
     companyType: text("company_type"),
     heardAbout: text("heard_about"),
+    invoiceLegalName: text("invoice_legal_name"),
+    invoiceAddressLine1: text("invoice_address_line1"),
+    invoiceAddressLine2: text("invoice_address_line2"),
+    invoiceCity: text("invoice_city"),
+    invoiceState: text("invoice_state"),
+    invoicePostalCode: text("invoice_postal_code"),
+    invoiceCountry: text("invoice_country"),
+    invoiceEmail: text("invoice_email"),
+    invoicePhone: text("invoice_phone"),
+    invoiceWebsite: text("invoice_website"),
+    invoiceTaxNumber: text("invoice_tax_number"),
+    invoiceRegistrationNumber: text("invoice_registration_number"),
   },
   (table) => [
     unique("teams_inbox_id_key").on(table.inboxId),
@@ -2170,6 +2182,8 @@ export const invoiceTemplates = pgTable(
     emailHeading: text("email_heading"),
     emailBody: text("email_body"),
     emailButtonText: text("email_button_text"),
+    fromFields: jsonb("from_fields"),
+    customerFields: jsonb("customer_fields"),
   },
   (table) => [
     foreignKey({

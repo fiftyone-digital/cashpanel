@@ -62,6 +62,7 @@ export function ProductAutocomplete({
   // Get current line item data for learning
   const currentPrice = watch(`lineItems.${index}.price`);
   const currentUnit = watch(`lineItems.${index}.unit`);
+  const currentDescription = watch(`lineItems.${index}.description`);
   const currentProductId = watch(`lineItems.${index}.productId`);
   const currency = watch("template.currency");
   const locale = watch("template.locale");
@@ -188,6 +189,11 @@ export function ProductAutocomplete({
         });
       }
 
+      setValue(`lineItems.${index}.description`, product.description ?? "", {
+        shouldValidate: true,
+        shouldDirty: true,
+      });
+
       // Auto-fill tax rate if product has one
       if (product.taxRate !== null && product.taxRate !== undefined) {
         setValue(`lineItems.${index}.taxRate`, product.taxRate, {
@@ -233,6 +239,7 @@ export function ProductAutocomplete({
     if (hasContent || needsToClearProductId) {
       saveLineItemAsProductMutation.mutate({
         name: parsedValue || "",
+        description: currentDescription || null,
         price: currentPrice !== undefined ? currentPrice : null,
         unit: currentUnit || null,
         productId: currentProductId || undefined,
@@ -243,6 +250,7 @@ export function ProductAutocomplete({
     parsedValue,
     currentPrice,
     currentUnit,
+    currentDescription,
     currentProductId,
     currency,
     saveLineItemAsProductMutation,

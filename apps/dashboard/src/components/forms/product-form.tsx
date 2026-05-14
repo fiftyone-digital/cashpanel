@@ -186,7 +186,8 @@ export function ProductForm({ data, defaultCurrency }: Props) {
                 />
               </FormControl>
               <FormDescription>
-                This is for internal use only and won't appear on invoices.
+                This is copied into invoice line descriptions when the product
+                is selected.
               </FormDescription>
               <FormMessage />
             </FormItem>

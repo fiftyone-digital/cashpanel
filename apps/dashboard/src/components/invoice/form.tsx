@@ -43,7 +43,7 @@ import { TemplateSelector } from "./template-selector";
 import { transformFormValuesToDraft } from "./utils";
 
 export function Form() {
-  const { invoiceId, setParams } = useInvoiceParams();
+  const { invoiceId, invoiceType, setParams } = useInvoiceParams();
   const { data: user } = useUserQuery();
   const { track } = useOpenPanel();
 
@@ -487,6 +487,37 @@ export function Form() {
 
             <div className="flex gap-2">
               <TooltipProvider delayDuration={100}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      type="button"
+                      onClick={() => {
+                        const params = new URLSearchParams();
+                        params.set("fullPage", "true");
+                        params.set(
+                          "invoiceType",
+                          invoiceType === "create" ? "create" : "edit",
+                        );
+                        if (invoiceId) {
+                          params.set("invoiceId", invoiceId);
+                        }
+                        window.location.href = `/invoices/editor?${params.toString()}`;
+                      }}
+                    >
+                      <Icons.ExternalLink className="size-3" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    sideOffset={8}
+                    className="text-[10px] px-2 py-1"
+                  >
+                    Open full page
+                  </TooltipContent>
+                </Tooltip>
+
                 {deliveryType === "create_and_send" && (
                   <Tooltip>
                     <TooltipTrigger asChild>

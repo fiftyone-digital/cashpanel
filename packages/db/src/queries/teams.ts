@@ -59,6 +59,18 @@ export const getTeamById = async (db: Database, id: string) => {
       exportSettings: teams.exportSettings,
       stripeAccountId: teams.stripeAccountId,
       stripeConnectStatus: teams.stripeConnectStatus,
+      invoiceLegalName: teams.invoiceLegalName,
+      invoiceAddressLine1: teams.invoiceAddressLine1,
+      invoiceAddressLine2: teams.invoiceAddressLine2,
+      invoiceCity: teams.invoiceCity,
+      invoiceState: teams.invoiceState,
+      invoicePostalCode: teams.invoicePostalCode,
+      invoiceCountry: teams.invoiceCountry,
+      invoiceEmail: teams.invoiceEmail,
+      invoicePhone: teams.invoicePhone,
+      invoiceWebsite: teams.invoiceWebsite,
+      invoiceTaxNumber: teams.invoiceTaxNumber,
+      invoiceRegistrationNumber: teams.invoiceRegistrationNumber,
     })
     .from(teams)
     .where(eq(teams.id, id));
@@ -133,6 +145,18 @@ export const updateTeamById = async (
       baseCurrency: teams.baseCurrency,
       countryCode: teams.countryCode,
       fiscalYearStartMonth: teams.fiscalYearStartMonth,
+      invoiceLegalName: teams.invoiceLegalName,
+      invoiceAddressLine1: teams.invoiceAddressLine1,
+      invoiceAddressLine2: teams.invoiceAddressLine2,
+      invoiceCity: teams.invoiceCity,
+      invoiceState: teams.invoiceState,
+      invoicePostalCode: teams.invoicePostalCode,
+      invoiceCountry: teams.invoiceCountry,
+      invoiceEmail: teams.invoiceEmail,
+      invoicePhone: teams.invoicePhone,
+      invoiceWebsite: teams.invoiceWebsite,
+      invoiceTaxNumber: teams.invoiceTaxNumber,
+      invoiceRegistrationNumber: teams.invoiceRegistrationNumber,
     });
 
   return result;

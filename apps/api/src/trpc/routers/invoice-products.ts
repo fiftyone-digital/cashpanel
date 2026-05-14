@@ -105,6 +105,7 @@ export const invoiceProductsRouter = createTRPCRouter({
       // Convert input to LineItem format
       const lineItem = {
         name: input.name,
+        description: input.description || undefined,
         price: input.price || undefined,
         unit: input.unit || undefined,
         productId: input.productId,

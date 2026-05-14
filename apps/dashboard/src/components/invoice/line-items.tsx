@@ -156,6 +156,7 @@ export function LineItems() {
         onClick={() =>
           append({
             name: "",
+            description: "",
             quantity: 0,
             price: 0,
           })
@@ -206,6 +207,7 @@ function LineItemRow({
   });
 
   const lineItemName = watch(`lineItems.${index}.name`);
+  const lineItemDescription = watch(`lineItems.${index}.description`);
 
   return (
     <Reorder.Item
@@ -237,16 +239,30 @@ function LineItemRow({
         </Button>
       )}
 
-      <ProductAutocomplete
-        index={index}
-        value={lineItemName || ""}
-        onChange={(value: string) => {
-          setValue(`lineItems.${index}.name`, value, {
-            shouldValidate: true,
-            shouldDirty: true,
-          });
-        }}
-      />
+      <div className="space-y-1">
+        <ProductAutocomplete
+          index={index}
+          value={lineItemName || ""}
+          onChange={(value: string) => {
+            setValue(`lineItems.${index}.name`, value, {
+              shouldValidate: true,
+              shouldDirty: true,
+            });
+          }}
+        />
+        <textarea
+          value={lineItemDescription || ""}
+          onChange={(event) => {
+            setValue(`lineItems.${index}.description`, event.target.value, {
+              shouldValidate: true,
+              shouldDirty: true,
+            });
+          }}
+          rows={1}
+          placeholder="Line description"
+          className="w-full resize-none bg-transparent text-[11px] leading-[16px] text-muted-foreground outline-none border-0 border-b border-transparent focus:border-border placeholder:text-muted-foreground/50"
+        />
+      </div>
 
       <QuantityInput name={`lineItems.${index}.quantity`} />
 

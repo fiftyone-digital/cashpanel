@@ -62,7 +62,7 @@ export function TemplateSelector() {
     }
   };
 
-  const handleTemplateCreated = async (newTemplate: {
+  const handleTemplateCreated = async (_newTemplate: {
     id: string;
     name: string;
   }) => {
@@ -71,21 +71,7 @@ export function TemplateSelector() {
       queryKey: trpc.invoiceTemplate.count.queryKey(),
     });
 
-    // Refetch the templates list to get the full new template data
-    const { data: updatedTemplates } = await refetch();
-
-    // Find the newly created template with all its data
-    const fullTemplate = updatedTemplates?.find((t) => t.id === newTemplate.id);
-
-    if (fullTemplate) {
-      // Set the full template data
-      handleSelectTemplate(fullTemplate);
-    } else {
-      // Fallback: just set id, name, and isDefault if template not found
-      setValue("template.id", newTemplate.id, { shouldDirty: true });
-      setValue("template.name", newTemplate.name, { shouldDirty: true });
-      setValue("template.isDefault", false, { shouldDirty: true });
-    }
+    await refetch();
   };
 
   return (

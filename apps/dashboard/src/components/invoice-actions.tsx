@@ -445,6 +445,17 @@ export function InvoiceActions({
               <span>Edit</span>
             </Button>
 
+            <Button
+              size="sm"
+              variant="secondary"
+              className="flex items-center space-x-2 hover:bg-secondary"
+              onClick={() => {
+                window.location.href = `/invoices/editor?invoiceId=${id}&invoiceType=edit&fullPage=true`;
+              }}
+            >
+              <Icons.ExternalLink className="size-3.5" />
+            </Button>
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button

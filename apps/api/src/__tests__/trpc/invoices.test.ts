@@ -385,6 +385,43 @@ describe("tRPC: invoice.defaultSettings", () => {
     expect(mocks.getTeamById).toHaveBeenCalled();
     expect(mocks.getUserById).toHaveBeenCalled();
   });
+
+  test("prefills sender details from invoice profile when template has no custom sender block", async () => {
+    mocks.getInvoiceTemplate.mockImplementation(() => ({
+      id: "tmpl-1",
+      name: "Default",
+      currency: "EUR",
+      size: "a4",
+      fromDetails: null,
+      fromFields: ["name", "address", "email", "taxNumber"],
+    }));
+    mocks.getTeamById.mockImplementation(() => ({
+      id: "test-team-id",
+      name: "Fallback Team",
+      email: "team@example.com",
+      invoiceLegalName: "Legal Name Ltd",
+      invoiceAddressLine1: "41 Market Place",
+      invoiceCity: "Chippenham",
+      invoicePostalCode: "SN15 3HR",
+      invoiceCountry: "United Kingdom",
+      invoiceTaxNumber: "GB123",
+    }));
+
+    const caller = createCaller(createTestContext());
+    const result = await caller.defaultSettings();
+
+    expect(result.fromDetails).toMatchObject({
+      type: "doc",
+      content: [
+        { content: [{ text: "Legal Name Ltd" }] },
+        { content: [{ text: "41 Market Place" }] },
+        { content: [{ text: "SN15 3HR Chippenham" }] },
+        { content: [{ text: "United Kingdom" }] },
+        { content: [{ text: "team@example.com" }] },
+        { content: [{ text: "GB123" }] },
+      ],
+    });
+  });
 });
 
 describe("tRPC: invoice.paymentStatus", () => {

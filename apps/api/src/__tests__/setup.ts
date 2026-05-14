@@ -1256,6 +1256,40 @@ mock.module("@cashpanel/invoice/utils", () => ({
       },
     ],
   })),
+  transformInvoiceProfileToContent: mock((profile: any, fields?: string[]) => {
+    const lines: string[] = [];
+    const enabled = (field: string) => !fields || fields.includes(field);
+
+    if (enabled("name") && (profile?.invoiceLegalName || profile?.name)) {
+      lines.push(profile.invoiceLegalName || profile.name);
+    }
+    if (enabled("address")) {
+      if (profile?.invoiceAddressLine1) lines.push(profile.invoiceAddressLine1);
+      const cityLine = [
+        profile?.invoicePostalCode,
+        profile?.invoiceCity,
+        profile?.invoiceState,
+      ]
+        .filter(Boolean)
+        .join(" ");
+      if (cityLine) lines.push(cityLine);
+      if (profile?.invoiceCountry) lines.push(profile.invoiceCountry);
+    }
+    if (enabled("email") && (profile?.invoiceEmail || profile?.email)) {
+      lines.push(profile.invoiceEmail || profile.email);
+    }
+    if (enabled("taxNumber") && profile?.invoiceTaxNumber) {
+      lines.push(profile.invoiceTaxNumber);
+    }
+
+    return {
+      type: "doc",
+      content: lines.map((text) => ({
+        type: "paragraph",
+        content: [{ type: "text", text }],
+      })),
+    };
+  }),
 }));
 
 mock.module("@cashpanel/invoice/token", () => ({
@@ -1263,7 +1297,25 @@ mock.module("@cashpanel/invoice/token", () => ({
 }));
 
 mock.module("@cashpanel/invoice", () => ({
-  DEFAULT_TEMPLATE: {},
+  DEFAULT_TEMPLATE: {
+    fromFields: [
+      "name",
+      "address",
+      "email",
+      "phone",
+      "website",
+      "taxNumber",
+      "registrationNumber",
+    ],
+    customerFields: [
+      "name",
+      "address",
+      "email",
+      "phone",
+      "website",
+      "vatNumber",
+    ],
+  },
   PdfTemplate: mock(async () => ({})),
   renderToStream: mock(() =>
     Promise.resolve(

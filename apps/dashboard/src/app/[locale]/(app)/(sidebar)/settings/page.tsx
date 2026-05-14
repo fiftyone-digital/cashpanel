@@ -7,6 +7,7 @@ import { CompanyLogo } from "@/components/company-logo";
 import { CompanyName } from "@/components/company-name";
 import { DeleteTeam } from "@/components/delete-team";
 import { ExportAllData } from "@/components/export-all-data";
+import { InvoiceProfileSettings } from "@/components/invoice-profile-settings";
 import { TeamIdSection } from "@/components/team-id-section";
 import { HydrateClient, prefetch, trpc } from "@/trpc/server";
 
@@ -23,6 +24,7 @@ export default async function Account() {
         <CompanyLogo />
         <CompanyName />
         <CompanyEmail />
+        <InvoiceProfileSettings />
         <CompanyCountry />
         <BaseCurrency />
         <CompanyFiscalYear />

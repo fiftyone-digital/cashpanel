@@ -45,7 +45,10 @@ import {
 } from "@cashpanel/db/queries";
 import { DEFAULT_TEMPLATE } from "@cashpanel/invoice";
 import { verify } from "@cashpanel/invoice/token";
-import { transformCustomerToContent } from "@cashpanel/invoice/utils";
+import {
+  transformCustomerToContent,
+  transformInvoiceProfileToContent,
+} from "@cashpanel/invoice/utils";
 import { decodeJobId, getQueue, triggerJob } from "@cashpanel/job-client";
 import { createLoggerWithContext } from "@cashpanel/logger";
 import { UTCDate } from "@date-fns/utc";
@@ -58,6 +61,14 @@ const logger = createLoggerWithContext("trpc:invoice");
 
 // Use the shared default template from @cashpanel/invoice
 const defaultTemplate = DEFAULT_TEMPLATE;
+
+const normalizeTemplateFields = <T extends string>(
+  fields: unknown,
+  fallback: readonly T[],
+) =>
+  Array.isArray(fields)
+    ? fields.filter((field): field is T => typeof field === "string")
+    : [...fallback];
 
 export const invoiceRouter = createTRPCRouter({
   get: protectedProcedure
@@ -236,6 +247,19 @@ export const invoiceRouter = createTRPCRouter({
           | undefined,
       };
 
+      const fromFields = normalizeTemplateFields(
+        template?.fromFields,
+        defaultTemplate.fromFields,
+      );
+      const customerFields = normalizeTemplateFields(
+        template?.customerFields,
+        defaultTemplate.customerFields,
+      );
+      const fromProfileContent = transformInvoiceProfileToContent(
+        team,
+        fromFields,
+      );
+
       const invoiceData = {
         id: invoiceId,
         teamId: teamId!,
@@ -259,10 +283,12 @@ export const invoiceRouter = createTRPCRouter({
           template?.paymentTermsDays ?? 30,
         ).toISOString(),
         template: templateData,
-        fromDetails: (template?.fromDetails || null) as string | null,
+        fromDetails: template?.fromDetails ?? fromProfileContent,
         paymentDetails: (template?.paymentDetails || null) as string | null,
         customerDetails: fullCustomer
-          ? JSON.stringify(transformCustomerToContent(fullCustomer))
+          ? JSON.stringify(
+              transformCustomerToContent(fullCustomer, customerFields),
+            )
           : null,
         noteDetails: null,
         topBlock: null,
@@ -349,7 +375,24 @@ export const invoiceRouter = createTRPCRouter({
         deliveryType: template?.deliveryType ?? defaultTemplate.deliveryType,
         taxRate: template?.taxRate ?? defaultTemplate.taxRate,
         vatRate: template?.vatRate ?? defaultTemplate.vatRate,
-        fromDetails: template?.fromDetails ?? defaultTemplate.fromDetails,
+        fromFields: normalizeTemplateFields(
+          template?.fromFields,
+          defaultTemplate.fromFields,
+        ),
+        customerFields: normalizeTemplateFields(
+          template?.customerFields,
+          defaultTemplate.customerFields,
+        ),
+        fromDetails:
+          template?.fromDetails ??
+          transformInvoiceProfileToContent(
+            team,
+            normalizeTemplateFields(
+              template?.fromFields,
+              defaultTemplate.fromFields,
+            ),
+          ) ??
+          defaultTemplate.fromDetails,
         paymentDetails:
           template?.paymentDetails ?? defaultTemplate.paymentDetails,
         noteDetails: template?.noteDetails ?? defaultTemplate.noteDetails,

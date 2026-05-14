@@ -1,5 +1,6 @@
 export type LineItem = {
   name: string;
+  description?: string;
   quantity?: number;
   price?: number;
   unit?: string;
@@ -118,7 +119,28 @@ export type Template = {
   emailHeading?: string | null;
   emailBody?: string | null;
   emailButtonText?: string | null;
+  fromFields?: InvoiceProfileField[];
+  customerFields?: CustomerProfileField[];
 };
+
+export type InvoiceProfileField =
+  | "name"
+  | "address"
+  | "contact"
+  | "email"
+  | "billingEmail"
+  | "phone"
+  | "website"
+  | "taxNumber"
+  | "registrationNumber";
+
+export type CustomerProfileField =
+  | "name"
+  | "address"
+  | "email"
+  | "phone"
+  | "website"
+  | "vatNumber";
 
 export interface EditorDoc {
   type: "doc";

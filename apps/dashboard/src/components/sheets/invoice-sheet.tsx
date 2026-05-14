@@ -15,9 +15,11 @@ import { useTRPC } from "@/trpc/client";
 export function InvoiceSheet() {
   const trpc = useTRPC();
   const queryClient = useQueryClient();
-  const { setParams, invoiceType, invoiceId, canvas } = useInvoiceParams();
+  const { setParams, invoiceType, invoiceId, canvas, fullPage } =
+    useInvoiceParams();
   const isOpen =
     !canvas &&
+    !fullPage &&
     (invoiceType === "create" ||
       invoiceType === "edit" ||
       invoiceType === "success");

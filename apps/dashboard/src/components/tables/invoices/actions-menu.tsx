@@ -269,6 +269,16 @@ export function ActionsMenu({ row }: Props) {
             </DropdownMenuItem>
           )}
 
+          {row.status !== "paid" && row.status !== "canceled" && (
+            <DropdownMenuItem
+              onClick={() => {
+                window.location.href = `/invoices/editor?invoiceId=${row.id}&invoiceType=edit&fullPage=true`;
+              }}
+            >
+              Open full-page editor
+            </DropdownMenuItem>
+          )}
+
           <DropdownMenuItem>
             <OpenURL href={`${getUrl()}/i/${row.token}`}>Open invoice</OpenURL>
           </DropdownMenuItem>

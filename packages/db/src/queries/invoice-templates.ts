@@ -42,6 +42,8 @@ type InvoiceTemplateParams = {
   includePdf?: boolean;
   paymentEnabled?: boolean;
   paymentTermsDays?: number;
+  fromFields?: unknown;
+  customerFields?: unknown;
 };
 
 type CreateInvoiceTemplateParams = {
@@ -104,6 +106,8 @@ const templateSelectFields = {
   emailHeading: invoiceTemplates.emailHeading,
   emailBody: invoiceTemplates.emailBody,
   emailButtonText: invoiceTemplates.emailButtonText,
+  fromFields: invoiceTemplates.fromFields,
+  customerFields: invoiceTemplates.customerFields,
 };
 
 /**

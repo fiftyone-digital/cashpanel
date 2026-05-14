@@ -81,6 +81,18 @@ export function LineItems({
         >
           <View style={{ flex: 3, paddingRight: 20 }}>
             <Description content={item.name} />
+            {item.description && (
+              <Text
+                style={{
+                  marginTop: 3,
+                  fontSize: 8,
+                  lineHeight: 1.35,
+                  color: "#666",
+                }}
+              >
+                {item.description}
+              </Text>
+            )}
           </View>
 
           <Text style={{ flex: 1, fontSize: 9 }}>

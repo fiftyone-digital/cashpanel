@@ -42,6 +42,54 @@ export const teamResponseSchema = z.object({
         "Month when the fiscal year starts (1-12). Null for trailing 12 months.",
       example: 1,
     }),
+  invoiceLegalName: z.string().nullable().optional().openapi({
+    description: "Legal sender name used on invoices",
+    example: "Acme Corporation Ltd",
+  }),
+  invoiceAddressLine1: z.string().nullable().optional().openapi({
+    description: "Invoice sender address line 1",
+    example: "123 Market Street",
+  }),
+  invoiceAddressLine2: z.string().nullable().optional().openapi({
+    description: "Invoice sender address line 2",
+    example: "Suite 400",
+  }),
+  invoiceCity: z.string().nullable().optional().openapi({
+    description: "Invoice sender city",
+    example: "San Francisco",
+  }),
+  invoiceState: z.string().nullable().optional().openapi({
+    description: "Invoice sender state or region",
+    example: "CA",
+  }),
+  invoicePostalCode: z.string().nullable().optional().openapi({
+    description: "Invoice sender postal code",
+    example: "94103",
+  }),
+  invoiceCountry: z.string().nullable().optional().openapi({
+    description: "Invoice sender country display name",
+    example: "United States",
+  }),
+  invoiceEmail: z.string().nullable().optional().openapi({
+    description: "Invoice sender email",
+    example: "billing@acme.com",
+  }),
+  invoicePhone: z.string().nullable().optional().openapi({
+    description: "Invoice sender phone",
+    example: "+1 555 0100",
+  }),
+  invoiceWebsite: z.string().nullable().optional().openapi({
+    description: "Invoice sender website",
+    example: "acme.com",
+  }),
+  invoiceTaxNumber: z.string().nullable().optional().openapi({
+    description: "Invoice sender tax or VAT number",
+    example: "VAT123456789",
+  }),
+  invoiceRegistrationNumber: z.string().nullable().optional().openapi({
+    description: "Invoice sender company registration number",
+    example: "12345678",
+  }),
 });
 
 export const teamsResponseSchema = z.object({
@@ -177,6 +225,18 @@ export const updateTeamByIdSchema = z.object({
       description: "How the user heard about the product",
       example: "twitter",
     }),
+  invoiceLegalName: z.string().nullable().optional(),
+  invoiceAddressLine1: z.string().nullable().optional(),
+  invoiceAddressLine2: z.string().nullable().optional(),
+  invoiceCity: z.string().nullable().optional(),
+  invoiceState: z.string().nullable().optional(),
+  invoicePostalCode: z.string().nullable().optional(),
+  invoiceCountry: z.string().nullable().optional(),
+  invoiceEmail: z.string().email().nullable().optional(),
+  invoicePhone: z.string().nullable().optional(),
+  invoiceWebsite: z.string().nullable().optional(),
+  invoiceTaxNumber: z.string().nullable().optional(),
+  invoiceRegistrationNumber: z.string().nullable().optional(),
 });
 
 export const createTeamSchema = z.object({

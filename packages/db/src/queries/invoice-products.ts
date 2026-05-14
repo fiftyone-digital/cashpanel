@@ -334,6 +334,10 @@ export async function saveLineItemAsProduct(
           id: lineItem.productId,
           teamId,
           name: trimmedName,
+          description:
+            lineItem.description !== undefined
+              ? lineItem.description
+              : existingProduct.description,
           price:
             lineItem.price !== undefined
               ? lineItem.price
@@ -356,7 +360,7 @@ export async function saveLineItemAsProduct(
       teamId,
       createdBy: userId,
       name: trimmedName,
-      description: null,
+      description: lineItem.description ?? null,
       price: lineItem.price !== undefined ? lineItem.price : null,
       currency: currency || null,
       unit: lineItem.unit !== undefined ? lineItem.unit : null,

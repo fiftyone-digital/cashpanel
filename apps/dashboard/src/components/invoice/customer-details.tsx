@@ -21,6 +21,7 @@ export function CustomerDetails() {
 
   const content = watch("customerDetails");
   const id = watch("id");
+  const customerFields = watch("template.customerFields");
 
   const { data: customer } = useQuery(
     trpc.customers.getById.queryOptions(
@@ -55,7 +56,10 @@ export function CustomerDetails() {
 
   useEffect(() => {
     if (customer) {
-      const customerContent = transformCustomerToContent(customer);
+      const customerContent = transformCustomerToContent(
+        customer,
+        customerFields,
+      );
 
       // Remove the selected customer id from the url so we don't introduce a race condition
       setParams({ selectedCustomerId: null });

@@ -56,6 +56,7 @@ const items = [
     path: "/invoices",
     name: "Invoices",
     children: [
+      { path: "/invoices/templates", name: "Templates" },
       { path: "/invoices/products", name: "Products" },
       { path: "/invoices?invoiceType=create", name: "Create new" },
     ],

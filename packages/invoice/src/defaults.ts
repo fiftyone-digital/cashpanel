@@ -58,6 +58,16 @@ export const DEFAULT_TEMPLATE_SETTINGS = {
   emailHeading: null,
   emailBody: null,
   emailButtonText: null,
+  fromFields: [
+    "name",
+    "address",
+    "email",
+    "phone",
+    "website",
+    "taxNumber",
+    "registrationNumber",
+  ],
+  customerFields: ["name", "address", "email", "phone", "website", "vatNumber"],
 } as const;
 
 /**

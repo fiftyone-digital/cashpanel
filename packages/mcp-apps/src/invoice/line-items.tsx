@@ -21,6 +21,7 @@ function Description({ content }: { content: string }) {
 
 type LineItem = {
   name: string;
+  description?: string;
   quantity?: number;
   price?: number;
   taxRate?: number;
@@ -101,6 +102,11 @@ export function LineItems({
           >
             <div>
               <Description content={item.name} />
+              {item.description && (
+                <div className="mt-1 text-[10px] leading-[14px] text-[#878787] whitespace-pre-wrap">
+                  {item.description}
+                </div>
+              )}
             </div>
             <div className="text-[11px]">{item.quantity ?? 0}</div>
             <div className="text-[11px]">{priceDisplay}</div>

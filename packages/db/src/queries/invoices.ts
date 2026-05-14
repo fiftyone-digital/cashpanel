@@ -716,16 +716,6 @@ export async function isInvoiceNumberUsed(
   return !!result;
 }
 
-type DraftInvoiceLineItemParams = {
-  name?: string | null; // Stringified TipTap JSONContent
-  quantity?: number;
-  unit?: string | null;
-  price?: number;
-  vat?: number | null;
-  tax?: number | null;
-  taxRate?: number | null;
-};
-
 type DraftInvoiceTemplateParams = {
   customerLabel?: string;
   title?: string;
@@ -748,8 +738,8 @@ type DraftInvoiceTemplateParams = {
   noteLabel?: string;
   logoUrl?: string | null;
   currency?: string;
-  paymentDetails?: string | null;
-  fromDetails?: string | null;
+  paymentDetails?: unknown;
+  fromDetails?: unknown;
   dateFormat?: string;
   includeVat?: boolean;
   includeTax?: boolean;
@@ -762,18 +752,20 @@ type DraftInvoiceTemplateParams = {
   size?: "a4" | "letter";
   deliveryType?: "create" | "create_and_send" | "scheduled";
   locale?: string;
+  fromFields?: unknown;
+  customerFields?: unknown;
 };
 
 type DraftInvoiceParams = {
   id: string;
   template: DraftInvoiceTemplateParams;
   templateId?: string | null;
-  fromDetails?: string | null;
-  customerDetails?: string | null;
+  fromDetails?: unknown;
+  customerDetails?: unknown;
   customerId?: string | null;
   customerName?: string | null;
-  paymentDetails?: string | null;
-  noteDetails?: string | null;
+  paymentDetails?: unknown;
+  noteDetails?: unknown;
   dueDate: string;
   issueDate: string;
   invoiceNumber: string;
@@ -782,10 +774,10 @@ type DraftInvoiceParams = {
   tax?: number | null;
   discount?: number | null;
   subtotal?: number | null;
-  topBlock?: string | null;
-  bottomBlock?: string | null;
+  topBlock?: unknown;
+  bottomBlock?: unknown;
   amount?: number | null;
-  lineItems?: DraftInvoiceLineItemParams[];
+  lineItems?: unknown;
   token?: string;
   teamId: string;
   userId: string;
@@ -1058,19 +1050,12 @@ export async function duplicateInvoice(
     subtotal: invoice.subtotal,
     amount: invoice.amount,
 
-    // @ts-expect-error - JSONB
     paymentDetails: invoice.paymentDetails,
-    // @ts-expect-error - JSONB
     noteDetails: invoice.noteDetails,
-    // @ts-expect-error - JSONB
     topBlock: invoice.topBlock,
-    // @ts-expect-error - JSONB
     bottomBlock: invoice.bottomBlock,
-    // @ts-expect-error - JSONB
     fromDetails: invoice.fromDetails,
-    // @ts-expect-error - JSONB
     customerDetails: invoice.customerDetails,
-    // @ts-expect-error - JSONB
     lineItems: invoice.lineItems,
   });
 

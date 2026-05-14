@@ -123,6 +123,8 @@ const baseInvoiceTemplateSchema = z.object({
   emailHeading: z.string().optional().nullable(),
   emailBody: z.string().optional().nullable(),
   emailButtonText: z.string().optional().nullable(),
+  fromFields: z.array(z.string()).optional().nullable(),
+  customerFields: z.array(z.string()).optional().nullable(),
 });
 
 // tRPC-compatible template schema (uses z.any() for editor fields)
@@ -150,6 +152,7 @@ export const restUpsertInvoiceTemplateSchema = baseInvoiceTemplateSchema.extend(
 
 // Base line item schema with common fields
 const baseDraftLineItemSchema = z.object({
+  description: z.string().optional().nullable(),
   quantity: z.number().min(0, "Quantity must be at least 0").optional(),
   unit: z.string().optional().nullable(),
   price: z.number().optional(),
@@ -461,7 +464,8 @@ export const deleteInvoiceProductSchema = z.object({
 });
 
 export const saveLineItemAsProductSchema = z.object({
-  name: z.string().min(1, "Product name is required"),
+  name: z.string(),
+  description: z.string().optional().nullable(),
   price: z.number().optional().nullable(),
   unit: z.string().optional().nullable(),
   productId: z.string().uuid().optional(),
@@ -515,6 +519,8 @@ export const invoiceTemplateSchema = z.object({
   deliveryType: z.enum(["create", "create_and_send", "scheduled"]),
   locale: z.string().optional(),
   timezone: z.string().optional(),
+  fromFields: z.array(z.string()).optional().nullable(),
+  customerFields: z.array(z.string()).optional().nullable(),
 });
 
 export const getInvoicesSchema = z.object({

@@ -29,6 +29,7 @@ export const invoiceTemplateSchema = z.object({
   paymentLabel: z.string(),
   noteLabel: z.string(),
   logoUrl: z.string().optional().nullable(),
+  logoWidth: z.number().min(40).max(300).optional().nullable(),
   currency: z.string(),
   paymentDetails: z.any().nullable().optional(),
   fromDetails: z.any().nullable().optional(),

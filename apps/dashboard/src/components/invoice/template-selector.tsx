@@ -1,6 +1,17 @@
 "use client";
 
+import type { RouterOutputs } from "@api/trpc/routers/_app";
 import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@cashpanel/ui/alert-dialog";
 import { cn } from "@cashpanel/ui/cn";
 import {
   DropdownMenu,
@@ -20,11 +31,45 @@ import { useFormContext } from "react-hook-form";
 import { useTRPC } from "@/trpc/client";
 import { CreateTemplateDialog } from "./create-template-dialog";
 
+type InvoiceTemplate = RouterOutputs["invoiceTemplate"]["list"][number];
+
+const editableStatuses = new Set(["draft", "unpaid", "scheduled"]);
+
+function hasEditorContent(value: unknown): boolean {
+  if (!value) return false;
+
+  if (typeof value === "string") {
+    try {
+      return hasEditorContent(JSON.parse(value));
+    } catch {
+      return value.trim().length > 0;
+    }
+  }
+
+  if (Array.isArray(value)) {
+    return value.some(hasEditorContent);
+  }
+
+  if (typeof value !== "object") {
+    return false;
+  }
+
+  const record = value as Record<string, unknown>;
+
+  if (typeof record.text === "string" && record.text.trim().length > 0) {
+    return true;
+  }
+
+  return hasEditorContent(record.content);
+}
+
 export function TemplateSelector() {
   const { watch, setValue } = useFormContext();
   const trpc = useTRPC();
   const queryClient = useQueryClient();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [pendingTemplate, setPendingTemplate] =
+    useState<InvoiceTemplate | null>(null);
 
   const { data: templates, refetch } = useQuery(
     trpc.invoiceTemplate.list.queryOptions(),
@@ -32,8 +77,13 @@ export function TemplateSelector() {
 
   const currentTemplateId = watch("template.id");
   const currentTemplateName = watch("template.name") || "Default";
+  const status = watch("status");
+  const canApplyTemplate = !status || editableStatuses.has(status);
+  const disabledReason = canApplyTemplate
+    ? null
+    : "Templates can only be applied to draft, unpaid, or scheduled invoices.";
 
-  const handleSelectTemplate = (template: NonNullable<typeof templates>[0]) => {
+  const handleSelectTemplate = (template: InvoiceTemplate) => {
     // Set entire template object at once - react-hook-form handles nested objects
     setValue("template", template, { shouldDirty: true });
 
@@ -65,6 +115,25 @@ export function TemplateSelector() {
     }
   };
 
+  const hasPresentationBlocks = () =>
+    hasEditorContent(watch("fromDetails")) ||
+    hasEditorContent(watch("paymentDetails")) ||
+    hasEditorContent(watch("noteDetails")) ||
+    hasEditorContent(watch("bottomBlock"));
+
+  const requestApplyTemplate = (template: InvoiceTemplate) => {
+    if (!canApplyTemplate || template.id === currentTemplateId) {
+      return;
+    }
+
+    if (hasPresentationBlocks()) {
+      setPendingTemplate(template);
+      return;
+    }
+
+    handleSelectTemplate(template);
+  };
+
   const handleTemplateCreated = async (_newTemplate: {
     id: string;
     name: string;
@@ -94,13 +163,14 @@ export function TemplateSelector() {
         <DropdownMenuContent className="w-56" align="start" sideOffset={10}>
           <DropdownMenuGroup>
             <DropdownMenuLabel className="text-[10px] text-muted-foreground font-normal px-2 py-1.5">
-              TEMPLATES
+              APPLY TEMPLATE
             </DropdownMenuLabel>
             {templates?.map((template) => (
               <DropdownMenuCheckboxItem
                 key={template.id}
                 checked={currentTemplateId === template.id}
-                onCheckedChange={() => handleSelectTemplate(template)}
+                disabled={!canApplyTemplate}
+                onCheckedChange={() => requestApplyTemplate(template)}
                 className={cn(
                   "text-xs",
                   currentTemplateId === template.id
@@ -128,6 +198,15 @@ export function TemplateSelector() {
 
           <DropdownMenuSeparator />
 
+          {disabledReason && (
+            <>
+              <div className="px-2 py-1.5 text-[10px] leading-4 text-muted-foreground">
+                {disabledReason}
+              </div>
+              <DropdownMenuSeparator />
+            </>
+          )}
+
           <DropdownMenuItem
             onClick={() => setDialogOpen(true)}
             className="text-xs cursor-pointer"
@@ -143,6 +222,38 @@ export function TemplateSelector() {
         onOpenChange={setDialogOpen}
         onCreated={handleTemplateCreated}
       />
+
+      <AlertDialog
+        open={!!pendingTemplate}
+        onOpenChange={(open) => {
+          if (!open) setPendingTemplate(null);
+        }}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Apply template?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will replace the current invoice sender, payment details,
+              note, footer, and payment terms with values from "
+              {pendingTemplate?.name}". Customer, line items, invoice number,
+              and status will not change.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                if (pendingTemplate) {
+                  handleSelectTemplate(pendingTemplate);
+                }
+                setPendingTemplate(null);
+              }}
+            >
+              Apply template
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 }

@@ -63,8 +63,8 @@ export function CustomerEditSheet() {
 
   return (
     <Sheet open={isOpen} onOpenChange={() => setParams(null)}>
-      <SheetContent stack>
-        <SheetHeader className="mb-6 flex justify-between items-center flex-row">
+      <SheetContent stack className="flex flex-col">
+        <SheetHeader className="mb-6 flex flex-shrink-0 justify-between items-center flex-row">
           <h2 className="text-xl">Edit Customer</h2>
 
           {customerId && (

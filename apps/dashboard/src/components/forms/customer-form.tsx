@@ -236,8 +236,11 @@ export function CustomerForm({ data }: Props) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)}>
-        <div className="h-[calc(100vh-180px)] scrollbar-hide overflow-auto">
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="flex min-h-0 flex-1 flex-col"
+      >
+        <div className="min-h-0 flex-1 overflow-auto scrollbar-hide pb-8">
           <div>
             <Accordion
               type="multiple"
@@ -623,8 +626,8 @@ export function CustomerForm({ data }: Props) {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4">
-          <div className="flex justify-end mt-auto space-x-4">
+        <div className="flex-shrink-0 border-t border-border bg-background p-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+          <div className="flex justify-end space-x-4">
             <Button
               variant="outline"
               onClick={() => setCustomerParams(null)}

@@ -193,7 +193,7 @@ export async function PdfTemplate(
         <View
           style={{
             flexDirection: "column",
-            marginTop: 32,
+            marginTop: 44,
           }}
         >
           <View wrap={false}>

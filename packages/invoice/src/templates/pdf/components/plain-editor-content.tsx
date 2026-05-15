@@ -1,4 +1,4 @@
-import { Text } from "@react-pdf/renderer";
+import { Text, View } from "@react-pdf/renderer";
 import type { EditorDoc } from "../../../types";
 
 type Props = {
@@ -42,15 +42,16 @@ export function PlainEditorContent({
   }
 
   return (
-    <Text
-      style={{
-        color,
-        fontSize,
-        lineHeight: 1.35,
-        marginTop: 10,
-      }}
-    >
-      {text}
-    </Text>
+    <View style={{ marginTop: 8 }}>
+      <Text
+        style={{
+          color,
+          fontSize,
+          lineHeight: 1.35,
+        }}
+      >
+        {text}
+      </Text>
+    </View>
   );
 }

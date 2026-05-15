@@ -1,6 +1,7 @@
 "use client";
 
 import type { RouterOutputs } from "@api/trpc/routers/_app";
+import { DEFAULT_TEMPLATE } from "@cashpanel/invoice";
 import { localDateToUTCMidnight } from "@cashpanel/invoice/recurring";
 import {
   AlertDialog,
@@ -34,6 +35,34 @@ import { CreateTemplateDialog } from "./create-template-dialog";
 type InvoiceTemplate = RouterOutputs["invoiceTemplate"]["list"][number];
 
 const editableStatuses = new Set(["draft", "unpaid", "scheduled"]);
+
+const withTemplateDefaults = (
+  template: InvoiceTemplate,
+  currentTemplate: Record<string, unknown> | null | undefined,
+): Record<string, unknown> => {
+  const currentValues =
+    currentTemplate && typeof currentTemplate === "object"
+      ? currentTemplate
+      : {};
+  const fallbackTemplate = {
+    ...DEFAULT_TEMPLATE,
+    logoUrl: currentValues.logoUrl ?? DEFAULT_TEMPLATE.logoUrl,
+  } as Record<string, unknown>;
+  const appliedTemplate = Object.fromEntries(
+    Object.entries(template).map(([key, value]) => [
+      key,
+      value ?? fallbackTemplate[key] ?? currentValues[key],
+    ]),
+  );
+
+  return {
+    ...fallbackTemplate,
+    ...appliedTemplate,
+    id: template.id,
+    name: template.name ?? fallbackTemplate.name ?? "Default",
+    isDefault: template.isDefault ?? false,
+  };
+};
 
 function hasEditorContent(value: unknown): boolean {
   if (!value) return false;
@@ -84,8 +113,10 @@ export function TemplateSelector() {
     : "Templates can only be applied to draft, unpaid, or scheduled invoices.";
 
   const handleSelectTemplate = (template: InvoiceTemplate) => {
+    const appliedTemplate = withTemplateDefaults(template, watch("template"));
+
     // Set entire template object at once - react-hook-form handles nested objects
-    setValue("template", template, { shouldDirty: true });
+    setValue("template", appliedTemplate, { shouldDirty: true });
 
     // Always update invoice-level fields from the template, even if null/undefined
     // This ensures switching templates fully replaces the previous template's content
@@ -103,7 +134,11 @@ export function TemplateSelector() {
     });
 
     // Recalculate dueDate based on the new template's paymentTermsDays
-    const paymentTermsDays = template.paymentTermsDays ?? 30;
+    const appliedPaymentTermsDays = appliedTemplate.paymentTermsDays;
+    const paymentTermsDays =
+      typeof appliedPaymentTermsDays === "number"
+        ? appliedPaymentTermsDays
+        : DEFAULT_TEMPLATE.paymentTermsDays;
     const issueDate = watch("issueDate");
     if (issueDate) {
       const issueDateParsed = parseISO(issueDate);

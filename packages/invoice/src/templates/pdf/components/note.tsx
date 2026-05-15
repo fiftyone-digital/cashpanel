@@ -11,7 +11,16 @@ export function Note({ content, noteLabel }: Props) {
   if (!content) return null;
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={{ fontSize: 9, fontWeight: 500 }}>{noteLabel}</Text>
+      <Text
+        style={{
+          color: "#878787",
+          fontSize: 9,
+          fontWeight: 400,
+          marginBottom: 12,
+        }}
+      >
+        {noteLabel}
+      </Text>
       <PlainEditorContent content={content} />
     </View>
   );

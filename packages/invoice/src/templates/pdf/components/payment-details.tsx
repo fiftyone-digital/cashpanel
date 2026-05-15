@@ -12,7 +12,16 @@ export function PaymentDetails({ content, paymentLabel }: Props) {
 
   return (
     <View style={{ marginTop: 20 }}>
-      <Text style={{ fontSize: 9, fontWeight: 500 }}>{paymentLabel}</Text>
+      <Text
+        style={{
+          color: "#878787",
+          fontSize: 9,
+          fontWeight: 400,
+          marginBottom: 12,
+        }}
+      >
+        {paymentLabel}
+      </Text>
       <PlainEditorContent content={content} />
     </View>
   );

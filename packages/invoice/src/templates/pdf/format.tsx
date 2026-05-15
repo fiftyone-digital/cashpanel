@@ -15,7 +15,7 @@ export type PDFTextStyle = Style & {
 const paragraphTextStyle: PDFTextStyle = {
   fontSize: 9,
   fontFamily: "Inter",
-  lineHeight: 13,
+  lineHeight: 1.35,
 };
 
 export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {

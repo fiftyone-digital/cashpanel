@@ -1,6 +1,6 @@
 import { Text, View } from "@react-pdf/renderer";
 import type { EditorDoc } from "../../../types";
-import { EditorContent } from "./editor-content";
+import { PlainEditorContent } from "./plain-editor-content";
 
 type Props = {
   content?: EditorDoc | null;
@@ -12,7 +12,7 @@ export function Note({ content, noteLabel }: Props) {
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={{ fontSize: 9, fontWeight: 500 }}>{noteLabel}</Text>
-      <EditorContent content={content} />
+      <PlainEditorContent content={content} />
     </View>
   );
 }

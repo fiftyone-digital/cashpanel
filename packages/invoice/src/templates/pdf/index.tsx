@@ -7,6 +7,7 @@ import { Meta } from "./components/meta";
 import { Note } from "./components/note";
 import { PaidWatermark } from "./components/paid-watermark";
 import { PaymentDetails } from "./components/payment-details";
+import { PlainEditorContent } from "./components/plain-editor-content";
 import { QRCode } from "./components/qr-code";
 import { Summary } from "./components/summary";
 
@@ -257,16 +258,19 @@ export async function PdfTemplate(
               <Note content={noteDetails} noteLabel={template.noteLabel} />
             </View>
           </View>
-
-          {bottomBlock && (
-            <View style={{ marginTop: 24 }}>
-              <EditorContent
-                content={bottomBlock}
-                textStyle={{ color: "#878787", fontSize: 8 }}
-              />
-            </View>
-          )}
         </View>
+
+        <View style={{ flexGrow: 1 }} />
+
+        {bottomBlock && (
+          <View style={{ marginTop: 24 }}>
+            <PlainEditorContent
+              content={bottomBlock}
+              color="#878787"
+              fontSize={8}
+            />
+          </View>
+        )}
       </Page>
     </Document>
   );

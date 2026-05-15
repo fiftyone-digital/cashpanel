@@ -12,12 +12,6 @@ export type PDFTextStyle = Style & {
     | "underline line-through";
 };
 
-const paragraphTextStyle: PDFTextStyle = {
-  fontSize: 9,
-  fontFamily: "Inter",
-  lineHeight: 1.35,
-};
-
 export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
   if (!doc?.content) {
     return null;
@@ -31,11 +25,12 @@ export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
             return (
               <View
                 key={`paragraph-${nodeIndex.toString()}`}
-                style={{ alignItems: "flex-start", minHeight: 13 }}
+                style={{ alignItems: "flex-start" }}
               >
                 <Text
                   style={{
-                    ...paragraphTextStyle,
+                    fontSize: 9,
+                    fontFamily: "Inter",
                     ...textStyle,
                   }}
                 >
@@ -48,13 +43,14 @@ export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
           return (
             <View
               key={`paragraph-${nodeIndex.toString()}`}
-              style={{ alignItems: "flex-start", marginBottom: 2 }}
+              style={{ alignItems: "flex-start" }}
             >
-              <Text style={{ ...paragraphTextStyle, ...textStyle }}>
+              <Text>
                 {node.content?.map((inlineContent, inlineIndex) => {
                   if (inlineContent.type === "text") {
                     const style: PDFTextStyle = {
-                      ...paragraphTextStyle,
+                      fontSize: 9,
+                      fontFamily: "Inter",
                       ...textStyle,
                     };
                     let href: string | undefined;
@@ -125,7 +121,7 @@ export function formatEditorContent(doc?: EditorDoc, textStyle?: PDFTextStyle) {
                     return (
                       <Text
                         key={`hard-break-${nodeIndex.toString()}-${inlineIndex.toString()}`}
-                        style={{ ...paragraphTextStyle, ...textStyle }}
+                        style={{ height: 12, fontSize: 12 }}
                       >
                         {"\n"}
                       </Text>

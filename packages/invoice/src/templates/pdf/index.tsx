@@ -191,10 +191,8 @@ export async function PdfTemplate(
 
         <View
           style={{
-            flex: 1,
             flexDirection: "column",
-            justifyContent: "flex-end",
-            marginTop: 20,
+            marginTop: 32,
           }}
         >
           <View wrap={false}>
@@ -229,12 +227,11 @@ export async function PdfTemplate(
           </View>
 
           <View
-            wrap={false}
             style={{
               flexDirection: template.paymentDetailsFullWidth
                 ? "column"
                 : "row",
-              marginTop: 20,
+              marginTop: 0,
             }}
           >
             <View
@@ -262,7 +259,7 @@ export async function PdfTemplate(
           </View>
 
           {bottomBlock && (
-            <View>
+            <View style={{ marginTop: 24 }}>
               <EditorContent
                 content={bottomBlock}
                 textStyle={{ color: "#878787", fontSize: 8 }}

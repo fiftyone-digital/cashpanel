@@ -67,8 +67,8 @@ export function Summary({
   return (
     <View
       style={{
-        marginTop: 60,
-        marginBottom: 40,
+        marginTop: 0,
+        marginBottom: 28,
         alignItems: "flex-end",
         marginLeft: "auto",
         width: 250,

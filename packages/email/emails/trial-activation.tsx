@@ -81,7 +81,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
             It takes about 30 seconds, and you'll immediately see your
             transactions flow in. If you need help getting set up,{" "}
             <Link
-              href="https://cal.com/pontus-cashpanel/15min"
+              href="https://cal.com/mathieu-cashpanel/15min"
               className={`underline ${themeClasses.link}`}
               style={{ color: lightStyles.text.color }}
             >
@@ -95,7 +95,7 @@ export const TrialActivationEmail = ({ fullName = "" }: Props) => {
           >
             Best,
             <br />
-            Pontus & Viktor
+            Mathieu
           </Text>
 
           <br />

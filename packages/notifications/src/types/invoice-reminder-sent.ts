@@ -34,7 +34,7 @@ export const invoiceReminderSent: NotificationHandler = {
       subject: t("invoice.reminder.subject", {
         invoiceNumber: data.invoiceNumber,
       }),
-      from: `${team.name} <cashpanelbot@cashpanel.io>`,
+      from: `${team.name} <notifications@mail.cashpanel.io>`,
       data: {
         companyName: data.customerName,
         teamName: team.name,

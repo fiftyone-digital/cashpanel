@@ -48,7 +48,7 @@ export default async function UpgradePage() {
           </Link>{" "}
           or{" "}
           <OpenURL
-            href="https://cal.com/pontus-cashpanel/15min"
+            href="https://cal.com/mathieu-cashpanel/15min"
             className="hover:underline"
           >
             book a call with the founders

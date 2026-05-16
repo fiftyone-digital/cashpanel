@@ -60,10 +60,10 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
             className={themeClasses.text}
             style={{ color: lightStyles.text.color }}
           >
-            I'm Pontus, one of the founders of CashPanel.
+            I'm Mathieu, the founder of CashPanel.
             <br />
             <br />
-            We started CashPanel after years of running our own companies —
+            I started CashPanel after years of running my own businesses —
             tired of juggling tools just to know where things stand. If that
             sounds familiar, you're in the right place.
             <br />
@@ -82,7 +82,7 @@ export const WelcomeEmail = ({ fullName = "" }: Props) => {
           >
             P.S. Want to talk? Reply here or{" "}
             <Link
-              href="https://cal.com/pontus-cashpanel/15min"
+              href="https://cal.com/mathieu-cashpanel/15min"
               className={`underline ${themeClasses.mutedLink}`}
               style={{ color: lightStyles.mutedText.color }}
             >

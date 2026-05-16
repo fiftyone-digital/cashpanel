@@ -77,13 +77,13 @@ describe("Customers CRUD", () => {
   test("POST /customers -> 201", async () => {
     const { status, data } = await api<any>("POST", "/customers", {
       name: "E2E Test Customer",
-      email: "e2e-test@cashpanel.io",
+      email: "e2e-test@mail.cashpanel.io",
     });
 
     expect(status).toBe(201);
     expect(data.id).toBeDefined();
     expect(data.name).toBe("E2E Test Customer");
-    expect(data.email).toBe("e2e-test@cashpanel.io");
+    expect(data.email).toBe("e2e-test@mail.cashpanel.io");
     expect(data).toHaveProperty("invoiceCount");
     expect(data).toHaveProperty("projectCount");
     expect(data).toHaveProperty("tags");
@@ -125,13 +125,13 @@ describe("Customers CRUD", () => {
 
     const { status, data } = await api<any>("PATCH", `/customers/${id}`, {
       name: "E2E Updated Customer",
-      email: "e2e-updated@cashpanel.io",
+      email: "e2e-updated@mail.cashpanel.io",
     });
 
     expect(status).toBe(200);
     expect(data.id).toBe(id);
     expect(data.name).toBe("E2E Updated Customer");
-    expect(data.email).toBe("e2e-updated@cashpanel.io");
+    expect(data.email).toBe("e2e-updated@mail.cashpanel.io");
     expect(data).toHaveProperty("enrichmentStatus");
     expect(data).toHaveProperty("enrichedAt");
   });
@@ -984,7 +984,7 @@ describe("Invoices", () => {
   test("POST /invoices -> 200 (draft)", async () => {
     const custRes = await api<any>("POST", "/customers", {
       name: "E2E Invoice Customer",
-      email: "e2e-invoice@cashpanel.io",
+      email: "e2e-invoice@mail.cashpanel.io",
     });
     if (custRes.status === 201) testCustomerId = custRes.data.id;
     if (!testCustomerId) return;

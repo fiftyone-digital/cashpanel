@@ -43,7 +43,7 @@ export const onboardTeam = schemaTask({
     await resend.emails.send({
       to: user.email,
       subject: "Welcome to CashPanel",
-      from: "Pontus from CashPanel <pontus@cashpanel.io>",
+      from: "Mathieu from CashPanel <mathieu@mail.cashpanel.io>",
       html: await render(
         WelcomeEmail({
           fullName: user.full_name,
@@ -67,7 +67,7 @@ export const onboardTeam = schemaTask({
 
       if (!count || count === 0) {
         await resend.emails.send({
-          from: "Pontus from CashPanel <pontus@cashpanel.io>",
+          from: "Mathieu from CashPanel <mathieu@mail.cashpanel.io>",
           to: user.email,
           subject: "Connect your bank to see the full picture",
           html: await render(
@@ -117,7 +117,7 @@ export const onboardTeam = schemaTask({
           !freshTeam.canceled_at
         ) {
           await resend.emails.send({
-            from: "Pontus from CashPanel <pontus@cashpanel.io>",
+            from: "Mathieu from CashPanel <mathieu@mail.cashpanel.io>",
             to: user.email,
             subject: "Your trial ends tomorrow — billing starts automatically",
             html: await render(

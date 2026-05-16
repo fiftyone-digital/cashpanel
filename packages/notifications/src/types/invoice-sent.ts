@@ -39,7 +39,7 @@ export const invoiceSent: NotificationHandler = {
       emailType: "customer",
       to: [data.customerEmail],
       subject,
-      from: `${team.name} <cashpanelbot@cashpanel.io>`,
+      from: `${team.name} <notifications@mail.cashpanel.io>`,
       data: {
         customerName: data.customerName,
         teamName: team.name,

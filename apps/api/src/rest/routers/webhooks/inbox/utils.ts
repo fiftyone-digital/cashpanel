@@ -12,7 +12,7 @@ export const POSTMARK_IP_RANGE = [
   "18.217.206.57",
 ] as const;
 
-export const FORWARD_FROM_EMAIL = "inbox@cashpanel.io";
+export const FORWARD_FROM_EMAIL = "inbox@mail.cashpanel.io";
 export const ALLOWED_FORWARDING_EMAILS = [
   "forwarding-noreply@google.com",
 ] as const;

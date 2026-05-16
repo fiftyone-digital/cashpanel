@@ -3749,7 +3749,7 @@ function ChatView({
           </button>
 
           <a
-            href="https://cal.com/pontus-cashpanel/15min"
+            href="https://cal.com/mathieu-cashpanel/15min"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center"
@@ -3773,7 +3773,7 @@ function ChatView({
 
         <div className="flex flex-col items-center" style={{ marginTop: -30 }}>
           <a
-            href="https://x.com/cashpanelai"
+            href="https://x.com/cashpanel_"
             target="_blank"
             rel="noopener noreferrer"
             style={{

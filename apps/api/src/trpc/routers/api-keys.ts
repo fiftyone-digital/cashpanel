@@ -33,7 +33,7 @@ export const apiKeysRouter = createTRPCRouter({
         try {
           // We don't need to await this, it will be sent in the background
           resend.emails.send({
-            from: "CashPanelbot <cashpanelbot@cashpanel.io>",
+            from: "CashPanel <notifications@mail.cashpanel.io>",
             to: session.user.email!,
             subject: "New API Key Created",
             react: ApiKeyCreatedEmail({

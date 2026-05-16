@@ -25,7 +25,7 @@ interface Props {
 const baseAppUrl = getAppUrl();
 
 export const AppInstalledEmail = ({
-  email = "pontus@lostisland.co",
+  email = "mathieu@cashpanel.io",
   teamName = "CashPanel Labs AB",
   appName = "Raycast",
 }: Props) => {

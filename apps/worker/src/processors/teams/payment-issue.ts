@@ -20,8 +20,8 @@ export class PaymentIssueProcessor extends BaseProcessor<PaymentIssuePayload> {
     const html = await render(PaymentIssueEmail({ fullName, teamName }));
 
     await resend.emails.send({
-      from: "CashPanelbot <cashpanelbot@cashpanel.io>",
-      replyTo: "pontus@cashpanel.io",
+      from: "CashPanel <notifications@mail.cashpanel.io>",
+      replyTo: "mathieu@cashpanel.io",
       to: email,
       subject: "Your payment didn't go through",
       html,

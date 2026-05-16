@@ -136,10 +136,10 @@ export default function StoryPage() {
               />
               <div className="text-left">
                 <p className="font-sans text-sm text-primary">
-                  Pontus & Viktor
+                  Mathieu
                 </p>
                 <p className="font-sans text-sm text-muted-foreground">
-                  Founders, CashPanel
+                  Founder, CashPanel
                 </p>
               </div>
             </div>

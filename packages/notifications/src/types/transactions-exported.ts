@@ -25,7 +25,7 @@ export const transactionsExported: NotificationHandler = {
     to: data.accountantEmail ? [data.accountantEmail] : [],
     bcc: data.sendCopyToMe && data.userEmail ? [data.userEmail] : undefined,
     subject: `${team.name} shared an export`,
-    from: `${team.name} <cashpanelbot@cashpanel.io>`,
+    from: `${team.name} <notifications@mail.cashpanel.io>`,
     data: {
       teamName: team.name,
       transactionCount: data.transactionCount,

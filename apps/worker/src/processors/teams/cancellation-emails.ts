@@ -20,8 +20,8 @@ export class CancellationEmailsProcessor extends BaseProcessor<CancellationEmail
     });
 
     await resend.emails.send({
-      from: "Pontus from CashPanel <pontus@cashpanel.io>",
-      replyTo: "pontus@cashpanel.io",
+      from: "Mathieu from CashPanel <mathieu@mail.cashpanel.io>",
+      replyTo: "mathieu@cashpanel.io",
       to: email,
       subject: "Thanks for being a customer",
       text: `Hey ${firstName},
@@ -30,7 +30,7 @@ I noticed you canceled your CashPanel subscription. I'd love to understand what 
 
 Thanks for giving us a try,
 
-Pontus`,
+Mathieu`,
     });
 
     this.logger.info("Cancellation email sent, scheduling follow-up", {

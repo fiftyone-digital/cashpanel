@@ -92,7 +92,7 @@ export const TrialExpiringEmail = ({ fullName = "" }: Props) => {
             </Link>
             . Have questions? Reply to this email or{" "}
             <Link
-              href="https://cal.com/pontus-cashpanel/15min"
+              href="https://cal.com/mathieu-cashpanel/15min"
               className={`underline ${themeClasses.link}`}
               style={{ color: lightStyles.text.color }}
             >
@@ -106,7 +106,7 @@ export const TrialExpiringEmail = ({ fullName = "" }: Props) => {
           >
             Best,
             <br />
-            Pontus & Viktor
+            Mathieu
           </Text>
 
           <br />

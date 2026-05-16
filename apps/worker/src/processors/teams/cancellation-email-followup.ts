@@ -38,8 +38,8 @@ export class CancellationEmailFollowupProcessor extends BaseProcessor<Cancellati
     });
 
     await resend.emails.send({
-      from: "Pontus from CashPanel <pontus@cashpanel.io>",
-      replyTo: "pontus@cashpanel.io",
+      from: "Mathieu from CashPanel <mathieu@mail.cashpanel.io>",
+      replyTo: "mathieu@cashpanel.io",
       to: email,
       subject: "Quick question",
       text: `Hey ${firstName},
@@ -48,7 +48,7 @@ Quick question — was there one thing that would have made you stick around?
 
 Every bit of feedback helps us improve, and I'd genuinely love to hear your thoughts.
 
-Pontus`,
+Mathieu`,
     });
 
     this.logger.info("Cancellation follow-up email sent", {

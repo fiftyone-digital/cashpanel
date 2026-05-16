@@ -407,7 +407,7 @@ app.openapi(
           );
 
           await resend.emails.send({
-            from: "CashPanel <cashpanelbot@cashpanel.io>",
+            from: "CashPanel <notifications@mail.cashpanel.io>",
             to: session.user.email,
             subject: "An app has been added to your team",
             html,

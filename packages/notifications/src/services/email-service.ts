@@ -138,7 +138,7 @@ export class EmailService {
     const recipients = email.to || [email.user.email];
 
     const payload: CreateEmailOptions = {
-      from: email.from || "CashPanel <cashpanelbot@cashpanel.io>",
+      from: email.from || "CashPanel <notifications@mail.cashpanel.io>",
       to: recipients,
       subject: email.subject,
       html,

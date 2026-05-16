@@ -31,8 +31,8 @@ const baseAppUrl = getAppUrl();
 
 export const InviteEmail = ({
   invitedByEmail = "bukinoshita@example.com",
-  invitedByName = "Pontus Abrahamsson",
-  email = "pontus@lostisland.co",
+  invitedByName = "Mathieu Pittiloni",
+  email = "mathieu@cashpanel.io",
   teamName = "Acme Co",
   ip = "204.13.186.218",
   locale = "en",

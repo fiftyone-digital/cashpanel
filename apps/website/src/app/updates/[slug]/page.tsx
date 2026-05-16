@@ -118,7 +118,7 @@ export default async function Page({ params }: Props) {
         </div>
 
         <div className="mt-10">
-          <PostAuthor author="pontus" />
+          <PostAuthor author="mathieu" />
         </div>
       </article>
     </div>

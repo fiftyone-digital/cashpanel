@@ -197,7 +197,7 @@ export const oauthApplicationsRouter = createTRPCRouter({
             );
 
             await resend.emails.send({
-              from: "CashPanel <cashpanelbot@cashpanel.io>",
+              from: "CashPanel <notifications@mail.cashpanel.io>",
               to: session.user.email,
               subject: "An app has been added to your team",
               html,
@@ -366,8 +366,8 @@ export const oauthApplicationsRouter = createTRPCRouter({
             );
 
             await resend.emails.send({
-              from: "CashPanel <cashpanelbot@cashpanel.io>",
-              to: "pontus@cashpanel.io",
+              from: "CashPanel <notifications@mail.cashpanel.io>",
+              to: "mathieu@cashpanel.io",
               subject: `Application Review Request - ${application.name}`,
               html,
             });
